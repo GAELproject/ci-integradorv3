@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
   <meta name="author" content="GeeksLabs">
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-  <link rel="shortcut icon" href="gael/img/favicon.png">
+  <link rel="shortcut icon" href="<?php echo base_url('assets/img/gael.ico')?>">
 
   <title>Sistema Integrado de Gerenciamento de Eletroeletrônicos - Login</title>
 
@@ -44,8 +43,9 @@
     <form class="login-form" action="">
       <div class="login-wrap">
         <p class="login-img"><img src="<?php echo base_url('assets/img/gael.png')?>" width="80"></i></p>
-        <h5 class="text-center text">Sistema Integrado de Gerenciamento de Eletroeletrônicos
-        </h5 >
+        <h4 class="text-center text-dark">
+          Sistema Integrado de Gerenciamento de Eletroeletrônicos
+        </h4 >
         <div class="input-group">
           <span class="input-group-addon"><i class="icon_profile"></i></span>
           <input type="text" class="form-control" placeholder="Login" autofocus>
@@ -59,7 +59,7 @@
                 Lembrar
                 <span class="pull-right"> <a href="gael/index.html">Esqueceu a senha?</a></span>
             </label>
-        <a  class="btn btn-primary btn-lg btn-block" href="<?php echo base_url('index.php/gael');?>">Login</a>
+        <a  class="text-light btn btn-primary btn-lg btn-block" href="<?php echo base_url('index.php/gael');?>">Login</a>
       </div>
     </form>
     <div class="text-right">
