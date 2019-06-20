@@ -43,7 +43,7 @@
 
     <form class="login-form" action="">
       <div class="login-wrap">
-        <p class="login-img"><img src="gael/img/gael.png" width="80"></i></p>
+        <p class="login-img"><img src="<?php echo base_url('assets/img/gael.png')?>" width="80"></i></p>
         <h5 class="text-center text">Sistema Integrado de Gerenciamento de Eletroeletrônicos
         </h5 >
         <div class="input-group">
@@ -59,7 +59,7 @@
                 Lembrar
                 <span class="pull-right"> <a href="gael/index.html">Esqueceu a senha?</a></span>
             </label>
-        <a  class="btn btn-primary btn-lg btn-block" href="gael/index.html">Login</a>
+        <a  class="btn btn-primary btn-lg btn-block" href="<?php echo base_url('index.php/gael');?>">Login</a>
       </div>
     </form>
     <div class="text-right">
