@@ -4,7 +4,7 @@ CREATE TABLE `gael`.`meta` (
   `id_meta` INT NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(40) NOT NULL,
   `descricao` TEXT(200) NOT NULL,
-  `data_criacao` TIMESTAMP NOT NULL,
+  `data_criacao` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `data_prazo_finalizacao` DATE NOT NULL,
   `data_de_finalizacao` DATE NOT NULL,
   `sitaucao_final` CHAR(1),
@@ -92,9 +92,6 @@ CREATE TABLE `gael`.`laudo` (
   
 ALTER TABLE `gael`.`meta`
 ALTER `sitaucao_final` SET DEFAULT '1';
-
-ALTER TABLE `gael`.`meta`
-ALTER `data_criacao` SET DEFAULT CURRENT_TIMESTAMP;
 
 ALTER TABLE `gael`.`usuario`
 ALTER `cpf` SET DEFAULT 'semcpf';
