@@ -34,9 +34,13 @@ class Usuario extends CI_Controller {
 		$this->Usuario_model->usuario_bolsista = $usuario_bolsista;
 		$this->Usuario_model->meta_id_meta = $meta_id_meta;
 		$insertar = $this->Usuario_model->inserir();
+
 		if($insertar){
+			$coisas['usuarios'] = $this->Usuario_model->recuperar();
+			$coisas['pagina'] = 'Listagem de usuários';
 			$coisas['title'] = 'Listagem de usuários';
 			$coisas['sucess'] = 'Usuário inserido com sucesso!';
+
 			return $this->load->view('user', $coisas);
 		}else{
 			$coisas ['error'] = 'usuário não inserido na base de dados';

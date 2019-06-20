@@ -24,6 +24,10 @@ class Gael extends CI_Controller {
 		return $this->load->view('user', $coisas);
 	}
 	public function metas(){
+		$coisas['metas'] = $this->Meta_model->recuperar();
+		$coisas['pagina'] = 'Listagem de metas';
+		$coisas['title'] = 'Listagem de metas';
+		$coisas['sucess'] = 'Meta inserida com sucesso!';
 		return $this->load->view('metas');
 	}
 

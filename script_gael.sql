@@ -7,7 +7,7 @@ CREATE TABLE `gael`.`meta` (
   `data_criacao` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `data_prazo_finalizacao` DATE NOT NULL,
   `data_de_finalizacao` DATE NOT NULL,
-  `sitaucao_final` CHAR(1),
+  `situacao_final` CHAR(1),
   PRIMARY KEY (`id_meta`));
 
 CREATE TABLE `gael`.`usuario` (
@@ -91,7 +91,7 @@ CREATE TABLE `gael`.`laudo` (
   INDEX `fk_laudo_equipamento1_idx` (`equipamento_id_equipamento` ASC));
   
 ALTER TABLE `gael`.`meta`
-ALTER `sitaucao_final` SET DEFAULT '1';
+ALTER `situacao_final` SET DEFAULT '1';
 
 ALTER TABLE `gael`.`usuario`
 ALTER `cpf` SET DEFAULT 'semcpf';
@@ -136,3 +136,30 @@ INSERT INTO `gael`.`usuario`
 (nome, tipo,login, senha, turno, usuario_bolsista)
 VALUES ('vitoria', '2', '353436', 'alguma', 'M', 'S');
 
+INSERT INTO `gael`.`usuario`
+(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
+VALUES ('diogo','2', '209393', 'senha', 'imagem','email','352352', 'M', 'S');
+
+INSERT INTO `gael`.`usuario`
+(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
+VALUES ('sabrina','2', '832759', 'senha', 'imagem','akfk','325', 'M', 'S');
+
+INSERT INTO `gael`.`usuario`
+(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
+VALUES ('klisnmann','2', '23582', 'senha', 'imagem','email','2552', 'M', 'S');
+
+INSERT INTO `gael`.`usuario`
+(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
+VALUES ('roberto','2', '82357', 'senha', 'imagem','email','235827', 'M', 'S');
+
+INSERT INTO `gael`.`usuario`
+(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
+VALUES ('jumenta','2', '238527', 'senha', 'imagem','email','357256', 'M', 'S');
+
+INSERT INTO `gael`.`usuario`
+(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
+VALUES ('orientador','2', '3252735', 'senha', 'imagem','email','8235728', 'M', 'S');
+
+INSERT INTO `gael`.`usuario`
+(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
+VALUES ('alguém me diz um nome','1', '3253', 'sem_senha', 'qrimagem','email@dgsd','235', 'N', 'N');

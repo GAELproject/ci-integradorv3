@@ -5,29 +5,29 @@
 			<div class="col-lg-12"> 
 				<section class="panel">
 	              <header class="panel-heading">
-	                Advanced Table
+	                Metas
 	              </header>
 
 	              <table class="table table-striped table-advance table-hover">
 	                <tbody>
 	                  <tr>
-	                    <th><i class="icon_profile"></i>Nome</th>
-	                    <th><i class="icon_calendar"></i>Tipo de usuário</th>
-	                    <th><i class="icon_mail_alt"></i>Login</th>
-	                    <th><i class="icon_pin_alt"></i>Senha</th>
-	                    <th><i class="icon_mobile"></i>Email</th>
-	                    <th><i class="icon_cogs"></i> Bolsista</th>
+	                    <th><i class=""></i>Título</th>
+	                    <th><i class=""></i>Descrição</th>
+	                    <th><i class=""></i>Data de criação</th>
+	                    <th><i class=""></i>Data de prazo</th>
+	                    <th><i class=""></i></th>
+	                    <th><i class=""></i>Situação final</th>
 	                    <th><i class=""></i>Ações</th>
 	                  </tr>
-	                  <?php foreach ($usuarios as $key => $us) {
+	                  <?php foreach ($metas as $key => $met) {
 	                  	?>
 	                  <tr>
-	                    <td><?php echo $us->nome;?></td>
-	                    <td><?php echo $us->tipo;?></td>
-	                    <td><?php echo $us->login;?></td>
-	                    <td><?php echo $us->senha;?></td>
-	                    <td><?php echo $us->email;?></td>
-	                    <td><?php echo $us->usuario_bolsista;?></td>
+	                    <td><?php echo $met->titulo;?></td>
+	                    <td><?php echo $met->descricao;?></td>
+	                    <td><?php echo $met->data_criacao ;?></td>
+	                    <td><?php echo $met->senha;?></td>
+	                    <td><?php echo $met->email;?></td>
+	                    <td><?php echo $met->usuario_bolsista;?></td>
 	                    <td>
 	                      <div class="btn-group">
 	                        <a class="btn btn-success" href="<?php echo base_url('index.php/usuario/editar')?>">

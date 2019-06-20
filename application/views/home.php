@@ -154,7 +154,7 @@
                           <button type="submit" class="btn btn-primary">
                             Cadastrar
                           </button>
-                          <a class="btn btn-primary" href="">Visualizar usuários
+                          <a class="btn btn-primary" href="<?php echo base_url('index.php/gael/user/')?>">Visualizar usuários
                           </a>
                         </div>
                       </div>
@@ -199,12 +199,12 @@
 
                   <div class="form quick-post">
                     <!-- Edit profile form (not working)-->
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/meta/salvar/')?>">
                       <!-- título da meta -->
                       <div class="form-group">
                             <label class="control-label col-lg-2" for="title">Título da meta</label>
                             <div class="col-lg-10">
-                              <input class="form-control" id="title" type="text">
+                              <input class="form-control" id="title" name="titulo" type="text">
                             </div>
                       </div>
 
@@ -226,7 +226,7 @@
                         <div class="form-group">
                           <label class="control-label col-lg-2" for="title">Data de finalização</label>
                           <div class="col-lg-10">
-                            <input class="form-control" id="title" type="date" name="data_finalizacao">
+                            <input class="form-control" id="title" type="date" name="data_de_finalizacao">
                           </div>
                         </div>
                       <!--usuário bolsista-->
@@ -246,9 +246,10 @@
                       <div class="form-group">
                         <!-- Buttons -->
                         <div class="col-lg-offset-2 col-lg-9">
-                          <a class="btn btn-primary" href="" title="cadastrar">Cadastrar
-                          </a>
-                          <a class="btn btn-primary" href="" title="metas">Exibir metas</a>
+                          <button type="submit" class="btn btn-primary" title="cadastrar">
+                            Cadastrar
+                          </button>
+                          <a class="btn btn-primary" href="<?php echo base_url('index.php/gael/metas')?>" title="metas">Exibir metas</a>
                          
                         </div>
                       </div>

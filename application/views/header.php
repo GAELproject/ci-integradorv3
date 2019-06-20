@@ -14,10 +14,13 @@
   <title><?php echo $title;?></title>
 
   <!-- Bootstrap CSS -->
+  <link href="<?php echo base_url('assets/css/app-44ca66281abd8380ac37e4333b51fe14.css')?>" rel="stylesheet">
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/pro.css')?>">
   <link href="<?php echo base_url('assets/css/bootstrap.min.css')?>" rel="stylesheet">
   <!-- bootstrap theme -->
   <link href="<?php echo base_url('assets/css/bootstrap-theme.css')?>" rel="stylesheet">
   <!--external css-->
+
   <!-- font icon -->
   <link href="<?php echo base_url('assets/css/elegant-icons-style.css')?>" rel="stylesheet" />
   <link href="<?php echo base_url('assets/css/font-awesome.min.css')?>" rel="stylesheet" />
@@ -319,7 +322,7 @@
           </li>
           <li class="sub-menu">
             <a href="<?php echo base_url('/index.php/gael/metas')?>" class="">
-                <i lass="fab fa-bullseye-pointer"></i>
+                <i class="fas fa-exclamation"></i>
               <span>Metas</span>
             </a>
           </li>
