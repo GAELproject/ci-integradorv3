@@ -8,10 +8,32 @@
 ###########################################################################################################
 -->
 
-
+    
 
       <!--inicio da primeira row-->
         <div class="row">
+          <?php if (isset($error)) {
+            
+          ?>
+          <!--caso não insira no database-->
+          <div class="row">
+            <div class="col-sm-1">
+              
+            </div>
+            <div class="col-sm-10">
+              <div class="alert alert-block alert-danger fade in">
+                <button data-dismiss="alert" class="close close-sm" type="button">
+                  <i class="fa fa-times-circle"></i>
+                </button>
+                  <strong>Atenção!</strong> <?php echo $error; ?>
+              </div>   
+            </div>
+            <div class="col-sm-1">
+              
+            </div>
+          
+          </div>
+        <?php }?>
           <div class="col-md-6">
             <div  class="panel panel-default">
               <div class="panel-heading">
@@ -34,7 +56,7 @@
 
 
                     <!--formulário de inserção-->
-                    <form class="form-horizontal" method="post" action="<?php base_url('');?>usuario/salvar">
+                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/usuario/salvar/')?>">
                       <!-- Title -->
                       <div class="form-group">
                         <label class="control-label col-lg-2" for="title">Nome</label>
@@ -161,7 +183,7 @@
             <!--conteúdo do segundo grid-->
                         <div  class="panel panel-default">
               <div class="panel-heading">
-                <div class="pull-left">Gerenciar usuários</div>
+                <div class="pull-left">Gerenciar metas</div>
                 <div class="widget-icons pull-right">
                   <a id="seletor-down1" href="#">
                     <i class="fa fa-chevron-down"></i>
@@ -178,53 +200,41 @@
                   <div class="form quick-post">
                     <!-- Edit profile form (not working)-->
                     <form class="form-horizontal">
-                      <!-- Title -->
+                      <!-- título da meta -->
                       <div class="form-group">
-                        <label class="control-label col-lg-2" for="title">Nome</label>
-                        <div class="col-lg-10">
-                          <input class="form-control" id="title" type="text">
-                        </div>
+                            <label class="control-label col-lg-2" for="title">Título da meta</label>
+                            <div class="col-lg-10">
+                              <input class="form-control" id="title" type="text">
+                            </div>
                       </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-lg-2" for="content">Descrição</label>
+                        <div class="col-lg-10">
+                          <textarea class="form-control" name='descricao' id="content"></textarea>
+                        </div>
+                       </div>
                       <!-- Content -->
-                         <div class="form-group">
-                                <label class="control-label col-lg-2" for="title">Email</label>
-                                <div class="col-lg-10">
-                                  <input class="form-control" id="title" type="text">
-                                </div>
-                          </div>
-
-
-                        <div class="form-group">
-                          <label class="control-label col-lg-2" for="title">Login</label>
-                          <div class="col-lg-10">
-                            <input class="form-control" id="title" type="text">
-                          </div>
-                        </div>
-                      <!-- turno -->
-                        <div class="form-group">
-                          <label class="control-label col-lg-2" for="title">CPF</label>
-                          <div class="col-lg-10">
-                            <input class="form-control" id="title" type="text">
-                          </div>
-                        </div>
-                      <!---->
-                      <div class="form-group">
-                        <label class="control-label col-lg-2">Turno</label>
-                        <div class="col-lg-10">
-                          <select class="form-control">
-                            <option value="">- Escolha seu turno -</option>
-                            <option value="M">Manhã</option>
-                            <option value="T">Tarde</option>
-                            <option value="N">Noite</option>
-                          </select>
-                        </div>
+                     <div class="form-group">
+                            <label class="control-label col-lg-2" for="title">Data do prazo</label>
+                            <div class="col-lg-10">
+                              <input class="form-control" id="title" type="date" name="data_prazo_finalizacao">
+                            </div>
                       </div>
+
+
+                        <div class="form-group">
+                          <label class="control-label col-lg-2" for="title">Data de finalização</label>
+                          <div class="col-lg-10">
+                            <input class="form-control" id="title" type="date" name="data_finalizacao">
+                          </div>
+                        </div>
                       <!--usuário bolsista-->
                     <div class="form-group">
-                        <label class="control-label col-lg-2">Bolsista</label>
+                        <label class="control-label col-lg-2">Finalizado?</label>
                         <div class="col-lg-10">
-                          <select class="form-control">
-                            <option value="">-Selecione-</option>
+                          <select class="form-control" name="situacao_final">
+                            <option value="">- Selecione o estado-</option>
                             <option value="S">Sim</option>
                             <option value="N">Não</option>
                           </select>
@@ -236,10 +246,9 @@
                       <div class="form-group">
                         <!-- Buttons -->
                         <div class="col-lg-offset-2 col-lg-9">
-                          <a class="btn btn-primary" href="">Cadastrar
+                          <a class="btn btn-primary" href="" title="cadastrar">Cadastrar
                           </a>
-                          <a class="btn btn-primary" href="">Visualizar usuários
-                          </a>
+                          <a class="btn btn-primary" href="" title="metas">Exibir metas</a>
                          
                         </div>
                       </div>
@@ -255,6 +264,7 @@
             </div>
           </div>
         </div>
+
         <!--fim da primeira row-->
 
 

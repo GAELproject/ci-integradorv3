@@ -53,8 +53,8 @@ $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['gael'] = 'gael/index';
+$route['usuario'] = 'usuario/salvar';
+$route['usuario/salvar'] = 'usuario/salvar';
 $route['login'] = 'login/index';
 
 $route['usuario/salvar'] = 'usuario/salvar';
-$route['usuario'] = 'usuario/index';

@@ -11,7 +11,7 @@
   <meta name="keyword" content="sistema, gael, e-lixo, ifrn, bioeconomia, resíduos sólidos">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Gael - Página inicial</title>
+  <title><?php echo $title;?></title>
 
   <!-- Bootstrap CSS -->
   <link href="<?php echo base_url('assets/css/bootstrap.min.css')?>" rel="stylesheet">
@@ -289,7 +289,7 @@
               </li>
 
               <li>
-                <a href="<?php echo base_url('index.php/login');?>"><i class="icon_key_alt"></i> Log Out</a>
+                <a href="<?php echo base_url('');?>index.php/gael"><i class="icon_key_alt"></i> Log Out</a>
               </li>
             </ul>
           </li>
@@ -306,18 +306,24 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="active">
-            <a class="" href="<?php base_url('gael');?>">
+            <a class="" href="<?php echo base_url('index.php/gael/home/')?>">
               <i class="icon_house_alt"></i>
                 <span>Página inicial</span>
             </a>
           </li>
           <li class="sub-menu">
-            <a href="<?php base_url('');?>usuario/index" class="">
+            <a href="<?php echo base_url('/index.php/gael/user')?>" class="">
               <i class="fa fa-user"></i>
               <span>Usuários</span>
             </a>
           </li>
-
+          <li class="sub-menu">
+            <a href="<?php echo base_url('/index.php/gael/metas')?>" class="">
+                <i lass="fab fa-bullseye-pointer"></i>
+              <span>Metas</span>
+            </a>
+          </li>
+    
         </ul>
         <!-- sidebar menu end-->
 
@@ -334,10 +340,10 @@
         <!--overview start-->
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-laptop"></i> Página inicial</h3>
+            <h3 class="page-header"><i class="fa fa-laptop"></i><?php echo $pagina; ?> </h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-              <li><i class="fa fa-laptop"></i>Paginal inicial</li>
+              <li><i class="fa fa-laptop"></i><?php echo $pagina; ?></li>
             </ol>
           </div>
         </div>

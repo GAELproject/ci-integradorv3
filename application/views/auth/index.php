@@ -59,7 +59,7 @@
                 Lembrar
                 <span class="pull-right"> <a href="gael/index.html">Esqueceu a senha?</a></span>
             </label>
-        <a  class="text-light btn btn-primary btn-lg btn-block" href="<?php echo base_url('index.php/gael');?>">Login</a>
+        <a  class="text-light btn btn-primary btn-lg btn-block" href="<?php echo base_url('index.php/gael/home');?>">Login</a>
       </div>
     </form>
     <div class="text-right">

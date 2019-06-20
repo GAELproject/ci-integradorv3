@@ -30,4 +30,8 @@ class Usuario_model extends CI_Model
 		$dados = array();*/
 		return $this->db->insert('usuario',$dados);
 	}
+	public function recuperar(){
+		$query = $this->db->get('usuario');
+		return $query->result();
+	}
 }

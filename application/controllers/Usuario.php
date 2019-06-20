@@ -3,7 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Usuario extends CI_Controller {
 
 	public function index(){
-		return $this->load->view('user');
+		$this->load->model('Usuario_model');
+		var_dump($dados['usuarios'] = $this->Usuario_model->recuperar());
+		exit();
+		$coisas ['title'] = 'listagem de usuário - gael';
+		$this->load->view('user', $coisas, $dados);
 	}
 
 	public function salvar(){
@@ -31,8 +35,11 @@ class Usuario extends CI_Controller {
 		$this->Usuario_model->meta_id_meta = $meta_id_meta;
 		$insertar = $this->Usuario_model->inserir();
 		if($insertar){
-			return $this->load->view('user');
+			$coisas['title'] = 'Listagem de usuários';
+			$coisas['sucess'] = 'Usuário inserido com sucesso!';
+			return $this->load->view('user', $coisas);
 		}else{
+			$coisas ['error'] = 'usuário não inserido na base de dados';
 			return $this->load->view('home');
 		}
 	}
