@@ -55,3 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['gael'] = 'gael/index';
 $route['login'] = 'login/index';
+
+$route['usuario/salvar'] = 'usuario/salvar';
+$route['usuario'] = 'usuario/index';

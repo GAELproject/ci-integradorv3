@@ -1,21 +1,12 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed!'); ?>
 
 <?php $this->load->view('header') ?>
-<!DOCTYPE html>
 
-    <!--main content start-->
-    <section id="main-content">
-      <section class="wrapper">
-        <!--overview start-->
-        <div class="row">
-          <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-laptop"></i> Página inicial</h3>
-            <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-              <li><i class="fa fa-laptop"></i>Paginal inicial</li>
-            </ol>
-          </div>
-        </div>
+
+<!--######################################################################################################
+##########################aqui começa a primeira row#######################################################
+###########################################################################################################
+-->
 
 
 
@@ -40,19 +31,35 @@
 
                   <div class="form quick-post">
                     <!-- Edit profile form (not working)-->
-                    <form class="form-horizontal">
+
+
+                    <!--formulário de inserção-->
+                    <form class="form-horizontal" method="post" action="<?php base_url('');?>usuario/salvar">
                       <!-- Title -->
                       <div class="form-group">
                         <label class="control-label col-lg-2" for="title">Nome</label>
                         <div class="col-lg-10">
-                          <input class="form-control" id="title" type="text">
+                          <input class="form-control" id="title" name="nome" type="text">
                         </div>
                       </div>
+                    <!--tipo de usuário-->
+
+                     <div class="form-group">
+                        <label class="control-label col-lg-2">Tipo de usuário</label>
+                          <div class="col-lg-10">
+                            <select class="form-control" name="tipo">
+                              <option value="">- Tipo -</option>
+                              <option value="1">master</option>
+                              <option value="2">administrador - bolsista</option>
+                            </select>
+                          </div>
+                      </div>
+
                       <!-- Content -->
                          <div class="form-group">
                                 <label class="control-label col-lg-2" for="title">Email</label>
                                 <div class="col-lg-10">
-                                  <input class="form-control" id="title" type="text">
+                                  <input class="form-control" id="title" name="email" type="text">
                                 </div>
                           </div>
 
@@ -60,21 +67,33 @@
                         <div class="form-group">
                           <label class="control-label col-lg-2" for="title">Login</label>
                           <div class="col-lg-10">
-                            <input class="form-control" id="title" type="text">
+                            <input class="form-control" id="title" type="text" name="login">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-lg-2" for="title">Senha</label>
+                          <div class="col-lg-10">
+                            <input class="form-control" id="title" type="text" name="senha">
                           </div>
                         </div>
                       <!-- turno -->
                         <div class="form-group">
                           <label class="control-label col-lg-2" for="title">CPF</label>
                           <div class="col-lg-10">
-                            <input class="form-control" id="title" type="text">
+                            <input class="form-control" id="title" type="text" name="cpf">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-lg-2" for="title">Imagem</label>
+                          <div class="col-lg-10">
+                            <input class="form-control" id="title" type="text" name="imagem">
                           </div>
                         </div>
                       <!---->
                       <div class="form-group">
                         <label class="control-label col-lg-2">Turno</label>
                         <div class="col-lg-10">
-                          <select class="form-control">
+                          <select class="form-control" name="turno">
                             <option value="">- Escolha seu turno -</option>
                             <option value="M">Manhã</option>
                             <option value="T">Tarde</option>
@@ -86,24 +105,35 @@
                     <div class="form-group">
                         <label class="control-label col-lg-2">Bolsista</label>
                         <div class="col-lg-10">
-                          <select class="form-control">
-                            <option value="">-Selecione-</option>
+                          <select class="form-control" name="usuario_bolsista">
+                            <option value="">- Selecione -</option>
                             <option value="S">Sim</option>
                             <option value="N">Não</option>
                           </select>
                         </div>
                       </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-2">Meta</label>
+                        <div class="col-lg-10">
+                          <select class="form-control" name="meta_id_meta">
+                            <option value="">- Está vinculado a uma meta? -</option>
+                            <option value=""></option>
+                            
+                          </select>
+                        </div>
+                      </div>      
+
                       <!-- Tags -->
 
                       <!-- Buttons -->
                       <div class="form-group">
                         <!-- Buttons -->
                         <div class="col-lg-offset-2 col-lg-9">
-                          <a class="btn btn-primary" href="">Cadastrar
-                          </a>
+                          <button type="submit" class="btn btn-primary">
+                            Cadastrar
+                          </button>
                           <a class="btn btn-primary" href="">Visualizar usuários
                           </a>
-                         
                         </div>
                       </div>
                     </form>
@@ -117,6 +147,12 @@
               </div>
             </div>
           </div>
+
+<!-- FIM DA PRIMEIRA COLUNA-->
+
+
+
+
 
 
           <!---#############################3
