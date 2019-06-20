@@ -15,8 +15,8 @@
 	                    <th><i class=""></i>Descrição</th>
 	                    <th><i class=""></i>Data de criação</th>
 	                    <th><i class=""></i>Data de prazo</th>
-	                    <th><i class=""></i></th>
-	                    <th><i class=""></i>Situação final</th>
+	                    <th><i class=""></i>Data de finalização</th>
+	                    <th><i class=""></i>Finalizado?</th>
 	                    <th><i class=""></i>Ações</th>
 	                  </tr>
 	                  <?php foreach ($metas as $key => $met) {
@@ -25,9 +25,9 @@
 	                    <td><?php echo $met->titulo;?></td>
 	                    <td><?php echo $met->descricao;?></td>
 	                    <td><?php echo $met->data_criacao ;?></td>
-	                    <td><?php echo $met->senha;?></td>
-	                    <td><?php echo $met->email;?></td>
-	                    <td><?php echo $met->usuario_bolsista;?></td>
+	                    <td><?php echo $met->data_prazo_finalizacao;?></td>
+	                    <td><?php echo $met->data_de_finalizacao;?></td>
+	                    <td><?php echo $met->situacao_final;?></td>
 	                    <td>
 	                      <div class="btn-group">
 	                        <a class="btn btn-success" href="<?php echo base_url('index.php/usuario/editar')?>">

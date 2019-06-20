@@ -139,8 +139,12 @@
                         <div class="col-lg-10">
                           <select class="form-control" name="meta_id_meta">
                             <option value="">- Está vinculado a uma meta? -</option>
-                            <option value=""></option>
-                            
+
+                            <?php
+                            foreach ($metas as $key => $met) {
+                            ?>
+                                <option value="<?php echo $met->id_meta;?>"><?php echo $met->titulo;?></option>
+                            <?php }?>
                           </select>
                         </div>
                       </div>      

@@ -16,6 +16,7 @@ class Meta extends CI_Controller {
 		$titulo = $_POST['titulo'];
 		$descricao = $_POST['descricao'];
 		$data_prazo_finalizacao = $_POST['data_prazo_finalizacao'];
+		$data_prazo_finalizacao = implode("-", array_reverse(explode("/", $data_prazo_finalizacao)));
 		$data_de_finalizacao = $_POST['data_de_finalizacao'];
 		$situacao_final = $_POST['situacao_final'];
 		$this->Meta_model->titulo = $titulo;

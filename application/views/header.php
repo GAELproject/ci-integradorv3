@@ -9,7 +9,7 @@
   <meta name="description" content="Sistema para o gerenciamento de eletroeltrônicos">
   <meta name="author" content="GeeksLabs">
   <meta name="keyword" content="sistema, gael, e-lixo, ifrn, bioeconomia, resíduos sólidos">
-  <link rel="shortcut icon" href="img/favicon.png">
+  <link rel="shortcut icon" href="<?php echo base_url('assets/img/gael.ico')?>">
 
   <title><?php echo $title;?></title>
 
