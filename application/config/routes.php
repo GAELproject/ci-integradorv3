@@ -54,3 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['gael'] = 'gael/index';
+$route['login'] = 'login/index';

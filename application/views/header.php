@@ -287,11 +287,9 @@
               <li>
                 <a href="#"><i class="icon_mail_alt"></i>Caixa de mensagens</a>
               </li>
+
               <li>
-                <a href="#"><i class="icon_clock_alt"></i> Timeline</a>
-              </li>
-              <li>
-                <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
+                <a href="<?php echo base_url('index.php/login');?>"><i class="icon_key_alt"></i> Log Out</a>
               </li>
             </ul>
           </li>
