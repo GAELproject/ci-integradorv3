@@ -33,9 +33,29 @@ class Meta_model extends CI_Model
 		$query = $this->db->get('meta');
 		return $query->result();
 	}
+
+    public function delete($id)
+    {
+        $this->db->where('id_meta', $id);
+        $this->db->delete('meta');
+    }
+
 	public function recuperarUm($id){
         $this->db->where('id_meta',$id);
         $query = $this->db->get('meta');
         return $query->row();
     }
+    public function update(){
+        $this->db->set('titulo', $this->nome);
+
+        $this->db->set('descricao', $this->descricao);
+        $this->db->set('data_criacao', $this->data_criacao);
+        $this->db->set('data_prazo_finalizacao', $this->data_prazo_finalizacao);
+        $this->db->set('data_de_finalizacao',$this->data_de_finalizacao);
+        $this->db->set('situacao_final', $this->situacao_final);
+        $this->db->where('id_meta', $this->id_meta);
+        $this->db->update('meta');
+
+    }
+
 }

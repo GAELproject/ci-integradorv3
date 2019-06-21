@@ -2,15 +2,18 @@
 <?php $this->load->view('header') ?>
 
 <div class="row">
+    <div class="col-md-1">
+
+    </div>
     <?php if (isset($error)) {
 
         ?>
         <!--caso não insira no database-->
         <div class="row">
-            <div class="col-sm-1">
+            <div class="col-sm-2">
 
             </div>
-            <div class="col-sm-10">
+            <div class="col-sm-8">
                 <div class="alert alert-block alert-danger fade in">
                     <button data-dismiss="alert" class="close close-sm" type="button">
                         <i class="fa fa-times-circle"></i>
@@ -24,7 +27,7 @@
 
         </div>
     <?php }?>
-    <div class="col-md-6">
+    <div class="col-md-10">
         <div  class="panel panel-default">
             <div class="panel-heading">
                 <div class="pull-left">Gerenciar usuários</div>
@@ -62,7 +65,13 @@
                                 <label class="control-label col-lg-2">Tipo de usuário</label>
                                 <div class="col-lg-10">
                                     <select class="form-control" name="tipo">
-                                        <option value="<?= $usuarios->tipo;?>" selected>- <?= $usuarios->tipo;?> -</option>
+                                        <option value="<?= $usuarios->tipo;?>" selected>- <?php
+                                            if($usuarios->tipo == '1'){
+                                                echo 'Master';
+                                            }else{
+                                                echo 'Administraor';
+                                            }
+                                            ?> -</option>
                                         <option value="1">master</option>
                                         <option value="2">administrador - bolsista</option>
                                     </select>
@@ -162,6 +171,9 @@
                 </div>
 
             </div>
+        </div>
+        <div class="col-md-2">
+
         </div>
     </div>
 

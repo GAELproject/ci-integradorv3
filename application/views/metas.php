@@ -30,9 +30,9 @@
 	                    <td><?php echo $met->situacao_final;?></td>
 	                    <td>
 	                      <div class="btn-group">
-	                        <a class="btn btn-success" href="<?php echo base_url('index.php/usuario/editar')?>">
+	                        <a class="btn btn-success" href="<?php echo base_url('index.php/meta/editar/')?><?=$met->id_meta?>">
 	                        	<i class="fa fa-edit"></i></a>
-	                        <a class="btn btn-danger" href="<?php echo base_url('index.php/usuario/deletar')?>">
+	                        <a class="btn btn-danger" href="<?php echo base_url('index.php/meta/deletar/')?><?=$met->id_meta?>">
 	                        	<i class="fa fa-ban"></i>
 	                        </a>
 	                      </div>
