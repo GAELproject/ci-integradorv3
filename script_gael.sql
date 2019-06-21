@@ -99,6 +99,9 @@ CREATE TABLE `gael`.`laudo` (
 
 
 
+
+
+
 ALTER  TABLE `gael`.`OS`
 ADD CONSTRAINT  uc_n_OS
 UNIQUE (n_OS);
@@ -152,6 +155,8 @@ ALTER TABLE `gael`.`doacao`
 ALTER `equipamento_id_equipamento` SET DEFAULT null;
 
 
+
+
 INSERT INTO `gael`.`usuario`
 (nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
 VALUES ('diogo','2', '209393', 'senha', 'imagem','email','352352', 'M', 'S');
@@ -193,8 +198,6 @@ INSERT INTO `gael`.`usuario`
 VALUES ('alguém me diz um nome','1', '3253', 'sem_senha', 'qrimagem','email@dgsd','235', 'N', 'N');
 
 
-
-
 INSERT INTO `gael`.`meta`
 (titulo, descricao, data_prazo_finalizacao, situacao_final)
 VALUES ('tirar todas as peças', 'nada demais','2019-10-01','2'),
@@ -208,54 +211,18 @@ VALUES ('tirar todas as peças', 'nada demais','2019-10-01','2'),
   ('consertar bicicleta', 'todos participem','2019-10-03','2');
 
 
-
 INSERT INTO `gael`.`atividade`
 (nome_item_substituido, quantidade_item_substituido)
-VALUES ('tecla', 3)
-
-INSERT INTO `gael`.`atividade`
-(nome_item_substituido, quantidade_item_substituido)
-VALUES ('monitor', 3)
-
-INSERT INTO `gael`.`atividade`
-(nome_item_substituido, quantidade_item_substituido)
-VALUES ('cabo frete',7)
-
-
-INSERT INTO `gael`.`atividade`
-(nome_item_substituido, quantidade_item_substituido)
-VALUES ('processador',8)
-
-
-INSERT INTO `gael`.`atividade`
-(nome_item_substituido, quantidade_item_substituido)
-VALUES ('nada', 10)
-
-
-INSERT INTO `gael`.`atividade`
-(nome_item_substituido, quantidade_item_substituido)
-VALUES ('hugmos',9)
-
-
-INSERT INTO `gael`.`atividade`
-(nome_item_substituido, quantidade_item_substituido)
-VALUES ('juliana',8)
-
-
-INSERT INTO `gael`.`atividade`
-(nome_item_substituido, quantidade_item_substituido)
-VALUES ('tudos',89)
-
-
-INSERT INTO `gael`.`atividade`
-(nome_item_substituido, quantidade_item_substituido)
-VALUES ('teclado',90)
-
-INSERT INTO `gael`.`atividade`
-(nome_item_substituido, quantidade_item_substituido)
-VALUES ('nicole',7)
-
-
+VALUES ('tecla', 3),
+       ('monitor', 3),
+       ('cabo frete',7),
+       ('processador',8),
+       ('nada', 10),
+       ('hugmos',9),
+       ('juliana',8),
+       ('tudos',89),
+       ('teclado',90),
+       ('nicole',7);
 
 INSERT INTO `gael`.`laudo`
  (possiveis_defeitos,possiveis_causas,possiveis_solucoes,cliente,destino) 
@@ -269,7 +236,4 @@ INSERT INTO `gael`.`laudo`
   ('Circuito bugado','Curto circuito','Nova placa','Sara','IFSP'),
   ('Placa queinada','Tempo de uso','Nova placa','Kelly','Lixo'),
   ('Botão quebrado','Tempo de uso','Substituição do botão','Debora','sei lá');
-
-
-
 
