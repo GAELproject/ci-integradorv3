@@ -174,11 +174,8 @@
             </div>
           </div>
 
+
 <!-- FIM DA PRIMEIRA COLUNA-->
-
-
-
-
 
 
           <!---#############################3
@@ -259,8 +256,6 @@
                       </div>
                     </form>
                   </div>
-
-
                 </div>
 
               </div>
@@ -271,9 +266,7 @@
 
         <!--fim da primeira row-->
 
-
         <!-- statics end -->
-
 
 
 <!--INÍCIO DA SEGUNDA LINHA - ROW-->

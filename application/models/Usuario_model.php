@@ -35,4 +35,16 @@ class Usuario_model extends CI_Model
 		$query = $this->db->get('usuario');
 		return $query->result();
 	}
+
+    /**
+     * @return mixed
+     */
+    public function edit()
+    {
+
+    }
+    public function delete()
+    {
+
+    }
 }

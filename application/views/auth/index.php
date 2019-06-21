@@ -40,10 +40,10 @@
 
   <div class="container">
 
-    <form class="login-form" action="">
+    <form class="login-form" action="<?php echo base_url('index.php/gael/home')?>">
       <div class="login-wrap">
         <p class="login-img"><img src="<?php echo base_url('assets/img/gael.png')?>" width="80"></i></p>
-        <h4 class="text-center text-dark">
+        <h4 class="text-center" style="color: black;">
           Sistema Integrado de Gerenciamento de Eletroeletrônicos
         </h4 >
         <div class="input-group">
@@ -54,12 +54,13 @@
           <span class="input-group-addon"><i class="icon_key_alt"></i></span>
           <input type="password" class="form-control" placeholder="Senha">
         </div>
-        <label class="checkbox">
-                <input type="checkbox" value="remember-me">
+        <label style="color: black;" class="checkbox">
+                <input  type="checkbox" value="remember-me">
                 Lembrar
-                <span class="pull-right"> <a href="gael/index.html">Esqueceu a senha?</a></span>
+                <span  class="pull-right"> <a href="" style="color: black;">Esqueceu a senha?</a></span>
             </label>
-        <a  class="text-light btn btn-primary btn-lg btn-block" href="<?php echo base_url('index.php/gael/home');?>">Login</a>
+          <button type="submit" class="text-light btn btn-primary btn-lg btn-block" >Logar </button>
+
       </div>
     </form>
     <div class="text-right">

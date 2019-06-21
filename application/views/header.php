@@ -147,7 +147,7 @@
           </li>
           <li class="sub-menu">
             <a href="<?php echo base_url('/index.php/gael/metas')?>" class="">
-                <i class="fas fa-list-ol"></i>
+                <i class="fas fa-chart-line"></i>
               <span>Relatório de atividades</span>
             </a>
           </li>
