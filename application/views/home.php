@@ -375,7 +375,7 @@
                           </select>
                           </div>
                         </div>
-                      </div>
+                          </div>
                       <div id="doacao">
                       <div id="" class="form-group">
                         <label class="control-label col-lg-2" for="title">Nome do doador

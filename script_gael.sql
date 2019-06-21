@@ -219,7 +219,7 @@ VALUES ('tecla', 3),
 
 
 INSERT INTO `gael`.`laudo`
- (possiveis_defeitos,possiveis_causas,possiveis_solucoes,cliente,destino) 
+ (possiveis_defeitos,possiveis_causas,possiveis_solucoes,cliente,destino)
  VALUES ('Placa mãe quebrada','Componente queimado','Substituição da placa mãe','Jose Ailton', 'Não sei'),
   ('Placa de vídeo','CI corrompido','Consertar circuito','Leilani','Natal'),
   ('Tela trincada','Queda','Substituição da tela','Diogo','Non sei'),
@@ -284,3 +284,20 @@ VALUES ('46566'),
 ('8712454'),
 ('55645'),
 ('1456');
+
+
+
+DELIMITER $
+CREATE  FUNCTION  finalizado(situacao_final char (1))
+RETURNS  VARCHAR (30)
+
+BEGIN
+	IF SITUACAO_FINAL ='1'THEN
+		RETURN 'sim';
+    ELSEIF  SITUACAO_FINAL ='2'THEN
+		RETURN 'não';
+	ELSE
+		RETURN 'NAO  INFORMADO';
+END IF;
+END
+$
