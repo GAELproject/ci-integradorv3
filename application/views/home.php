@@ -275,12 +275,13 @@
         <!-- statics end -->
 
 
+
 <!--INÍCIO DA SEGUNDA LINHA - ROW-->
 
         <!-- project team & activity start -->
         <div class="row">
           <div class="col-md-6">
-                          <div  class="panel panel-default">
+            <div  class="panel panel-default">
               <div class="panel-heading">
                 <div class="pull-left">Gerenciar equipamento</div>
                 <div class="widget-icons pull-right">
@@ -423,69 +424,53 @@
 
               </div>
             </div>
-          </div>
-
-          <div class="col-md-6">
-                        <div  class="panel panel-default">
+            <!--fim da primeira coluna-->
+          <!--início da segunda coluna-->
+            <div class="col-md-6">
+            <!--realizar atividade em equipamento-->  
+            <div  class="panel panel-default">
               <div class="panel-heading">
-                <div class="pull-left">Gerenciar metas</div>
+                <div class="pull-left">Realizar atividade em equipamento</div>
                 <div class="widget-icons pull-right">
-                  <a id="seletor-down1" href="#">
+                  <a id="seletor-down3" href="#">
                     <i class="fa fa-chevron-down"></i>
                   </a>
-                  <a href="#" id="seletor-up1" >
+                  <a href="#" id="seletor-up3" >
                     <i id="" class="fa fa-chevron-up"></i></a>
                   <a href="#" class="wclose"><i class="fa fa-times"></i></a>
                 </div>
                 <div class="clearfix"></div>
               </div>
-              <div id="painel1" class="panel-body">
+              <div id="painel3" class="panel-body">
                 <div class="padd">
 
                   <div class="form quick-post">
                     <!-- Edit profile form (not working)-->
                     <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/meta/salvar/')?>">
                       <!-- título da meta -->
-                      <div class="form-group">
-                            <label class="control-label col-lg-2" for="title">Título da meta</label>
-                            <div class="col-lg-10">
-                              <input class="form-control" id="title" name="titulo" type="text">
-                            </div>
-                      </div>
 
-                      <div class="form-group">
-                        <label class="control-label col-lg-2" for="content">Descrição</label>
+                     <div class="form-group">
+                        <label class="control-label col-lg-2">Ordem de serviço</label>
                         <div class="col-lg-10">
-                          <textarea class="form-control" name='descricao' id="content"></textarea>
+                          <select class="form-control" name="OS_id_OS">
+                            <option value="" selected="">- selecione a OS referente-</option>
+                            <option value="1">x ordem de serviço</option>
+                          </select>
+                          </div>
+                        </div>  
+                      <div class="form-group">
+                        <label class="control-label col-lg-2" for="content">Nome do item substituido</label>
+                        <div class="col-lg-10">
+                              <input class="form-control" id="title" type="text" name="nome_item_substituido">
                         </div>
                        </div>
                       <!-- Content -->
                      <div class="form-group">
-                            <label class="control-label col-lg-2" for="title">Data do prazo</label>
+                            <label class="control-label col-lg-2" for="title">Quntidade do item subsituido</label>
                             <div class="col-lg-10">
-                              <input class="form-control" id="title" type="date" name="data_prazo_finalizacao">
+                              <input class="form-control" id="title" type="number" name="quantidade_item_substituido">
                             </div>
                       </div>
-
-
-                        <div class="form-group">
-                          <label class="control-label col-lg-2" for="title">Data de finalização</label>
-                          <div class="col-lg-10">
-                            <input class="form-control" id="title" type="date" name="data_de_finalizacao">
-                          </div>
-                        </div>
-                      <!--usuário bolsista-->
-                    <div class="form-group">
-                        <label class="control-label col-lg-2">Finalizado?</label>
-                        <div class="col-lg-10">
-                          <select class="form-control" name="situacao_final">
-                            <option value="" selected="">- selecione-</option>
-                            <option value="S">Sim</option>
-                            <option value="N">Não</option>
-                          </select>
-                        </div>
-                      </div>
-                      <!-- Tags -->
 
                       <!-- Buttons -->
                       <div class="form-group">
@@ -506,9 +491,11 @@
 
               </div>
             </div>
-          
+        <!--fim do painei-->
+            </div>
+            <!--fim da segunda coluna-->
           </div>
-        </div>
+
 
 <!--FIM DA SEGUNDA ROW -->
 
@@ -537,75 +524,7 @@
           </div>
 
           <div class="col-md-6 portlets">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <div class="pull-left">Quick Post</div>
-                <div class="widget-icons pull-right">
-                  <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-                  <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <div class="panel-body">
-                <div class="padd">
 
-                  <div class="form quick-post">
-                    <!-- Edit profile form (not working)-->
-                    <form class="form-horizontal">
-                      <!-- Title -->
-                      <div class="form-group">
-                        <label class="control-label col-lg-2" for="title">Title</label>
-                        <div class="col-lg-10">
-                          <input type="text" class="form-control" id="title">
-                        </div>
-                      </div>
-                      <!-- Content -->
-                      <div class="form-group">
-                        <label class="control-label col-lg-2" for="content">Content</label>
-                        <div class="col-lg-10">
-                          <textarea class="form-control" id="content"></textarea>
-                        </div>
-                      </div>
-                      <!-- Cateogry -->
-                      <div class="form-group">
-                        <label class="control-label col-lg-2">Category</label>
-                        <div class="col-lg-10">
-                          <select class="form-control">
-                                                  <option value="">- Choose Cateogry -</option>
-                                                  <option value="1">General</option>
-                                                  <option value="2">News</option>
-                                                  <option value="3">Media</option>
-                                                  <option value="4">Funny</option>
-                                                </select>
-                        </div>
-                      </div>
-                      <!-- Tags -->
-                      <div class="form-group">
-                        <label class="control-label col-lg-2" for="tags">Tags</label>
-                        <div class="col-lg-10">
-                          <input type="text" class="form-control" id="tags">
-                        </div>
-                      </div>
-
-                      <!-- Buttons -->
-                      <div class="form-group">
-                        <!-- Buttons -->
-                        <div class="col-lg-offset-2 col-lg-9">
-                          <button type="submit" class="btn btn-primary">Publish</button>
-                          <button type="submit" class="btn btn-danger">Save Draft</button>
-                          <button type="reset" class="btn btn-default">Reset</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-
-
-                </div>
-                <div class="widget-foot">
-                  <!-- Footer goes here -->
-                </div>
-              </div>
-            </div>
 
           </div>
 

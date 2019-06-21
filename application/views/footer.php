@@ -44,11 +44,12 @@
     <script src="<?php echo base_url('assets/js/sparklines.js')?>"></script>
     <script src="<?php echo base_url('assets/js/charts.js')?>"></script>
     <script src="<?php echo base_url('assets/js/jquery.slimscroll.min.js')?>"></script>
+    
     <script>
 
       $(function(){
         $('#doacao').hide();
-         $('#conserto').hide();
+        $('#conserto').hide();
         $('#clique-doacao').click(function(){
           $('#doacao').show('slow');
          $('#conserto').hide('slow');
@@ -82,6 +83,20 @@
        });
       });
 
+      $(function(){
+        $('#seletor-up2').click(function(){
+          $('#painel2').hide('slow');
+        });
+        $('#seletor-down2').click(function(){
+          $('#painel2').show('slow');
+       });
+        $('#seletor-up3').click(function(){
+          $('#painel3').hide('slow');
+        });
+        $('#seletor-down3').click(function(){
+          $('#painel3').show('slow');
+       });
+      });
 
       //knob
       $(function() {

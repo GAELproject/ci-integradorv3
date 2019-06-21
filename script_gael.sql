@@ -37,7 +37,7 @@ CREATE TABLE `gael`.`OS` (
 
 CREATE TABLE `gael`.`atividade` (
   `id_atividade` INT NOT NULL AUTO_INCREMENT,
-  `data_hora_atividade` TIMESTAMP NOT NULL,
+  `data_hora_atividade` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `nome_item_substituido` VARCHAR(60) NOT NULL,
   `quantidade_item_substituido` INT NOT NULL,
   `equipamento_id_equipamento` INT,
@@ -51,7 +51,10 @@ CREATE TABLE `gael`.`equipamento` (
   `marca` VARCHAR(60) NOT NULL,
   `modelo` VARCHAR(60) NOT NULL,
   `situacao` CHAR(1),
-  PRIMARY KEY (`id_equipamento`));
+  `OS_id_OS` INT,
+  PRIMARY KEY (`id_equipamento`)
+INDEX `fk_equipamento_OS_idx` (`OS_id_OS` ASC)
+  );
 
 CREATE TABLE `gael`.`doacao` (
   `id_doacao` INT NOT NULL AUTO_INCREMENT,
@@ -84,7 +87,22 @@ CREATE TABLE `gael`.`laudo` (
   `equipamento_id_equipamento` INT,
   PRIMARY KEY (`id_laudo`),
   INDEX `fk_laudo_equipamento_idx` (`equipamento_id_equipamento` ASC));
-  
+
+
+
+ALTER  TABLE `gael`.`usuario`
+ADD CONSTRAINT  uc_cpf
+UNIQUE (cpf);
+
+ALTER  TABLE `gael`.`usuario`
+ADD CONSTRAINT  uc_cpf
+UNIQUE (cpf);
+
+ALTER  TABLE `gael`.`usuario`
+ADD CONSTRAINT  uc_cpf
+UNIQUE (cpf);
+
+
 ALTER TABLE `gael`.`meta`
 ALTER `situacao_final` SET DEFAULT '1';
 

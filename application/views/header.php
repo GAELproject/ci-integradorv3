@@ -135,11 +135,22 @@
           </li>
           <li class="sub-menu">
             <a href="<?php echo base_url('/index.php/gael/metas')?>" class="">
-                <i class="fas fa-exclamation"></i>
+                <i class="fas fa-tools"></i>
               <span>Equipamentos</span>
             </a>
           </li>
-        
+          <li class="sub-menu">
+            <a href="<?php echo base_url('/index.php/gael/metas')?>" class="">
+                <i class="fas fa-list"></i>
+              <span>Ordens de serviço</span>
+            </a>
+          </li>
+          <li class="sub-menu">
+            <a href="<?php echo base_url('/index.php/gael/metas')?>" class="">
+                <i class="fas fa-list-ol"></i>
+              <span>Relatório de atividades</span>
+            </a>
+          </li>
         </ul>
         <!-- sidebar menu end-->
 
