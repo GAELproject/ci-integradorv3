@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="742214c8-b29a-48bf-a852-5e829ec18348" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script_gael.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_gael.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script_gael.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
+            <state relative-caret-position="228">
+              <caret line="249" column="22" selection-start-line="249" selection-start-column="22" selection-end-line="249" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -56,6 +55,9 @@
         <option value="$PROJECT_DIR$/script_gael.sql" />
       </list>
     </option>
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="960" />
@@ -76,22 +78,6 @@
               <item name="ci-integradorv3" type="b2602c69:ProjectViewProjectNode" />
               <item name="ci-integradorv3" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ci-integradorv3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ci-integradorv3" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ci-integradorv3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ci-integradorv3" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ci-integradorv3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ci-integradorv3" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -102,6 +88,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
@@ -128,12 +117,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561109452626</updated>
-      <workItem from="1561109453680" duration="903000" />
+      <workItem from="1561109453680" duration="3331000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="903000" />
+    <option name="totallyTimeSpent" value="3331000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1002" extended-state="6" />
@@ -178,8 +167,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script_gael.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
+        <state relative-caret-position="228">
+          <caret line="249" column="22" selection-start-line="249" selection-start-column="22" selection-end-line="249" selection-end-column="22" />
         </state>
       </provider>
     </entry>

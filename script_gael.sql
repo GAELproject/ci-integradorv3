@@ -11,7 +11,6 @@ CREATE TABLE `gael`.`meta` (
   PRIMARY KEY (`id_meta`));
 
 
-
 CREATE TABLE `gael`.`usuario` (
   `id_usuario` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(60) NOT NULL,
@@ -47,12 +46,8 @@ CREATE TABLE `gael`.`atividade` (
   INDEX `fk_atividade_equipamento_idx` (`equipamento_id_equipamento` ASC));
 
 
-
-
-
-
 CREATE TABLE `gael`.`equipamento` (
-  `id_equipamento` INT NOT NULL,
+  `id_equipamento` INT  AUTO_INCREMENT NOT NULL,
   `nome_equipamento` VARCHAR(60) NOT NULL,
   `n_serie` INT(40) NOT NULL,
   `marca` VARCHAR(60) NOT NULL,
@@ -62,6 +57,7 @@ CREATE TABLE `gael`.`equipamento` (
   PRIMARY KEY (`id_equipamento`),
 INDEX `fk_equipamento_OS_idx` (`OS_id_OS` ASC)
   );
+
 
 CREATE TABLE `gael`.`doacao` (
   `id_doacao` INT NOT NULL AUTO_INCREMENT,
@@ -73,6 +69,7 @@ CREATE TABLE `gael`.`doacao` (
   INDEX `fk_doacao_equipamento_idx` (`equipamento_id_equipamento` ASC));
 
 
+
 CREATE TABLE `gael`.`conserto` (
   `id_conserto` INT NOT NULL AUTO_INCREMENT,
   `cliente` VARCHAR(60) NOT NULL,
@@ -81,7 +78,6 @@ CREATE TABLE `gael`.`conserto` (
   `equipamento_id_equipamento` INT,
   PRIMARY KEY (`id_conserto`),
   INDEX `fk_conserto_equipamento_idx` (`equipamento_id_equipamento` ASC));
-
 
 
 
@@ -96,10 +92,6 @@ CREATE TABLE `gael`.`laudo` (
   `equipamento_id_equipamento` INT,
   PRIMARY KEY (`id_laudo`),
   INDEX `fk_laudo_equipamento_idx` (`equipamento_id_equipamento` ASC));
-
-
-
-
 
 
 ALTER  TABLE `gael`.`OS`
@@ -208,7 +200,8 @@ VALUES ('tirar todas as peças', 'nada demais','2019-10-01','2'),
  ('Ajuste de rádio', 'nada demais','2019-10-01','1'),
  ('Ajuste de televisor', 'todos envolvidos','2019-10-01','2'),
   ('Ajuste de antena', 'todos participem','2019-10-01','2'),
-  ('consertar bicicleta', 'todos participem','2019-10-03','2');
+  ('consertar bicicleta', 'todos participem','2019-10-03','2'),
+  ('fazer os capacitores', 'não façam nada','2019-10-03','2');
 
 
 INSERT INTO `gael`.`atividade`
@@ -224,6 +217,7 @@ VALUES ('tecla', 3),
        ('teclado',90),
        ('nicole',7);
 
+
 INSERT INTO `gael`.`laudo`
  (possiveis_defeitos,possiveis_causas,possiveis_solucoes,cliente,destino) 
  VALUES ('Placa mãe quebrada','Componente queimado','Substituição da placa mãe','Jose Ailton', 'Não sei'),
@@ -237,3 +231,56 @@ INSERT INTO `gael`.`laudo`
   ('Placa queinada','Tempo de uso','Nova placa','Kelly','Lixo'),
   ('Botão quebrado','Tempo de uso','Substituição do botão','Debora','sei lá');
 
+
+INSERT INTO `gael`.`equipamento`
+(nome_equipamento, n_serie, marca, modelo, situacao)
+VALUES ('camera','546546','dell','e5352', '1'),
+('geladeria','23234','consul','a5329725', '1'),
+('celular','546','dell','afsa', '1'),
+('pc','2546','hp','safsaf', '1'),
+('gula','54','eu sei lá','2143214', '1'),
+('cabo hdmi','213','sansumg','afsa', '1'),
+('dp','5131','lg','afs', '1'),
+('azulão','5131','lg','afs', '1'),
+('tomada','2352','kade','afs', '1'),
+('notebook','5131','dell','aasga', '1')
+;
+
+INSERT INTO `gael`.`doacao`
+(representante_destino)
+VALUES ('diogo'),
+    ('rute'),
+    ('alan'),
+    ('klisnamnn'),
+    ('vitoria'),
+    ('jubetriz'),
+    ('alaniingua'),
+    ('cesimar'),
+    ('cosme'),
+    ('marjorie');
+
+INSERT INTO `gael`.`conserto`
+(cliente, prazo_entrega, situacao_final)
+VALUES ('diogo','2000-12-20','1'),
+    ('diogo','2000-12-20','1'),
+    ('scheylla','2000-12-20','1'),
+    ('cesimar','2000-12-20','1'),
+    ('jp','2000-12-20','1'),
+    ('nicole','2000-12-20','1'),
+    ('juliana','2000-12-20','1'),
+    ('klinsmann','2000-12-20','1'),
+    ('jaqueline','2000-12-20','1'),
+    ('kdorientação','2000-12-20','1');
+
+INSERT INTO `gael`.`OS`
+(n_OS)
+VALUES ('46566'),
+('65456'),
+('564564'),
+('57465'),
+('5456'),
+('56446'),
+('5464'),
+('8712454'),
+('55645'),
+('1456');
