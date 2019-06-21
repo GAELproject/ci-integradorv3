@@ -167,9 +167,7 @@
 
 
                 </div>
-                <div class="widget-foot">
-                  <!-- Footer goes here -->
-                </div>
+
               </div>
             </div>
           </div>

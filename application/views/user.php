@@ -48,9 +48,10 @@
                     <td><?php echo $us->usuario_bolsista;?></td>
                     <td>
                       <div class="btn-group">
-                        <a class="btn btn-success" href="<?php echo base_url('index.php/usuario/editar')?>">
+
+                        <a class="btn btn-success" href="<?php echo base_url('index.php/usuario/editar/')?><?php echo $us->id_usuario;?>"">
                         	<i class="fa fa-edit"></i></a>
-                        <a class="btn btn-danger" href="<?php echo base_url('index.php/usuario/deletar')?>">
+                        <a class="btn btn-danger" href="<?php echo base_url('index.php/usuario/deletar/')?><?php echo $us->id_usuario;?>">
                         	<i class="fa fa-ban"></i>
                         </a>
                       </div>

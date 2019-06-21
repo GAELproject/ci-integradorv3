@@ -33,4 +33,9 @@ class Meta_model extends CI_Model
 		$query = $this->db->get('meta');
 		return $query->result();
 	}
+	public function recuperarUm($id){
+        $this->db->where('id_meta',$id);
+        $query = $this->db->get('meta');
+        return $query->row();
+    }
 }

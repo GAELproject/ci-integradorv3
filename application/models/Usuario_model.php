@@ -39,12 +39,31 @@ class Usuario_model extends CI_Model
     /**
      * @return mixed
      */
-    public function edit()
-    {
 
-    }
-    public function delete()
+    public function delete($id)
     {
+        $this->db->where('id_usuario', $id);
+        $this->db->delete('usuario');
+    }
+    public function recuperarUm($id){
+        $this->db->where('id_usuario',$id);
+        $query = $this->db->get('usuario');
+        return $query->row();
+    }
+    public function update(){
+        $this->db->set('nome', $this->nome);
+
+        $this->db->set('tipo', $this->tipo);
+        $this->db->set('login', $this->login);
+        $this->db->set('senha', $this->senha);
+        $this->db->set('imagem',$this->imagem);
+        $this->db->set('email', $this->email);
+        $this->db->set('cpf', $this->cpf);
+        $this->db->set('turno', $this->turno);
+        $this->db->set('usuario_bolsista', $this->usuario_bolsista);
+        $this->db->set('meta_id_meta',$this->meta_id_meta );
+        $this->db->where('id_usuario', $this->id_usuario);
+        $this->db->update('usuario');
 
     }
 }
