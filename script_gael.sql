@@ -94,9 +94,6 @@ CREATE TABLE `gael`.`laudo` (
   INDEX `fk_laudo_equipamento_idx` (`equipamento_id_equipamento` ASC));
 
 
-ALTER  TABLE `gael`.`OS`
-ADD CONSTRAINT  uc_n_OS
-UNIQUE (n_OS);
 
 ALTER TABLE `gael`.`meta`
 ALTER `data_de_finalizacao` SET DEFAULT'2000-10-10';
@@ -149,45 +146,19 @@ ALTER `equipamento_id_equipamento` SET DEFAULT null;
 
 
 
-INSERT INTO `gael`.`usuario`
-(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
-VALUES ('diogo','2', '209393', 'senha', 'imagem','email','352352', 'M', 'S');
 
 INSERT INTO `gael`.`usuario`
-(nome, tipo, login, senha, turno, usuario_bolsista)
-VALUES ('nicole','1','23525', 'nada', 'M', 'S');
-
-INSERT INTO `gael`.`usuario`
-(nome, tipo,login, senha, cpf,turno, usuario_bolsista)
-VALUES ('vitoria', '2', '232525', 'alguma','2352532', 'M', 'S');
-
-INSERT INTO `gael`.`usuario`
-(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
-VALUES ('diogo','2', '209393', 'senha', 'imagem','email','352352', 'M', 'S');
-
-INSERT INTO `gael`.`usuario`
-(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
-VALUES ('sabrina','2', '832759', 'senha', 'imagem','akfk','325', 'M', 'S');
-
-INSERT INTO `gael`.`usuario`
-(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
-VALUES ('klisnmann','2', '23582', 'senha', 'imagem','email','2552', 'M', 'S');
-
-INSERT INTO `gael`.`usuario`
-(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
-VALUES ('roberto','2', '82357', 'senha', 'imagem','email','235827', 'M', 'S');
-
-INSERT INTO `gael`.`usuario`
-(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
-VALUES ('jumenta','2', '238527', 'senha', 'imagem','email','357256', 'M', 'S');
-
-INSERT INTO `gael`.`usuario`
-(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
-VALUES ('orientador','2', '3252735', 'senha', 'imagem','email','8235728', 'M', 'S');
-
-INSERT INTO `gael`.`usuario`
-(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista)
-VALUES ('alguém me diz um nome','1', '3253', 'sem_senha', 'qrimagem','email@dgsd','235', 'N', 'N');
+(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista, meta_id_meta)
+VALUES ('diogo','2', '209393', 'senha', 'imagem','email','352352', 'M', 'S',1),  
+('nicole','1','23525','', 'nada','', '','M', 'S',1),
+('vitoria', '2', '232525','', 'alguma','','2352532', 'M', 'S',1),
+ ('diogo','2', '209393', 'senha', 'imagem','email','352352', 'M', 'S',1),
+ ('sabrina','2', '832759', 'senha', 'imagem','akfk','325', 'M', 'S',1),
+ ('klisnmann','2', '23582', 'senha', 'imagem','email','2552', 'M', 'S',1),
+ ('roberto','2', '82357', 'senha', 'imagem','email','235827', 'M', 'S',1),
+ ('jumenta','2', '238527', 'senha', 'imagem','email','357256', 'M', 'S',2),
+ ('orientador','2', '3252735', 'senha', 'imagem','email','8235728', 'M', 'S',2),
+ ('alguém me diz um nome','1', '3253', 'sem_senha', 'qrimagem','email@dgsd','235', 'N', 'N',2);
 
 
 INSERT INTO `gael`.`meta`
