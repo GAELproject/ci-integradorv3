@@ -185,7 +185,7 @@
             SEGUNDA COLUNA DO PRIMERIO ROW-->
           <div class="col-md-6">
             <!--conteúdo do segundo grid-->
-                        <div  class="panel panel-default">
+            <div  class="panel panel-default">
               <div class="panel-heading">
                 <div class="pull-left">Gerenciar metas</div>
                 <div class="widget-icons pull-right">
@@ -262,11 +262,10 @@
 
 
                 </div>
-                <div class="widget-foot">
-                  <!-- Footer goes here -->
-                </div>
+
               </div>
             </div>
+            <!--fim do painel-->
           </div>
         </div>
 
@@ -276,231 +275,244 @@
         <!-- statics end -->
 
 
-
+<!--INÍCIO DA SEGUNDA LINHA - ROW-->
 
         <!-- project team & activity start -->
         <div class="row">
-          <div class="col-md-4 portlets">
-            <!-- Widget -->
-            <div class="panel panel-default">
+          <div class="col-md-6">
+                          <div  class="panel panel-default">
               <div class="panel-heading">
-                <div class="pull-left">Message</div>
+                <div class="pull-left">Gerenciar equipamento</div>
                 <div class="widget-icons pull-right">
-                  <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                  <a id="seletor-down2" href="#">
+                    <i class="fa fa-chevron-down"></i>
+                  </a>
+                  <a href="#" id="seletor-up2" >
+                    <i id="" class="fa fa-chevron-up"></i></a>
                   <a href="#" class="wclose"><i class="fa fa-times"></i></a>
                 </div>
                 <div class="clearfix"></div>
               </div>
+              <div id="painel2" class="panel-body">
+                <div class="padd">
 
-              <div class="panel-body">
-                <!-- Widget content -->
-                <div class="padd sscroll">
-
-                  <ul class="chats">
-
-                    <!-- Chat by us. Use the class "by-me". -->
-                    <li class="by-me">
-                      <!-- Use the class "pull-left" in avatar -->
-                      <div class="avatar pull-left">
-                        <img src="img/user.jpg" alt="" />
+                  <div class="form quick-post">
+                    <!-- Edit profile form (not working)-->
+                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/meta/salvar/')?>">
+                      <!-- título da meta -->
+                      <div class="form-group">
+                        <label class="control-label col-lg-2" for="title">Inciar Ordem de Serviço:
+                        </label>
+                            <div class="col-lg-10">
+                              <input class="form-control" id="title" name="n_OS" type="text">
+                            </div>
                       </div>
 
-                      <div class="chat-content">
-                        <!-- In meta area, first include "name" and then "time" -->
-                        <div class="chat-meta">John Smith <span class="pull-right">3 hours ago</span></div>
-                        Vivamus diam elit diam, consectetur dapibus adipiscing elit.
-                        <div class="clearfix"></div>
-                      </div>
-                    </li>
+                      <!-- Content -->
 
-                    <!-- Chat by other. Use the class "by-other". -->
-                    <li class="by-other">
-                      <!-- Use the class "pull-right" in avatar -->
-                      <div class="avatar pull-right">
-                        <img src="img/user22.png" alt="" />
-                      </div>
-
-                      <div class="chat-content">
-                        <!-- In the chat meta, first include "time" then "name" -->
-                        <div class="chat-meta">3 hours ago <span class="pull-right">Jenifer Smith</span></div>
-                        Vivamus diam elit diam, consectetur fconsectetur dapibus adipiscing elit.
-                        <div class="clearfix"></div>
-                      </div>
-                    </li>
-
-                    <li class="by-me">
-                      <div class="avatar pull-left">
-                        <img src="img/user.jpg" alt="" />
-                      </div>
-
-                      <div class="chat-content">
-                        <div class="chat-meta">John Smith <span class="pull-right">4 hours ago</span></div>
-                        Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
-                        <div class="clearfix"></div>
-                      </div>
-                    </li>
-
-                    <li class="by-other">
-                      <!-- Use the class "pull-right" in avatar -->
-                      <div class="avatar pull-right">
-                        <img src="img/user22.png" alt="" />
-                      </div>
-
-                      <div class="chat-content">
-                        <!-- In the chat meta, first include "time" then "name" -->
-                        <div class="chat-meta">3 hours ago <span class="pull-right">Jenifer Smith</span></div>
-                        Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
-                        <div class="clearfix"></div>
-                      </div>
-                    </li>
-
-                  </ul>
-
-                </div>
-                <!-- Widget footer -->
-                <div class="widget-foot">
-
-                  <form class="form-inline">
+                      <!--usuário bolsista-->
                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Type your message here...">
-                    </div>
-                    <button type="submit" class="btn btn-info">Send</button>
-                  </form>
+                        <label class="control-label col-lg-2">Usuario responsável</label>
+                        <div class="col-lg-10">
+                          <select class="form-control" name="usuario_id_usuario">
+                            <option value="">- Selecione o usuário-</option>
+                            
+                            <?php
+                            foreach ($usuarios as $key => $user) { ?>
+                                <option value="<?php echo $user->id_usuario;?>">
+                                  <?php echo $user->nome;?>
+                                </option>
+                            <?php }?>
+                          </select>
+                        </div>
+                      </div>
+
+
+                      <div class="form-group">
+                        <label class="control-label col-lg-2" for="title">Nome do equipamento
+                        </label>
+                            <div class="col-lg-10">
+                              <input class="form-control" id="title" name="nome_equipamento" type="text">
+                            </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-lg-2" for="title">Marca
+                        </label>
+                            <div class="col-lg-10">
+                              <input class="form-control" id="title" name="marca" type="text">
+                            </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-lg-2" for="title">Modelo
+                        </label>
+                            <div class="col-lg-10">
+                              <input class="form-control" id="title" name="modelo" type="text">
+                            </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-lg-2" for="title">Número de série
+                        </label>
+                            <div class="col-lg-10">
+                              <input class="form-control" id="text" name="n_serie" type="text">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-lg-2">Situação</label>
+                        <div class="col-lg-10">
+                          <select class="form-control" name="situacao">
+                            <option value="">- Selecione o usuário-</option>
+                            <option value="1">Não consertado</option>
+                            <option value="2">Consertado</option>
+                            <option value="3">Parcialemente consertado</option>
+                          </select>
+                          </div>
+                        </div>
+
+
+
+                      <div class="form-group">
+                        <label class="control-label col-lg-2" for="title">O que fará no equipamento
+                        </label>                        
+                        <div class="col-lg-10">
+                          <select class="form-control" name="">
+                            <option  id="clique-default" value="" selected="">- O que deseja fazer-</option>
+                            <option id="clique-conserto"value="">Conserto</option>
+                            <option  id="clique-laudo" value="">Laudo</option>
+                            <option id="clique-doacao" value="">Doação</option>
+                          </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="doacao">
+                      <div id="" class="form-group">
+                        <label class="control-label col-lg-2" for="title">Nome do doador
+                        </label>
+                            <div class="col-lg-10">
+                              <input class="form-control" id="text" name="nome_doador" type="text">
+                        </div>
+                      </div>
+                      </div>
+                    <div id="conserto">
+                      <div id="" class="form-group">
+                        <label class="control-label col-lg-2" for="title">Nome do cliente
+                        </label>
+                            <div class="col-lg-10">
+                              <input class="form-control" id="text" name="cliente" type="text">
+                        </div>
+                      </div>
+                      </div>
+                      <!-- Tags -->
+
+                      <!-- Buttons -->
+                      <div class="form-group">
+                        <!-- Buttons -->
+                        <div class="col-lg-offset-2 col-lg-9">
+                          <button type="submit" class="btn btn-primary" title="cadastrar">
+                            Cadastrar equipamento
+                          </button>
+                          <a class="btn btn-primary" href="<?php echo base_url('index.php/gael/equipamentos')?>" title="metas">Exibir equipamentos</a>
+                         
+                        </div>
+                      </div>
+                    </form>
+                  </div>
 
 
                 </div>
+
               </div>
-
-
             </div>
           </div>
 
-          <div class="col-lg-8">
-            <!--Project Activity start-->
-            <section class="panel">
-              <div class="panel-body progress-panel">
-                <div class="row">
-                  <div class="col-lg-8 task-progress pull-left">
-                    <h1>To Do Everyday</h1>
-                  </div>
-                  <div class="col-lg-4">
-                    <span class="profile-ava pull-right">
-                                        <img alt="" class="simple" src="img/avatar1_small.jpg">
-                                        Jenifer smith
-                                </span>
-                  </div>
+          <div class="col-md-6">
+                        <div  class="panel panel-default">
+              <div class="panel-heading">
+                <div class="pull-left">Gerenciar metas</div>
+                <div class="widget-icons pull-right">
+                  <a id="seletor-down1" href="#">
+                    <i class="fa fa-chevron-down"></i>
+                  </a>
+                  <a href="#" id="seletor-up1" >
+                    <i id="" class="fa fa-chevron-up"></i></a>
+                  <a href="#" class="wclose"><i class="fa fa-times"></i></a>
                 </div>
+                <div class="clearfix"></div>
               </div>
-              <table class="table table-hover personal-task">
-                <tbody>
-                  <tr>
-                    <td>Today</td>
-                    <td>
-                      web design
-                    </td>
-                    <td>
-                      <span class="badge bg-important">Upload</span>
-                    </td>
-                    <td>
-                      <span class="profile-ava">
-                                        <img alt="" class="simple" src="img/avatar1_small.jpg">
-                                    </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Yesterday</td>
-                    <td>
-                      Project Design Task
-                    </td>
-                    <td>
-                      <span class="badge bg-success">Task</span>
-                    </td>
-                    <td>
-                      <div id="work-progress2"></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>21-10-14</td>
-                    <td>
-                      Generate Invoice
-                    </td>
-                    <td>
-                      <span class="badge bg-success">Task</span>
-                    </td>
-                    <td>
-                      <div id="work-progress3"></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>22-10-14</td>
-                    <td>
-                      Project Testing
-                    </td>
-                    <td>
-                      <span class="badge bg-primary">To-Do</span>
-                    </td>
-                    <td>
-                      <span class="profile-ava">
-                                        <img alt="" class="simple" src="img/avatar1_small.jpg">
-                                      </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>24-10-14</td>
-                    <td>
-                      Project Release Date
-                    </td>
-                    <td>
-                      <span class="badge bg-info">Milestone</span>
-                    </td>
-                    <td>
-                      <div id="work-progress4"></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>28-10-14</td>
-                    <td>
-                      Project Release Date
-                    </td>
-                    <td>
-                      <span class="badge bg-primary">To-Do</span>
-                    </td>
-                    <td>
-                      <div id="work-progress5"></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Last week</td>
-                    <td>
-                      Project Release Date
-                    </td>
-                    <td>
-                      <span class="badge bg-primary">To-Do</span>
-                    </td>
-                    <td>
-                      <div id="work-progress1"></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>last month</td>
-                    <td>
-                      Project Release Date
-                    </td>
-                    <td>
-                      <span class="badge bg-success">To-Do</span>
-                    </td>
-                    <td>
-                      <span class="profile-ava">
-                                        <img alt="" class="simple" src="img/avatar1_small.jpg">
-                                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </section>
-            <!--Project Activity end-->
+              <div id="painel1" class="panel-body">
+                <div class="padd">
+
+                  <div class="form quick-post">
+                    <!-- Edit profile form (not working)-->
+                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/meta/salvar/')?>">
+                      <!-- título da meta -->
+                      <div class="form-group">
+                            <label class="control-label col-lg-2" for="title">Título da meta</label>
+                            <div class="col-lg-10">
+                              <input class="form-control" id="title" name="titulo" type="text">
+                            </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-lg-2" for="content">Descrição</label>
+                        <div class="col-lg-10">
+                          <textarea class="form-control" name='descricao' id="content"></textarea>
+                        </div>
+                       </div>
+                      <!-- Content -->
+                     <div class="form-group">
+                            <label class="control-label col-lg-2" for="title">Data do prazo</label>
+                            <div class="col-lg-10">
+                              <input class="form-control" id="title" type="date" name="data_prazo_finalizacao">
+                            </div>
+                      </div>
+
+
+                        <div class="form-group">
+                          <label class="control-label col-lg-2" for="title">Data de finalização</label>
+                          <div class="col-lg-10">
+                            <input class="form-control" id="title" type="date" name="data_de_finalizacao">
+                          </div>
+                        </div>
+                      <!--usuário bolsista-->
+                    <div class="form-group">
+                        <label class="control-label col-lg-2">Finalizado?</label>
+                        <div class="col-lg-10">
+                          <select class="form-control" name="situacao_final">
+                            <option value="" selected="">- selecione-</option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
+                          </select>
+                        </div>
+                      </div>
+                      <!-- Tags -->
+
+                      <!-- Buttons -->
+                      <div class="form-group">
+                        <!-- Buttons -->
+                        <div class="col-lg-offset-2 col-lg-9">
+                          <button type="submit" class="btn btn-primary" title="cadastrar">
+                            Cadastrar
+                          </button>
+                          <a class="btn btn-primary" href="<?php echo base_url('index.php/gael/metas')?>" title="metas">Exibir metas</a>
+                         
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
+
+                </div>
+
+              </div>
+            </div>
+          
           </div>
-        </div><br><br>
+        </div>
+
+<!--FIM DA SEGUNDA ROW -->
+
+
 
         <div class="row">
           <div class="col-md-6 portlets">

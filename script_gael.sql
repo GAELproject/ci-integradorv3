@@ -28,7 +28,8 @@ CREATE TABLE `gael`.`usuario` (
 
 CREATE TABLE `gael`.`OS` (
   `id_OS` INT NOT NULL AUTO_INCREMENT,
-  `data_hora_entrada` TIMESTAMP NOT NULL,
+  `n_OS` VARCHAR(40) NOT NULL,
+  `data_hora_entrada` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `usuario_id_usuario` INT,
   PRIMARY KEY (`id_OS`),
   INDEX `fk_OS_usuario_idx` (`usuario_id_usuario` ASC)
@@ -39,7 +40,9 @@ CREATE TABLE `gael`.`atividade` (
   `data_hora_atividade` TIMESTAMP NOT NULL,
   `nome_item_substituido` VARCHAR(60) NOT NULL,
   `quantidade_item_substituido` INT NOT NULL,
-  PRIMARY KEY (`id_atividade`));
+  `equipamento_id_equipamento` INT,
+  PRIMARY KEY (`id_atividade`)
+  INDEX `fk_atividade_equipamento_idx` (`equipamento_id_equipamento` ASC));
 
 CREATE TABLE `gael`.`equipamento` (
   `id_equipamento` INT NOT NULL,
@@ -47,48 +50,40 @@ CREATE TABLE `gael`.`equipamento` (
   `n_serie` INT(40) NOT NULL,
   `marca` VARCHAR(60) NOT NULL,
   `modelo` VARCHAR(60) NOT NULL,
-  `situacao_final` CHAR(1),
-  `atividade_id_atividade` INT,
-  PRIMARY KEY (`id_equipamento`),
-  INDEX `fk_equipamento_atividade1_idx` (`atividade_id_atividade` ASC));
+  `situacao` CHAR(1),
+  PRIMARY KEY (`id_equipamento`));
 
 CREATE TABLE `gael`.`doacao` (
-  `idtable1` INT NOT NULL AUTO_INCREMENT,
+  `id_doacao` INT NOT NULL AUTO_INCREMENT,
   `instituicao_destino` VARCHAR(60),
   `nome_doador` VARCHAR(60),
   `representante_destino` VARCHAR(45) NOT NULL,
-  `OS_id_OS` INT,
   `equipamento_id_equipamento` INT,
-  PRIMARY KEY (`idtable1`),
-  INDEX `fk_table1_OS1_idx` (`OS_id_OS` ASC),
-  INDEX `fk_doacao_equipamento1_idx` (`equipamento_id_equipamento` ASC));
+  PRIMARY KEY (`id_doacao`),
+  INDEX `fk_doacao_equipamento_idx` (`equipamento_id_equipamento` ASC));
 
 
 CREATE TABLE `gael`.`conserto` (
-  `idtable1` INT NOT NULL AUTO_INCREMENT,
+  `id_conserto` INT NOT NULL AUTO_INCREMENT,
   `cliente` VARCHAR(60) NOT NULL,
   `prazo_entrega` VARCHAR(45) NOT NULL,
   `situacao_final` CHAR(1),
-  `OS_id_OS` INT,
   `equipamento_id_equipamento` INT,
-  PRIMARY KEY (`idtable1`, `OS_id_OS`),
-  INDEX `fk_conserto_OS1_idx` (`OS_id_OS` ASC),
-  INDEX `fk_conserto_equipamento1_idx` (`equipamento_id_equipamento` ASC));
+  PRIMARY KEY (`id_conserto`),
+  INDEX `fk_conserto_equipamento_idx` (`equipamento_id_equipamento` ASC));
 
 
 CREATE TABLE `gael`.`laudo` (
-  `idt_laudo` INT NOT NULL AUTO_INCREMENT,
-  `possiveis_defeitos` TEXT(200) NOT NULL,
-  `possiveis_causas` TEXT(200) NOT NULL,
-  `possiveis_solucoes` TEXT(200) NOT NULL,
-  `data_hora_entrega` VARCHAR(45) NOT NULL,
+  `id_laudo` INT NOT NULL AUTO_INCREMENT,
+  `possiveis_defeitos` TEXT(200),
+  `possiveis_causas` TEXT(200),
+  `possiveis_solucoes` TEXT(200),
+  `data_hora_entrega` VARCHAR(45),
   `cliente` VARCHAR(60) NOT NULL,
   `destino` VARCHAR(60),
-  `OS_id_OS` INT,
   `equipamento_id_equipamento` INT,
-  PRIMARY KEY (`idt_laudo`),
-  INDEX `fk_table1_OS1_idx` (`OS_id_OS` ASC),
-  INDEX `fk_laudo_equipamento1_idx` (`equipamento_id_equipamento` ASC));
+  PRIMARY KEY (`id_laudo`),
+  INDEX `fk_laudo_equipamento_idx` (`equipamento_id_equipamento` ASC));
   
 ALTER TABLE `gael`.`meta`
 ALTER `situacao_final` SET DEFAULT '1';
@@ -106,7 +101,7 @@ ALTER TABLE `gael`.`usuario`
 ALTER `imagem` SET DEFAULT '';
 
 ALTER TABLE `gael`.`equipamento`
-ALTER `situacao_final` SET DEFAULT '1';
+ALTER `situacao` SET DEFAULT '1';
 
 ALTER TABLE `gael`.`doacao`
 ALTER `instituicao_destino` SET DEFAULT 'sem instituição';

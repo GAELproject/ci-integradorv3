@@ -14,7 +14,9 @@ class Gael extends CI_Controller {
 		$this->load->view('auth/index');
 	}
 	public function home(){
+		$this->load->model('Usuario_model');
 		$this->load->model('Meta_model');
+		$coisas['usuarios'] = $this->Usuario_model->recuperar();
 		$coisas['metas'] = $this->Meta_model->recuperar();
 		$coisas['pagina'] = "Página inicial";
 		$coisas ['title'] = 'Página incial - gael';

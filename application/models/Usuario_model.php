@@ -1,6 +1,7 @@
 <?php
 class Usuario_model extends CI_Model
 {
+	public $id_usuario;
 	public $nome;
 	public $tipo;
 	public $login;
