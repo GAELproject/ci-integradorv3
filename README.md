@@ -10,4 +10,4 @@ Versão 3 deste projeto integrador.
 
 ####  Para a utilização do banco de dados:
 
-![Modelo entidade relacionamento - MER ]()
+![Modelo entidade relacionamento - MER ](https://github.com/GAELproject/ci-integradorv3/blob/master/database/gae_lMER-Entidade_Relacional.png)
