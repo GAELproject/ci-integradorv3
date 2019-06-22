@@ -1,9 +1,9 @@
 # GAEL: Sistema Integrado de Gerenciamento de Resíduos Eletroeletrônicos  
 ## Projeto integrador no IFRN
 
-Versão 3 deste projeto integrador.
+Versão 3 desta projeção.
 
-### Tecnologias atualmente utilizadas:
+### Tecnologias atualmente em uso:
    - HTML, CSS e JavaScript;
    - Biblioteca jQuery e o Bootstrap;
    - Para o back-end: PHP e o framework CodeIgniter.
