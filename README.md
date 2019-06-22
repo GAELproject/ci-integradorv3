@@ -34,12 +34,12 @@ Versão 3 deste projeto integrador.
    
  ### contribuidores do projeto:
       Agradecimentos:
+<a href="https://github.com/cesimar">
  <img src="https://avatars3.githubusercontent.com/u/1724680?s=460&v=4" width="100px">
- <figcaption>
- <a href="https://github.com/cesimar">
+
 <b>Cesimar</b>
 <a/>
- </figcaption>
+
 <img src="https://avatars3.githubusercontent.com/u/45470736?s=460&v=4" width="100px" /></br>
  <a href="https://github.com/diogolimas">
 <b>Diogo da S. Lima</b>
