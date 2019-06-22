@@ -36,9 +36,9 @@ Versão 3 deste projeto integrador.
       Agradecimentos:
 <a href="https://github.com/cesimar">
  <img src="https://avatars3.githubusercontent.com/u/1724680?s=460&v=4" width="100px">
-
 <b>Cesimar</b>
 <a/>
+  </br> 
  <a href="https://github.com/diogolimas">
 <img src="https://avatars3.githubusercontent.com/u/45470736?s=460&v=4" width="100px" />
 <b>Diogo da S. Lima</b>
