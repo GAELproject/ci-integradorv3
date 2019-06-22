@@ -10,4 +10,4 @@ Versão 3 deste projeto integrador.
 
 ####  Para a utilização do banco de dados:
 
-
+![Modelo entidade relacionamento - MER ]()
