@@ -34,7 +34,7 @@ Versão 3 deste projeto integrador.
    
  ### contribuidores do projeto:
       Agradecimentos:
- <img src="https://avatars3.githubusercontent.com/u/1724680?s=460&v=4" width="100px" /></br>
+ <img src="https://avatars3.githubusercontent.com/u/1724680?s=460&v=4" width="100px">
  <figcaption>
  <a href="https://github.com/cesimar">
 <b>Cesimar</b>
