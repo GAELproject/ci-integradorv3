@@ -11,7 +11,7 @@ Versão 3 deste projeto integrador.
 ### Para a utilização do banco de dados:
 
 ![Modelo entidade relacionamento - MER ](https://github.com/GAELproject/ci-integradorv3/blob/master/database/gae_lMER-Entidade_Relacional.png)
-   Modelo Entidade Relacionamento (MER) do banco de dados do sistema 
+         Modelo Entidade Relacionamento (MER) do banco de dados do sistema 
    
    
    
@@ -31,5 +31,7 @@ Versão 3 deste projeto integrador.
    
    
    
- ### contribuidores do projeto
+ ### contribuidores do projeto:
+      Agradecimentos:
+ 
  
