@@ -34,8 +34,28 @@ Versão 3 deste projeto integrador.
    
  ### contribuidores do projeto:
       Agradecimentos:
- <img src="https://avatars3.githubusercontent.com/u/1724680?s=460&v=4" width="" /></br>
+ <img src="https://avatars3.githubusercontent.com/u/1724680?s=460&v=4" width="100px" /></br>
  <a href="https://github.com/cesimar">
-<b>Cesimar"</b>
+<b>Cesimar</b>
 <a/>
-  
+<img src="https://avatars3.githubusercontent.com/u/45470736?s=460&v=4" width="100px" /></br>
+ <a href="https://github.com/diogolimas">
+<b>Diogo da S. Lima</b>
+<a/>
+<img src="https://avatars1.githubusercontent.com/u/49319083?s=460&v=4" width="100px" /></br>
+ <a href="https://github.com/JuBeatriz">
+<b>Juliana B.T. Lima</b>
+<a/> 
+<img src="https://avatars0.githubusercontent.com/u/50835585?s=460&v=4" width="100px" /></br>
+ <a href="https://github.com/nicolestheffany">
+<b>Nicole Stheffany O. Alves</b>
+<a/>   
+ <img src="https://avatars3.githubusercontent.com/u/49647785?s=460&v=4" /></br>
+ <a href="https://github.com/RobertoKlinsmann">
+<b>Roberto Klinsmann B. Silva</b>
+<a/>   
+  <img src="https://avatars0.githubusercontent.com/u/50835585?s=460&v=4" width="100px" /></br>
+ <a href="https://github.com/vitoriap246">
+<b>Vitória P. G. Santos</b>
+<a/>   
+
