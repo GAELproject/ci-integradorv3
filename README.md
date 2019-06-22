@@ -52,7 +52,7 @@ Versão 3 deste projeto integrador.
  <a href="https://github.com/nicolestheffany">
 <b>Nicole Stheffany O. Alves</b>
 <a/>   
- <img src="https://avatars3.githubusercontent.com/u/49647785?s=460&v=4" /></br>
+ <img src="https://avatars3.githubusercontent.com/u/49647785?s=460&v=4" width="100px"/></br>
  <a href="https://github.com/RobertoKlinsmann">
 <b>Roberto Klinsmann B. Silva</b>
 <a/>   
