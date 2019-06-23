@@ -66,7 +66,7 @@ Versão 3 desta projeção.
 <a/>   
 
 <a href="https://github.com/vitoriap246">
-<img src="https://avatars0.githubusercontent.com/u/50835585?s=460&v=4" width="100px" />
+<img src="https://scontent.fnat12-1.fna.fbcdn.net/v/t1.0-9/46513623_210476169849408_4210016064110592000_n.jpg?_nc_cat=110&_nc_oc=AQmZiV2Bayug8H-LJu_XobuinOspn1Vg4Anqs0qJbCUmc9JxdmjHGOgWXlIPgLLMmf4&_nc_ht=scontent.fnat12-1.fna&oh=c94017cd71c910e80860ab5677a5549a&oe=5DC579CF" width="100px" />
 
 <b>Vitória P. G. Santos</b>
 <a/>   
