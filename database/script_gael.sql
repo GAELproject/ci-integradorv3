@@ -256,19 +256,3 @@ VALUES ('46566'),
 ('55645'),
 ('1456');
 
-
-
-DELIMITER $
-CREATE  FUNCTION  finalizado(situacao_final char (1))
-RETURNS  VARCHAR (30)
-
-BEGIN
-	IF SITUACAO_FINAL ='1'THEN
-		RETURN 'sim';
-    ELSEIF  SITUACAO_FINAL ='2'THEN
-		RETURN 'não';
-	ELSE
-		RETURN 'NAO  INFORMADO';
-END IF;
-END
-$
