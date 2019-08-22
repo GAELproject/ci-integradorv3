@@ -1032,6 +1032,7 @@ ul.sidebar-menu li.active a i {
 
     border-bottom: 1px solid #f1f2f7;
 
+
 }
 
 .dark-bg {
@@ -1062,13 +1063,13 @@ ul.sidebar-menu li.active a i {
 
 
 
-a.logo {
+a.logo{
 
     font-size: 22px;
 
     font-weight: 300;
 
-    color: #fed189;
+    color:  black;
 
     float: left;
 
@@ -1670,7 +1671,7 @@ div[data-role="editor-toolbar"] {
 
     font-size: 13px;
 
-    color: #bdbdbd;
+    color: black;
 
 }
 
@@ -2404,7 +2405,7 @@ div[data-role="editor-toolbar"] {
 
 }
 
-}
+
 
 .panel.panel-default.panel-heading {
 
