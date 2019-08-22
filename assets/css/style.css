@@ -11,6 +11,20 @@
 @import url(line-icons.css);
 
 
+.br-5{
+    border-radius: 15px !important;
+}
+.form-login-container{
+    border-radius: 15px !important;
+}
+.blr{
+    border-top-left-radius: 15px !important;
+    border-bottom-left-radius:  15px !important;
+}
+.brr{
+    border-top-right-radius: 15px !important;
+    border-bottom-right-radius:  15px !important;
+}
 
 body {
 
