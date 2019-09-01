@@ -7,7 +7,7 @@
   <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
   <meta name="author" content="GeeksLabs">
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-  <link rel="shortcut icon" href="<?php echo base_url('assets/img/gael.ico')?>">
+  <link rel="shortcut icon" href="<?php echo base_url('assets/img/gael.png')?>">
 
   <title>GAEL - Login</title>
 
@@ -33,8 +33,8 @@
 
 
     
-    <form class="login-form form-login-container" action="<?php echo base_url('index.php/gael/home')?>">
-      <div id="" class="login-wrap ">
+    <form class="login-form form-login-container" action="<?php echo base_url('/gael/home')?>">
+      <div id="" class="login-wrap" style="margin-top: -80px;">
         <p class="login-img"><img src="<?php echo base_url('assets/img/gael.png')?>" width="80"></i></p>
         <h4 class="text-center" style="color: black;">
           <strong>Sistema Integrado de Gerenciamento de Eletroeletrônicos</strong>  
