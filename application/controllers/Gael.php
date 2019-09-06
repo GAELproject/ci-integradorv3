@@ -37,5 +37,24 @@ class Gael extends CI_Controller {
 		$coisas['sucess'] = 'Meta inserida com sucesso!';
 		return $this->load->view('metas', $coisas);
 	}
+	public function gerenciar_usuario(){
+		$coisas['pagina'] = 'Gerenciar usuário';
+		return $this->load->view('gerenciar_usuarios', $coisas);
+	}
+
+	public function gerenciar_meta(){
+		$coisas['pagina'] = 'Gerenciar meta';
+		return $this->load->view('gerenciar_metas', $coisas);
+	}
+
+	public function gerenciar_equipamento(){
+		$coisas['pagina'] = 'Gerenciar equipamento';
+		return $this->load->view('gerenciar_equipamentos', $coisas);
+	}
+
+	public function realizar_equipamento(){
+		$coisas['pagina'] = 'Realizar atividade em equipamento';
+		return $this->load->view('realizar_equipamentos', $coisas);
+	}
 
 }
