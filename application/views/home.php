@@ -45,16 +45,16 @@
         </div>
 
         <div class="card text-center">
-          <div class="card-header">GAEL - Gerenciamento</div>
+          <div class="card-header">GAEL - gerenciar usuário</div>
           <div class="card-body">
             <h5 class="card-title">Gerenciar Metas</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="<?php echo base_url('gael/gerenciar_meta')?>" class="btn btn-primary">Gerenciar metas</a>
+            <a href="<?php echo base_url('index.php/gael/metas')?>" class="btn btn-primary">Gerenciar metas</a>
           </div>
         </div>
 
         <div class="card text-center">
-          <div class="card-header">GAEL - Gerenciamento</div>
+          <div class="card-header">GAEL - gerenciar metas</div>
           <div class="card-body">
             <h5 class="card-title">Gerenciar Equipamentos</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -72,39 +72,6 @@
         </div>
 
 
-
-
-
-
-<!-- FIM DA PRIMEIRA COLUNA-->
-
-
-          <!---#############################3
-            SEGUNDA COLUNA DO PRIMERIO ROW-->
-          
-            <!--fim do painel-->
-          </div>
-        </div>
-
-        <!--fim da primeira row-->
-
-        <!-- statics end -->
-
-
-<!--INÍCIO DA SEGUNDA LINHA - ROW-->
-
-        <!-- project team & activity start -->
-
-            <!--fim da primeira coluna-->
-          <!--início da segunda coluna-->
-
-        <!--fim do painei-->
-            </div>
-            <!--fim da segunda coluna-->
-          </div>
-
-
-<!--FIM DA SEGUNDA ROW -->
 
 
 

@@ -4,7 +4,7 @@ class Usuario_tem_meta_model extends CI_Model
 	//Esssa tabela serve para ligar 
 	//a tabela usuário e meta
 	//para que o usuário possa ter mais de uma meta
-	public $id_usuario_meta;
+	public $id_usuario_tem_meta;
 	public $usuario_id;
 	public $meta_id;
 	public $data_criacao;
@@ -17,36 +17,30 @@ class Usuario_tem_meta_model extends CI_Model
 
 	public function inserir()
 	{
-		$dados = array("id_usuario_meta" => $this->id_usuario_meta,
+		$dados = array(
 						"usuario_id" => $this->usuario_id,
-						"meta_id" => $this->meta_id,
-						"data_criacao" => $this->data_criacao
+						"meta_id" => $this->meta_id
 						);
-		/*
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();*/
+
 		return $this->db->insert('usuario_tem_meta', $dados);
 	}
 	public function recuperar(){
 		$query = $this->db->get('usuario_tem_meta');
 		return $query->result();
 	}
-
+	public function getIdMeta($titulo, $criador_id){
+        $this->db->like('titulo',$titulo)->where('id_criador',$criador_id);
+        $query = $this->db->get('meta');
+        return $query->result_array();
+    }
     public function delete($id)
     {
-        $this->db->where('id_usuario_meta', $id);
+        $this->db->where('meta_id', $id);
         $this->db->delete('usuario_tem_meta');
     }
 
 	public function recuperarUm($id){
-        $this->db->where('id_usuario_meta',$id);
+        $this->db->where('id_usuario_tem_meta',$id);
         $query = $this->db->get('usuario_tem_meta');
         return $query->row();
     }

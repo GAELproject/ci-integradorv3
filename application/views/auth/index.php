@@ -37,7 +37,7 @@
       <div id="" class="login-wrap" style="margin-top: -80px;">
         <p class="login-img"><img src="<?php echo base_url('assets/img/gael.png')?>" width="80"></i></p>
         <h4 class="text-center" style="color: black;">
-          <strong>Sistema Integrado de Gerenciamento de Eletroeletrônicos</strong>  
+          <strong>Sistema Integrado para o Gerenciamento de Resíduos Eletroeletrônicos</strong>  
         
         </h4 >
         <div class="input-group">

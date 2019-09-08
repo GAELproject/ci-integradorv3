@@ -4,10 +4,11 @@ class Meta_model extends CI_Model
 	public $id_meta;
 	public $titulo;
 	public $descricao;
-	public $data_criacao;
+	public $id_criador;
+	public $turno;
 	public $data_prazo_finalizacao;
-	public $data_de_finalizacao;
-	public $situacao_final;
+	public $data_finalizacao;
+	public $situacao;
 
 	public function __construct(){
 		 parent::__construct();
@@ -16,7 +17,14 @@ class Meta_model extends CI_Model
 
 	public function inserir()
 	{
-		$dados = array("titulo" => $this->titulo,"descricao" => $this->descricao,"data_prazo_finalizacao" => $this->data_prazo_finalizacao,"data_de_finalizacao" => $this->data_de_finalizacao, "situacao_final" => $this->situacao_final);
+        $dados = array("titulo" => $this->titulo,
+                        "descricao" => $this->descricao,
+						"id_criador" => $this->id_criador,
+						"turno" => $this->turno,
+                        "data_prazo_finalizacao" => $this->data_prazo_finalizacao,
+                        "data_finalizacao" => $this->data_finalizacao, 
+                        "situacao" => $this->situacao
+                    );
 		/*
 		$dados = array();
 		$dados = array();
@@ -37,7 +45,24 @@ class Meta_model extends CI_Model
     public function delete($id)
     {
         $this->db->where('id_meta', $id);
-        $this->db->delete('meta');
+		//$this->db->delete('meta');
+		$db_debug = $this->db->db_debug; //salve a configuração
+		$this->db->db_debug = FALSE; //desabilita o debug para consultas
+	
+		if ( !$this->db->delete('meta') )
+		{
+			$error = $this->db->error();
+	
+			// Tratativa de erro aqui
+			/*
+			 * Seu código...
+			 */
+			$this->db->db_debug = $db_debug; //restaure a configuração de debug
+	
+			return $error;
+		}
+	
+		return $this->db->affected_rows();
     }
 
 	public function recuperarUm($id){
@@ -45,17 +70,6 @@ class Meta_model extends CI_Model
         $query = $this->db->get('meta');
         return $query->row();
     }
-    public function update(){
-        $this->db->set('titulo', $this->nome);
-
-        $this->db->set('descricao', $this->descricao);
-        $this->db->set('data_criacao', $this->data_criacao);
-        $this->db->set('data_prazo_finalizacao', $this->data_prazo_finalizacao);
-        $this->db->set('data_de_finalizacao',$this->data_de_finalizacao);
-        $this->db->set('situacao_final', $this->situacao_final);
-        $this->db->where('id_meta', $this->id_meta);
-        $this->db->update('meta');
-
-    }
+  
 
 }
