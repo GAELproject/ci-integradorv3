@@ -103,7 +103,7 @@ class Meta extends CI_Controller {
 		//$this->Usuario_tem_meta_model->delete($id_row);
 		if ($this->Meta_model->delete($id)) {
 			$this->session->set_flashdata('mensagem', "<div class='alert alert-warning'> Produto deletado com sucesso</div>");
-			redirect('index.php/gael/metas');
+			redirect('index.php/gael/	');
 		} else {
 			$this->session->set_flashdata('mensagem', "<div class='alert alert-danger'> Erro ao deletar Produto</div>");
 		}

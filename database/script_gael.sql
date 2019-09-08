@@ -1,258 +1,199 @@
-CREATE DATABASE`gael` DEFAULT CHARACTER SET utf8 ;
-
-CREATE TABLE `gael`.`meta` (
-  `id_meta` INT NOT NULL AUTO_INCREMENT,
-  `titulo` VARCHAR(40) NOT NULL,
-  `descricao` TEXT(200) NOT NULL,
-  `data_criacao` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `data_prazo_finalizacao` DATE NOT NULL,
-  `data_de_finalizacao` DATE,
-  `situacao_final` CHAR(1),
-  PRIMARY KEY (`id_meta`));
-
-
-CREATE TABLE `gael`.`usuario` (
-  `id_usuario` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(60) NOT NULL,
-  `tipo` CHAR(1) NOT NULL,
-  `login` VARCHAR(45) NOT NULL,
-  `senha` VARCHAR(45) NOT NULL,
-  `imagem` VARCHAR(45),
-  `email` VARCHAR(45),
-  `cpf` VARCHAR(13),
-  `turno` CHAR(1),
-  `usuario_bolsista` CHAR(1),
-  `meta_id_meta` INT,
-  PRIMARY KEY (`id_usuario`),
-  INDEX `fk_usuario_meta1_idx` (`meta_id_meta` ASC));
-
-
-CREATE TABLE `gael`.`OS` (
-  `id_OS` INT NOT NULL AUTO_INCREMENT,
-  `n_OS` VARCHAR(40) NOT NULL,
-  `data_hora_entrada` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `usuario_id_usuario` INT,
-  PRIMARY KEY (`id_OS`),
-  INDEX `fk_OS_usuario_idx` (`usuario_id_usuario` ASC)
+/*falta implementar as chaves estrangeiras da tabela de equipamentos e suas relações, além de que falta as restrições de padrão*/
+-- criação do banco de dados
+CREATE DATABASE gael;
+-- criação das tabelas e atributos
+CREATE TABLE gael.usuario(
+    id_usuario INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    u_nome VARCHAR(90) NOT NULL, 
+    u_email VARCHAR(90) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    cpf VARCHAR(15) NOT NULL,
+    usuario_tipo CHAR(1) NOT NULL,
+    usuario_bolsista BOOLEAN NOT NULL,
+    turno_atividades CHAR(1)
 );
 
-CREATE TABLE `gael`.`atividade` (
-  `id_atividade` INT NOT NULL AUTO_INCREMENT,
-  `data_hora_atividade` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `nome_item_substituido` VARCHAR(60) NOT NULL,
-  `quantidade_item_substituido` INT NOT NULL,
-  `equipamento_id_equipamento` INT,
-  PRIMARY KEY (`id_atividade`),
-  INDEX `fk_atividade_equipamento_idx` (`equipamento_id_equipamento` ASC));
-
-
-CREATE TABLE `gael`.`equipamento` (
-  `id_equipamento` INT  AUTO_INCREMENT NOT NULL,
-  `nome_equipamento` VARCHAR(60) NOT NULL,
-  `n_serie` INT(40) NOT NULL,
-  `marca` VARCHAR(60) NOT NULL,
-  `modelo` VARCHAR(60) NOT NULL,
-  `situacao` CHAR(1),
-  `OS_id_OS` INT,
-  PRIMARY KEY (`id_equipamento`),
-INDEX `fk_equipamento_OS_idx` (`OS_id_OS` ASC)
-  );
-
-
-CREATE TABLE `gael`.`doacao` (
-  `id_doacao` INT NOT NULL AUTO_INCREMENT,
-  `instituicao_destino` VARCHAR(60),
-  `nome_doador` VARCHAR(60),
-  `representante_destino` VARCHAR(45) NOT NULL,
-  `equipamento_id_equipamento` INT,
-  PRIMARY KEY (`id_doacao`),
-  INDEX `fk_doacao_equipamento_idx` (`equipamento_id_equipamento` ASC));
 
 
 
-CREATE TABLE `gael`.`conserto` (
-  `id_conserto` INT NOT NULL AUTO_INCREMENT,
-  `cliente` VARCHAR(60) NOT NULL,
-  `prazo_entrega` DATE NOT NULL,
-  `situacao_final` CHAR(1),
-  `equipamento_id_equipamento` INT,
-  PRIMARY KEY (`id_conserto`),
-  INDEX `fk_conserto_equipamento_idx` (`equipamento_id_equipamento` ASC));
+CREATE TABLE gael.usuario_tem_meta(
+    id_usuario_tem_meta INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+usuario_id INT NOT NULL,
+meta_id INT NOT NULL,
+data_hora_criacao TIMESTAMP NOT NULL
+);
+
+CREATE TABLE gael.meta(
+    id_meta INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+    titulo VARCHAR (60) NOT NULL,
+    descricao VARCHAR (256) NOT NULL,
+    turno CHAR(1) NOT NULL,
+    data_prazo_finalizacao DATE NOT NULL,
+    data_finalizacao DATE,
+    situacao BOOLEAN NOT NULL,
+    id_criador INT NOT NULL
+);
+
+/* a tabela ordem de serviço (OS) toda vez que existe uma relação do usuário 
+com todo equipamento que entra. Caracterizando-a como entidade associativa.
+*/
+CREATE TABLE gael.OS(
+    id_os INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    responsavel INT NOT NULL,
+    equipamento_id INT NOT NULL,
+    numero_OS VARCHAR(256) NOT NULL,
+    data_criacao TIMESTAMP NOT NULL
+);
+
+CREATE TABLE gael.equipamento(
+     id_equipamento INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    equipamento_nome VARCHAR(90) NOT NULL,
+    numero_serie VARCHAR(90) NOT NULL,
+marca VARCHAR(45) NOT NULL, 
+modelo VARCHAR(45) NOT NULL,
+situacao CHAR(1) NOT NULL 
+);
+CREATE TABLE gael.laudo(
+    id_laudo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    possiveis_defeitos TEXT NOT NULL,
+    possiveis_causas TEXT NOT NULL,
+    possiveis_solucoes TEXT NOT NULL,
+    data_entrega DATE NOT NULL,
+    cliente VARCHAR(60) NOT NULL,
+    destino VARCHAR(60) NOT NULL,
+    equipamento_laudo_id INT NOT NULL
+);
+ 
+CREATE TABLE  gael.conserto(
+    id_conserto INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    cliente VARCHAR(60) NOT NULL,
+    prazo_entrega DATE NOT NULL,
+    situacao_final CHAR(1) NOT NULL,
+    equipamento_conserto_id INT NOT NULL
+);
+
+CREATE TABLE gael.doacao(
+    id_doacao INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    origem VARCHAR(90) NOT NULL,
+    defeito VARCHAR(256),
+    observacoes VARCHAR(256),
+    situacao_final CHAR(1) NOT NULL,
+    equipamento_doado_id INT NOT NULL
+);
+
+-- Criação das chaves primárias
+-- entidade associativa entre equipamento e atividade
+CREATE TABLE gael.equipamento_realizou_atividade(
+    id_equipamento_reaizou_atividade INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    equipamento_id_equipamento INT NOT NULL,
+    atividade_id_atividade INT NOT NULL,
+    data_hora_atividade TIMESTAMP NOT NULL
+);
+
+CREATE TABLE gael.atividade(
+    id_atividade INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    data_servico DATE NOT NULL,
+    descricao_servico_realizado VARCHAR(256) NOT NULL,
+    qtd_item_substituido INT NOT NULL,
+    nome_item_substituido VARCHAR(60) NOT NULL,
+situacao_final CHAR(1) NOT NULL,
+atividade_defeito VARCHAR(60) NOT NULL,
+observacoes VARCHAR(256),
+atividade_id INT NOT NULL
+);
+ 
+
+-- restrições de valores padrão (apenas os itens sem not null, têm restrição de vazio)
+ALTER TABLE gael.usuario ALTER turno_atividades SET DEFAULT '1 ';
+ALTER TABLE gael.usuario ALTER turno_atividades SET DEFAULT '1 ';
+ALTER TABLE gael.doacao ALTER defeito SET DEFAULT 'não apresenta defeitos ';
+ALTER TABLE gael.atividade ALTER atividade_defeito SET DEFAULT 'não apresenta defeitos ';
+ALTER TABLE gael.atividade ALTER observacoes SET DEFAULT 'não apresenta defeitos ';
+
+-- alterações das tabelas e restrições de integridade, valores únicos
+ALTER TABLE gael.usuario
+ADD CONSTRAINT uc_u_email
+UNIQUE (u_email);
+
+ALTER TABLE gael.OS
+ADD CONSTRAINT uc_numero_OS 
+UNIQUE (numero_OS );
+
+ALTER TABLE gael.equipamento
+ADD CONSTRAINT uc_numero_serie 
+UNIQUE (numero_serie);
+
+-- alterações das tabelas e restrições de integridade, restrições das chaves  estrangeiras
+ALTER TABLE gael.meta
+ADD CONSTRAINT fk_id_criador
+FOREIGN KEY (id_criador)
+REFERENCES usuario(id_usuario);
+
+
+ALTER TABLE gael.usuario_tem_meta
+ADD CONSTRAINT fk_usuario_id
+FOREIGN KEY (usuario_id)
+REFERENCES usuario(id_usuario);
+
+
+ALTER TABLE gael.usuario_tem_meta
+ADD CONSTRAINT fk_meta_id
+FOREIGN KEY (meta_id)
+REFERENCES meta(id_meta);
+
+
+ALTER TABLE gael.OS
+ADD CONSTRAINT fk_responsavel
+FOREIGN KEY (responsavel)
+REFERENCES usuario(id_usuario);
+
+ALTER TABLE gael.OS
+ADD CONSTRAINT fk_equipamento_id
+FOREIGN KEY (equipamento_id)
+REFERENCES equipamento(id_equipamento);
+
+
+ALTER TABLE gael.doacao
+ADD CONSTRAINT fk_equipamento_doado_id
+FOREIGN KEY (equipamento_doado_id)
+REFERENCES equipamento(id_equipamento);
+
+ALTER TABLE gael.laudo
+ADD CONSTRAINT fk_equipamento_laudo_id
+FOREIGN KEY (equipamento_laudo_id)
+REFERENCES equipamento(id_equipamento);
+
+ALTER TABLE gael.conserto
+ADD CONSTRAINT fk_equipamento_conserto_id
+FOREIGN KEY (equipamento_conserto_id)
+REFERENCES equipamento(id_equipamento);
+
+ALTER TABLE gael.equipamento_realizou_atividade
+ADD CONSTRAINT fk_equipamento_id_equipamento
+FOREIGN KEY (equipamento_id_equipamento)
+REFERENCES equipamento(id_equipamento);
+
+ALTER TABLE gael.equipamento_realizou_atividade
+ADD CONSTRAINT fk_atividade_id_atividade
+FOREIGN KEY (atividade_id_atividade)
+REFERENCES atividade(id_atividade);
+
+ALTER TABLE gael.atividade
+ADD CONSTRAINT fk_atividade_id
+FOREIGN KEY (atividade_id)
+REFERENCES equipamento_realizou_atividade(id_equipamento_reaizou_atividade);
+
+
+-- POVOAMENTO
+INSERT INTO `gael`.`usuario` (`u_nome`, `u_email`, `senha`, `cpf`, `usuario_tipo`, `usuario_bolsista`, `turno_atividades`)
+VALUES ('Nicole Stheffany Oliveira', 'nicolestheffa@gmail.com', '1234', '124.532.352-35', '2', true, '2');
+ 
+INSERT INTO `gael`.`usuario` (`u_nome`, `u_email`, `senha`, `cpf`, `usuario_tipo`, `usuario_bolsista`, `turno_atividades`)
+VALUES ('Diogo da Silva Lima', 'diogo.libras43@gmail.com', '1234', '126.444.444-35', '1', true, '2');
+
+INSERT INTO `gael`.`usuario` (`u_nome`, `u_email`, `senha`, `cpf`, `usuario_tipo`, `usuario_bolsista`, `turno_atividades`)
+VALUES ('Outro usuário para teste', 'teste.email@gmail.com', '1234', '000.444.000-00', '2', true, '2');
 
 
 
-CREATE TABLE `gael`.`laudo` (
-  `id_laudo` INT NOT NULL AUTO_INCREMENT,
-  `possiveis_defeitos` TEXT(200),
-  `possiveis_causas` TEXT(200),
-  `possiveis_solucoes` TEXT(200),
-  `data_entrega` DATE,
-  `cliente` VARCHAR(60) NOT NULL,
-  `destino` VARCHAR(60),
-  `equipamento_id_equipamento` INT,
-  PRIMARY KEY (`id_laudo`),
-  INDEX `fk_laudo_equipamento_idx` (`equipamento_id_equipamento` ASC));
-
-
-
-ALTER TABLE `gael`.`meta`
-ALTER `data_de_finalizacao` SET DEFAULT'2000-10-10';
-
-ALTER TABLE `gael`.`meta`
-ALTER `situacao_final` SET DEFAULT '1';
-
-ALTER TABLE `gael`.`usuario`
-ALTER `cpf` SET DEFAULT 'semcpf';
-
-ALTER TABLE `gael`.`usuario`
-ALTER `email` SET DEFAULT 'insiraumemail@nada';
-
-ALTER TABLE `gael`.`usuario`
-ALTER `turno` SET DEFAULT 'M';
-
-ALTER TABLE `gael`.`usuario`
-ALTER `imagem` SET DEFAULT '';
-
-ALTER TABLE `gael`.`equipamento`
-ALTER `situacao` SET DEFAULT '1';
-
-ALTER TABLE `gael`.`doacao`
-ALTER `instituicao_destino` SET DEFAULT 'sem instituição';
-
-ALTER TABLE `gael`.`doacao`
-ALTER `nome_doador` SET DEFAULT '';
-
-ALTER TABLE `gael`.`conserto`
-ALTER `situacao_final` SET DEFAULT '1';
-
-ALTER TABLE `gael`.`laudo`
-ALTER `destino` SET DEFAULT '';
-
-ALTER TABLE `gael`.`usuario`
-ALTER `meta_id_meta` SET DEFAULT -1;
-
-ALTER TABLE `gael`.`atividade`
-ALTER `equipamento_id_equipamento` SET DEFAULT null;
-
-ALTER TABLE `gael`.`conserto`
-ALTER `equipamento_id_equipamento` SET DEFAULT null;
-
-ALTER TABLE `gael`.`laudo`
-ALTER `equipamento_id_equipamento` SET DEFAULT null;
-
-ALTER TABLE `gael`.`doacao`
-ALTER `equipamento_id_equipamento` SET DEFAULT null;
-
-
-
-
-
-INSERT INTO `gael`.`usuario`
-(nome, tipo, login, senha, imagem, email, cpf, turno, usuario_bolsista, meta_id_meta)
-VALUES ('diogo','2', '209393', 'senha', 'imagem','email','352352', 'M', 'S',1),  
-('nicole','1','23525','', 'nada','', '','M', 'S',1),
-('vitoria', '2', '232525','', 'alguma','','2352532', 'M', 'S',1),
- ('diogo','2', '209393', 'senha', 'imagem','email','352352', 'M', 'S',1),
- ('sabrina','2', '832759', 'senha', 'imagem','akfk','325', 'M', 'S',1),
- ('klisnmann','2', '23582', 'senha', 'imagem','email','2552', 'M', 'S',1),
- ('roberto','2', '82357', 'senha', 'imagem','email','235827', 'M', 'S',1),
- ('jumenta','2', '238527', 'senha', 'imagem','email','357256', 'M', 'S',2),
- ('orientador','2', '3252735', 'senha', 'imagem','email','8235728', 'M', 'S',2),
- ('alguém me diz um nome','1', '3253', 'sem_senha', 'qrimagem','email@dgsd','235', 'N', 'N',2);
-
-
-INSERT INTO `gael`.`meta`
-(titulo, descricao, data_prazo_finalizacao, situacao_final)
-VALUES ('tirar todas as peças', 'nada demais','2019-10-01','2'),
- ('Manutenção de tv 35 HC', 'tirar tudo','2019-10-12','2'),
- ('Conserto de rádio Panasonic', 'capciotor tirar','2019-10-12','1'),
- ('Conserto de tv Samsung', 'subsituir os fios','2019-10-01','2'),
- ('Ajuste de pc', 'deixar meio preto a tela','2019-10-01','1'),
- ('Ajuste de rádio', 'nada demais','2019-10-01','1'),
- ('Ajuste de televisor', 'todos envolvidos','2019-10-01','2'),
-  ('Ajuste de antena', 'todos participem','2019-10-01','2'),
-  ('consertar bicicleta', 'todos participem','2019-10-03','2'),
-  ('fazer os capacitores', 'não façam nada','2019-10-03','2');
-
-
-INSERT INTO `gael`.`atividade`
-(nome_item_substituido, quantidade_item_substituido)
-VALUES ('tecla', 3),
-       ('monitor', 3),
-       ('cabo frete',7),
-       ('processador',8),
-       ('nada', 10),
-       ('hugmos',9),
-       ('juliana',8),
-       ('tudos',89),
-       ('teclado',90),
-       ('nicole',7);
-
-
-INSERT INTO `gael`.`laudo`
- (possiveis_defeitos,possiveis_causas,possiveis_solucoes,cliente,destino)
- VALUES ('Placa mãe quebrada','Componente queimado','Substituição da placa mãe','Jose Ailton', 'Não sei'),
-  ('Placa de vídeo','CI corrompido','Consertar circuito','Leilani','Natal'),
-  ('Tela trincada','Queda','Substituição da tela','Diogo','Non sei'),
-  ('Capacitor queimado','Tempo de uso','Substituição do capacitor','Scarlett','Extremoz'),
-  ('Tela preta','Fonte','Reparação na placa da fonte','Jennifer','Sei nao'),
-  ('Botão afundado','Tempo de uso','Subtituição do botão','Jane','IFRN'),
-  ('Tela quebrada','Queda','Nova tela','Demetrio','Deus sabe'),
-  ('Circuito bugado','Curto circuito','Nova placa','Sara','IFSP'),
-  ('Placa queinada','Tempo de uso','Nova placa','Kelly','Lixo'),
-  ('Botão quebrado','Tempo de uso','Substituição do botão','Debora','sei lá');
-
-
-INSERT INTO `gael`.`equipamento`
-(nome_equipamento, n_serie, marca, modelo, situacao)
-VALUES ('camera','546546','dell','e5352', '1'),
-('geladeria','23234','consul','a5329725', '1'),
-('celular','546','dell','afsa', '1'),
-('pc','2546','hp','safsaf', '1'),
-('gula','54','eu sei lá','2143214', '1'),
-('cabo hdmi','213','sansumg','afsa', '1'),
-('dp','5131','lg','afs', '1'),
-('azulão','5131','lg','afs', '1'),
-('tomada','2352','kade','afs', '1'),
-('notebook','5131','dell','aasga', '1')
-;
-
-INSERT INTO `gael`.`doacao`
-(representante_destino)
-VALUES ('diogo'),
-    ('rute'),
-    ('alan'),
-    ('klisnamnn'),
-    ('vitoria'),
-    ('jubetriz'),
-    ('alaniingua'),
-    ('cesimar'),
-    ('cosme'),
-    ('marjorie');
-
-INSERT INTO `gael`.`conserto`
-(cliente, prazo_entrega, situacao_final)
-VALUES ('diogo','2000-12-20','1'),
-    ('diogo','2000-12-20','1'),
-    ('scheylla','2000-12-20','1'),
-    ('cesimar','2000-12-20','1'),
-    ('jp','2000-12-20','1'),
-    ('nicole','2000-12-20','1'),
-    ('juliana','2000-12-20','1'),
-    ('klinsmann','2000-12-20','1'),
-    ('jaqueline','2000-12-20','1'),
-    ('kdorientação','2000-12-20','1');
-
-INSERT INTO `gael`.`OS`
-(n_OS)
-VALUES ('46566'),
-('65456'),
-('564564'),
-('57465'),
-('5456'),
-('56446'),
-('5464'),
-('8712454'),
-('55645'),
-('1456');
 
