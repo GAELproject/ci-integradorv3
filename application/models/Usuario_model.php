@@ -44,7 +44,14 @@ class Usuario_model extends CI_Model
 		$query = $this->db->get('usuario');
 		return $query->result_array();
 	}
-
+    
+    public function recuperarAdms()
+	{
+		$this->db->where('usuario_tipo','1');
+		$query = $this->db->get('usuario');
+		return $query->result_array();
+	}
+    
     public function delete($id)
     {
         $this->db->where('id_usuario', $id);

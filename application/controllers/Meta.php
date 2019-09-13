@@ -87,6 +87,8 @@ class Meta extends CI_Controller {
 			return $this->load->view('home',$coisas);
 		}
 	}
+
+
     public function deletar(){
         //$coisas ['pagina'] = 'Listagem de usuário';
         //$coisas ['title'] = 'listagem de usuário - gael';
@@ -103,7 +105,7 @@ class Meta extends CI_Controller {
 		//$this->Usuario_tem_meta_model->delete($id_row);
 		if ($this->Meta_model->delete($id)) {
 			$this->session->set_flashdata('mensagem', "<div class='alert alert-warning'> Produto deletado com sucesso</div>");
-			redirect('index.php/gael/	');
+			redirect('index.php/gael/');
 		} else {
 			$this->session->set_flashdata('mensagem', "<div class='alert alert-danger'> Erro ao deletar Produto</div>");
 		}
@@ -114,7 +116,6 @@ class Meta extends CI_Controller {
 
 
     public function editar(){
-        
 		
         $id = $this->uri->segment(3);
 		
@@ -124,13 +125,15 @@ class Meta extends CI_Controller {
 		$dados['meta'] = $this->Meta_model->recuperarUm($id);
 		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
 		$dados['bolsistasall'] = $this->Usuario_model->recuperarNormais();
-		
+		$dados['adms'] = $this->Usuario_model->recuperarAdms();
 
         return $this->load->view('metas/editMeta', $dados);
     }
     public function atualizar(){
-        $this->load->model('Usuario_model');
-        $this->Meta_model->titulo= $_POST['id_usuario'];
+		print_r($_POST);
+		exit();
+	
+        $this->Meta_model->titulo = $_POST['id_usuario'];
         $this->Meta_model->descricao = $_POST['nome'];
         $this->Meta_model->data_criacao= $_POST['data_criacao'];
         $this->Meta_model->data_prazo_finalizacao = $_POST['data_prazo_finalizacao'];

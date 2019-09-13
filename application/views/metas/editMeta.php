@@ -22,10 +22,9 @@
         </div>
         <div id="painel1" class="panel-body">
             <div class="padd">
-
                 <div class="form quick-post">
                     <!-- Edit profile form (not working)-->
-                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/meta/salvar/')?>">
+                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/meta/atualizar/')?>">
                         <!-- título da meta -->
                         <div class="form-group">    
                             <label class="control-label col-lg-2" for="title">Título da meta</label>
@@ -36,7 +35,7 @@
 
                         <div class="form-group">
                             <label class="control-label col-lg-2" for="content">Descrição</label>
-                            <div class="col-lg-10">
+                            <div class="col-lg-10"> 
                                 <textarea class="form-control" name='descricao' id="content" value="<?= $meta->descricao; ?>"><?= $meta->titulo; ?></textarea>
                             </div>
                         </div>
@@ -70,7 +69,7 @@
                         <div class="form-group">
                             <label class="control-label col-lg-2" for="title">Data da finalização</label>
                             <div class="col-lg-10">
-                                <input class="form-control" id="title" type="date" name="data_de_finalizacao" value="<?= $meta->data_finalizacao; ?>">
+                                <input class="form-control" id="title" type="date" name="data_finalizacao" value="<?= $meta->data_finalizacao; ?>">
                             </div>
                         </div>
                         <!--usuário bolsista-->
@@ -79,9 +78,9 @@
                             <div class="col-lg-10">
                                 <select class="form-control" name="situacao">
                                   
-                                    <option value="1" <?php 
+                                    <option value="0" <?php 
                                         if($meta->situacao == "0"){ echo "selected";}?>>Não finalizado</option>
-                                    <option value="2" <?php 
+                                    <option value="1" <?php 
                                         if($meta->situacao == "1"){ echo "selected";}?>>Finalizado</option>
                                 </select>
                             </div>
@@ -90,7 +89,15 @@
                         <div class="form-group">
                             <label class="control-label col-lg-2" for="criador">Criador</label>
                             <div class="col-lg-10">
-                                <input class="form-control" id="criador" type="text" name="id_criador" value="<?= $meta->id_criador; ?>">
+                                <input class="form-control" id="criador" type="hidden" name="id_criador" value="<?= $meta->id_criador; ?>">
+                                <label for="">
+                                    <?php foreach ($adms as $adm) {
+                                        if($adm['id_usuario'] == $meta->id_criador){
+                                            echo "Nome: ".$adm['u_nome']."<br>";
+                                            echo "CPF: ".$adm['cpf']."<br>";
+                                        }
+                                    } ?>
+                                </label>
                             </div>
                         </div>
 
@@ -98,25 +105,29 @@
                         <div class="form-group">
                             <label class="control-label col-lg-2">Usuários vinculados a essa meta</label>
                             <div class="col-lg-10">
+
+                                
+                                
+
+                           
                            
                                 <?php foreach($bolsistasall as $bolsista){ ?>
 
-                                    <?php foreach($usuario_tem_meta as $utm){?>
-                                               
-                                            <input type="checkbox" name="id_usuario[]" id="users" value="" 
-                                                <?php if ($meta->id_meta == $utm->meta_id && $bolsista['id_usuario'] == $utm->usuario_id) {?>
+                                            <input type="checkbox" name="id_usuario[]" id="users" value="<?= $bolsista['id_usuario'];?>" 
+                                                
+                                             <?php foreach($usuario_tem_meta as $utm){
+                                                if($meta->id_meta == $utm->meta_id &&
+                                                $bolsista['id_usuario'] == $utm->usuario_id) {?>
                                                    checked
-                                               <?php } ?>
+                                               <?php } 
+                                                }
+                                               ?>
                                             >
                                             <label for="">Nome: <?= $bolsista['u_nome'];?>
                                                 CPF: <?=$bolsista['cpf']?> 
                                                 Turno de atividades: <?= $bolsista['turno_atividades'];?></label>
                                                 <br>
-                                       
-                                            
-                                        
-                                    <?php }?>
-                                    <?php }?>
+                                    <?php   }?>
                             </div>
                         </div>
 
