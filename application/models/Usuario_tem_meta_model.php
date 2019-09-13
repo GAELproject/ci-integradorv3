@@ -43,7 +43,13 @@ class Usuario_tem_meta_model extends CI_Model
         $this->db->where('id_usuario_tem_meta',$id);
         $query = $this->db->get('usuario_tem_meta');
         return $query->row();
-    }
+	}
+	public function recuperarUsuariosMeta($id_meta){
+        $this->db->where('meta_id',$id_meta);
+        $query = $this->db->get('usuario_tem_meta');
+        return $query->result();
+	}
+	
     public function update(){
         $this->db->set('usuario_id', $this->usuario_id); 
         $this->db->set('meta_id', $this->meta_id);

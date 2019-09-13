@@ -114,17 +114,19 @@ class Meta extends CI_Controller {
 
 
     public function editar(){
-        $this->load->model('Meta_model');
-
+        
+		
         $id = $this->uri->segment(3);
-
-
+		
         $dados['title'] = "Ediçãode metas";
         $dados['pagina'] = "Edição de metas";
 
-        $dados['meta'] = $this->Meta_model->recuperarUm($id);
+		$dados['meta'] = $this->Meta_model->recuperarUm($id);
+		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
+		$dados['bolsistasall'] = $this->Usuario_model->recuperarNormais();
+		
 
-        return $this->load->view('editMeta', $dados);
+        return $this->load->view('metas/editMeta', $dados);
     }
     public function atualizar(){
         $this->load->model('Usuario_model');
