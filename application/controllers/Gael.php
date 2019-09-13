@@ -14,10 +14,7 @@ class Gael extends CI_Controller {
 		$this->load->view('auth/index');
 	}
 	public function home(){
-		$this->load->model('Usuario_model');
-		$this->load->model('Meta_model');
 		$coisas['usuarios'] = $this->Usuario_model->recuperar();
-		$coisas['metas'] = $this->Meta_model->recuperar();
 		$coisas['pagina'] = "Página inicial";
 		$coisas ['title'] = 'Página incial - gael';
 		$this->load->view('home', $coisas);
@@ -30,12 +27,45 @@ class Gael extends CI_Controller {
 		return $this->load->view('user', $coisas);
 	}
 	public function metas(){
-		$this->load->model('Meta_model');
+		
+		
+		$coisas['usuarios'] = $this->Usuario_model->recuperar();
+
 		$coisas['metas'] = $this->Meta_model->recuperar();
+		$coisas['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperar();
 		$coisas['pagina'] = 'Listagem de metas';
 		$coisas['title'] = 'Listagem de metas';
 		$coisas['sucess'] = 'Meta inserida com sucesso!';
 		return $this->load->view('metas', $coisas);
+	}
+	public function gerenciar_usuario(){
+		$coisas['pagina'] = 'Gerenciar usuário';
+		return $this->load->view('gerenciar_usuarios', $coisas);
+	}
+
+	public function gerenciar_meta(){
+		$coisas['title'] = 'Gerenciar meta';
+		$coisas['pagina'] = 'Gerenciar meta';
+		
+		//retorna apenas os usuários que são adm
+		$coisas['usuarios_adm'] = $this->Usuario_model->recuperarAdm();
+		//retorna apenas usuários do tipo 1, isto é, administradores
+
+		$coisas['usuarios_comuns'] = $this->Usuario_model->recuperarNormais();
+		//retorna apenas não administradores
+		
+
+		return $this->load->view('gerenciar_metas', $coisas);
+	}
+
+	public function gerenciar_equipamento(){
+		$coisas['pagina'] = 'Gerenciar equipamento';
+		return $this->load->view('gerenciar_equipamentos', $coisas);
+	}
+
+	public function realizar_equipamento(){
+		$coisas['pagina'] = 'Realizar atividade em equipamento';
+		return $this->load->view('realizar_equipamentos', $coisas);
 	}
 
 }

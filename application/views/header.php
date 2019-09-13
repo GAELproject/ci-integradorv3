@@ -52,7 +52,7 @@
   <section id="container" class="">
 
 
-    <header class="header dark-bg">
+    <header class="header white-bg">
       <div class="toggle-nav">
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
       </div>
@@ -169,7 +169,7 @@
           <div class="col-lg-12">
             <h3 class="page-header"><i class="fa fa-laptop"></i><?php echo $pagina; ?> </h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="<?php echo base_url('')?>">Home</a></li>
               <li><i class="fa fa-laptop"></i><?php echo $pagina; ?></li>
             </ol>
           </div>

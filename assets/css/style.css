@@ -11,6 +11,20 @@
 @import url(line-icons.css);
 
 
+.br-5{
+    border-radius: 15px !important;
+}
+.form-login-container{
+    border-radius: 15px !important;
+}
+.blr{
+    border-top-left-radius: 15px !important;
+    border-bottom-left-radius:  15px !important;
+}
+.brr{
+    border-top-right-radius: 15px !important;
+    border-bottom-right-radius:  15px !important;
+}
 
 body {
 
@@ -1018,6 +1032,7 @@ ul.sidebar-menu li.active a i {
 
     border-bottom: 1px solid #f1f2f7;
 
+
 }
 
 .dark-bg {
@@ -1048,13 +1063,13 @@ ul.sidebar-menu li.active a i {
 
 
 
-a.logo {
+a.logo{
 
     font-size: 22px;
 
     font-weight: 300;
 
-    color: #fed189;
+    color:  black;
 
     float: left;
 
@@ -1656,7 +1671,7 @@ div[data-role="editor-toolbar"] {
 
     font-size: 13px;
 
-    color: #bdbdbd;
+    color: black;
 
 }
 
@@ -2390,7 +2405,7 @@ div[data-role="editor-toolbar"] {
 
 }
 
-}
+
 
 .panel.panel-default.panel-heading {
 

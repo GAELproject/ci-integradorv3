@@ -2,43 +2,48 @@
 class Usuario_model extends CI_Model
 {
 	public $id_usuario;
-	public $nome;
-	public $tipo;
-	public $login;
-	public $senha;
-	public $imagem;
-	public $email;
-	public $cpf;
-	public $turno;
-	public $usuario_bolsista;
-	public $meta_id_meta;
+	public $u_nome;
+	public $u_email;
+    public $senha;
+    public $cpf;
+    public $usuario_tipo;
+    public $usuario_bolsista;
+	public $turno_atividades;
+	
 
 	public function __construct(){
 		 parent::__construct();
 	}
 	public function inserir()
 	{
-		$dados = array("nome" => $this->nome,"tipo" => $this->tipo,"login" => $this->login,"senha" => $this->senha, "email" => $this->email,  "cpf" => $this->cpf,"turno" => $this->turno, "usuario_bolsista" => $this->usuario_bolsista, "meta_id_meta" => $this->meta_id_meta);
-		/*
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();*/
+        $dados = array("u_nome" => $this->u_nome,
+                        "u_email" => $this->u_email,
+                        "senha" => $this->senha,
+                        "cpf" => $this->cpf,
+                        "usuario_tipo" => $this->usuario_tipo,  
+                        "usuario_bolsista" => $this->usuario_bolsista, 
+                        "turno_atividades" => $this->turno_atividades);
 		return $this->db->insert('usuario',$dados);
 	}
 	public function recuperar(){
 		$query = $this->db->get('usuario');
 		return $query->result();
 	}
+	//retorna adms
+	public function recuperarAdm()
+	{
+		$this->db->where('usuario_tipo','1');
+		$query = $this->db->get('usuario');
+		return $query->result_array();
+	}
 
-    /**
-     * @return mixed
-     */
+	//retorna não adms
+	public function recuperarNormais()
+	{
+		$this->db->where('usuario_tipo','2');
+		$query = $this->db->get('usuario');
+		return $query->result_array();
+	}
 
     public function delete($id)
     {
@@ -51,17 +56,14 @@ class Usuario_model extends CI_Model
         return $query->row();
     }
     public function update(){
-        $this->db->set('nome', $this->nome);
-
-        $this->db->set('tipo', $this->tipo);
-        $this->db->set('login', $this->login);
+        $this->db->set('u_nome', $this->u_nome);
+        $this->db->set('u_email', $this->u_email);
         $this->db->set('senha', $this->senha);
-        $this->db->set('imagem',$this->imagem);
-        $this->db->set('email', $this->email);
         $this->db->set('cpf', $this->cpf);
-        $this->db->set('turno', $this->turno);
+        $this->db->set('usuario_tipo', $this->usuario_tipo);
         $this->db->set('usuario_bolsista', $this->usuario_bolsista);
-        $this->db->set('meta_id_meta',$this->meta_id_meta );
+        $this->db->set('turno_atividades',$this->turno_atividades);
+
         $this->db->where('id_usuario', $this->id_usuario);
         $this->db->update('usuario');
 
