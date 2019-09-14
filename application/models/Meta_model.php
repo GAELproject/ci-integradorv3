@@ -42,34 +42,31 @@ class Meta_model extends CI_Model
 		return $query->result();
 	}
 
-    public function delete($id)
-    {
-        $this->db->where('id_meta', $id);
-		//$this->db->delete('meta');
-		$db_debug = $this->db->db_debug; //salve a configuração
-		$this->db->db_debug = FALSE; //desabilita o debug para consultas
-	
-		if ( !$this->db->delete('meta') )
-		{
-			$error = $this->db->error();
-	
-			// Tratativa de erro aqui
-			/*
-			 * Seu código...
-			 */
-			$this->db->db_debug = $db_debug; //restaure a configuração de debug
-	
-			return $error;
-		}
-	
-		return $this->db->affected_rows();
-    }
+   
 
 	public function recuperarUm($id){
         $this->db->where('id_meta',$id);
         $query = $this->db->get('meta');
         return $query->row();
     }
-  
+	public function update(){
+        $this->db->set('titulo', $this->titulo);
+        $this->db->set('descricao', $this->descricao);
+        $this->db->set('turno', $this->turno);
+        $this->db->set('data_prazo_finalizacao', $this->data_prazo_finalizacao);
+        $this->db->set('data_finalizacao', $this->data_finalizacao);
+        $this->db->set('situacao', $this->situacao);
+        $this->db->set('id_criador',$this->id_criador);
+
+        $this->db->where('id_meta', $this->id_meta);
+        $this->db->update('meta');
+
+	}
+	//função para deletar uma meta.
+	public function delete($id)
+    {
+        $this->db->where('id_meta', $id);
+        $this->db->delete('meta');
+    }
 
 }

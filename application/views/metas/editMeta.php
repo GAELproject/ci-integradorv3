@@ -1,7 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed!'); ?>
 <?php $this->load->view('header') ?>
 
-
 <div class="row">
     <div class="col-md-2">
     </div>
@@ -25,6 +24,7 @@
                 <div class="form quick-post">
                     <!-- Edit profile form (not working)-->
                     <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/meta/atualizar/')?>">
+                    <input type="hidden" name="id_meta" value="<?= $meta->id_meta;?>">
                         <!-- título da meta -->
                         <div class="form-group">    
                             <label class="control-label col-lg-2" for="title">Título da meta</label>
@@ -46,7 +46,6 @@
                                 <select class="form-control" name="turno">
                                     <option value="1" <?php 
                                         if($meta->turno == "1"){ echo "selected";}?>>Matutino </option>
-                                    
                                     <option value="2"  <?php 
                                         if($meta->turno == "2"){ echo "selected";}?>>Vespertino</option>
                                     <option value="3"  <?php 
@@ -105,12 +104,6 @@
                         <div class="form-group">
                             <label class="control-label col-lg-2">Usuários vinculados a essa meta</label>
                             <div class="col-lg-10">
-
-                                
-                                
-
-                           
-                           
                                 <?php foreach($bolsistasall as $bolsista){ ?>
 
                                             <input type="checkbox" name="id_usuario[]" id="users" value="<?= $bolsista['id_usuario'];?>" 
@@ -119,10 +112,9 @@
                                                 if($meta->id_meta == $utm->meta_id &&
                                                 $bolsista['id_usuario'] == $utm->usuario_id) {?>
                                                    checked
-                                               <?php } 
-                                                }
-                                               ?>
+                                               <?php } }?>
                                             >
+                                            
                                             <label for="">Nome: <?= $bolsista['u_nome'];?>
                                                 CPF: <?=$bolsista['cpf']?> 
                                                 Turno de atividades: <?= $bolsista['turno_atividades'];?></label>

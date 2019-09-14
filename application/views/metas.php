@@ -3,6 +3,15 @@
 
 	<div class="row">
 			<div class="col-lg-12"> 
+				<?php if(isset($success)){?>
+					<div class="alert alert-success" role="alert">
+						<?php echo $success;?>
+					</div>
+				<?php }elseif(isset($error)){?>
+					<div class="alert alert-success" role="alert">
+  						<?= $error?>
+					</div>
+				<?php }?>
 				<a class="btn btn-primary" href="<?= base_url('index.php/gael/gerenciar_meta')?>">Adicionar nova meta</a>
 				<section class="panel">
 	              <header class="panel-heading">
@@ -70,7 +79,7 @@
 	                        <a title="editar" class="btn btn-success" href="<?php echo base_url('index.php/meta/editar/')?><?=$met->id_meta?>">
 	                        	<i class="fa fa-edit"></i></a>
 	                        <a title="excluir" class="btn btn-danger" href="<?php echo base_url('index.php/meta/deletar/')?><?=$met->id_meta?>">
-	                        	<i class="fa fa-ban"></i>
+	                        	<i class="fa fa-trash-o"></i>
 							</a>
 							<a title="visualizar meta" class="btn btn-warning" href="<?php echo base_url('index.php/meta/deletar/')?><?=$met->id_meta?>">
 	                        	<i class="fa fa-eye"></i>

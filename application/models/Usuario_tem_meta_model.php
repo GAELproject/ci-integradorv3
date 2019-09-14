@@ -33,11 +33,7 @@ class Usuario_tem_meta_model extends CI_Model
         $query = $this->db->get('meta');
         return $query->result_array();
     }
-    public function delete($id)
-    {
-        $this->db->where('meta_id', $id);
-        $this->db->delete('usuario_tem_meta');
-    }
+  
 
 	public function recuperarUm($id){
         $this->db->where('id_usuario_tem_meta',$id);
@@ -49,6 +45,7 @@ class Usuario_tem_meta_model extends CI_Model
         $query = $this->db->get('usuario_tem_meta');
         return $query->result();
 	}
+
 	
     public function update(){
         $this->db->set('usuario_id', $this->usuario_id); 
@@ -58,6 +55,13 @@ class Usuario_tem_meta_model extends CI_Model
         $this->db->where('id_usuario_meta', $this->id_usuario_meta);
         $this->db->update('usuario_tem_meta');
 
+	}
+	//model para deletar a coluan da entidade
+	//associativa que liga usuário para meta
+	public function delete($id)
+    {
+        $this->db->where('meta_id', $id);
+        $this->db->delete('usuario_tem_meta');
     }
 
 }
