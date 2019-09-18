@@ -32,7 +32,7 @@
 	                  <?php foreach ($equipamentos as $eq) {
 	                  	?>
 	                  <tr>
-	                    <td><?php echo $eq->equipamento_name;?></td>
+	                    <td><?php echo $eq->equipamento_nome;?></td>
 	                    <td><?php echo $eq->numero_serie;?></td>
 						<td>
                             <?= $eq->marca;?>
@@ -46,7 +46,9 @@
                                     echo "Consertado";
                                 }elseif ($eq->situacao == "1") {
                                     echo "Não consertado";
-                                }else{
+																}elseif ($eq->situacao == "2") {
+																	echo "Parcialmente consertado";
+																}else{
                                     echo "Database error";
                                 }
                             ?> 
@@ -56,10 +58,10 @@
 	                      <div class="btn-group">
 	                        <a title="editar" class="btn btn-success" href="<?php echo base_url('index.php/equipamento/editar/')?><?=$eq->id_equipamento;?>">
 	                        	<i class="fa fa-edit"></i></a>
-	                        <a title="excluir" class="btn btn-danger" href="<?php echo base_url('index.php/equipamento/deletar/')?><?=$met->id_equipamento;?>">
+	                        <a title="excluir" class="btn btn-danger" href="<?php echo base_url('index.php/equipamento/deletar/')?><?=$eq->id_equipamento;?>">
 	                        	<i class="fa fa-trash-o"></i>
 							</a>
-							<a title="visualizar meta" class="btn btn-warning" href="<?php echo base_url('index.php/equipamento/view/')?><?=$met->id_equipamento;?>">
+							<a title="visualizar meta" class="btn btn-warning" href="<?php echo base_url('index.php/equipamento/view/')?><?=$eq->id_equipamento;?>">
 	                        	<i class="fa fa-eye"></i>
 	                        </a>
 	                      </div>

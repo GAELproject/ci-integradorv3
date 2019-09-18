@@ -41,6 +41,7 @@ CREATE TABLE gael.OS(
     responsavel INT NOT NULL,
     equipamento_id INT NOT NULL,
     numero_OS VARCHAR(256) NOT NULL,
+    cpf_cliente VARCHAR(256) NOT NULL,
     data_criacao TIMESTAMP NOT NULL
 );
 

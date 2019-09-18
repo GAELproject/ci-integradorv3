@@ -22,7 +22,7 @@
 
                   <div class="form quick-post">
                     <!-- Edit profile form (not working)-->
-                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/meta/salvar/')?>">
+                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/equipamento/salvar/')?>">
                       <!-- título da meta -->
                       
 
@@ -31,80 +31,48 @@
                       <!--usuário bolsista-->
                    
                       <div class="form-group">
-                        <label class="control-label col-lg-2" for="title">Nome do equipamento
+                        <label class="control-label col-lg-2" for="nome_eq">Nome do equipamento
                         </label>
                             <div class="col-lg-10">
-                              <input class="form-control" id="title" name="nome_equipamento" type="text">
+                              <input class="form-control" id="nome_eq" name="equipamento_nome" type="text">
                             </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-lg-2" for="title">Marca
+                        <label class="control-label col-lg-2" for="n">Número de série
                         </label>
                             <div class="col-lg-10">
-                              <input class="form-control" id="title" name="marca" type="text">
+                              <input class="form-control" id="n" name="numero_serie" type="text">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-lg-2" for="marca">Marca
+                        </label>
+                            <div class="col-lg-10">
+                              <input class="form-control" id="marca" name="marca" type="text">
                             </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-lg-2" for="title">Modelo
+                        <label class="control-label col-lg-2" for="modelo">Modelo
                         </label>
                             <div class="col-lg-10">
-                              <input class="form-control" id="title" name="modelo" type="text">
+                              <input class="form-control" id="modelo" name="modelo" type="text">
                             </div>
                       </div>
 
-                      <div class="form-group">
-                        <label class="control-label col-lg-2" for="title">Número de série
-                        </label>
-                            <div class="col-lg-10">
-                              <input class="form-control" id="text" name="n_serie" type="text">
-                        </div>
-                      </div>
+    
                       <div class="form-group">
                         <label class="control-label col-lg-2">Situação</label>
                         <div class="col-lg-10">
                           <select class="form-control" name="situacao">
                             <option value="">- Selecione o usuário-</option>
-                            <option value="1">Não consertado</option>
-                            <option value="2">Consertado</option>
-                            <option value="3">Parcialemente consertado</option>
+                            <option value="0">Não consertado</option>
+                            <option value="1">Consertado</option>
+                            <option value="2">Parcialemente consertado</option>
                           </select>
                           </div>
                         </div>
 
 
-
-                      <div class="form-group">
-                        <label class="control-label col-lg-2" for="title">O que fará no equipamento
-                        </label>                        
-                        <div class="col-lg-10">
-                          <select class="form-control" name="">
-                            <option  id="clique-default" value="" selected="">- O que deseja fazer-</option>
-                            <option id="clique-conserto"value="">Conserto</option>
-                            <option  id="clique-laudo" value="">Laudo</option>
-                            <option id="clique-doacao" value="">Doação</option>
-                          </select>
-                          </div>
-                        </div>
-                          </div>
-                      <div id="doacao">
-                      <div id="" class="form-group">
-                        <label class="control-label col-lg-2" for="title">Nome do doador
-                        </label>
-                            <div class="col-lg-10">
-                              <input class="form-control" id="text" name="nome_doador" type="text">
-                        </div>
-                      </div>
-                      </div>
-                    <div id="conserto">
-                      <div id="" class="form-group">
-                        <label class="control-label col-lg-2" for="title">Nome do cliente
-                        </label>
-                            <div class="col-lg-10">
-                              <input class="form-control" id="text" name="cliente" type="text">
-                        </div>
-                      </div>
-                      </div>
-                      <!-- Tags -->
 
                       <!-- Buttons -->
                       <div class="form-group">
