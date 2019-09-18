@@ -81,7 +81,7 @@
 	                        <a title="excluir" class="btn btn-danger" href="<?php echo base_url('index.php/meta/deletar/')?><?=$met->id_meta?>">
 	                        	<i class="fa fa-trash-o"></i>
 							</a>
-							<a title="visualizar meta" class="btn btn-warning" href="<?php echo base_url('index.php/meta/deletar/')?><?=$met->id_meta?>">
+							<a title="visualizar meta" class="btn btn-warning" href="<?php echo base_url('index.php/meta/view/')?><?=$met->id_meta?>">
 	                        	<i class="fa fa-eye"></i>
 	                        </a>
 	                      </div>

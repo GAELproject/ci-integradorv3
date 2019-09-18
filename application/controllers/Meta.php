@@ -218,6 +218,14 @@ class Meta extends CI_Controller {
 		
 		//$this->Meta_model->delete($id);
         //redirect('index.php/meta/index');
-    }
+	}
+	public function view($id){
+		$dados['meta'] = $this->Meta_model->recuperarUm($id);
+		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
+		$dados['bolsistas'] = $this->Usuario_model->recuperarNormais();
+		$dados['pagina'] = 'Visualização de meta';
+		$dados['title'] = 'Visualizar meta';
+		return $this->load->view('metas/viewMeta',$dados); 
+	}
 	
 }

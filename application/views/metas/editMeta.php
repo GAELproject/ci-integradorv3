@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed!'); ?>
 <?php $this->load->view('header') ?>
-
+<a href="<?= base_url('index.php/meta/index');?>"> <i class="fa fa-arrow-left"></i> Visualizar todas as metas</a>
 <div class="row">
     <div class="col-md-2">
     </div>
