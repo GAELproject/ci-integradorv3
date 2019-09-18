@@ -24,7 +24,8 @@
 	                    <th><i class=""></i>Título</th>
 	                    <th><i class=""></i>Descrição</th>
 	                    <th><i class=""></i>Criador</th>
-						<th><i class=""></i>turno da meta</th>
+						<th><i class=""></i>Turno da meta</th>
+						<th><i class=""></i>Data de criação</th>
 						<th><i></i>Prazo de finalizacao</th>
 	                    <th><i class=""></i>Data de finalização</th>
 						
@@ -49,10 +50,20 @@
 							<?php if($met->turno == '1'){echo "matutino";
 							} elseif($met->turno == '2'){echo "vespertino";}else{ echo "noturno";} ?> 
 						</td>
-						<td><?php 
-						$newdata = $met->data_prazo_finalizacao = implode("/", array_reverse(explode("-", $met->data_prazo_finalizacao)));
+						<td>
+							<?php 
+								$data = $met->data_criacao = implode("/", array_reverse(explode("-", $met->data_criacao)));
 
-						echo $newdata;?></td>
+								echo $data;
+							?>
+						</td>
+						
+						<td>
+						<?php 
+							$newdata = $met->data_prazo_finalizacao = implode("/", array_reverse(explode("-", $met->data_prazo_finalizacao)));
+							echo $newdata;
+						?>
+						</td>
 						<td><?php
 							$new = $met->data_finalizacao = implode("/", array_reverse(explode("-", $met->data_finalizacao)));
 

@@ -14,8 +14,6 @@ CREATE TABLE gael.usuario(
 );
 
 
-
-
 CREATE TABLE gael.usuario_tem_meta(
     id_usuario_tem_meta INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 usuario_id INT NOT NULL,
@@ -28,6 +26,7 @@ CREATE TABLE gael.meta(
     titulo VARCHAR (60) NOT NULL,
     descricao VARCHAR (256) NOT NULL,
     turno CHAR(1) NOT NULL,
+    data_criacao TIMESTAMP,
     data_prazo_finalizacao DATE NOT NULL,
     data_finalizacao DATE,
     situacao BOOLEAN NOT NULL,
@@ -127,61 +126,61 @@ UNIQUE (numero_serie);
 ALTER TABLE gael.meta
 ADD CONSTRAINT fk_id_criador
 FOREIGN KEY (id_criador)
-REFERENCES usuario(id_usuario);
+REFERENCES gael.usuario(id_usuario);
 
 
 ALTER TABLE gael.usuario_tem_meta
 ADD CONSTRAINT fk_usuario_id
 FOREIGN KEY (usuario_id)
-REFERENCES usuario(id_usuario);
+REFERENCES gael.usuario(id_usuario);
 
 
 ALTER TABLE gael.usuario_tem_meta
 ADD CONSTRAINT fk_meta_id
 FOREIGN KEY (meta_id)
-REFERENCES meta(id_meta);
+REFERENCES gael.meta(id_meta);
 
 
 ALTER TABLE gael.OS
 ADD CONSTRAINT fk_responsavel
 FOREIGN KEY (responsavel)
-REFERENCES usuario(id_usuario);
+REFERENCES gael.usuario(id_usuario);
 
 ALTER TABLE gael.OS
 ADD CONSTRAINT fk_equipamento_id
 FOREIGN KEY (equipamento_id)
-REFERENCES equipamento(id_equipamento);
+REFERENCES gael.equipamento(id_equipamento);
 
 
 ALTER TABLE gael.doacao
 ADD CONSTRAINT fk_equipamento_doado_id
 FOREIGN KEY (equipamento_doado_id)
-REFERENCES equipamento(id_equipamento);
+REFERENCES gael.equipamento(id_equipamento);
 
 ALTER TABLE gael.laudo
 ADD CONSTRAINT fk_equipamento_laudo_id
 FOREIGN KEY (equipamento_laudo_id)
-REFERENCES equipamento(id_equipamento);
+REFERENCES gael.equipamento(id_equipamento);
 
 ALTER TABLE gael.conserto
 ADD CONSTRAINT fk_equipamento_conserto_id
 FOREIGN KEY (equipamento_conserto_id)
-REFERENCES equipamento(id_equipamento);
+REFERENCES gael.equipamento(id_equipamento);
 
 ALTER TABLE gael.equipamento_realizou_atividade
 ADD CONSTRAINT fk_equipamento_id_equipamento
 FOREIGN KEY (equipamento_id_equipamento)
-REFERENCES equipamento(id_equipamento);
+REFERENCES gael.equipamento(id_equipamento);
 
 ALTER TABLE gael.equipamento_realizou_atividade
 ADD CONSTRAINT fk_atividade_id_atividade
 FOREIGN KEY (atividade_id_atividade)
-REFERENCES atividade(id_atividade);
+REFERENCES gael.atividade(id_atividade);
 
 ALTER TABLE gael.atividade
 ADD CONSTRAINT fk_atividade_id
 FOREIGN KEY (atividade_id)
-REFERENCES equipamento_realizou_atividade(id_equipamento_reaizou_atividade);
+REFERENCES gael.equipamento_realizou_atividade(id_equipamento_reaizou_atividade);
 
 
 -- POVOAMENTO
@@ -193,6 +192,8 @@ VALUES ('Diogo da Silva Lima', 'diogo.libras43@gmail.com', '1234', '126.444.444-
 
 INSERT INTO `gael`.`usuario` (`u_nome`, `u_email`, `senha`, `cpf`, `usuario_tipo`, `usuario_bolsista`, `turno_atividades`)
 VALUES ('Outro usuário para teste', 'teste.email@gmail.com', '1234', '000.444.000-00', '2', true, '2');
+
+
 
 
 

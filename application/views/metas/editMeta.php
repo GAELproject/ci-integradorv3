@@ -58,6 +58,13 @@
                         
                         <!-- Content -->
                         <div class="form-group">
+                            <label class="control-label col-lg-2" for="data-criacao">Data de criação</label>
+                            <div class="col-lg-10">
+                                <input class="form-control" type="datetime" name="data_criacao" id="data-criacao" value="<?= $meta->data_criacao;?>">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="control-label col-lg-2" for="title">Data prazo para finalização</label>
                             <div class="col-lg-10">
                                 <input class="form-control" id="title" type="date" name="data_prazo_finalizacao" value="<?= $meta->data_prazo_finalizacao; ?>">

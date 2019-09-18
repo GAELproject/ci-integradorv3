@@ -92,7 +92,7 @@
                           <label class="control-label col-lg-2" for="prazo">Prazo para finalização</label>
                           <div class="col-lg-10">
                             <input class="form-control" id="prazo" type="date" name="data_prazo_finalizacao">
-                          </div>
+                          </div>  
                         </div>
                         <!--fim prazo finalizacao-->
                         <!--data da finalizacao-->

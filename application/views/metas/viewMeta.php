@@ -29,6 +29,7 @@
             <strong>
                 Data de criação: 
             </strong>
+            <?= $meta->data_criacao; ?>
             
         </p>
         <p>

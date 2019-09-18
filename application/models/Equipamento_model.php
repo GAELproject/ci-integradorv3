@@ -1,15 +1,13 @@
 <?php
-class Meta_model extends CI_Model
+class Equipamento_model extends CI_Model
 {
-	public $id_meta;
-	public $titulo;
-	public $descricao;
-	public $id_criador;
-	public $turno;
-	public $data_prazo_finalizacao;
-	public $data_finalizacao;
-	public $situacao;
-
+	public $id_equipamento;
+	public $equipamento_nome;
+	public $numero_serie;
+	public $marca;
+	public $modelo;
+    public $situacao;
+    
 	public function __construct(){
 		 parent::__construct();
 	}
@@ -17,28 +15,16 @@ class Meta_model extends CI_Model
 
 	public function inserir()
 	{
-        $dados = array("titulo" => $this->titulo,
-                        "descricao" => $this->descricao,
-						"id_criador" => $this->id_criador,
-						"turno" => $this->turno,
-                        "data_prazo_finalizacao" => $this->data_prazo_finalizacao,
-                        "data_finalizacao" => $this->data_finalizacao, 
-                        "situacao" => $this->situacao
-                    );
-		/*
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();*/
-		return $this->db->insert('meta',$dados);
+        $dados = array("equipamento_nome" => $this->equipamento_nome,
+                        "numero_serie" => $this->numero_serie,
+						"marca" => $this->marca,
+						"modelo" => $this->modelo,
+                        "situacao" => $this->situacao);
+
+		return $this->db->insert('equipamento',$dados);
 	}
 	public function recuperar(){
-		$query = $this->db->get('meta');
+		$query = $this->db->get('equipamento');
 		return $query->result();
 	}
 

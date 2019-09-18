@@ -1,21 +1,24 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Meta extends CI_Controller {
+class Equipamento extends CI_Controller {
 
 	public function index(){
-		$coisas['usuarios'] = $this->Usuario_model->recuperar();
+        $coisas['equipamentos'] = $this->Equipamento_model->recuperar();
 
-		$coisas['metas'] = $this->Meta_model->recuperar();
-		$coisas['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperar();
-
-		$coisas['title']  = 'Listagem de metas';
-        $coisas['pagina'] = 'Listagem de metas';
 		
-		$coisas ['title'] = 'listagem das metas - gael';
-		$this->load->view('metas', $coisas);
+        $coisas['pagina'] = 'Listagem de equipamentos';
+		
+		$coisas ['title'] = 'listagem de todos os equipamentos - gael';
+		$this->load->view('equipamentos/equipamentos', $coisas);
 	}
-
+    public function formAdd(){
+        
+        $dados['pagina'] = 'Adicionar de equipamento';
+		
+		$dados ['title'] = 'Adição de equipamentos';
+        return $this->load->view('gerenciar_equipamentos', $dados);
+    }
 	public function salvar(){
 
 		//$this->load->model('Meta_model');

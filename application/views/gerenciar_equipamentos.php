@@ -24,34 +24,12 @@
                     <!-- Edit profile form (not working)-->
                     <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/meta/salvar/')?>">
                       <!-- título da meta -->
-                      <div class="form-group">
-                        <label class="control-label col-lg-2" for="title">Inciar Ordem de Serviço:
-                        </label>
-                            <div class="col-lg-10">
-                              <input class="form-control" id="title" name="n_OS" type="text">
-                            </div>
-                      </div>
+                      
 
                       <!-- Content -->
 
                       <!--usuário bolsista-->
-                    <div class="form-group">
-                        <label class="control-label col-lg-2">Usuario responsável</label>
-                        <div class="col-lg-10">
-                          <select class="form-control" name="usuario_id_usuario">
-                            <option value="">- Selecione o usuário-</option>
-                            
-                            <?php
-                            foreach ($usuarios as $key => $user) { ?>
-                                <option value="<?php echo $user->id_usuario;?>">
-                                  <?php echo $user->nome;?>
-                                </option>
-                            <?php }?>
-                          </select>
-                        </div>
-                      </div>
-
-
+                   
                       <div class="form-group">
                         <label class="control-label col-lg-2" for="title">Nome do equipamento
                         </label>

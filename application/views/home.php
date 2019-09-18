@@ -58,7 +58,7 @@
           <div class="card-body">
             <h5 class="card-title">Gerenciar Equipamentos</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="<?php echo base_url('gael/gerenciar_equipamento')?>" class="btn btn-primary">Gerenciar equipamentos</a>
+            <a href="<?php echo base_url('equipamento/index')?>" class="btn btn-primary">Gerenciar equipamentos</a>
           </div>
         </div>
 
