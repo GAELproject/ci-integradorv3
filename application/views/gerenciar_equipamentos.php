@@ -65,8 +65,8 @@
                         <div class="col-lg-10">
                           <select class="form-control" name="situacao">
                             <option value="">- Selecione o usuário-</option>
-                            <option value="0">Não consertado</option>
-                            <option value="1">Consertado</option>
+                            <option value="0">Consertado</option>
+                            <option value="1">Não consertado</option>
                             <option value="2">Parcialemente consertado</option>
                           </select>
                           </div>

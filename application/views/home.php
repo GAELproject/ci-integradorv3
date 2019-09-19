@@ -71,6 +71,15 @@
           </div>
         </div>
 
+          <div class="card text-center">
+          <div class="card-header">GAEL - Gerenciamento</div>
+          <div class="card-body">
+            <h5 class="card-title">Realizar atividade em OS </h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="<?php echo base_url('OS/index')?>" class="btn btn-primary">Realizar atividade em OS</a>
+          </div>
+        </div>
+
 
 
 
