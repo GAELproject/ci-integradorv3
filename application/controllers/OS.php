@@ -16,85 +16,38 @@ class OS extends CI_Controller {
 		$this->load->view('OS/listOS', $coisas);
 	}
 
-	public function salvar(){
+	public function formcadastrar(){
+		$dados['title'] = 'Gerenciar Ordem de Serviços';
+		$dados['pagina'] = 'Gerenciar Ordem de Serviços';
+		$this->load->model('Equipamento_model');
+		$dados['equipamentos'] = $this->Equipamento_model->recuperar();
+		$this->load->model('Usuario_model');
+		$dados['responsaveis'] = $this->Usuario_model->recuperar();
+		$this->load->view('OS/gerenciar_os', $dados);
+	}
 
-		//$this->load->model('Meta_model');
+	public function cadastrar(){
 		$responsavel = $_POST['responsavel'];
 		$equipamento_id = $_POST['equipamento_id'];
 		$numero_OS = $_POST['numero_OS'];		
 		$cpf_cliente = $_POST['cpf_cliente'];
-		$data_criacao = implode("-", array_reverse(explode("/", $data_criacao)));
+		$data_criacao = implode("-", array_reverse(explode("/", $_POST['data_criacao'])));
 		$data_criacao = $_POST['data_criacao'];
-		
-		$criador_id = $_POST['criador_id'];		
-		
-		if(isset($_POST['id_usuario'])){
-			$id_usuarios = $_POST['id_usuario'];
-		}
-		
-	
-		
-
+		//Carregar a model
+		$this->load->model('OS_model');
+		//Informando os dados
 		$this->OS_model->responsavel = $responsavel;
-		$this->OS_model->$equipamento_id = $$equipamento_id;
-		
+ 		$this->OS_model->equipamento_id = $equipamento_id;
 		$this->OS_model->numero_OS = $numero_OS;
 		$this->OS_model->data_criacao = $data_criacao;
 		$this->OS_model->cpf_cliente = $cpf_cliente;
-		$insertar = $this->OS_model->inserir();
-
-
-
-		if($insertar){
-			$id_meta_id = $this->Usuario_tem_meta_model->getIdMeta($titulo, $criador_id);
-			$meta_id = '';
-
-			if (!empty($id_meta_id)) {
-				foreach ($id_meta_id as $meta) {
-					$meta_id = $meta['id_meta'];
-				}
-					if(!empty($id_usuarios)){
-						foreach ($id_usuarios as $user) {
-							$this->Usuario_tem_meta_model->meta_id = $meta_id;
-							$this->Usuario_tem_meta_model->usuario_id = $user;
-							$this->Usuario_tem_meta_model->inserir();
-						}
-					}
-					
-				
-			}else{
-				//se o array estiver vazio
-				$coisas['title'] = 'Gerenciar meta';
-				$coisas['pagina'] = 'Gerenciar meta';
-				
-				//retorna apenas os usuários que são adm
-				$coisas['usuarios_adm'] = $this->Usuario_model->recuperarAdm();
-				//retorna apenas usuários do tipo 1, isto é, administradores
-
-				$coisas['usuarios_comuns'] = $this->Usuario_model->recuperarNormais();
-					//retorna apenas não administradores
-				$coisas ['error'] = 'meta não inserida na base de dados';
-				return $this->load->view('gerenciar_metas',$coisas);
-			}
-			
-		$coisas['usuarios'] = $this->Usuario_model->recuperar();
-
-		$coisas['metas'] = $this->Meta_model->recuperar();
-		$coisas['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperar();
-		$coisas['pagina'] = 'Listagem de metas';
-		$coisas['title'] = 'Listagem de metas';
-		$coisas['success'] = 'Meta inserida com sucesso!';
-			
-		return $this->load->view('metas', $coisas);
-		}else{
-			$coisas ['error'] = 'meta não inserida na base de dados';
-			return $this->load->view('home',$coisas);
-		}
+		//Inserir
+		$this->OS_model->inserir();
+		$dados['title'] = 'Gerenciar Ordem de Serviços';
+		$dados['pagina'] = 'Gerenciar Ordem de Serviços';
+		$dados['Alert'] = 'Ordem de Serviço cadastrada com sucesso!!!';
+		redirect(base_url('index.php/os/formcadastrar'));
 	}
-
-
-
-
 
     public function editar(){
 		

@@ -1,3 +1,4 @@
+
 <?php defined('BASEPATH') or exit('No direct script access allowed!'); ?>
 
 <?php $this->load->view('header') ?>
@@ -58,19 +59,29 @@
                 <div class="padd">
                   <div class="form quick-post">
                     <!-- Edit profile form (not working)-->
-                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/meta/salvar/')?>">
+                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/os/cadastrar/')?>">
                       <!-- título da meta -->
                       <div class="form-group">
                             <label class="control-label col-lg-2" for="title">Nome do responsável</label>
                             <div class="col-lg-10">
-                              <input class="form-control" id="title" name="titulo" type="text">
+                              <select name="responsavel" id="responsavel" class="form-control" required>
+                                <option value="">-- Informe o Responsável --</option>
+                                  <?php foreach($responsaveis as $responsavel){?>
+                                    <option value="<?php echo $responsavel->id_usuario; ?>"><?php echo $responsavel->u_nome; ?></option>  
+                                  <?php } ?>
+                              </select>
                             </div>
                       </div>
 
                       <div class="form-group">
-                        <label class="control-label col-lg-2" for="content">ID do equipamento</label>
+                        <label class="control-label col-lg-2" for="content">Equipamento</label>
                         <div class="col-lg-10">
-                          <textarea class="form-control" name='descricao' id="content"></textarea>
+                          <select class="form-control" name='equipamento_id' id="content" required>
+                            <option value="">-- Selecione um Equipamento --</option>  
+                              <?php foreach($equipamentos as $equipamento){ ?>
+                                  <option value="<?php echo $equipamento->id_equipamento; ?>"><?php echo $equipamento->equipamento_nome; ?></option>
+                              <?php } ?>
+                          </select>
                         </div>
                        </div>
                       <!-- Content -->
@@ -78,7 +89,7 @@
                        <div class="form-group">
                         <label class="control-label col-lg-2" for="content">Número da OS</label>
                         <div class="col-lg-10">
-                          <textarea class="form-control" name='descricao' id="content"></textarea>
+                          <textarea class="form-control" name="numero_OS" id="numero_OS" required></textarea>
                         </div>
                        </div>
                       <!--fim turno-->
@@ -86,7 +97,7 @@
                         <div class="form-group">
                           <label class="control-label col-lg-2" for="prazo">CPF do cliente</label>
                           <div class="col-lg-10">
-                            <input class="form-control" id="prazo" type="date" name="data_prazo_finalizacao">
+                            <input class="form-control" id="prazo" type='number' name="cpf_cliente" placeholder="Insira seu CPF" required>
                           </div>  
                         </div>
                         <!--fim prazo finalizacao-->
@@ -94,64 +105,22 @@
                         <div class="form-group">
                           <label class="control-label col-lg-2" for="data-finish">Data da criação</label>
                           <div class="col-lg-10">
-                            <input class="form-control" id="data-finish" type="date" name="data_finalizacao">
+                            <input class="form-control" id="data_criacao" type="date" name="data_criacao" required>
                           </div>
                         </div>
                         <!--fim data finalizacao-->
   
 
                       <!--situacação-->
-                    <div class="form-group">
-                        <label class="control-label col-lg-2">Situação atual:</label>
-                        <div class="col-lg-10">
-                          <select class="form-control" name="situacao_final">
-                            <option value="">- Selecione a sitauação-</option>
-                            <option value="S">Finalizado</option>
-                            <option value="N">Não finalizado</option>
-                          </select>
-                        </div>
-                      </div>
+                    
                       <!-- fim situação -->
 
                     <!--situacação-->
                       <!--aqui retorna apenas os usuários do tipo 1, isto é, administradores-->
-                    <div class="form-group">
-                        <label class="control-label col-lg-2">Criador da meta:</label>
-                        <div class="col-lg-10">
-                          <select class="form-control" name="criador_id">
-                            <option value="">- Selecione o criador -</option>
-                            <?php foreach ($usuarios_adm as $adm) {?>
-                                    <option value="<?= $adm['id_usuario'];?>"> 
-                                      nome: <?= $adm['u_nome'];?>
-                                      cpf: <?= $adm['cpf'];?>
-                                    </option>
-                            <?php } ?>
-                          </select>
-                        </div>
-                      </div>
+                  
                       <!-- fim situação -->
                     <!--início listagem dos ususários do tipo 2 - não administradores-->
-                      <div class="form-group">
-                        <label class="control-label col-lg-2" for="users">Usuários participantes para essa meta:</label>
-                        <div class="col-lg-10">
-                            <?php foreach ($usuarios_comuns as $adm) {?>
-                              <input type="checkbox" name="id_usuario[]" id="users" value="<?php echo $adm['id_usuario'];?>">
-                                <label for="">
-                                Nome: <?= $adm['u_nome'];?> <br> Turno de atividades: <?php if($adm['turno_atividades']=='1'){
-                                  echo 'Manhã';
-                                }elseif ($adm['turno_atividades']=='2') {
-                                  echo 'Tarde';
-                                }else {
-                                  echo 'Noite';
-                                } ?> 
-
-                                </label>
-                                <br>
-                               
-                            <?php } ?>
-                          </select>
-                        </div>
-                      </div>
+                    
                       <!-- fim fim da listagem -->
 
                       <!-- Buttons -->
@@ -161,7 +130,7 @@
                           <button type="submit" class="btn btn-primary" title="cadastrar">
                             Cadastrar
                           </button>
-                          <a class="btn btn-primary" href="<?php echo base_url('index.php/gael/metas')?>" title="metas">Exibir metas</a>
+                          <a class="btn btn-default" href="<?php echo base_url('index.php/os/index')?>" title="metas">Exibir Os</a>
                          
                         </div>
                       </div>
