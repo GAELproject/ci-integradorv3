@@ -21,16 +21,6 @@ class OS_model extends CI_Model
 						"data_criacao" => $this->data_criacao,
 						"cpf_cliente" => $this->cpf_cliente,
                     );
-		/*
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();*/
 		return $this->db->insert('OS',$dados);
 	}
 	public function recuperar(){
