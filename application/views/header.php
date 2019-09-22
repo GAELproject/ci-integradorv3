@@ -16,9 +16,11 @@
   <!-- Bootstrap CSS -->
   <link href="<?php echo base_url('assets/css/app-44ca66281abd8380ac37e4333b51fe14.css')?>" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo base_url('assets/css/pro.css')?>">
-  <link href="<?php echo base_url('assets/css/bootstrap.min.css')?>" rel="stylesheet">
-  <!-- bootstrap theme -->
-  <link href="<?php echo base_url('assets/css/bootstrap-theme.css')?>" rel="stylesheet">
+
+  <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.css')?>">
+  <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap-reboot.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap-grid.css')?>">
+  
   <!--external css-->
 
   <!-- font icon -->
