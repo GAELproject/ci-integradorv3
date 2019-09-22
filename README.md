@@ -1,4 +1,4 @@
-# GAEL: Sistema Integrado para Gerenciamento de Resíduos Eletroeletrônicos  
+# GAEL: Sistema Integrado para o Gerenciamento de Resíduos Eletroeletrônicos  
 ## Projeto integrador no IFRN
 
 Versão 3 desta projeção.
