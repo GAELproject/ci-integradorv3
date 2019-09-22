@@ -58,21 +58,19 @@ class Usuario extends CI_Controller {
             $this->Usuario_model->delete($id);
             redirect('index.php/usuario/index');
         }
+
         public function editar(){
 	        $this->load->model('Usuario_model');
             $this->load->model('Meta_model');
 	        $id = $this->uri->segment(3);
-	        $usuario = $this->Usuario_model->recuperarUm($id);
-
             $dados['title'] = "Edição de usuarios";
             $dados['pagina'] = "Edição de usuarios";
             $dados['usuarios'] = $this->Usuario_model->recuperarUm($id);
             $dados['meta'] = $this->Meta_model->recuperarUm($usuario->meta_id_meta);
             $dados['metas'] = $this->Meta_model->recuperar();
+            return $this->load->view('editUser', $dados);
+        }   
 
-
-	        return $this->load->view('editUser', $dados);
-        }
         public function atualizar(){
             $this->load->model('Usuario_model');
             $this->Usuario_model->id_usuario = $_POST['id_usuario'];
