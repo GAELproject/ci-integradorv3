@@ -72,7 +72,7 @@
 
 
       <!--início da segunda row-->
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4">
                   <!--início do quinto card-->
@@ -82,6 +82,38 @@
                         <h5 class="card-title">Gerenciamento de equipamentos  </h5>
                         <p class="card-text">Para gerenciadores, detinado a inciar, editar e excluir equipamentos.</p>
                         <a href="<?php echo base_url('gael/realizar_equipamento')?>" class="btn btn-primary">Realizar equipamentos</a>
+                      </div>
+                    </div>
+                </div>
+                <!--fim do quinto card-->
+                <div class="col-sm-4">
+                <!--início do sexto card-->
+                 <div class="card text-center">
+                    <div class="card-header">GAEL - atividades em equipamento</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Realizar atividade em OS </h5>
+                      <p class="card-text">Para gerenciadores, detinado a inciar, editar e excluir atividades.</p>
+                      <a href="<?php echo base_url('index.php//index')?>" class="btn btn-primary">Realizar atividades em um equipamento</a>
+                    </div>
+                  </div>
+                  <!--fim do sexto card-->
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+
+      <!--fim da segunda row-->
+
+     <!--início da terceira row-->
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                  <!--início do quinto card-->
+                    <div class="card text-center">
+                      <div class="card-header">GAEL - Gerenciamento</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Gerenciamento de equipamentos  </h5>
+                        <p class="card-text">Para gerenciadores, detinado a inciar, editar e excluir equipamentos.</p>
+                        <a href="<?php echo base_url('gael/realizar_equipamento')?>" class="btn btn-primary">Realizar alsjfhasfjksf</a>
                       </div>
                     </div>
                 </div>
@@ -101,7 +133,9 @@
                 <div class="col-sm-2"></div>
             </div>
 
-      <!--fim da segunda row-->
+      <!--fim da terceira row-->
+
+
     </div>
     <!--fim do caontainer-->
         
