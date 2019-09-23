@@ -1,5 +1,5 @@
 <?php
-class Equipamento_model extends CI_Model
+class Equipamento_realizou_atividade_model extends CI_Model
 {
 	public $id_equipamento_realizou_atividade;
 	public $equipamento_id_equipamento;
@@ -16,21 +16,20 @@ class Equipamento_model extends CI_Model
 	{
         $dados = array("id_equipamento_realizou_atividade" => $this->id_equipamento_realizou_atividade,
                         "equipamento_id_equipamento" => $this->equipamento_id_equipamento,
-						"atividade_id_atividade" => $this->atividade_id_atividade,
-						"data_hora_atividade" => $this->data_hora_atividade);
+						"atividade_id_atividade" => $this->atividade_id_atividade);
 
-		return $this->db->insert('equipamento',$dados);
+		return $this->db->insert('equipamento_realizou_atividade',$dados);
 	}
 	public function recuperar(){
-		$query = $this->db->get('equipamento');
+		$query = $this->db->get('equipamento_realizou_atividade');
 		return $query->result();
 	}
 
    
 
 	public function recuperarUm($id){
-        $this->db->where('id_meta',$id);
-        $query = $this->db->get('meta');
+        $this->db->where('id_equipamento_realizou_atividade',$id);
+        $query = $this->db->get('equipamento_realizou_atividade');
         return $query->row();
     }
 	public function update(){

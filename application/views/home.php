@@ -93,7 +93,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Realizar atividade em OS </h5>
                       <p class="card-text">Para gerenciadores, detinado a inciar, editar e excluir atividades.</p>
-                      <a href="<?php echo base_url('index.php//index')?>" class="btn btn-primary">Realizar atividades em um equipamento</a>
+                      <a href="<?php echo base_url('index.php/realizar_atividade_equipamento/index')?>" class="btn btn-primary">Realizar atividades em um equipamento</a>
                     </div>
                   </div>
                   <!--fim do sexto card-->

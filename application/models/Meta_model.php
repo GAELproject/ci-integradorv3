@@ -6,6 +6,7 @@ class Meta_model extends CI_Model
 	public $descricao;
 	public $id_criador;
 	public $turno;
+	public $data_criacao;
 	public $data_prazo_finalizacao;
 	public $data_finalizacao;
 	public $situacao;

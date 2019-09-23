@@ -4,16 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Realizar_atividade_equipamento extends CI_Controller {
 
 	public function index(){
-		$coisas['usuarios'] = $this->Usuario_model->recuperar();
-
-		$coisas['metas'] = $this->Meta_model->recuperar();
-		$coisas['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperar();
-
-		$coisas['title']  = 'Listagem de metas';
-        $coisas['pagina'] = 'Listagem de metas';
 		
-		$coisas ['title'] = 'listagem das metas - gael';
-		$this->load->view('metas', $coisas);
+
+		$coisas['title']  = 'Listagem de atividades feitas';
+        $coisas['pagina'] = 'Listagem das atividades';
+		
+		
+		$this->load->view('equipamento_realizou_atividade/homeAtividadeEquipamento', $coisas);
 	}
 
 	public function salvar(){
