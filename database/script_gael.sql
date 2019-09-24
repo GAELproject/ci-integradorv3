@@ -92,14 +92,14 @@ CREATE TABLE gael.equipamento_realizou_atividade(
 
 CREATE TABLE gael.atividade(
     id_atividade INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    data_servico DATE NOT NULL,
+
     descricao_servico_realizado VARCHAR(256) NOT NULL,
     qtd_item_substituido INT NOT NULL,
     nome_item_substituido VARCHAR(60) NOT NULL,
-situacao_final CHAR(1) NOT NULL,
-atividade_defeito VARCHAR(60) NOT NULL,
-observacoes VARCHAR(256),
-atividade_id INT NOT NULL
+    situacao_final CHAR(1) NOT NULL,
+    atividade_defeito VARCHAR(60) NOT NULL,
+    observacoes VARCHAR(256)
+
 );
  
 
@@ -178,10 +178,7 @@ ADD CONSTRAINT fk_atividade_id_atividade
 FOREIGN KEY (atividade_id_atividade)
 REFERENCES gael.atividade(id_atividade);
 
-ALTER TABLE gael.atividade
-ADD CONSTRAINT fk_atividade_id
-FOREIGN KEY (atividade_id)
-REFERENCES gael.equipamento_realizou_atividade(id_equipamento_reaizou_atividade);
+
 
 
 -- POVOAMENTO
@@ -193,6 +190,9 @@ VALUES ('Diogo da Silva Lima', 'diogo.libras43@gmail.com', '1234', '126.444.444-
 
 INSERT INTO `gael`.`usuario` (`u_nome`, `u_email`, `senha`, `cpf`, `usuario_tipo`, `usuario_bolsista`, `turno_atividades`)
 VALUES ('Outro usuário para teste', 'teste.email@gmail.com', '1234', '000.444.000-00', '2', true, '2');
+
+INSERT INTO `gael`.`equipamento` (`equipamento_nome`, `numero_serie`, `marca`, `modelo`, `situacao`)
+VALUES ('Notebook', '2384783528', 'Dell', '32evs', '0');
 
 
 

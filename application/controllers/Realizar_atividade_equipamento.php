@@ -3,81 +3,77 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Realizar_atividade_equipamento extends CI_Controller {
 
-	public function index(){
-		
-
+	public function index()
+    {
 		$coisas['title']  = 'Listagem de atividades feitas';
         $coisas['pagina'] = 'Listagem das atividades';
-		
-		
+        $coisas['atividades'] = $this->Atividade_model->recuperar();
 		$this->load->view('equipamento_realizou_atividade/homeAtividadeEquipamento', $coisas);
 	}
+    //função que chama a view de inserir nova atividade
+	public function add(){
+
+	    $dados['equipamentos'] = $this->Equipamento_model->recuperar();
+        $dados['title']  = 'Cadastramento de atividade em equipamento';
+        $dados['pagina'] = 'Cadastramento das atividades';
+	    return $this->load->view('equipamento_realizou_atividade/realizar_atividade',$dados);
+    }
 
 	public function salvar(){
 
 		//$this->load->model('Meta_model');
-		$titulo = $_POST['titulo'];
-		$descricao = $_POST['descricao'];
-		$turno = $_POST['turno'];		
-		$data_prazo_finalizacao = $_POST['data_prazo_finalizacao'];
-		$data_prazo_finalizacao = implode("-", array_reverse(explode("/", $data_prazo_finalizacao)));
-		$data_finalizacao = $_POST['data_finalizacao'];
-		$data_finalizacao = implode("-", array_reverse(explode("/", $data_finalizacao)));
-		$situacao_final = $_POST['situacao_final'];
-		
-		$criador_id = $_POST['criador_id'];		
-		
-		if(isset($_POST['id_usuario'])){
-			$id_usuarios = $_POST['id_usuario'];
-		}
-		
-	
-		
 
-		$this->Meta_model->titulo = $titulo;
-		$this->Meta_model->descricao = $descricao;
-		
-		$this->Meta_model->data_prazo_finalizacao = $data_prazo_finalizacao;
-		$this->Meta_model->data_finalizacao = $data_finalizacao;
-		$this->Meta_model->situacao = $situacao_final;
-		$this->Meta_model->turno = $turno;
-		$this->Meta_model->id_criador = $criador_id;
-		$insertar = $this->Meta_model->inserir();
+		$descricao_servico_realizado = $_POST['descricao_servico_realizado'];
+		$qtd_item_substituido = $_POST['qtd_item_substituido'];
+		$nome_item_substituido = $_POST['nome_item_substituido'];
+		$situacao_final = $_POST['situacao_final'];
+        $atividade_defeito = $_POST['atividade_defeito'];
+		$observacoes = $_POST['observacoes'];
+
+
+
+        //equipamento de referência
+        $equipamento_id_equipamento = $_POST['equipamento_id_equipamento'];
+
+
+
+
+
+        $this->Atividade_model->descricao_servico_realizado = $descricao_servico_realizado;
+		$this->Atividade_model->nome_item_substituido = $nome_item_substituido;
+        $this->Atividade_model->qtd_item_substituido = $qtd_item_substituido;
+        $this->Atividade_model->situacao_final = $situacao_final;
+        $this->Atividade_model->atividade_defeito = $atividade_defeito;
+        $this->Atividade_model->observacoes = $observacoes;
+
+		$insertar = $this->Atividade_model->inserir();
+
+
+        //exit();
 
 
 
 		if($insertar){
-			$id_meta_id = $this->Usuario_tem_meta_model->getIdMeta($titulo, $criador_id);
-			$meta_id = '';
+            $atividade = $this->Atividade_model->getIdAtividade($descricao_servico_realizado, $nome_item_substituido, $qtd_item_substituido);
+            $id_atividade = '';
 
-			if (!empty($id_meta_id)) {
-				foreach ($id_meta_id as $meta) {
-					$meta_id = $meta['id_meta'];
-				}
-					if(!empty($id_usuarios)){
-						foreach ($id_usuarios as $user) {
-							$this->Usuario_tem_meta_model->meta_id = $meta_id;
-							$this->Usuario_tem_meta_model->usuario_id = $user;
-							$this->Usuario_tem_meta_model->inserir();
-						}
-					}
-					
-				
-			}else{
-				//se o array estiver vazio
-				$coisas['title'] = 'Gerenciar meta';
-				$coisas['pagina'] = 'Gerenciar meta';
-				
-				//retorna apenas os usuários que são adm
-				$coisas['usuarios_adm'] = $this->Usuario_model->recuperarAdm();
-				//retorna apenas usuários do tipo 1, isto é, administradores
+            if(!empty($atividade)){
+                foreach ($atividade as $at){
+                    $id_atividade = $at['id_atividade'];
+                    if(!empty($id_usuarios)){
+                        foreach ($id_usuarios as $user) {
+                            $this->Usuario_tem_meta_model->meta_id = $meta_id;
+                            $this->Usuario_tem_meta_model->usuario_id = $user;
+                            $this->Usuario_tem_meta_model->inserir();
+                        }
+                    }
 
-				$coisas['usuarios_comuns'] = $this->Usuario_model->recuperarNormais();
-					//retorna apenas não administradores
-				$coisas ['error'] = 'meta não inserida na base de dados';
-				return $this->load->view('gerenciar_metas',$coisas);
-			}
-			
+                }
+            }
+
+
+
+
 		$coisas['usuarios'] = $this->Usuario_model->recuperar();
 
 		$coisas['metas'] = $this->Meta_model->recuperar();
@@ -91,6 +87,7 @@ class Realizar_atividade_equipamento extends CI_Controller {
 			$coisas ['error'] = 'meta não inserida na base de dados';
 			return $this->load->view('home',$coisas);
 		}
+
 	}
 
 
