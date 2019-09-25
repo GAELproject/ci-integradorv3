@@ -14,7 +14,7 @@ class Equipamento_realizou_atividade_model extends CI_Model
 
 	public function inserir()
 	{
-        $dados = array("id_equipamento_realizou_atividade" => $this->id_equipamento_realizou_atividade,
+        $dados = array(
                         "equipamento_id_equipamento" => $this->equipamento_id_equipamento,
 						"atividade_id_atividade" => $this->atividade_id_atividade);
 
@@ -22,7 +22,7 @@ class Equipamento_realizou_atividade_model extends CI_Model
 	}
 	public function recuperar(){
 		$query = $this->db->get('equipamento_realizou_atividade');
-		return $query->result();
+		return $query->result_array();
 	}
 
    

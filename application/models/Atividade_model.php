@@ -23,22 +23,15 @@ class Atividade_model extends CI_Model
             "atividade_defeito" => $this->atividade_defeito,
             "observacoes" => $this->observacoes);
 
-        return $this->db->insert('atividade',$dados);
+         $this->db->insert('atividade',$dados);
+        return $this->db->insert_id();
     }
     public function recuperar()
     {
         $query = $this->db->get('atividade');
         return $query->result_array();
     }
-
-
-    public function getIdAtividade($descricao_servico_realizado, $nome_item_substituido,$qtd_item_substituido){
-        $this->db->like('descricao_servico_realizado',$descricao_servico_realizado)
-            ->like('nome_item_substituido',$nome_item_substituido)
-            ->where('qtd_item_substituido',$qtd_item_substituido);
-        $query = $this->db->get('atividade');
-        return $query->result_array();
-    }
+  
 
     public function recuperarUm($id){
         $this->db->where('id_meta',$id);

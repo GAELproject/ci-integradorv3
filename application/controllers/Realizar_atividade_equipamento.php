@@ -46,46 +46,32 @@ class Realizar_atividade_equipamento extends CI_Controller {
         $this->Atividade_model->atividade_defeito = $atividade_defeito;
         $this->Atividade_model->observacoes = $observacoes;
 
-		$insertar = $this->Atividade_model->inserir();
+		$insertar['id_atividade'] = $this->Atividade_model->inserir();
+
+		
 
 
-        //exit();
-
-
-
-		if($insertar){
-            $atividade = $this->Atividade_model->getIdAtividade($descricao_servico_realizado, $nome_item_substituido, $qtd_item_substituido);
-            $id_atividade = '';
-
-            if(!empty($atividade)){
-                foreach ($atividade as $at){
-                    $id_atividade = $at['id_atividade'];
-                    if(!empty($id_usuarios)){
-                        foreach ($id_usuarios as $user) {
-                            $this->Usuario_tem_meta_model->meta_id = $meta_id;
-                            $this->Usuario_tem_meta_model->usuario_id = $user;
-                            $this->Usuario_tem_meta_model->inserir();
-                        }
-                    }
-
-                }
-            }
-
-
-
-
-		$coisas['usuarios'] = $this->Usuario_model->recuperar();
-
-		$coisas['metas'] = $this->Meta_model->recuperar();
-		$coisas['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperar();
-		$coisas['pagina'] = 'Listagem de metas';
-		$coisas['title'] = 'Listagem de metas';
-		$coisas['success'] = 'Meta inserida com sucesso!';
+		if($insertar != null){
 			
-		return $this->load->view('metas', $coisas);
+			$this->Equipamento_realizou_atividade_model->equipamento_id_equipamento = $equipamento_id_equipamento;
+			$this->Equipamento_realizou_atividade_model->atividade_id_atividade = $insertar['id_atividade'];
+
+			$this->Equipamento_realizou_atividade_model->inserir();
+
+
+			$dados['equipamento_realizou_atividades'] = $this->Equipamento_realizou_atividade_model->recuperar();
+			$dados['atividades'] = $this->Atividade_model->recuperar();
+			$dados['equipamentos'] = $this->Equipamento_model->recuperar();
+			
+			
+			$dados['pagina'] = 'Listagem de atividades';
+			$dados['title'] = 'Listagem de atividades';
+			$dados['success'] = 'Atividade inserida com sucesso!';
+				
+			return $this->load->view('equipamento_realizou_atividade/homeAtividadeEquipamento', $dados);
 		}else{
-			$coisas ['error'] = 'meta não inserida na base de dados';
-			return $this->load->view('home',$coisas);
+			$coisas ['error'] = 'atividade não inserida na base de dados';
+			return $this->load->view('home',$dados);
 		}
 
 	}
