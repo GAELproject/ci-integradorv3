@@ -78,9 +78,9 @@
                         <div class="col-lg-10">
                           <select class="form-control" name='equipamento_id' id="content" required>
                             <option value="">-- Selecione um Equipamento --</option>  
-                              <?php foreach($equipamentos as $equipamento){ ?>
-                                  <option value="<?php echo $equipamento->id_equipamento; ?>"><?php echo $equipamento->equipamento_nome; ?></option>
-                              <?php } ?>
+                            <?php foreach($equipamentos as $equipamento){ ?>
+                                <option value="<?php echo $equipamento->id_equipamento; ?>"><?php echo $equipamento->equipamento_nome; ?></option>
+                            <?php } ?>
                           </select>
                         </div>
                        </div>
