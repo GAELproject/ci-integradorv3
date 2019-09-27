@@ -40,12 +40,12 @@ class OS_model extends CI_Model
         $this->db->set('equipamento_id', $this->equipamento_id);
 		$this->db->set('numero_OS', $this->numero_OS);
         $this->db->set('data_criacao', $this->data_criacao);
-        
+        $this->db->set('cpf_cliente', $this->cpf_cliente);
 
         $this->db->where('id_os', $this->id_os);
         $this->db->update('OS');
-
 	}
+	
 	//função para deletar uma meta.
 	public function delete($id)
     {
