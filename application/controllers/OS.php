@@ -46,130 +46,52 @@ class OS extends CI_Controller {
 		$dados['title'] = 'Gerenciar Ordem de Serviços';
 		$dados['pagina'] = 'Gerenciar Ordem de Serviços';
 		$dados['Alert'] = 'Ordem de Serviço cadastrada com sucesso!!!';
-		redirect(base_url('index.php/os/formcadastrar'));
+		redirect(base_url('index.php/OS/index'));
 	}
 
-    public function editar(){
-		
-        $id = $this->uri->segment(3);
-		
-        $dados['title'] = "Ediçãode metas";
-        $dados['pagina'] = "Edição de metas";
 
-		$dados['meta'] = $this->Meta_model->recuperarUm($id);
-		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
-		$dados['bolsistasall'] = $this->Usuario_model->recuperarNormais();
-		$dados['adms'] = $this->Usuario_model->recuperarAdms();
+	//Abrir página para editar OS's
+    public function editar($id){
+		$this->load->model('Equipamento_model');
+    	$this->load->model('Usuario_model');
+		$this->load->model('OS_model');
 
-        return $this->load->view('metas/editMeta', $dados);
+    	$dados['title'] 	= 'Editar Ordem de Serviços';
+		$dados['pagina'] 	= 'Editar Ordem de Serviços';
+		$dados['equipamentos'] = $this->Equipamento_model->recuperar();
+		$dados['responsaveis'] = $this->Usuario_model->recuperar();
+		$dados['os'] 		= $this->OS_model->recuperarUm($id);
+
+        return $this->load->view('OS/editOS', $dados);
     }
-    public function atualizar(){
-		//($_POST);
-		//exit();
-		$this->Meta_model->id_meta = $_POST['id_meta'];
-		
-		
-
-        $this->Meta_model->titulo = $_POST['titulo'];
-		$this->Meta_model->descricao = $_POST['descricao'];
-		$this->Meta_model->turno = $_POST['turno'];
-		$this->Meta_model->data_criacao = $_POST['data_criacao'];
-
-        //$this->Meta_model->data_criacao = $_POST['data_criacao'];
-        $this->Meta_model->data_prazo_finalizacao = $_POST['data_prazo_finalizacao'];
-        $this->Meta_model->data_finalizacao = $_POST['data_finalizacao'];
-		$this->Meta_model->situacao = $_POST['situacao'];
-		$this->Meta_model->id_criador = $_POST['id_criador'];
-		$this->Meta_model->update();
-		
-		
-		$id_meta = $_POST['id_meta'];
-		
-		//usuarios que vieram marcados
-		$arrayUsuarios = $_POST['id_usuario'];
-		//todos os vínculos dos usuários com essa meta
-		$usuarios_tem_meta = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id_meta);
-				
-
-		
-		//deletar todos os campos que estão ligados com esssa meta	
-		$this->Usuario_tem_meta_model->delete($id_meta);
-		//inserindo todos que estão vindo
-		if(!empty($arrayUsuarios)){
-			foreach ($arrayUsuarios as $idarray) {
-				$this->Usuario_tem_meta_model->usuario_id  = $idarray;
-				$this->Usuario_tem_meta_model->meta_id  = $id_meta;
-				$this->Usuario_tem_meta_model->inserir();
-			}	
-		}
 
 
-		/*
-		if(!empty($usuarios_tem_meta)){	
-			foreach ($usuarios_tem_meta as $utm) {
-				foreach ($arrayUsuarios as $idarray) {
-					if($idarray == $utm->usuario_id){
-						
-					}else{
-						$this->Usuario_tem_meta_model->usuario_id  = $idarray;
-						$this->Usuario_tem_meta_model->meta_id  = $id_meta;
-						$this->Usuario_tem_meta_model->inserir();
-					}
-				}
-			}
-		}	
-		*/
-        redirect('index.php/meta/index');
+    //Salvar edições do OS's
+    public function atualizar($id){
+    	$this->load->model('OS_model');
+
+    	$this->OS_model->id_os 		= $id;
+        $this->OS_model->responsavel 	= $_POST['responsavel'];
+        $this->OS_model->equipamento_id = $_POST['equipamento_id'];
+        $this->OS_model->numero_OS 		= $_POST['numero_OS'];
+        $this->OS_model->cpf_cliente 	= $_POST['cpf_cliente'];
+        $this->OS_model->data_criacao 	= $_POST['data_criacao'];
+
+        echo $_POST['cpf_cliente'];
+
+        $this->OS_model->update($id);
+
+        //redirect(base_url('index.php/os/editar/' . $id));
 	}
+
+
 	//deletar metas
-	public function deletar(){
-        //$coisas ['pagina'] = 'Listagem de usuário';
-		//$coisas ['title'] = 'listagem de usuário - gael';
-		$id = $this->uri->segment(3);
-
-		$usuarios_tem_meta = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
-		$deleteone = $this->Usuario_tem_meta_model->delete($id);
-
-		/*
-		$deletar = false;
-		$id_row = '';
-	
-		foreach ($usuario_tem_meta as $utm) {
-			if($utm->meta_id == $id ){
-				$deletar = true;
-				$id_row = $utm->id_usuario_tem_meta;
-			}
-		}
-		*/
-		
-		 
-		
-		//$this->Usuario_tem_meta_model->delete($id_row);
-		$this->Meta_model->delete($id);
-
-			$coisas['usuarios'] = $this->Usuario_model->recuperar();
-			$coisas['metas'] = $this->Meta_model->recuperar();
-			$coisas['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperar();
-			$coisas['pagina'] = 'Listagem de metas';
-			$coisas['title'] = 'Listagem de metas';
-			$coisas['success'] = 'Meta excluída com sucesso!';
-			
-			return $this->load->view('metas', $coisas);
-			/*
-		} else {
-			$coisas['usuarios'] = $this->Usuario_model->recuperar();
-			$coisas['metas'] = $this->Meta_model->recuperar();
-			$coisas['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperar();
-			$coisas['pagina'] = 'Listagem de metas';
-			$coisas['title'] = 'Listagem de metas';
-			$coisas['error'] = 'Meta não excluída!';
-			
-			return $this->load->view('metas',$coisas);
-		}*/
-		
-		//$this->Meta_model->delete($id);
-        //redirect('index.php/meta/index');
+	public function deletar($id){
+        $this->load->model('OS_model');
+        $this->OS_model->delete($id);
+        redirect(base_url('index.php/os'));
 	}
+
 	public function view($id){
 		$dados['meta'] = $this->Meta_model->recuperarUm($id);
 		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
