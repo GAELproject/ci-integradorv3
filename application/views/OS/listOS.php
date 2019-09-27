@@ -24,6 +24,7 @@
 						<th><i></i>CPF do Cliente</th>  
 						<th><i class=""></i>Data de criação</th>
 						<th><i></i></th>
+						<th><i></i></th>
 	                  </tr>
 	                  <?php foreach ($OS as $o) {?>
 	                  <tr>
@@ -32,7 +33,8 @@
 						<td><?php echo $o->numero_OS;?></td>
 						<td><?php echo $o->cpf_cliente;?></td>
 						<td><?php echo $o->data_criacao?></td>
-						<td><a class="btn btn-danger" href="<?php echo $o->id_os; ?>">Excluir</a></td>
+						<td><a class="btn btn-secondary" href="<?php echo base_url('index.php/os/editar/') . $o->id_os; ?>">Editar</a></td>
+						<td><a class="btn btn-danger" href="<?php echo base_url('index.php/os/deletar/') . $o->id_os; ?>">Excluir</a></td>
 	                  </tr>
 	              	<?php } ?>
 	                </tbody>
