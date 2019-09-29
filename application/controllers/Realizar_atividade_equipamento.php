@@ -5,10 +5,16 @@ class Realizar_atividade_equipamento extends CI_Controller {
 
 	public function index()
     {
-		$coisas['title']  = 'Listagem de atividades feitas';
-        $coisas['pagina'] = 'Listagem das atividades';
-        $coisas['atividades'] = $this->Atividade_model->recuperar();
-		$this->load->view('equipamento_realizou_atividade/homeAtividadeEquipamento', $coisas);
+		
+		$dados['equipamento_realizou_atividades'] = $this->Equipamento_realizou_atividade_model->recuperar();
+		$dados['atividades'] = $this->Atividade_model->recuperar();
+		$dados['equipamentos'] = $this->Equipamento_model->recuperar();
+		
+		
+		$dados['pagina'] = 'Listagem de atividades';
+		$dados['title'] = 'Listagem de atividades';
+		$dados['success'] = 'Atividade inserida com sucesso!';
+		$this->load->view('equipamento_realizou_atividade/homeAtividadeEquipamento', $dados);
 	}
     //função que chama a view de inserir nova atividade
 	public function add(){
