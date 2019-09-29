@@ -33,7 +33,7 @@
 
 
     
-    <form class="login-form form-login-container" action="<?php echo base_url('/gael/home')?>">
+    <form class="login-form form-login-container" action="<?php echo base_url('index.php/gael/home')?>">
       <div id="" class="login-wrap" style="margin-top: -80px;">
         <p class="login-img"><img src="<?php echo base_url('assets/img/gael.png')?>" width="80"></i></p>
         <h4 class="text-center" style="color: black;">
