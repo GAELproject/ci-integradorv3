@@ -52,9 +52,9 @@ class OS extends CI_Controller {
 
 	//Abrir página para editar OS's
     public function editar($id){
-		$this->load->model('Equipamento_model');
-    	$this->load->model('Usuario_model');
-		$this->load->model('OS_model');
+	//	$this->load->model('Equipamento_model');
+    //	$this->load->model('Usuario_model');
+	//	$this->load->model('OS_model');
 
     	$dados['title'] 	= 'Editar Ordem de Serviços';
 		$dados['pagina'] 	= 'Editar Ordem de Serviços';
@@ -68,28 +68,29 @@ class OS extends CI_Controller {
 
     //Salvar edições do OS's
     public function atualizar($id){
-    	$this->load->model('OS_model');
+    	//$this->load->model('OS_model');
 
-    	$this->OS_model->id_os 		= $id;
+    	$this->OS_model->id_os 			= $id;
         $this->OS_model->responsavel 	= $_POST['responsavel'];
         $this->OS_model->equipamento_id = $_POST['equipamento_id'];
         $this->OS_model->numero_OS 		= $_POST['numero_OS'];
         $this->OS_model->cpf_cliente 	= $_POST['cpf_cliente'];
         $this->OS_model->data_criacao 	= $_POST['data_criacao'];
 
-        echo $_POST['cpf_cliente'];
+        
 
         $this->OS_model->update($id);
 
-        //redirect(base_url('index.php/os/editar/' . $id));
+		//redirect(base_url('index.php/os/editar/' . $id));
+		redirect(base_url('index.php/OS'));
 	}
 
 
 	//deletar metas
 	public function deletar($id){
-        $this->load->model('OS_model');
+       // $this->load->model('OS_model');
         $this->OS_model->delete($id);
-        redirect(base_url('index.php/os'));
+        redirect(base_url('index.php/OS'));
 	}
 
 	public function view($id){
