@@ -12,7 +12,7 @@
   						<?= $error?>
 					</div>
 				<?php }?>
-			<a class="btn btn-primary" style="margin-bottom: 10px;" href="<?= base_url('index.php/os/formcadastrar')?>">Adicionar OS</a>
+			<a class="btn btn-primary" style="margin-bottom: 10px;" href="<?= base_url('index.php/OS/formcadastrar')?>">Adicionar OS</a>
 				<section class="panel">
 
 	              <table class="table table-striped table-advance table-hover">

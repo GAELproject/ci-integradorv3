@@ -18,7 +18,7 @@ class OS_model extends CI_Model
         $dados = array("responsavel" => $this->responsavel,
                         "equipamento_id" => $this->equipamento_id,
 						"numero_OS" => $this->numero_OS,
-						"data_criacao" => $this->data_criacao,
+						//"data_criacao" => $this->data_criacao,
 						"cpf_cliente" => $this->cpf_cliente,
                     );
 		return $this->db->insert('OS',$dados);

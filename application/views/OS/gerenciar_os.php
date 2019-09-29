@@ -59,7 +59,7 @@
                 <div class="padd">
                   <div class="form quick-post">
                     <!-- Edit profile form (not working)-->
-                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/os/cadastrar/')?>">
+                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/OS/cadastrar/')?>">
                       <!-- título da meta -->
                       <div class="form-group">
                             <label class="control-label col-lg-2" for="title">Nome do responsável</label>
@@ -79,7 +79,7 @@
                           <select class="form-control" name='equipamento_id' id="content" required>
                             <option value="">-- Selecione um Equipamento --</option>  
                             <?php foreach($equipamentos as $equipamento){ ?>
-                                <option value="<?php echo $equipamento->id_equipamento; ?>"><?php echo $equipamento->equipamento_nome; ?></option>
+                                <option value="<?php echo $equipamento['id_equipamento']; ?>"><?php echo $equipamento['equipamento_nome']; ?></option>
                             <?php } ?>
                           </select>
                         </div>

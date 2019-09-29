@@ -31,15 +31,15 @@ class OS extends CI_Controller {
 		$equipamento_id = $_POST['equipamento_id'];
 		$numero_OS = $_POST['numero_OS'];		
 		$cpf_cliente = $_POST['cpf_cliente'];
-		$data_criacao = implode("-", array_reverse(explode("/", $_POST['data_criacao'])));
-		$data_criacao = $_POST['data_criacao'];
+		//$data_criacao = implode("-", array_reverse(explode("/", $_POST['data_criacao'])));
+		//$data_criacao = $_POST['data_criacao'];
 		//Carregar a model
-		$this->load->model('OS_model');
+		//$this->load->model('OS_model');
 		//Informando os dados
 		$this->OS_model->responsavel = $responsavel;
  		$this->OS_model->equipamento_id = $equipamento_id;
 		$this->OS_model->numero_OS = $numero_OS;
-		$this->OS_model->data_criacao = $data_criacao;
+		//$this->OS_model->data_criacao = $data_criacao;
 		$this->OS_model->cpf_cliente = $cpf_cliente;
 		//Inserir
 		$this->OS_model->inserir();
