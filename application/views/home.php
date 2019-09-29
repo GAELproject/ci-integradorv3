@@ -91,7 +91,7 @@
                  <div class="card text-center">
                     <div class="card-header">GAEL - atividades em equipamento</div>
                     <div class="card-body">
-                      <h5 class="card-title">Realizar atividade em OS </h5>
+                      <h5 class="card-title">Realizar atividade em equipamento </h5>
                       <p class="card-text">Para gerenciadores, detinado a inciar, editar e excluir atividades.</p>
                       <a href="<?php echo base_url('index.php/realizar_atividade_equipamento/index')?>" class="btn btn-primary">Realizar atividades em um equipamento</a>
                     </div>
