@@ -49,17 +49,37 @@
 
 
                         <!--formulário de inserção-->
-                        <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/usuario/atualizar')?>">
+                        <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/usuario/salvar')?>">
                             <!-- Title -->
 
                             <div class="form-group">
                                 <label class="control-label col-lg-2" for="title">Nome</label>
                                 <div class="col-lg-10">
-                                    <input type="hidden" name="id_usuario" value="<?= $usuarios->id_usuario;?>"></input>
-                                    <input class="form-control" id="title" name="nome" type="text" value="<?= $usuarios->nome;?>">
+                                    
+                                    <input class="form-control" id="title" name="u_nome" type="text" value="<?= $usuarios->nome;?>">
                                 </div>
                             </div>
-                            <!--tipo de usuário-->
+                            
+                            <div class="form-group">
+                                <label class="control-label col-lg-2" for="title">Email</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="title" name="u_email" type="text" value="s<?= $usuarios->email;?>">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-lg-2" for="title">Senha</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="title" type="text" name="senha" value="<?= $usuarios->senha;?>">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label col-lg-2" for="title">CPF</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="title" type="text" name="cpf" value="<?= $usuarios->cpf;?>">
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <label class="control-label col-lg-2">Tipo de usuário</label>
@@ -77,54 +97,7 @@
                                     </select>
                                 </div>
                             </div>
-
-                            <!-- Content -->
-                            <div class="form-group">
-                                <label class="control-label col-lg-2" for="title">Email</label>
-                                <div class="col-lg-10">
-                                    <input class="form-control" id="title" name="email" type="text" value="s<?= $usuarios->email;?>">
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label class="control-label col-lg-2" for="title">Login</label>
-                                <div class="col-lg-10">
-                                    <input class="form-control" id="title" type="text" name="login" value="<?= $usuarios->login;?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-lg-2" for="title">Senha</label>
-                                <div class="col-lg-10">
-                                    <input class="form-control" id="title" type="text" name="senha" value="<?= $usuarios->senha;?>">
-                                </div>
-                            </div>
-                            <!-- turno -->
-                            <div class="form-group">
-                                <label class="control-label col-lg-2" for="title">CPF</label>
-                                <div class="col-lg-10">
-                                    <input class="form-control" id="title" type="text" name="cpf" value="<?= $usuarios->cpf;?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-lg-2" for="title">Imagem</label>
-                                <div class="col-lg-10">
-                                    <input class="form-control" id="title" type="text" name="imagem" value="<?= $usuarios->imagem;?>">
-                                </div>
-                            </div>
-                            <!---->
-                            <div class="form-group">
-                                <label class="control-label col-lg-2">Turno</label>
-                                <div class="col-lg-10">
-                                    <select class="form-control" name="turno">
-                                        <option value="<?= $usuarios->turno;?>" selected="">- <?= $usuarios->turno;?> -</option>
-                                        <option value="M">Manhã</option>
-                                        <option value="T">Tarde</option>
-                                        <option value="N">Noite</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <!--usuário bolsista-->
+                            
                             <div class="form-group">
                                 <label class="control-label col-lg-2">Bolsista</label>
                                 <div class="col-lg-10">
@@ -150,6 +123,19 @@
                                     </select>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-lg-2">Turno</label>
+                                <div class="col-lg-10">
+                                    <select class="form-control" name="turno">
+                                        <option value="<?= $usuarios->turno;?>" selected="">- <?= $usuarios->turno;?> -</option>
+                                        <option value="M">Manhã</option>
+                                        <option value="T">Tarde</option>
+                                        <option value="N">Noite</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
 
                             <!-- Tags -->
 

@@ -4,47 +4,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Usuario extends CI_Controller {
 
 	public function index(){
-		$this->load->model('Usuario_model');
+	//	$this->load->model('Usuario_model');
 
-		$coisas['usuarios'] = $this->Usuario_model->recuperar();
-		$coisas ['title'] = 'listagem de usuário - gael';
-        $coisas ['pagina'] = 'Listagem de usuários';
-		$this->load->view('user', $coisas);
+		$dados['usuarios'] = $this->Usuario_model->recuperar();
+		$dados ['title'] = 'listagem de usuário - gael';
+        $dados ['pagina'] = 'Listagem de usuários';
+		$this->load->view('users/user', $dados);
 	}
 
 	public function salvar()
     {
+        var_dump($_POST);
+        
 
-        $this->load->model('Usuario_model');
-        $nome = $_POST['nome'];
-        $tipo = $_POST['tipo'];
-        $login = $_POST['login'];
+      //  $this->load->model('Usuario_model');
+        $u_nome = $_POST['u_nome'];
+        $u_email = $_POST['u_email'];
         $senha = $_POST['senha'];
-        $imagem = $_POST['imagem'];
-        $email = $_POST['email'];
         $cpf = $_POST['cpf'];
-        $turno = $_POST['turno'];
+        $usuario_tipo = $_POST['usuario_tipo'];
         $usuario_bolsista = $_POST['usuario_bolsista'];
-        $meta_id_meta = $_POST['meta_id_meta'];
-        $this->Usuario_model->nome = $nome;
-        $this->Usuario_model->tipo = $tipo;
-        $this->Usuario_model->login = $login;
+        $turno_atividades = $_POST['turno_atividades'];
+        
+        //$meta_id_meta = $_POST['meta_id_meta'];
+        $this->Usuario_model->u_nome = $u_nome;
+        $this->Usuario_model->u_email = $u_email;
         $this->Usuario_model->senha = $senha;
-        $this->Usuario_model->imagem = $imagem;
-        $this->Usuario_model->email = $email;
         $this->Usuario_model->cpf = $cpf;
-        $this->Usuario_model->turno = $turno;
+        $this->Usuario_model->usuario_tipo = $usuario_tipo;
         $this->Usuario_model->usuario_bolsista = $usuario_bolsista;
-        $this->Usuario_model->meta_id_meta = $meta_id_meta;
+        $this->Usuario_model->turno_atividades = $turno_atividades; 
+        //$this->Usuario_model->meta_id_meta = $meta_id_meta;
         $insertar = $this->Usuario_model->inserir();
 
         if ($insertar) {
-            $coisas['usuarios'] = $this->Usuario_model->recuperar();
-            $coisas['pagina'] = 'Listagem de usuários';
-            $coisas['title'] = 'Listagem de usuários';
-            $coisas['sucess'] = 'Usuário inserido com sucesso!';
+            
 
-            return $this->load->view('user', $coisas);
+            return redirect('index.php/usuario/index');
         } else {
             $coisas ['error'] = 'usuário não inserido na base de dados';
             return $this->load->view('home');

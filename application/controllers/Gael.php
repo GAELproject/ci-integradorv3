@@ -38,6 +38,7 @@ class Gael extends CI_Controller {
 		$coisas['sucess'] = 'Meta inserida com sucesso!';
 		return $this->load->view('metas', $coisas);
 	}
+	//exibe o fomrulário de inserção
 	public function gerenciar_usuario(){
 		$coisas['pagina'] = 'Gerenciar usuário';
 		return $this->load->view('gerenciar_usuarios', $coisas);

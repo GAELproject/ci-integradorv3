@@ -25,74 +25,53 @@
 
                     <!--formulário de inserção-->
                     <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/usuario/salvar/')?>">
-                      <!-- Title -->
+
+                    <!--Usuario-->
+
+
+                    <!-- Content-->
                       <div class="form-group">
                         <label class="control-label col-lg-2" for="title">Nome</label>
                         <div class="col-lg-10">
-                          <input class="form-control" id="title" name="nome" type="text">
+                          <input class="form-control" id="title" name="u_nome" type="text">
                         </div>
                       </div>
-                    <!--tipo de usuário-->
+                      
+                      <div class="form-group">
+                        <label class="control-label col-lg-2" for="title">Email</label>
+                          <div class="col-lg-10">
+                            <input class="form-control" id="title" name="u_email" type="email">
+                          </div>
+                      </div>
 
+                      <div class="form-group">
+                      <label class="control-label col-lg-2" for="title">Senha</label>
+                        <div class="col-lg-10">
+                          <input class="form-control" id="title" type="text" name="senha">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                      <label class="control-label col-lg-2" for="title">CPF</label>
+                        <div class="col-lg-10">
+                          <input class="form-control" id="title" type="text" name="cpf">
+                        </div>
+                      </div>
+
+                    <!--Tipo de Usuario-->
                      <div class="form-group">
                         <label class="control-label col-lg-2">Tipo de usuário</label>
                           <div class="col-lg-10">
-                            <select class="form-control" name="tipo">
+                            <select class="form-control" name="usuario_tipo">
                               <option value="">- Tipo -</option>
                               <option value="1">master</option>
                               <option value="2">administrador - bolsista</option>
                             </select>
                           </div>
                       </div>
-
-                      <!-- Content -->
-                         <div class="form-group">
-                                <label class="control-label col-lg-2" for="title">Email</label>
-                                <div class="col-lg-10">
-                                  <input class="form-control" id="title" name="email" type="text">
-                                </div>
-                          </div>
-
-
-                        <div class="form-group">
-                          <label class="control-label col-lg-2" for="title">Login</label>
-                          <div class="col-lg-10">
-                            <input class="form-control" id="title" type="text" name="login">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label col-lg-2" for="title">Senha</label>
-                          <div class="col-lg-10">
-                            <input class="form-control" id="title" type="text" name="senha">
-                          </div>
-                        </div>
-                      <!-- turno -->
-                        <div class="form-group">
-                          <label class="control-label col-lg-2" for="title">CPF</label>
-                          <div class="col-lg-10">
-                            <input class="form-control" id="title" type="text" name="cpf">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label col-lg-2" for="title">Imagem</label>
-                          <div class="col-lg-10">
-                            <input class="form-control" id="title" type="text" name="imagem">
-                          </div>
-                        </div>
-                      <!---->
+                      
+                      <!--Usuario Bolsista-->
                       <div class="form-group">
-                        <label class="control-label col-lg-2">Turno</label>
-                        <div class="col-lg-10">
-                          <select class="form-control" name="turno">
-                            <option value="">- Escolha seu turno -</option>
-                            <option value="M">Manhã</option>
-                            <option value="T">Tarde</option>
-                            <option value="N">Noite</option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--usuário bolsista-->
-                    <div class="form-group">
                         <label class="control-label col-lg-2">Bolsista</label>
                         <div class="col-lg-10">
                           <select class="form-control" name="usuario_bolsista">
@@ -102,20 +81,21 @@
                           </select>
                         </div>
                       </div>
-                    <div class="form-group">
-                        <label class="control-label col-lg-2">Meta</label>
-                        <div class="col-lg-10">
-                          <select class="form-control" name="meta_id_meta">
-                            <option value="">- Está vinculado a uma meta? -</option>
 
-                            <?php
-                            foreach ($metas as $key => $met) {
-                            ?>
-                                <option value="<?php echo $met->id_meta;?>"><?php echo $met->titulo;?></option>
-                            <?php }?>
+                      <!--Turno-->
+                      <div class="form-group">
+                        <label class="control-label col-lg-2">Turno</label>
+                        <div class="col-lg-10">
+                          <select class="form-control" name="turno_atividades">
+                            <option value="">- Escolha seu turno -</option>
+                            <option value="M">Manhã</option>
+                            <option value="T">Tarde</option>
+                            <option value="N">Noite</option>
                           </select>
                         </div>
-                      </div>      
+                      </div>
+
+                      
 
                       <!-- Tags -->
 

@@ -21,6 +21,7 @@
 	<!--início da row-->
 	<div class="row">
 		<div class="col-lg-12"> 
+    <a class="btn btn-primary" href="<?= base_url('index.php/gael/gerenciar_usuario')?>">Adicionar um novo usuario</a>
 			<section class="panel">
               <header class="panel-heading">
                 Advanced Table
@@ -40,11 +41,15 @@
                   <?php foreach ($usuarios as $key => $us) {
                   	?>
                   <tr>
-                    <td><?php echo $us->nome;?></td>
-                    <td><?php echo $us->tipo;?></td>
-                    <td><?php echo $us->login;?></td>
+                    <td><?php echo $us->u_nome;?></td>
+                    <td><?php echo $us->u_email;?></td>
                     <td><?php echo $us->senha;?></td>
-                    <td><?php echo $us->email;?></td>
+                    <td><?php echo $us->cpf;?></td>
+                    <td><?php echo $us->usuario_tipo;?></td>
+                    <td><?php echo $us->usuario_bolsista;?></td>
+                    <td><?php echo $us->turno_atividades;?></td>
+                    
+
                     <td><?php echo $us->usuario_bolsista;?></td>
                     <td>
                       <div class="btn-group">

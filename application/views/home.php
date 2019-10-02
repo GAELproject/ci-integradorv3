@@ -48,7 +48,7 @@
             <div class="card-body">
               <h5 class="card-title">Gerenciar Usuários</h5>
               <p class="card-text">Seção destinada para adminsitradores para adiconar, exlcuir e editar usuários</p>
-              <a href="<?php echo base_url('gael/gerenciar_usuario')?>" class="btn btn-primary">Gerenciar Usuários</a>
+              <a href="<?php echo base_url('index.php/usuario/index')?>" class="btn btn-primary">Gerenciar Usuários</a>
             </div>
           </div>
               <!--fim do primeiro card-->
