@@ -1,6 +1,23 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed!'); ?>
 <?php $this->load->view('header') ?>
 
+
+
+<div class="main-content container-fluid">
+
+	<div class="section__content section__content--p30">
+	<div class="container-fluid">
+		<div class="row mb-3">
+			<div class="col-md-12">
+				<div class="overview-wrap">
+					<h2 class="title-1"><?=$pagina; ?></h2>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 <div class="row">
 			<div class="col-lg-12"> 
 				<?php if(isset($success)){?>
@@ -59,7 +76,11 @@
 	                        <a title="editar" class="btn btn-success" href="<?php echo base_url('index.php/equipamento/editar/')?><?=$eq->id_equipamento;?>">
 	                        	<i class="fa fa-edit"></i></a>
 	                        <a title="excluir" class="btn btn-danger" href="<?php echo base_url('index.php/equipamento/deletar/')?><?=$eq->id_equipamento;?>">
-	                        	<i class="fa fa-trash-o"></i>
+	                        	
+
+									<i class="zmdi zmdi-delete"></i>
+
+
 							</a>
 							<a title="visualizar meta" class="btn btn-warning" href="<?php echo base_url('index.php/equipamento/view/')?><?=$eq->id_equipamento;?>">
 	                        	<i class="fa fa-eye"></i>
@@ -73,6 +94,6 @@
 	            </section>
 			</div>
 		</div>
-
+</div>
 
 <?php $this->load->view('footer') ?>

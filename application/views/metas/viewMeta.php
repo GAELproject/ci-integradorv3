@@ -1,7 +1,25 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed!'); ?>
 <?php $this->load->view('header') ?>
 
-<div class="row">
+
+
+
+
+<div class="main-content container-fluid">
+
+	<div class="section__content section__content--p30">
+	<div class="container-fluid">
+		<div class="row mb-3">
+			<div class="col-md-12">
+				<div class="overview-wrap">
+					<h2 class="title-1"><?=$pagina; ?></h2>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <div class="row">
     <div class="col-sm-12">
         <a href="<?= base_url('index.php/meta/index');?>"> <i class="fa fa-arrow-left"></i> Visualizar todas as metas</a>
         
@@ -103,6 +121,7 @@
     </div>
     <div class="col-sm-2"></div>
 
+</div>
 </div>
 
 <?php $this->load->view('footer') ?>

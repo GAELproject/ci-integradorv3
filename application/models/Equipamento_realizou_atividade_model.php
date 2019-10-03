@@ -22,7 +22,8 @@ class Equipamento_realizou_atividade_model extends CI_Model
 	}
 	public function recuperar(){
 		$query = $this->db->get('equipamento_realizou_atividade');
-		return $query->result_array();
+		
+		return $query->result();
 	}
 
    

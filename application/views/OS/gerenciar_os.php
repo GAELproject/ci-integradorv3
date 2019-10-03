@@ -5,6 +5,21 @@
 
 <!--início da primeira row-->
 
+
+<div class="main-content container-fluid">
+
+	<div class="section__content section__content--p30">
+	<div class="container-fluid">
+		<div class="row mb-3">
+			<div class="col-md-12">
+				<div class="overview-wrap">
+					<h2 class="title-1"><?=$pagina; ?></h2>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+
 <?php if (isset($error)) {
    ?>
 <div class="row">
@@ -45,14 +60,7 @@
             <div  class="panel panel-default">
               <div class="panel-heading">
                 <div class="pull-left">Gerenciar OS</div>
-                <div class="widget-icons pull-right">
-                  <a id="seletor-down1" href="#">
-                    <i class="fa fa-chevron-down"></i>
-                  </a>
-                  <a href="#" id="seletor-up1" >
-                    <i id="" class="fa fa-chevron-up"></i></a>
-                  <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-                </div>
+               
                 <div class="clearfix"></div>
               </div>
               <div id="painel1" class="panel-body">
@@ -79,7 +87,7 @@
                           <select class="form-control" name='equipamento_id' id="content" required>
                             <option value="">-- Selecione um Equipamento --</option>  
                             <?php foreach($equipamentos as $equipamento){ ?>
-                                <option value="<?php echo $equipamento['id_equipamento']; ?>"><?php echo $equipamento['equipamento_nome']; ?></option>
+                                <option value="<?php echo $equipamento->id_equipamento; ?>"><?php echo $equipamento->equipamento_nome; ?></option>
                             <?php } ?>
                           </select>
                         </div>
@@ -97,7 +105,7 @@
                         <div class="form-group">
                           <label class="control-label col-lg-2" for="prazo">CPF do cliente</label>
                           <div class="col-lg-10">
-                            <input class="form-control" id="prazo" type='number' name="cpf_cliente" placeholder="Insira seu CPF" required>
+                            <input class="form-control" id="prazo" type='text' name="cpf_cliente" placeholder="Insira o CPF do cliente" required>
                           </div>  
                         </div>
                         <!--fim prazo finalizacao-->
@@ -156,7 +164,7 @@
 
 </div>
 <!--fim da segunda row-->
-
+</div>
 
 
             <?php $this->load->view('footer') ?>

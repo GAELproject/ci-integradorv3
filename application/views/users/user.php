@@ -2,37 +2,33 @@
 <?php $this->load->view('header') ?>
 	
 
-<?php if(isset($sucess)){ ?>
-	<div class="row">
-		<div class="col-sm-1">
-		</div>
-		<div class="col-sm-10">
-			<div class="alert alert-success fade in">
-                <button data-dismiss="alert" class="close close-sm" type="button">
-                       <i class="fa fa-times-circle"></i>
-                    </button>
-                <strong>Usuário inserido com sucesso!</strong>
+
+  <div class="main-content container-fluid">
+
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <div class="overview-wrap">
+                    <h2 class="title-1">Página principal</h2>
+              
+                </div>
             </div>
-		</div>
-		<div class="col-sm-1">
-		</div>
-	</div>
-<?php } ?>
-	<!--início da row-->
+        </div>
+  </div>
 	<div class="row">
+
 		<div class="col-lg-12"> 
     <a class="btn btn-primary" href="<?= base_url('index.php/gael/gerenciar_usuario')?>">Adicionar um novo usuario</a>
 			<section class="panel">
-              <header class="panel-heading">
-                Advanced Table
-              </header>
+        
 
               <table class="table table-striped table-advance table-hover">
                 <tbody>
                   <tr>
                     <th><i class="icon_profile"></i>Nome</th>
                     <th><i class="icon_calendar"></i>Tipo de usuário</th>
-                    <th><i class="icon_mail_alt"></i>Login</th>
+                    <th><i class="icon_mail_alt"></i>Login</th> 
                     <th><i class="icon_pin_alt"></i>Senha</th>
                     <th><i class="icon_mobile"></i>Email</th>
                     <th><i class="icon_cogs"></i> Bolsista</th>
@@ -68,6 +64,8 @@
             </section>
 		</div>
 	</div>
-	<!--fim da row-->
+  <!--fim da row-->
+  
+  </div>
 <?php $this->load->view('footer') ?>
 

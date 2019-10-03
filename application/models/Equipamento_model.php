@@ -25,7 +25,7 @@ class Equipamento_model extends CI_Model
 	}
 	public function recuperar(){
 		$query = $this->db->get('equipamento');
-		return $query->result_array();
+		return $query->result();
 	}
 
    

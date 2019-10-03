@@ -2,6 +2,23 @@
 
 <?php $this->load->view('header') ?>
 
+
+
+<div class="main-content">
+
+	<div class="section__content section__content--p30">
+	<div class="container-fluid">
+		<div class="row mb-3">
+			<div class="col-md-12">
+				<div class="overview-wrap">
+					<h2 class="title-1"><?=$pagina; ?></h2>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 <div class="container-fluid">
     <a href="<?= base_url('index.php/realizar_atividade_equipamento/add')?>" class="btn btn-outline-success">Realizar nova atividade</a>
     <div class="row">
@@ -27,26 +44,26 @@
                         
                         <td>
                         <?php foreach($equipamentos as $eq): ?>
-                            <?php if($era['equipamento_id_equipamento']== $eq['id_equipamento']):?> 
+                            <?php if($era->equipamento_id_equipamento== $eq->id_equipamento):?> 
                                 Nome: 
-                                <?= $eq['equipamento_nome']?>
+                                <?= $eq->equipamento_nome;?>
                                 <br>
                                 número de série:
-                                <?= $eq['numero_serie']?>
+                                <?= $eq->numero_serie;?>
                             <?php endif;?>
                         <?php endforeach;?> 
                         </td>
                         <td>
                         <?php foreach($atividades as $at): ?>
-                            <?php if($era['atividade_id_atividade']== $at['id_atividade']):?> 
+                            <?php if($era->atividade_id_atividade== $at['id_atividade']):?> 
                                 Descrição do serviço:
-                                <?= $at['descricao_servico_realizado']?>
+                                <?= $at['descricao_servico_realizado'];?>
                             <?php endif;?>
                         <?php endforeach;?>
                         </td>
                         
                         <td>
-                            <?= $era['data_hora_atividade'];?>
+                            <?= $era->data_hora_atividade;?>
                         </td>
                         <td>
                             <a href="" class="btn btn-warning">Editar</a>
@@ -62,6 +79,7 @@
 
     </div>
    
+</div>
 </div>
 
 <?php $this->load->view('footer') ?>

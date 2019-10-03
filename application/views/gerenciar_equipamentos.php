@@ -2,19 +2,28 @@
 
 <?php $this->load->view('header') ?>        
 
+<div class="main-content container-fluid">
+
+	<div class="section__content section__content--p30">
+	<div class="container-fluid">
+		<div class="row mb-3">
+			<div class="col-md-12">
+				<div class="overview-wrap">
+					<h2 class="title-1"><?=$pagina; ?></h2>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+
+
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
             <div  class="panel panel-default">
               <div class="panel-heading">
                 <div class="pull-left">Gerenciar equipamento</div>
-                <div class="widget-icons pull-right">
-                  <a id="seletor-down2" href="#">
-                    <i class="fa fa-chevron-down"></i>
-                  </a>
-                  <a href="#" id="seletor-up2" >
-                    <i id="" class="fa fa-chevron-up"></i></a>
-                  <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-                </div>
+            
                 <div class="clearfix"></div>
               </div>
               <div id="painel2" class="panel-body">
@@ -93,5 +102,6 @@
 
               </div>
             </div>
-
+            <div class="col-sm-2"></div>  
+</div>
             <?php $this->load->view('footer') ?>

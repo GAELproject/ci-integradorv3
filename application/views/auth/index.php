@@ -12,9 +12,9 @@
   <title>GAEL - Login</title>
 
   <!-- Bootstrap CSS -->
-  <link href="<?php echo base_url('assets/css/bootstrap.min.css')?>" rel="stylesheet">
+  <link href="<?php echo base_url('assets/vendor/bootstrap-4.1/bootstrap.min.css')?>" rel="stylesheet">
   <!-- bootstrap theme -->
-  <link href="<?php echo base_url('assets/css/bootstrap-theme.css')?>" rel="stylesheet">
+  <link href="<?php echo base_url('assets/vendor/bootstrap-4.1/bootstrap-theme.css')?>" rel="stylesheet">
   <!--external css-->
   <!-- font icon -->
   <link href="<?php echo base_url('assets/css/elegant-icons-style.css')?>" rel="stylesheet" />
@@ -29,9 +29,6 @@
 <body class="">
 
   <div class="container">
-
-
-
     
     <form class="login-form form-login-container" action="<?php echo base_url('index.php/gael/home')?>">
       <div id="" class="login-wrap" style="margin-top: -80px;">

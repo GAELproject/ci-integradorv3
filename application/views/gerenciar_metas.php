@@ -2,6 +2,22 @@
 
 <?php $this->load->view('header') ?>
 
+
+<div class="main-content container-fluid">
+
+	<div class="section__content section__content--p30">
+	<div class="container-fluid">
+		<div class="row mb-3">
+			<div class="col-md-12">
+				<div class="overview-wrap">
+					<h2 class="title-1"><?= $pagina; ?></h2>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 <!--início da primeira row-->
 
 <?php if (isset($error)) {
@@ -44,14 +60,7 @@
             <div  class="panel panel-default">
               <div class="panel-heading">
                 <div class="pull-left">Gerenciar metas</div>
-                <div class="widget-icons pull-right">
-                  <a id="seletor-down1" href="#">
-                    <i class="fa fa-chevron-down"></i>
-                  </a>
-                  <a href="#" id="seletor-up1" >
-                    <i id="" class="fa fa-chevron-up"></i></a>
-                  <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-                </div>
+                
                 <div class="clearfix"></div>
               </div>
               <div id="painel1" class="panel-body">
@@ -193,6 +202,6 @@
 </div>
 <!--fim da segunda row-->
 
-
+</div>
 
             <?php $this->load->view('footer') ?>

@@ -1,8 +1,23 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed!'); ?>
 <?php $this->load->view('header') ?>
 
+
+<div class="main-content container-fluid">
+
+	<div class="section__content section__content--p30">
+	<div class="container-fluid">
+		<div class="row mb-3">
+			<div class="col-md-12">
+				<div class="overview-wrap">
+					<h2 class="title-1"><?= $pagina; ?></h2>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="row">
-			<div class="col-lg-12"> 
+			<div class="col-sm-12"> 
 				<?php if(isset($success)){?>
 					<div class="alert alert-success" role="alert">
 						<?php echo $success;?>
@@ -17,7 +32,8 @@
 	              <header class="panel-heading">
 	                Metas
 	              </header>
-
+			<div class="table-responsive table--no-card m-b-30">
+		
 	              <table class="table table-striped table-advance table-hover">
 	                <tbody>
 	                  <tr>
@@ -90,7 +106,11 @@
 	                        <a title="editar" class="btn btn-success" href="<?php echo base_url('index.php/meta/editar/')?><?=$met->id_meta?>">
 	                        	<i class="fa fa-edit"></i></a>
 	                        <a title="excluir" class="btn btn-danger" href="<?php echo base_url('index.php/meta/deletar/')?><?=$met->id_meta?>">
-	                        	<i class="fa fa-trash-o"></i>
+	                        	
+
+									<i class="zmdi zmdi-delete"></i>
+
+
 							</a>
 							<a title="visualizar meta" class="btn btn-warning" href="<?php echo base_url('index.php/meta/view/')?><?=$met->id_meta?>">
 	                        	<i class="fa fa-eye"></i>
@@ -100,10 +120,13 @@
 	                  </tr>
 	              	<?php } ?>
 	                </tbody>
-	              </table>
+				  </table>
+			</div>
 	            </section>
 			</div>
 		</div>
-
+	</div>
+</div>
+<!--END MAIN CONTENT-->
 
 <?php $this->load->view('footer') ?>
