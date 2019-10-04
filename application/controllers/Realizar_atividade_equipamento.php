@@ -28,8 +28,7 @@ class Realizar_atividade_equipamento extends CI_Controller {
 	public function salvar(){
 
 		//$this->load->model('Meta_model');
-
-		$descricao_servico_realizado = $_POST['descricao_servico_realizado'];
+        $descricao_servico_realizado = $_POST['descricao_servico_realizado'];
 		$qtd_item_substituido = $_POST['qtd_item_substituido'];
 		$nome_item_substituido = $_POST['nome_item_substituido'];
 		$situacao_final = $_POST['situacao_final'];
@@ -76,7 +75,7 @@ class Realizar_atividade_equipamento extends CI_Controller {
 				
 			return $this->load->view('equipamento_realizou_atividade/homeAtividadeEquipamento', $dados);
 		}else{
-			$coisas ['error'] = 'atividade não inserida na base de dados';
+			$dados ['error'] = 'atividade não inserida na base de dados';
 			return $this->load->view('home',$dados);
 		}
 
@@ -93,7 +92,7 @@ class Realizar_atividade_equipamento extends CI_Controller {
         $dados['title'] = "Ediçãode metas";
         $dados['pagina'] = "Edição de metas";
 
-		$dados['meta'] = $this->Meta_model->recuperarUm($id);
+        $dados['atividade'] = $this->Equipamento_realizou_atividade->recuperarUm($id);
 		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
 		$dados['bolsistasall'] = $this->Usuario_model->recuperarNormais();
 		$dados['adms'] = $this->Usuario_model->recuperarAdms();

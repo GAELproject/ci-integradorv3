@@ -19,7 +19,7 @@
 	</div>
 
 
-<div class="container-fluid">
+<div class="">
     <a href="<?= base_url('index.php/realizar_atividade_equipamento/add')?>" class="btn btn-outline-success">Realizar nova atividade</a>
     <div class="row">
          <div class="col-sm-12">
@@ -81,5 +81,6 @@
    
 </div>
 </div>
+
 
 <?php $this->load->view('footer') ?>

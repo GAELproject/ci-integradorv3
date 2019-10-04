@@ -2,6 +2,22 @@
 
 <?php $this->load->view('header') ?>
 
+
+
+
+<div class="main-content">
+
+<div class="section__content section__content--p30">
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="overview-wrap">
+                <h2 class="title-1"><?=$pagina; ?></h2>
+
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
@@ -19,7 +35,7 @@
                         <div class="col-lg-10">
                             <select class="form-control" name="equipamento_id_equipamento" id="eq" >
                                 <?php foreach($equipamentos as $eq): ?>
-                                    <option value="<?= $eq['id_equipamento'];?>"><?= $eq['equipamento_nome'];?></option>
+                                    <option value="<?= $eq->id_equipamento;?>"><?= $eq->equipamento_nome;?></option>
                                 <?php  endforeach;?>
                             </select>
                         </div>
@@ -96,6 +112,7 @@
     </div>
 </div>
 
+</div>
 
 
 <?php $this->load->view('footer') ?>
