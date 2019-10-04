@@ -1,6 +1,23 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed!'); ?>
 <?php $this->load->view('header') ?>
 
+
+
+
+<div class="main-content container-fluid">
+
+<div class="section__content section__content--p30">
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="overview-wrap">
+                <h2 class="title-1"><?=$pagina; ?></h2>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-1">
 
@@ -49,21 +66,21 @@
 
 
                         <!--formulário de inserção-->
-                        <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/usuario/salvar')?>">
+                        <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/usuario/atualizar')?>">
                             <!-- Title -->
-
+                            <input type="hidden" name="id_usuario" value="<?= $id_usuario; ?>">
                             <div class="form-group">
                                 <label class="control-label col-lg-2" for="title">Nome</label>
                                 <div class="col-lg-10">
                                     
-                                    <input class="form-control" id="title" name="u_nome" type="text" value="<?= $usuarios->nome;?>">
+                                    <input class="form-control" id="title" name="u_nome" type="text" value="<?= $usuarios->u_nome;?>">
                                 </div>
                             </div>
                             
                             <div class="form-group">
                                 <label class="control-label col-lg-2" for="title">Email</label>
                                 <div class="col-lg-10">
-                                    <input class="form-control" id="title" name="u_email" type="text" value="s<?= $usuarios->email;?>">
+                                    <input class="form-control" id="title" name="u_email" type="text" value="s<?= $usuarios->u_email;?>">
                                 </div>
                             </div>
 
@@ -84,54 +101,32 @@
                             <div class="form-group">
                                 <label class="control-label col-lg-2">Tipo de usuário</label>
                                 <div class="col-lg-10">
-                                    <select class="form-control" name="tipo">
-                                        <option value="<?= $usuarios->tipo;?>" selected>- <?php
-                                            if($usuarios->tipo == '1'){
-                                                echo 'Master';
-                                            }else{
-                                                echo 'Administraor';
-                                            }
-                                            ?> -</option>
-                                        <option value="1">master</option>
-                                        <option value="2">administrador - bolsista</option>
+                                    <select class="form-control" name="usuario_tipo">
+                                       
+                                            <option value="<?= $usuarios->usuario_tipo; ?>" <?php if($usuarios->usuario_tipo==1){echo "selected";} ?>>Administrador</option>
+                                      <option value="<?= $usuarios->usuario_tipo; ?>" <?php if($usuarios->usuario_tipo==2){echo "selected";} ?>>Bolsista</option>
                                     </select>
                                 </div>
                             </div>
                             
+                            <!--1 - É BOLSISTA (sim) 2 - NÃO É BOLSISTA (não)-->
                             <div class="form-group">
                                 <label class="control-label col-lg-2">Bolsista</label>
                                 <div class="col-lg-10">
                                     <select class="form-control" name="usuario_bolsista">
-                                        <option value="<?= $usuarios->usuario_bolsista;?>">- <?= $usuarios->usuario_bolsista;?> -</option>
-                                        <option value="S">Sim</option>
-                                        <option value="N">Não</option>
+                                    <option value="<?= $usuarios->usuario_bolsista; ?>" <?php if($usuarios->usuario_bolsista==1){echo "selected";} ?>>Sim</option>
+                                      <option value="<?= $usuarios->usuario_bolsista; ?>" <?php if($usuarios->usuario_bolsista==2){echo "selected";} ?>>Não</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-lg-2">Meta</label>
-                                <div class="col-lg-10">
-                                    <select class="form-control" name="meta_id_meta">
-                                        <option value="<?= $meta->id_meta;?>" selected="">- <?= $meta->titulo;?>-</option>
-
-                                        <?php
-                                        var_dump($meta);
-                                        foreach ($metas as $key => $met) {
-                                            ?>
-                                            <option value="<?php echo $met->id_meta;?>"><?php echo $met->titulo;?></option>
-                                        <?php }?>
-                                    </select>
-                                </div>
-                            </div>
-
+                          
                             <div class="form-group">
                                 <label class="control-label col-lg-2">Turno</label>
                                 <div class="col-lg-10">
-                                    <select class="form-control" name="turno">
-                                        <option value="<?= $usuarios->turno;?>" selected="">- <?= $usuarios->turno;?> -</option>
-                                        <option value="M">Manhã</option>
-                                        <option value="T">Tarde</option>
-                                        <option value="N">Noite</option>
+                                    <select class="form-control" name="turno_atividades">
+                                    <option value="<?= $usuarios->turno_atividades; ?>" <?php if($usuarios->turno_atividades==1){echo "selected";} ?>>Manhã</option>
+                                    <option value="<?= $usuarios->turno_atividades; ?>" <?php if($usuarios->turno_atividades==2){echo "selected";} ?>>Tarde</option>
+                                    <option value="<?= $usuarios->turno_atividades; ?>" <?php if($usuarios->turno_atividades==2){echo "selected";} ?>>Noite</option>
                                     </select>
                                 </div>
                             </div>
@@ -165,5 +160,5 @@
 
 <?php $this->load->view('footer') ?>
 
-
+</div>
 

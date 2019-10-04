@@ -124,7 +124,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Gerenciamento de equipamentos  </h5>
                                     <p class="card-text">Para gerenciadores, detinado a inciar, editar e excluir equipamentos.</p>
-                                    <a href="<?php echo base_url('gael/realizar_equipamento')?>" class="btn btn-outline-success">Realizar alsjfhasfjksf</a>
+                                    <a href="<?php echo base_url('gael/realizar_equipamento')?>" class="btn btn-outline-success">Gerenciamento de equipamentos</a>
                                 </div>
                                 </div>
                             

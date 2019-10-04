@@ -40,8 +40,9 @@ class Gael extends CI_Controller {
 	}
 	//exibe o fomrulário de inserção
 	public function gerenciar_usuario(){
-		$coisas['pagina'] = 'Gerenciar usuário';
-		return $this->load->view('gerenciar_usuarios', $coisas);
+		$dados['title'] = "Cadastramento de usuários";
+		$dados['pagina'] = 'Gerenciar usuário';
+		return $this->load->view('gerenciar_usuarios', $dados);
 	}
 
 	public function gerenciar_meta(){

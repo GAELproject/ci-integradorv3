@@ -2,6 +2,21 @@
 
 <?php $this->load->view('header') ?>
 
+
+
+<div class="main-content container-fluid">
+
+<div class="section__content section__content--p30">
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="overview-wrap">
+                <h2 class="title-1"><?=$pagina; ?></h2>
+            
+            </div>
+        </div>
+    </div>
+</div>
 <div class="col-md-6">
             <div  class="panel panel-default">
               <div class="panel-heading">
@@ -28,7 +43,7 @@
 
                     <!--Usuario-->
 
-
+                    
                     <!-- Content-->
                       <div class="form-group">
                         <label class="control-label col-lg-2" for="title">Nome</label>
@@ -63,9 +78,9 @@
                         <label class="control-label col-lg-2">Tipo de usuário</label>
                           <div class="col-lg-10">
                             <select class="form-control" name="usuario_tipo">
-                              <option value="">- Tipo -</option>
-                              <option value="1">master</option>
-                              <option value="2">administrador - bolsista</option>
+                              <option value="" selected disabled>- Tipo -</option>
+                              <option value="1">Adminstrador</option>
+                              <option value="2">bolsista</option>
                             </select>
                           </div>
                       </div>
@@ -75,9 +90,9 @@
                         <label class="control-label col-lg-2">Bolsista</label>
                         <div class="col-lg-10">
                           <select class="form-control" name="usuario_bolsista">
-                            <option value="">- Selecione -</option>
-                            <option value="S">Sim</option>
-                            <option value="N">Não</option>
+                            <option value="" selected disabled>- Selecione -</option>
+                            <option value="1   ">Sim</option>
+                            <option value="2">Não</option>
                           </select>
                         </div>
                       </div>
@@ -87,10 +102,10 @@
                         <label class="control-label col-lg-2">Turno</label>
                         <div class="col-lg-10">
                           <select class="form-control" name="turno_atividades">
-                            <option value="">- Escolha seu turno -</option>
-                            <option value="M">Manhã</option>
-                            <option value="T">Tarde</option>
-                            <option value="N">Noite</option>
+                            <option value="" selected disabled>- Escolha seu turno -</option>
+                            <option value="1">Manhã</option>
+                            <option value="2">Tarde</option>
+                            <option value="3">Noite</option>
                           </select>
                         </div>
                       </div>
@@ -119,5 +134,5 @@
               </div>
             </div>
           </div>
-
-          <?php $this->load->view('footer') ?> 
+</div>  
+<?php $this->load->view('footer') ?> 

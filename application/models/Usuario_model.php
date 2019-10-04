@@ -63,6 +63,7 @@ class Usuario_model extends CI_Model
         return $query->row();
     }
     public function update(){
+		
         $this->db->set('u_nome', $this->u_nome);
         $this->db->set('u_email', $this->u_email);
         $this->db->set('senha', $this->senha);
