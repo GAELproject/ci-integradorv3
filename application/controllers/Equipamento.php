@@ -45,7 +45,7 @@ class Equipamento extends CI_Controller {
 		
 		$dados['pagina'] = 'Listagem de equipamentos';
 		$dados['title'] = 'Listagem de equipamentos';
-		$dados['success'] = 'Equipamentos cadastrado com sucesso!';
+		$dados['success'] = 'Equipamento cadastrado com sucesso!';
 			
 		return $this->load->view('equipamentos/equipamentos', $dados);
 	}
@@ -127,53 +127,16 @@ class Equipamento extends CI_Controller {
         redirect('index.php/meta/index');
 	}
 	//deletar metas
-	public function deletar(){
-        //$coisas ['pagina'] = 'Listagem de usuário';
-		//$coisas ['title'] = 'listagem de usuário - gael';
-		$id = $this->uri->segment(3);
-
-		$usuarios_tem_meta = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
-		$deleteone = $this->Usuario_tem_meta_model->delete($id);
-
-		/*
-		$deletar = false;
-		$id_row = '';
-	
-		foreach ($usuario_tem_meta as $utm) {
-			if($utm->meta_id == $id ){
-				$deletar = true;
-				$id_row = $utm->id_usuario_tem_meta;
-			}
-		}
-		*/
+	public function deletar($id){
+        
 		
-		 
-		
-		//$this->Usuario_tem_meta_model->delete($id_row);
-		$this->Meta_model->delete($id);
 
-			$coisas['usuarios'] = $this->Usuario_model->recuperar();
-			$coisas['metas'] = $this->Meta_model->recuperar();
-			$coisas['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperar();
-			$coisas['pagina'] = 'Listagem de metas';
-			$coisas['title'] = 'Listagem de metas';
-			$coisas['success'] = 'Meta excluída com sucesso!';
-			
-			return $this->load->view('metas', $coisas);
-			/*
-		} else {
-			$coisas['usuarios'] = $this->Usuario_model->recuperar();
-			$coisas['metas'] = $this->Meta_model->recuperar();
-			$coisas['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperar();
-			$coisas['pagina'] = 'Listagem de metas';
-			$coisas['title'] = 'Listagem de metas';
-			$coisas['error'] = 'Meta não excluída!';
-			
-			return $this->load->view('metas',$coisas);
-		}*/
 		
-		//$this->Meta_model->delete($id);
-        //redirect('index.php/meta/index');
+		 $this->Equipamento_model->delete($id);
+
+
+		
+        redirect('index.php/equipamento/index',"refresh");
 	}
 	public function view($id){
 		$dados['meta'] = $this->Meta_model->recuperarUm($id);

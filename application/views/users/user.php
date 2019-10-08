@@ -19,7 +19,7 @@
 	<div class="row">
 
 		<div class="col-lg-12"> 
-    <a class="btn btn-primary" href="<?= base_url('index.php/gael/gerenciar_usuario')?>">Adicionar um novo usuario</a>
+    <a class="btn btn-primary mb-3" href="<?= base_url('index.php/gael/gerenciar_usuario')?>">Adicionar um novo usuario</a>
 			<section class="panel">
         
 
@@ -27,12 +27,13 @@
                 <tbody>
                   <tr>
                     <th><i class="icon_profile"></i>Nome</th>
-                    <th><i class="icon_calendar"></i>Tipo de usuário</th>
-                    <th><i class="icon_mail_alt"></i>Login</th> 
-                    <th><i class="icon_pin_alt"></i>Senha</th>
-                    <th><i class="icon_mobile"></i>Email</th>
-                    <th><i class="icon_cogs"></i> Bolsista</th>
-                    <th><i class=""></i>Ações</th>
+                    <th><i class="icon_calendar"></i>E-mail</th>
+                    <th><i class="icon_mail_alt"></i>senha</th> 
+                    <th><i class="icon_pin_alt"></i>cpf</th>
+                    <th><i class="icon_mobile"></i>tipo de usuário</th>
+                    <th><i class="icon_cogs"></i> Bolsista remunerado? </th>
+                    <th><i class=""></i>turno de atividades</th>
+                    <th><i class=""></i>ações</th>
                   </tr>
                   <?php foreach ($usuarios as $key => $us) {
                   	?>
@@ -41,16 +42,29 @@
                     <td><?php echo $us->u_email;?></td>
                     <td><?php echo $us->senha;?></td>
                     <td><?php echo $us->cpf;?></td>
-                    <td><?php echo $us->usuario_tipo;?></td>
-                    <td><?php echo $us->usuario_bolsista;?></td>
-                    <td><?php echo $us->turno_atividades;?></td>
+                    <td><?php if($us->usuario_tipo == "1")
+                                      { echo "administrador";}
+                                      elseif($us->usuario_tipo == "2")
+                                      { echo "bolsista";}?>
+                    </td>
+                    <td>
+                        <?php if ($us->usuario_bolsista == "1")
+                                    { echo "sim";}elseif($us->usuario_bolsista == "2")
+                                    { echo "não";}?>
+                    </td>
+                    <td>
+                            <?php if($us->turno_atividades == "1")
+                                      { echo "Manhã";}elseif($us->turno_atividades == "2")
+                                      { echo "Tarde";}elseif($us->turno_atividades == "3")
+                                      { echo "Noite";}?>
+                      </td>
                     
 
-                    <td><?php echo $us->usuario_bolsista;?></td>
+                    
                     <td>
                       <div class="btn-group">
 
-                        <a class="btn btn-success" href="<?php echo base_url('index.php/usuario/editar/')?><?php echo $us->id_usuario;?>"">
+                        <a class="btn btn-success" href="<?php echo base_url('index.php/usuario/editar/')?><?php echo $us->id_usuario;?>">
                         	<i class="fa fa-edit"></i></a>
                         <a class="btn btn-danger" href="<?php echo base_url('index.php/usuario/deletar/')?><?php echo $us->id_usuario;?>">
                         	<i class="fa fa-ban"></i>

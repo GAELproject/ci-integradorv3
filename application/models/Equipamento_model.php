@@ -28,9 +28,7 @@ class Equipamento_model extends CI_Model
 		return $query->result();
 	}
 
-   
-
-	public function recuperarUm($id){
+   	public function recuperarUm($id){
         $this->db->where('id_meta',$id);
         $query = $this->db->get('meta');
         return $query->row();
@@ -52,8 +50,8 @@ class Equipamento_model extends CI_Model
 	//função para deletar uma meta.
 	public function delete($id)
     {
-        $this->db->where('id_meta', $id);
-        $this->db->delete('meta');
+        $this->db->where('id_equipamento', $id);
+        $this->db->delete('equipamento');
     }
 
 }
