@@ -34,8 +34,10 @@ class Atividade_model extends CI_Model
   
 
     public function recuperarUm($id){
-        $this->db->where('id_meta',$id);
-        $query = $this->db->get('meta');
+        $this->db->where('id_atividade',$id);
+        $query = $this->db->get('atividade');
+        var_dump($query);
+        exit();
         return $query->row();
     }
     public function update(){

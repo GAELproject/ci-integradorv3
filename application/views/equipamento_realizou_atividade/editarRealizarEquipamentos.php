@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <label class="control-label col-lg-2" for="servico">Descrição da atividade</label>
                             <div class="col-lg-10">
-                            <textarea class="form-control" name="descricao_servico_realizado" id="servico"  rows="3">
+                            <textarea class="form-control" name="descricao_servico_realizado" id="servico"  rows="3" value="<?= $atividade->descricao_servico_realizado; ?>">
 
                             </textarea>
                             </div>

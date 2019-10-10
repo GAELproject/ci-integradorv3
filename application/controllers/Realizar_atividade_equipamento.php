@@ -93,7 +93,17 @@ class Realizar_atividade_equipamento extends CI_Controller {
         $dados['pagina'] = "Edição de metas";
         //$this->load->model('Equipamento_realizou_atividade_model');
 
-      	$dados['atividade'] = $this->Equipamento_realizou_atividade_model->recuperarOne($id);
+		 
+		 $era = $this->Equipamento_realizou_atividade_model->recuperarOne($id);
+		$id_atividade = $era->atividade_id_atividade;
+		$id_atividade = intval($id_atividade);
+		$id_equipamento = $era->equipamento_id_equipamento;
+		$dados['id_equipamento'] = $id_equipamento = intval($id_equipamento);
+		 //$era['idatividade_id_atividade'];
+		$dados['atividade'] = $this->Atividade_model->recuperarUm($id_atividade);
+
+		
+		
         return $this->load->view('equipamento_realizou_atividade/editarRealizarEquipamentos', $dados);
     }
     public function atualizar(){
