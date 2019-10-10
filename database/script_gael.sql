@@ -84,7 +84,7 @@ CREATE TABLE gael.doacao(
 -- Criação das chaves primárias
 -- entidade associativa entre equipamento e atividade
 CREATE TABLE gael.equipamento_realizou_atividade(
-    id_equipamento_reaizou_atividade INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id_equipamento_realizou_atividade INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     equipamento_id_equipamento INT NOT NULL,
     atividade_id_atividade INT NOT NULL,
     data_hora_atividade TIMESTAMP NOT NULL

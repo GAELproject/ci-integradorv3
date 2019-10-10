@@ -66,7 +66,7 @@
                             <?= $era->data_hora_atividade;?>
                         </td>
                         <td>
-                            <a href="" class="btn btn-warning">Editar</a>
+                            <a href="<?= base_url('index.php/realizar_atividade_equipamento/editar/').$era->id_equipamento_realizou_atividade; ?>" class="btn btn-warning">Editar</a>
                             <a href="" class="btn btn-danger">Excluir</a>
                         </td>
                     </tr>

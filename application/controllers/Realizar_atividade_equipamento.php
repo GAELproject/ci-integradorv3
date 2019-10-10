@@ -91,13 +91,10 @@ class Realizar_atividade_equipamento extends CI_Controller {
 		
         $dados['title'] = "Ediçãode metas";
         $dados['pagina'] = "Edição de metas";
+        //$this->load->model('Equipamento_realizou_atividade_model');
 
-        $dados['atividade'] = $this->Equipamento_realizou_atividade->recuperarUm($id);
-		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
-		$dados['bolsistasall'] = $this->Usuario_model->recuperarNormais();
-		$dados['adms'] = $this->Usuario_model->recuperarAdms();
-
-        return $this->load->view('metas/editMeta', $dados);
+      	$dados['atividade'] = $this->Equipamento_realizou_atividade_model->recuperarOne($id);
+        return $this->load->view('equipamento_realizou_atividade/editarRealizarEquipamentos', $dados);
     }
     public function atualizar(){
 		//($_POST);

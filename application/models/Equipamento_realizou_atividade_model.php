@@ -28,9 +28,11 @@ class Equipamento_realizou_atividade_model extends CI_Model
 
    
 
-	public function recuperarUm($id){
+	public function recuperarOne($id){
         $this->db->where('id_equipamento_realizou_atividade',$id);
         $query = $this->db->get('equipamento_realizou_atividade');
+    //    var_dump($query);
+      //  exit();
         return $query->row();
     }
 	public function update(){
