@@ -26,12 +26,42 @@
  
 </head>
 
-<body class="">
+<body>
 
   <div class="container">
-    
-    <form class="login-form form-login-container" action="<?php echo base_url('index.php/gael/home')?>">
-      <div id="" class="login-wrap" style="margin-top: -80px;">
+    <div class="row mt-5">
+      <div class="col-sm-2"> 
+      
+      </div>
+      <div class="col-sm-8" >
+        <?php if ($this->session->flashdata('success') == TRUE):?>
+            <div class="alert alert-danger">
+              <h2><?= $this->session->flashdata('success')?></h2>
+            </div>
+            
+
+        <?php endif;?>
+
+        <?php if ($this->session->flashdata('error')):?>
+          <div class="alert alert-danger" style="margin-bottom: -16px;">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+            <h5><?= $this->session->flashdata('error')?></h5>
+            
+          </div>
+          
+        <?php endif;?>
+        <script>
+        $('.alert').alert();
+        </script>
+      </div>
+      <div class="col-sm-2">
+      </div>
+    </div>
+
+    <form class="login-form form-login-container mb-5" method="post" action="<?php echo base_url('index.php/login/autenticar')?>">
+      <div id="" class="login-wrap" style="margin-top: -179px;">
         <p class="login-img"><img src="<?php echo base_url('assets/img/gael.png')?>" width="80"></i></p>
         <h4 class="text-center" style="color: black;">
           <strong>Sistema Integrado para o Gerenciamento de Resíduos Eletroeletrônicos</strong>  
@@ -39,11 +69,11 @@
         </h4 >
         <div class="input-group">
           <span class="input-group-addon blr"><i class="icon_profile"></i></span>
-          <input type="text" class="form-control brr" placeholder="Login" autofocus>
+          <input type="text" class="form-control brr" name="u_email" placeholder="E-mail" autofocus>
         </div>
         <div class="input-group">
           <span class="input-group-addon blr"><i class="icon_key_alt"></i></span>
-          <input type="password" class="form-control brr" placeholder="Senha">
+          <input type="password" class="form-control brr" name="senha" placeholder="Senha">
         </div>
         <label style="color: black;" class="checkbox">
                 <input  type="checkbox" value="remember-me">
@@ -59,7 +89,10 @@
     </div>
   </div>
 
-
+  <script src="<?= base_url('assets/vendor/jquery-3.2.1.min.js')?>"></script>
+    <!-- Bootstrap JS-->
+    <script src="<?= base_url('assets/vendor/bootstrap-4.1/popper.min.js')?>"></script>
+    <script src="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.js')?>"></script>
 </body>
 
 </html>
