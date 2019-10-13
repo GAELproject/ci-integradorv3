@@ -58,73 +58,33 @@ class Equipamento extends CI_Controller {
 		
         $id = $this->uri->segment(3);
 		
-        $dados['title'] = "Ediçãode metas";
-        $dados['pagina'] = "Edição de metas";
+        $dados['title'] = "Edição de equipamentos";
+        $dados['pagina'] = "Edição de equipamentos";
 
-		$dados['meta'] = $this->Meta_model->recuperarUm($id);
-		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
-		$dados['bolsistasall'] = $this->Usuario_model->recuperarNormais();
-		$dados['adms'] = $this->Usuario_model->recuperarAdms();
+		$dados['equipamento'] = $this->Equipamento_model->recuperarUm($id);
 
-        return $this->load->view('metas/editMeta', $dados);
+        return $this->load->view('equipamentos/editEquipamentos', $dados);
     }
     public function atualizar(){
 		//($_POST);
 		//exit();
-		$this->Meta_model->id_meta = $_POST['id_meta'];
+		$this->Equipamento_model->id_equipamento = $_POST['id_equipamento'];
+		$this->Equipamento_model->equipamento_nome = $_POST['equipamento_nome'];
+		$this->Equipamento_model->numero_serie = $_POST['numero_serie'];
+		$this->Equipamento_model->marca = $_POST['marca'];
+		$this->Equipamento_model->modelo = $_POST['modelo'];
+		$this->Equipamento_model->situacao = $_POST['situacao'];
+	
+       
+		$this->Equipamento_model->update();
+		
+		
+		$id_equipamento = $_POST['id_equipamento'];
 		
 		
 
-        $this->Meta_model->titulo = $_POST['titulo'];
-		$this->Meta_model->descricao = $_POST['descricao'];
-		$this->Meta_model->turno = $_POST['turno'];
-		$this->Meta_model->data_criacao = $_POST['data_criacao'];
-
-        //$this->Meta_model->data_criacao = $_POST['data_criacao'];
-        $this->Meta_model->data_prazo_finalizacao = $_POST['data_prazo_finalizacao'];
-        $this->Meta_model->data_finalizacao = $_POST['data_finalizacao'];
-		$this->Meta_model->situacao = $_POST['situacao'];
-		$this->Meta_model->id_criador = $_POST['id_criador'];
-		$this->Meta_model->update();
 		
-		
-		$id_meta = $_POST['id_meta'];
-		
-		//usuarios que vieram marcados
-		$arrayUsuarios = $_POST['id_usuario'];
-		//todos os vínculos dos usuários com essa meta
-		$usuarios_tem_meta = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id_meta);
-				
-
-		
-		//deletar todos os campos que estão ligados com esssa meta	
-		$this->Usuario_tem_meta_model->delete($id_meta);
-		//inserindo todos que estão vindo
-		if(!empty($arrayUsuarios)){
-			foreach ($arrayUsuarios as $idarray) {
-				$this->Usuario_tem_meta_model->usuario_id  = $idarray;
-				$this->Usuario_tem_meta_model->meta_id  = $id_meta;
-				$this->Usuario_tem_meta_model->inserir();
-			}	
-		}
-
-
-		/*
-		if(!empty($usuarios_tem_meta)){	
-			foreach ($usuarios_tem_meta as $utm) {
-				foreach ($arrayUsuarios as $idarray) {
-					if($idarray == $utm->usuario_id){
-						
-					}else{
-						$this->Usuario_tem_meta_model->usuario_id  = $idarray;
-						$this->Usuario_tem_meta_model->meta_id  = $id_meta;
-						$this->Usuario_tem_meta_model->inserir();
-					}
-				}
-			}
-		}	
-		*/
-        redirect('index.php/meta/index');
+        redirect('index.php/equipamento/index');
 	}
 	//deletar metas
 	public function deletar($id){
@@ -146,5 +106,8 @@ class Equipamento extends CI_Controller {
 		$dados['title'] = 'Visualizar meta';
 		return $this->load->view('metas/viewMeta',$dados); 
 	}
+
+	 
+
 	
 }

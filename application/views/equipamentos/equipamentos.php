@@ -82,7 +82,7 @@
 
 
 							</a>
-							<a title="visualizar meta" class="btn btn-warning" href="<?php echo base_url('index.php/equipamento/view/')?><?=$eq->id_equipamento;?>">
+							<a title="visualizar equipamento" class="btn btn-warning" href="<?php echo base_url('index.php/equipamento/view/')?><?=$eq->id_equipamento;?>">
 	                        	<i class="fa fa-eye"></i>
 	                        </a>
 	                      </div>

@@ -33,7 +33,7 @@
             <div class="padd">
                 <div class="form quick-post">
                     <!-- Edit profile form (not working)-->
-                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/meta/atualizar/')?>">
+                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/meta/    izar/')?>">
                     <input type="hidden" name="id_meta" value="<?= $meta->id_meta;?>">
                         <!-- título da meta -->
                         <div class="form-group">    

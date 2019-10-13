@@ -29,22 +29,19 @@ class Equipamento_model extends CI_Model
 	}
 
    	public function recuperarUm($id){
-        $this->db->where('id_meta',$id);
-        $query = $this->db->get('meta');
+        $this->db->where('id_equipamento',$id);
+        $query = $this->db->get('equipamento');
         return $query->row();
     }
 	public function update(){
-        $this->db->set('titulo', $this->titulo);
-        $this->db->set('descricao', $this->descricao);
-		$this->db->set('turno', $this->turno);
-		$this->db->set('data_criacao', $this->data_criacao);
-        $this->db->set('data_prazo_finalizacao', $this->data_prazo_finalizacao);
-        $this->db->set('data_finalizacao', $this->data_finalizacao);
-        $this->db->set('situacao', $this->situacao);
-        $this->db->set('id_criador',$this->id_criador);
-
-        $this->db->where('id_meta', $this->id_meta);
-        $this->db->update('meta');
+		$this->db->set('equipamento_nome', $this->equipamento_nome);
+		$this->db->set('numero_serie', $this->numero_serie);
+		$this->db->set('marca', $this->marca);
+		$this->db->set('modelo', $this->modelo);
+		$this->db->set('situacao', $this->situacao);
+		
+        $this->db->where('id_equipamento', $this->id_eqipamento);
+        $this->db->update('equipamento');
 
 	}
 	//função para deletar uma meta.
