@@ -73,10 +73,10 @@
                         <label class="control-label col-lg-2">Situação</label>
                         <div class="col-lg-10">
                           <select class="form-control" name="situacao">
-                            <option value="">- Selecione o usuário-</option>
-                            <option value="0">Consertado</option>
-                            <option value="1">Não consertado</option>
+                            <option value="" selected disabled>- Selecione o usuário-</option>
+                            <option value="1">Consertado</option>
                             <option value="2">Parcialemente consertado</option>
+                            <option value="3">Não consertado</option>
                           </select>
                           </div>
                         </div>

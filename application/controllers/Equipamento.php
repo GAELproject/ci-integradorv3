@@ -76,24 +76,19 @@ class Equipamento extends CI_Controller {
         return $this->load->view('equipamentos/editEquipamentos', $dados);
     }
     public function atualizar(){
-		//($_POST);
-		//exit();
+		
 		$this->Equipamento_model->id_equipamento = $_POST['id_equipamento'];
 		$this->Equipamento_model->equipamento_nome = $_POST['equipamento_nome'];
 		$this->Equipamento_model->numero_serie = $_POST['numero_serie'];
 		$this->Equipamento_model->marca = $_POST['marca'];
 		$this->Equipamento_model->modelo = $_POST['modelo'];
 		$this->Equipamento_model->situacao = $_POST['situacao'];
-	
+		
        
 		$this->Equipamento_model->update();
 		
 		
-		$id_equipamento = $_POST['id_equipamento'];
-		
-		
-
-		
+		$this->session->set_flashdata('success','Equipamento editado com sucesso!');
         redirect('index.php/equipamento/index');
 	}
 	//deletar metas
