@@ -88,7 +88,7 @@
                         <label class="control-label col-lg-2">Para qual turno?</label>
                         <div class="col-lg-10">
                           <select class="form-control" name="turno">
-                            <option value="">- Selecione o turno-</option>
+                            <option value="" selected disabled>- Selecione o turno-</option>
                             <option value="1">Matutino</option>
                             <option value="2">Vespertino</option>
                             <option value="3">Noturno</option>
@@ -119,37 +119,21 @@
                         <label class="control-label col-lg-2">Situação atual:</label>
                         <div class="col-lg-10">
                           <select class="form-control" name="situacao_final">
-                            <option value="">- Selecione a sitauação-</option>
-                            <option value="S">Finalizado</option>
-                            <option value="N">Não finalizado</option>
+                            <option value="" seleted disabled>- Selecione a stiuação -</option>
+                            <option value="0">Finalizado</option>
+                            <option value="1">Não finalizado</option>
                           </select>
                         </div>
                       </div>
                       <!-- fim situação -->
 
-                    <!--situacação-->
-                      <!--aqui retorna apenas os usuários do tipo 1, isto é, administradores-->
-                    <div class="form-group">
-                        <label class="control-label col-lg-2">Criador da meta:</label>
-                        <div class="col-lg-10">
-                          <select class="form-control" name="criador_id">
-                            <option value="">- Selecione o criador -</option>
-                            <?php foreach ($usuarios_adm as $adm) {?>
-                                    <option value="<?= $adm['id_usuario'];?>"> 
-                                      nome: <?= $adm['u_nome'];?>
-                                      cpf: <?= $adm['cpf'];?>
-                                    </option>
-                            <?php } ?>
-                          </select>
-                        </div>
-                      </div>
-                      <!-- fim situação -->
+                   
                     <!--início listagem dos ususários do tipo 2 - não administradores-->
                       <div class="form-group">
                         <label class="control-label col-lg-2" for="users">Usuários participantes para essa meta:</label>
                         <div class="col-lg-10">
                             <?php foreach ($usuarios_comuns as $adm) {?>
-                              <input type="checkbox" name="id_usuario[]" id="users" value="<?php echo $adm['id_usuario'];?>">
+                              <input type="checkbox" name="id_usuarios[]" id="users" value="<?php echo $adm['id_usuario'];?>">
                                 <label for="">
                                 Nome: <?= $adm['u_nome'];?> <br> Turno de atividades: <?php if($adm['turno_atividades']=='1'){
                                   echo 'Manhã';

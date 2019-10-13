@@ -2,6 +2,15 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Realizar_atividade_equipamento extends CI_Controller {
+	public function __construct()
+	{
+		parent::__construct();
+		
+		if(!$this->session->userdata('usuario_logado')){
+			redirect(base_url().'index.php/login/index');
+		}
+	}
+
 
 	public function index()
     {

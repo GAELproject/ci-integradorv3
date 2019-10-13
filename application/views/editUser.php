@@ -103,8 +103,8 @@
                                 <div class="col-lg-10">
                                     <select class="form-control" name="usuario_tipo">
                                        
-                                            <option value="<?= $usuarios->usuario_tipo; ?>" <?php if($usuarios->usuario_tipo==1){echo "selected";} ?>>Administrador</option>
-                                      <option value="<?= $usuarios->usuario_tipo; ?>" <?php if($usuarios->usuario_tipo==2){echo "selected";} ?>>Bolsista</option>
+                                        <option value="1" <?php if($usuarios->usuario_tipo==1){echo "selected";} ?>>Administrador</option>
+                                        <option value="2" <?php if($usuarios->usuario_tipo==2){echo "selected";} ?>>Bolsista</option>
                                     </select>
                                 </div>
                             </div>
@@ -114,8 +114,8 @@
                                 <label class="control-label col-lg-2">Bolsista</label>
                                 <div class="col-lg-10">
                                     <select class="form-control" name="usuario_bolsista">
-                                    <option value="<?= $usuarios->usuario_bolsista; ?>" <?php if($usuarios->usuario_bolsista==1){echo "selected";} ?>>Sim</option>
-                                      <option value="<?= $usuarios->usuario_bolsista; ?>" <?php if($usuarios->usuario_bolsista==2){echo "selected";} ?>>Não</option>
+                                    <option value="1" <?php if($usuarios->usuario_bolsista==1){echo "selected";} ?>>Sim</option>
+                                      <option value="2" <?php if($usuarios->usuario_bolsista==2){echo "selected";} ?>>Não</option>
                                     </select>
                                 </div>
                             </div>
@@ -124,9 +124,9 @@
                                 <label class="control-label col-lg-2">Turno</label>
                                 <div class="col-lg-10">
                                     <select class="form-control" name="turno_atividades">
-                                    <option value="<?= $usuarios->turno_atividades; ?>" <?php if($usuarios->turno_atividades==1){echo "selected";} ?>>Manhã</option>
-                                    <option value="<?= $usuarios->turno_atividades; ?>" <?php if($usuarios->turno_atividades==2){echo "selected";} ?>>Tarde</option>
-                                    <option value="<?= $usuarios->turno_atividades; ?>" <?php if($usuarios->turno_atividades==2){echo "selected";} ?>>Noite</option>
+                                    <option value="1" <?php if($usuarios->turno_atividades=="1"){echo "selected";} ?>>Manhã</option>
+                                    <option value="2" <?php if($usuarios->turno_atividades=="2"){echo "selected";} ?>>Tarde</option>
+                                    <option value="3" <?php if($usuarios->turno_atividades=="3"){echo "selected";} ?>>Noite</option>
                                     </select>
                                 </div>
                             </div>

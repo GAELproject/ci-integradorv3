@@ -33,7 +33,7 @@
             <div class="padd">
                 <div class="form quick-post">
                     <!-- Edit profile form (not working)-->
-                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/meta/    izar/')?>">
+                    <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/meta/atualizar/')?>">
                     <input type="hidden" name="id_meta" value="<?= $meta->id_meta;?>">
                         <!-- título da meta -->
                         <div class="form-group">    
@@ -123,7 +123,7 @@
                             <div class="col-lg-10">
                                 <?php foreach($bolsistasall as $bolsista){ ?>
 
-                                            <input type="checkbox" name="id_usuario[]" id="users" value="<?= $bolsista['id_usuario'];?>" 
+                                            <input type="checkbox" name="id_usuarios[]" id="users" value="<?= $bolsista['id_usuario'];?>" 
                                                 
                                              <?php foreach($usuario_tem_meta as $utm){
                                                 if($meta->id_meta == $utm->meta_id &&

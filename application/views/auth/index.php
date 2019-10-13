@@ -30,10 +30,10 @@
 
   <div class="container">
     <div class="row mt-5">
-      <div class="col-sm-2"> 
+      <div class="col-sm-4"> 
       
       </div>
-      <div class="col-sm-8" >
+      <div class="col-sm-4" >
         <?php if ($this->session->flashdata('success') == TRUE):?>
             <div class="alert alert-danger">
               <h2><?= $this->session->flashdata('success')?></h2>
@@ -56,7 +56,7 @@
         $('.alert').alert();
         </script>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-4">
       </div>
     </div>
 

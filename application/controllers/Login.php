@@ -12,12 +12,21 @@ class Login extends CI_Controller {
         $senha = $this->input->post('senha');
         
         $verificar = $this->Usuario_model->logar($u_email, $senha);
-    //    $verificar['u_nome'] = $usuario;
+        
    
         if ($verificar){
-            $this->session->set_userdata('usuario_logado', $u_email);
+            $arrayUser = array(
+                'id_usuario' => $verificar['id_usuario'],
+                'u_nome' => $verificar['u_nome'],
+                'u_email' => $u_email,
+                'usuario_tipo' =>  $verificar['usuario_tipo']
+            );
+            $this->session->set_userdata('usuario_logado', $arrayUser);
          
             $this->session->set_flashdata('success', 'Usuario logado');
+
+            //var_dump($this->session->userdata('usuario_logado')['u_nome']); 
+            //  exit();
             redirect(base_url().'index.php/gael/index');
         }else{
             $this->session->set_flashdata('error', 'Usuario ou senha incorrentos');
