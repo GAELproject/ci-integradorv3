@@ -54,6 +54,13 @@ class Equipamento_realizou_atividade_model extends CI_Model
     {
         $this->db->where('id_meta', $id);
         $this->db->delete('meta');
-    }
+	}
+	
+	public function deleteByIdEquipamento($id){
+		$this->db->where('equipamento_id_equipamento', $id);
+        $this->db->delete('equipamento_realizou_atividade');
+		
+	}
+
 
 }

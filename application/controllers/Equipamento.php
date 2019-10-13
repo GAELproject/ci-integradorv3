@@ -7,7 +7,7 @@ class Equipamento extends CI_Controller {
         $coisas['equipamentos'] = $this->Equipamento_model->recuperar();
 
 		
-        $coisas['pagina'] = 'Listagem de equipamentos';
+        $coisas['pagina'] = 'Todos os equipamentos';
 		
 		$coisas ['title'] = 'listagem de todos os equipamentos - gael';
 		$this->load->view('equipamentos/equipamentos', $coisas);
@@ -91,9 +91,9 @@ class Equipamento extends CI_Controller {
         
 		
 
-		
+		$this->Equipamento_realizou_atividade_model->deleteByIdEquipamento($id);	
 		 $this->Equipamento_model->delete($id);
-
+		 	
 
 		
         redirect('index.php/equipamento/index',"refresh");
