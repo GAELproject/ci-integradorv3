@@ -26,17 +26,9 @@ class Meta_model extends CI_Model
                         "data_finalizacao" => $this->data_finalizacao, 
                         "situacao" => $this->situacao
                     );
-		/*
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();
-		$dados = array();*/
-		return $this->db->insert('meta',$dados);
+		$this->db->insert('meta',$dados);
+		return $this->db->insert_id();
+		
 	}
 	public function recuperar(){
 		$query = $this->db->get('meta');

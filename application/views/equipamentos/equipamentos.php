@@ -59,15 +59,16 @@
 						</td>
 						<td>
                             <?php 
-                                if ($eq->situacao == "0") {
+                                if ($eq->situacao == "1") {
                                     echo "Consertado";
-                                }elseif ($eq->situacao == "1") {
-                                    echo "Não consertado";
-																}elseif ($eq->situacao == "2") {
-																	echo "Parcialmente consertado";
-																}else{
+                                }elseif ($eq->situacao == "2") {
+									echo "Parcialmente consertado";
+									
+								}elseif ($eq->situacao == "3") {
+										echo "Não consertado";	
+									}else{
                                     echo "Database error";
-                                }
+ 			                          }
                             ?> 
 						</td>
 						

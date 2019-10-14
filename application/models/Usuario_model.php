@@ -75,5 +75,14 @@ class Usuario_model extends CI_Model
         $this->db->where('id_usuario', $this->id_usuario);
         $this->db->update('usuario');
 
-    }
+	}
+	
+	//autenticação
+	public function logar($u_email, $senha){
+		$this->db->where('u_email', $u_email);
+        $this->db->where('senha', $senha);
+
+        $usuario = $this->db->get('usuario')->row_array();
+        return $usuario;
+	}
 }

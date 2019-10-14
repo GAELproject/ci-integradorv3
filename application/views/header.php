@@ -430,7 +430,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="<?php echo base_url('');?>index.php/gael">
+                                                <a href="<?php echo base_url('index.php/login/logout');?>">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>

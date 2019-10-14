@@ -2,6 +2,15 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuario extends CI_Controller {
+    public function __construct()
+	{
+		parent::__construct();
+		
+		if(!$this->session->userdata('usuario_logado')){
+			redirect(base_url().'index.php/login/index');
+		}
+	}
+
 
 	public function index(){
 	//	$this->load->model('Usuario_model');
@@ -69,9 +78,12 @@ class Usuario extends CI_Controller {
         }   
 
         public function atualizar(){
-            $this->load->model('Usuario_model');
+            //$this->load->model('Usuario_model');
+
+
             $this->Usuario_model->id_usuario = $_POST['id_usuario'];
             $this->Usuario_model->u_nome = $_POST['u_nome'];
+
             $this->Usuario_model->usuario_tipo = $_POST['usuario_tipo'];
             $this->Usuario_model->senha = $_POST['senha'];
             $this->Usuario_model->u_email = $_POST['u_email'];;

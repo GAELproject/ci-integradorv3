@@ -40,7 +40,7 @@ class Equipamento_model extends CI_Model
 		$this->db->set('modelo', $this->modelo);
 		$this->db->set('situacao', $this->situacao);
 		
-        $this->db->where('id_equipamento', $this->id_eqipamento);
+        $this->db->where('id_equipamento', $this->id_equipamento);
         $this->db->update('equipamento');
 
 	}

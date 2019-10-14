@@ -2,12 +2,22 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Equipamento extends CI_Controller {
+	public function __construct()
+	{
+		parent::__construct();
+		
+		if(!$this->session->userdata('usuario_logado')){
+			redirect(base_url().'index.php/login/index');
+		}
+	}
+
+
 
 	public function index(){
         $coisas['equipamentos'] = $this->Equipamento_model->recuperar();
 
 		
-        $coisas['pagina'] = 'Listagem de equipamentos';
+        $coisas['pagina'] = 'Todos os equipamentos';
 		
 		$coisas ['title'] = 'listagem de todos os equipamentos - gael';
 		$this->load->view('equipamentos/equipamentos', $coisas);
@@ -66,24 +76,19 @@ class Equipamento extends CI_Controller {
         return $this->load->view('equipamentos/editEquipamentos', $dados);
     }
     public function atualizar(){
-		//($_POST);
-		//exit();
+		
 		$this->Equipamento_model->id_equipamento = $_POST['id_equipamento'];
 		$this->Equipamento_model->equipamento_nome = $_POST['equipamento_nome'];
 		$this->Equipamento_model->numero_serie = $_POST['numero_serie'];
 		$this->Equipamento_model->marca = $_POST['marca'];
 		$this->Equipamento_model->modelo = $_POST['modelo'];
 		$this->Equipamento_model->situacao = $_POST['situacao'];
-	
+		
        
 		$this->Equipamento_model->update();
 		
 		
-		$id_equipamento = $_POST['id_equipamento'];
-		
-		
-
-		
+		$this->session->set_flashdata('success','Equipamento editado com sucesso!');
         redirect('index.php/equipamento/index');
 	}
 	//deletar metas
@@ -91,9 +96,9 @@ class Equipamento extends CI_Controller {
         
 		
 
-		
+		$this->Equipamento_realizou_atividade_model->deleteByIdEquipamento($id);	
 		 $this->Equipamento_model->delete($id);
-
+		 	
 
 		
         redirect('index.php/equipamento/index',"refresh");

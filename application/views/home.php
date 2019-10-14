@@ -40,6 +40,7 @@
                                 </div>
                             </div>
                         </div>
+                <?php  if($this->session->userdata('usuario_logado')['usuario_tipo'] == '1'): ?>
                     <!--INÍCIO PRIMEIRA ROW-->
                         <div class="row">
                             <div class="col-sm-2">
@@ -79,7 +80,7 @@
                             </div>
                         </div>
                         <!--FIM PRIMEIRA ROW-->
-
+                             <?php endif;?>
                         <!--INÍCIO SEGUNDA ROW-->
 
                             <div class="row">
@@ -91,7 +92,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Gerenciamento de equipamentos  </h5>
                                             <p class="card-text">Para gerenciadores, detinado a inciar, editar e excluir equipamentos.</p>
-                                            <a href="<?php echo base_url('index.php/equipamento')?>" class="btn btn-outline-success">Realizar equipamentos</a>
+                                            <a href="<?php echo base_url('index.php/equipamento')?>" class="btn btn-outline-success">Gerenciar equipamentos</a>
                                         </div>
                                         </div>
 

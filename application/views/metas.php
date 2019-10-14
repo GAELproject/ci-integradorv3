@@ -18,9 +18,9 @@
 
 	<div class="row">
 			<div class="col-sm-12"> 
-				<?php if(isset($success)){?>
+				<?php if($this->session->flashdata('success')){?>
 					<div class="alert alert-success" role="alert">
-						<?php echo $success;?>
+						<?= $this->session->flashdata('success');?>
 					</div>
 				<?php }elseif(isset($error)){?>
 					<div class="alert alert-success" role="alert">
@@ -29,9 +29,7 @@
 				<?php }?>
 				<a class="btn btn-primary" href="<?= base_url('index.php/gael/gerenciar_meta')?>">Adicionar nova meta</a>
 				<section class="panel">
-	              <header class="panel-heading">
-	                Metas
-	              </header>
+	           
 			<div class="table-responsive table--no-card m-b-30">
 		
 	              <table class="table table-striped table-advance table-hover">
@@ -86,7 +84,13 @@
 						echo $new;?>
 						</td>
 						<td>	
-							<?php if($met->situacao == '0'){echo "não finalizado";} else{echo"finalizado";}?>
+						<?php if($met->situacao == 0)
+									{
+									echo "finalizado";
+									}elseif($met->situacao == 1	)
+									{
+										echo"não finalizado";
+									}?>
 						</td>
 	                    <td width="200px">
 							

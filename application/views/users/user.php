@@ -22,6 +22,7 @@
     <a class="btn btn-primary mb-3" href="<?= base_url('index.php/gael/gerenciar_usuario')?>">Adicionar um novo usuario</a>
 			<section class="panel">
         
+      <div class="table-responsive table--no-card m-b-30">
 
               <table class="table table-striped table-advance table-hover">
                 <tbody>
@@ -78,6 +79,9 @@
               	<?php } ?>
                 </tbody>
               </table>
+
+              </div>
+              
             </section>
 		</div>
 	</div>

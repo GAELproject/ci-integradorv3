@@ -39,7 +39,7 @@
                         <div class="form-group">    
                             <label class="control-label col-lg-5" for="nome">Nome do equipamento</label>
                             <div class="col-lg-10">
-                                <input class="form-control" id="nome" name="nome" type="text" value="<?= $equipamento->equipamento_nome; ?>">
+                                <input class="form-control" id="nome" name="equipamento_nome" type="text" value="<?= $equipamento->equipamento_nome; ?>">
                             </div>
                         </div>
 
@@ -57,7 +57,7 @@
                                     <option value="1" <?php 
                                         if($equipamento->situacao == "1"){ echo "selected";}?>>Consertado </option>
                                     <option value="2"  <?php 
-                                        if($equipamento->situacao == "2"){ echo "selected";}?>>Consertando</option>
+                                        if($equipamento->situacao == "2"){ echo "selected";}?>>Partcialmente consertado</option>
                                     <option value="3"  <?php 
                                         if($equipamento->situacao == "3"){ echo "selected";}?>>Não consertado</option>
                                     

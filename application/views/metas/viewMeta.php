@@ -28,6 +28,7 @@
 <div class="row">    
     <div class="col-sm-2"></div>
     <div class="col-sm-10">
+    
         <h3><?= $meta->titulo; ?></h3>
 
         <p>

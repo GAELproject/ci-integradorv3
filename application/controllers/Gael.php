@@ -6,12 +6,18 @@ class Gael extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('url');
+		
+		if(!$this->session->userdata('usuario_logado')){
+			redirect(base_url().'index.php/login/index');
+		}
 	}
 
 	public function index()
-	{
-		$this->load->view('auth/index');
+	{	
+		
+		$dados['pagina'] = "Página inicial";
+		$dados['title'] = 'Página incial - gael';
+		$this->load->view('home', $dados);
 	}
 	public function home(){
 		$coisas['usuarios'] = $this->Usuario_model->recuperar();
