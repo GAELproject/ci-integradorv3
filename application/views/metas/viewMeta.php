@@ -7,7 +7,6 @@
 
 <div class="main-content container-fluid">
 
-	<div class="section__content section__content--p30">
 	<div class="container-fluid">
 		<div class="row mb-3">
 			<div class="col-md-12">

@@ -81,4 +81,18 @@ class Usuario extends CI_Controller {
             $this->Usuario_model->update();
             redirect('index.php/usuario/index');
         }
+
+        
+	public function view(){
+        $this->load->model('Usuario_model');
+        $this->load->model('Meta_model');
+        $id = $this->uri->segment(3);
+        $dados['id_usuario'] = $id;
+        $dados['title'] = "Visualizar usuarios";
+        $dados['pagina'] = "Visualizar usuarios";
+        $dados['usuarios'] = $this->Usuario_model->recuperarUm($id);
+       // $dados['meta'] = $this->Meta_model->recuperarUm($usuario->meta_id_meta);
+        //$dados['metas'] = $this->Meta_model->recuperar();
+        return $this->load->view('/users/visualizarUsuario', $dados);
+	}
 }

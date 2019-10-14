@@ -69,6 +69,9 @@
                         <a class="btn btn-danger" href="<?php echo base_url('index.php/usuario/deletar/')?><?php echo $us->id_usuario;?>">
                         	<i class="fa fa-ban"></i>
                         </a>
+                        <a class="btn btn-warning" href="<?php echo base_url('index.php/usuario/view/')?><?php echo $us->id_usuario;?>">
+                        	<i class="fa fa-eye"></i>
+                        </a>
                       </div>
                     </td>
                   </tr>
