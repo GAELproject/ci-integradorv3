@@ -13,17 +13,22 @@ class Usuario extends CI_Controller {
 
 
 	public function index(){
-	//	$this->load->model('Usuario_model');
-
-		$dados['usuarios'] = $this->Usuario_model->recuperar();
-		$dados ['title'] = 'listagem de usuário - gael';
-        $dados ['pagina'] = 'Listagem de usuários';
-		$this->load->view('users/user', $dados);
+    //	$this->load->model('Usuario_model');
+      
+        if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
+            $dados['usuarios'] = $this->Usuario_model->recuperar();
+            $dados ['title'] = 'listagem de usuário - gael';
+            $dados ['pagina'] = 'Listagem de usuários';
+            $this->load->view('users/user', $dados);
+        }else{
+            redirect('index.php/errors/noPermissao');
+        }
+		
 	}
 
 	public function salvar()
     {
-        var_dump($_POST);
+        if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
         
 
       //  $this->load->model('Usuario_model');
@@ -53,6 +58,9 @@ class Usuario extends CI_Controller {
         } else {
             $coisas ['error'] = 'usuário não inserido na base de dados';
             return $this->load->view('home');
+        }
+        }else{
+            redirect('index.php/errors/noPermissao');
         }
     }
 		public function deletar(){
