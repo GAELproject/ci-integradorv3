@@ -13,20 +13,24 @@ class Usuario extends CI_Controller {
 
 
 	public function index(){
-	//	$this->load->model('Usuario_model');
-
-		$dados['usuarios'] = $this->Usuario_model->recuperar();
-		$dados ['title'] = 'listagem de usuário - gael';
-        $dados ['pagina'] = 'Listagem de usuários';
-		$this->load->view('users/user', $dados);
+    //	$this->load->model('Usuario_model');
+      
+        if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
+            $dados['usuarios'] = $this->Usuario_model->recuperar();
+            $dados ['title'] = 'listagem de usuário - gael';
+            $dados ['pagina'] = 'Listagem de usuários';
+            $this->load->view('users/user', $dados);
+        }else{
+            redirect('index.php/errors/noPermissao');
+        }
+		
 	}
 
 	public function salvar()
     {
-        var_dump($_POST);
-        
-
-      //  $this->load->model('Usuario_model');
+        //verificação de se é administrador
+        if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
+      
         $u_nome = $_POST['u_nome'];
         $u_email = $_POST['u_email'];
         $senha = $_POST['senha'];
@@ -54,17 +58,25 @@ class Usuario extends CI_Controller {
             $coisas ['error'] = 'usuário não inserido na base de dados';
             return $this->load->view('home');
         }
+        }else{
+            //caso não seja, é lançada uma exceção
+            redirect('index.php/errors/noPermissao');
+        }
     }
 		public function deletar(){
-            //$coisas ['pagina'] = 'Listagem de usuário';
-            //$coisas ['title'] = 'listagem de usuário - gael';
+            if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
             $this->load->model('Usuario_model');
             $id = $this->uri->segment(3);
             $this->Usuario_model->delete($id);
             redirect('index.php/usuario/index');
+            }else{
+                //caso não seja, é lançada uma exceção
+                redirect('index.php/errors/noPermissao');
+            }
         }
 
         public function editar(){
+            if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
 	        $this->load->model('Usuario_model');
             $this->load->model('Meta_model');
             $id = $this->uri->segment(3);
@@ -75,12 +87,16 @@ class Usuario extends CI_Controller {
            // $dados['meta'] = $this->Meta_model->recuperarUm($usuario->meta_id_meta);
             //$dados['metas'] = $this->Meta_model->recuperar();
             return $this->load->view('editUser', $dados);
+            }else{
+                //caso não seja, é lançada uma exceção
+                redirect('index.php/errors/noPermissao');
+            }
         }   
 
         public function atualizar(){
-            //$this->load->model('Usuario_model');
+            
 
-
+            if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
             $this->Usuario_model->id_usuario = $_POST['id_usuario'];
             $this->Usuario_model->u_nome = $_POST['u_nome'];
 
@@ -92,10 +108,16 @@ class Usuario extends CI_Controller {
             $this->Usuario_model->usuario_bolsista = $_POST['usuario_bolsista'];
             $this->Usuario_model->update();
             redirect('index.php/usuario/index');
+            }else{
+                //caso não seja, é lançada uma exceção
+                redirect('index.php/errors/noPermissao');
+            }
         }
 
         
 	public function view(){
+        //verificação de se o usuário é administrador
+        if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
         $this->load->model('Usuario_model');
         $this->load->model('Meta_model');
         $id = $this->uri->segment(3);
@@ -106,5 +128,9 @@ class Usuario extends CI_Controller {
        // $dados['meta'] = $this->Meta_model->recuperarUm($usuario->meta_id_meta);
         //$dados['metas'] = $this->Meta_model->recuperar();
         return $this->load->view('/users/visualizarUsuario', $dados);
+        }else{
+            //caso não seja, é lançada uma exceção
+            redirect('index.php/errors/noPermissao');
+        }
 	}
 }
