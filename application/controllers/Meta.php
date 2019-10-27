@@ -13,6 +13,7 @@ class Meta extends CI_Controller {
 
 
 	public function index(){
+		if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
 		$coisas['usuarios'] = $this->Usuario_model->recuperar();
 
 		$coisas['metas'] = $this->Meta_model->recuperar();
@@ -23,11 +24,15 @@ class Meta extends CI_Controller {
 		
 		$coisas ['title'] = 'listagem das metas - gael';
 		$this->load->view('metas', $coisas);
+		}else{
+			//caso não seja, é lançada uma exceção
+			redirect('index.php/errors/noPermissao');
+		}
 	}
 
 	public function salvar(){
 
-		//$this->load->model('Meta_model');
+		if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
 		$titulo = $_POST['titulo'];
 		$descricao = $_POST['descricao'];
 		$turno = $_POST['turno'];		
@@ -85,7 +90,10 @@ class Meta extends CI_Controller {
 				redirect(base_url().'index.php/gael/metas/');
 
 			}
-
+		}else{
+			//caso não seja, é lançada uma exceção
+			redirect('index.php/errors/noPermissao');
+		}
 	
 	
 	}
@@ -95,7 +103,7 @@ class Meta extends CI_Controller {
 
 
     public function editar(){
-		
+		if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
         $id = $this->uri->segment(3);
 		
         $dados['title'] = "Ediçãode metas";
@@ -106,11 +114,16 @@ class Meta extends CI_Controller {
 		$dados['bolsistasall'] = $this->Usuario_model->recuperarNormais();
 		$dados['adms'] = $this->Usuario_model->recuperarAdms();
 
-        return $this->load->view('metas/editMeta', $dados);
+		return $this->load->view('metas/editMeta', $dados);
+		}else{
+			//caso não seja, é lançada uma exceção
+			redirect('index.php/errors/noPermissao');
+		}
+
     }
     public function atualizar(){
-		//($_POST);
-		//exit();
+		if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
+		
 		$this->Meta_model->id_meta = $_POST['id_meta'];
 		
 		
@@ -148,11 +161,16 @@ class Meta extends CI_Controller {
 			}	
 		}
 
-        redirect('index.php/meta/index');
+		redirect('index.php/meta/index');
+		}else{
+			//caso não seja, é lançada uma exceção
+			redirect('index.php/errors/noPermissao');
+		}
+
 	}
 	//deletar metas
 	public function deletar(){
-     
+		if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
 		$id = $this->uri->segment(3);
 		$usuarios_tem_meta = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
 		$deleteone = $this->Usuario_tem_meta_model->delete($id);
@@ -160,15 +178,23 @@ class Meta extends CI_Controller {
 			$this->Meta_model->delete($id);
 			$this->session->set_flashdata('success','Meta excluída com sucesso!');
 			redirect('index.php/meta/index');
-			
+		}else{
+			//caso não seja, é lançada uma exceção
+			redirect('index.php/errors/noPermissao');
+		}
 	}
 	public function view($id){
+		if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
 		$dados['meta'] = $this->Meta_model->recuperarUm($id);
 		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
 		$dados['bolsistas'] = $this->Usuario_model->recuperarNormais();
 		$dados['pagina'] = 'Visualização de meta';
 		$dados['title'] = 'Visualizar meta';
 		return $this->load->view('metas/viewMeta',$dados); 
+		}else{
+			//caso não seja, é lançada uma exceção
+			redirect('index.php/errors/noPermissao');
+		}
 	}
 	
 }
