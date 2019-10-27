@@ -399,7 +399,7 @@
                                             <img src="<?= base_url('assets/images/icon/avatar-01.jpg')?>" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" href="#">Diogo</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">

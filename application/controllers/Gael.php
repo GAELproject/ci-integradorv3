@@ -14,7 +14,6 @@ class Gael extends CI_Controller {
 
 	public function index()
 	{	
-		
 		$dados['pagina'] = "Página inicial";
 		$dados['title'] = 'Página incial - gael';
 		$this->load->view('home', $dados);
