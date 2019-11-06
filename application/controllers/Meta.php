@@ -27,7 +27,6 @@ class Meta extends CI_Controller {
 
 	public function salvar(){
 
-		//$this->load->model('Meta_model');
 		$titulo = $_POST['titulo'];
 		$descricao = $_POST['descricao'];
 		$turno = $_POST['turno'];		
@@ -40,15 +39,8 @@ class Meta extends CI_Controller {
 	
 
 		$criador_id = $this->session->userdata('usuario_logado')['id_usuario'];		
-		
 
-		//if(isset($_POST['id_usuario'])){
-		//	$id_usuarios = $_POST['id_usuario'];
-		//}
 		
-	
-		
-
 		$this->Meta_model->titulo = $titulo;
 		$this->Meta_model->descricao = $descricao;
 		
