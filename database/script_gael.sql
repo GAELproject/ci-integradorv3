@@ -14,11 +14,11 @@ CREATE TABLE gael.usuario(
 );
 
 
-CREATE TABLE gael.usuario_tem_meta(
+CREATE TABLE gael.usuario_tem_meta( 
     id_usuario_tem_meta INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-usuario_id INT NOT NULL,
-meta_id INT NOT NULL,
-data_hora_criacao TIMESTAMP NOT NULL
+    usuario_id INT NOT NULL,
+    meta_id INT NOT NULL,
+    data_hora_criacao TIMESTAMP NOT NULL
 );
 
 CREATE TABLE gael.meta(
@@ -42,6 +42,9 @@ CREATE TABLE gael.OS(
     equipamento_id INT NOT NULL,
     numero_OS VARCHAR(256) NOT NULL,
     cpf_cliente VARCHAR(256) NOT NULL,
+    cliente_nome VARCHAR(256) NOT NULL,
+    cliente_numero_telefone VARCHAR(256) NOT NULL,
+    cliente_email VARCHAR(256) NOT NULL,
     data_criacao TIMESTAMP NOT NULL
 );
 
@@ -49,9 +52,10 @@ CREATE TABLE gael.equipamento(
      id_equipamento INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     equipamento_nome VARCHAR(90) NOT NULL,
     numero_serie VARCHAR(90) NOT NULL,
-marca VARCHAR(45) NOT NULL, 
-modelo VARCHAR(45) NOT NULL,
-situacao CHAR(1) NOT NULL 
+    marca VARCHAR(45) NOT NULL, 
+    modelo VARCHAR(45) NOT NULL,
+    situacao CHAR(1) NOT NULL,
+    entregue BOOLEAN NOT NULL   
 );
 CREATE TABLE gael.laudo(
     id_laudo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -191,8 +195,8 @@ VALUES ('Diogo da Silva Lima', 'diogo.libras43@gmail.com', '1234', '126.444.444-
 INSERT INTO `gael`.`usuario` (`u_nome`, `u_email`, `senha`, `cpf`, `usuario_tipo`, `usuario_bolsista`, `turno_atividades`)
 VALUES ('Outro usuário para teste', 'teste.email@gmail.com', '1234', '000.444.000-00', '2', true, '2');
 
-INSERT INTO `gael`.`equipamento` (`equipamento_nome`, `numero_serie`, `marca`, `modelo`, `situacao`)
-VALUES ('Notebook', '2384783528', 'Dell', '32evs', '0');
+INSERT INTO `gael`.`equipamento` (`equipamento_nome`, `numero_serie`, `marca`, `modelo`, `situacao`,`entregue`)
+VALUES ('Notebook', '2384783528', 'Dell', '32evs', '1', TRUE);
 
 
 

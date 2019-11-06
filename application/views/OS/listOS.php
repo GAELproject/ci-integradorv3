@@ -16,10 +16,10 @@
 	</div>
 
 	<div class="row">
-			<div class="col-lg-12"> 
-				<?php if(isset($success)){?>
+	<div class="col-sm-12"> 
+				<?php if($this->session->flashdata('success')){?>
 					<div class="alert alert-success" role="alert">
-						<?php echo $success;?>
+						<?= $this->session->flashdata('success');?>
 					</div>
 				<?php }elseif(isset($error)){?>
 					<div class="alert alert-success" role="alert">
@@ -35,17 +35,40 @@
 	                    <th><i class=""></i>Responsável</th>
 	                    <th><i class=""></i>Equipamento</th>
 						<th><i></i>Número OS</th>
-						<th><i></i>CPF do Cliente</th>  
+						<th><i></i>Dados do Cliente</th>  
 						<th><i class=""></i>Data de criação</th>
 						<th><i></i></th>
 						<th><i></i></th>
 	                  </tr>
 	                  <?php foreach ($OS as $o) {?>
 	                  <tr>
-	                    <td><?php echo $o->responsavel;?></td>
-	                    <td><?php echo $o->equipamento_id;?></td>
+											<td><?php 
+													foreach ($usuarios as $us) {
+															if($us->id_usuario == $o->responsavel){
+																		echo $us->u_nome;
+															}
+												}	
+											?>
+											</td>
+											<td><?php  
+												foreach ($equipamentos as $eq) {
+														if($eq->id_equipamento == $o->equipamento_id){
+																echo $eq->equipamento_nome;
+																echo "<br>";
+																echo $eq->numero_serie;
+																
+														}
+												}
+												?>
+											</td>
 						<td><?php echo $o->numero_OS;?></td>
-						<td><?php echo $o->cpf_cliente;?></td>
+						<td><?php echo "cpf: ".$o->cpf_cliente;
+											echo "<br> nome:".$o->cliente_nome;
+											echo "<br> nome:".$o->cliente_numero_telefone;
+											echo "<br> nome:".$o->cliente_email;
+											?>
+											
+						</td>
 						<td><?php echo $o->data_criacao?></td>
 						<td><a class="btn btn-secondary" href="<?php echo base_url('index.php/OS/editar/') . $o->id_os; ?>">Editar</a></td>
 						<td><a class="btn btn-danger" href="<?php echo base_url('index.php/OS/deletar/') . $o->id_os; ?>">Excluir</a></td>

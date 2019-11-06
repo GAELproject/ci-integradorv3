@@ -44,7 +44,7 @@
                 <!--INÍCIO PRIMEIRA ROW-->
 
                 <div class="container">
-                    <div class="row">
+                    <div class="row mb-5">
 
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <!-- início do primerio card -->
@@ -110,7 +110,7 @@
                             <div class="card-header">GAEL - Gerenciamento</div>
                             <div class="card-body">
                                 <h5 class="card-title">Gerenciamento de equipamentos </h5>
-                                <a href="<?php echo base_url('gael/realizar_equipamento') ?>" class="btn btn-outline-success">Gerenciar '</a>
+                                <a href="<?php echo base_url('gael/realizar_equipamento') ?>" class="btn btn-outline-success">Gerenciar</a>
                             </div>
                         </div>
                     </div>

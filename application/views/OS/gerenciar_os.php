@@ -70,18 +70,6 @@
                     <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/OS/cadastrar/')?>">
                       <!-- título da meta -->
                       <div class="form-group">
-                            <label class="control-label col-lg-2" for="title">Nome do responsável</label>
-                            <div class="col-lg-10">
-                              <select name="responsavel" id="responsavel" class="form-control" required>
-                                <option value="">-- Informe o Responsável --</option>
-                                  <?php foreach($responsaveis as $responsavel){?>
-                                    <option value="<?php echo $responsavel->id_usuario; ?>"><?php echo $responsavel->u_nome; ?></option>  
-                                  <?php } ?>
-                              </select>
-                            </div>
-                      </div>
-
-                      <div class="form-group">
                         <label class="control-label col-lg-2" for="content">Equipamento</label>
                         <div class="col-lg-10">
                           <select class="form-control" name='equipamento_id' id="content" required>
@@ -108,28 +96,29 @@
                             <input class="form-control" id="prazo" type='text' name="cpf_cliente" placeholder="Insira o CPF do cliente" required>
                           </div>  
                         </div>
-                        <!--fim prazo finalizacao-->
-                        <!--data da finalizacao-->
-                        <div class="form-group">
-                          <label class="control-label col-lg-2" for="data-finish">Data da criação</label>
+
+
+                          <div class="form-group">
+                          <label class="control-label col-lg-2" for="nomec">Nome do cliente</label>
                           <div class="col-lg-10">
-                            <input class="form-control" id="data_criacao" type="date" name="data_criacao" required>
-                          </div>
+                            <input class="form-control" id="nomec" type="text" name="cliente_nome" placeholder="Nome do cliente" required>
+                          </div>  
                         </div>
-                        <!--fim data finalizacao-->
-  
 
-                      <!--situacação-->
-                    
-                      <!-- fim situação -->
+                          <div class="form-group">
+                          <label class="control-label col-lg-2" for="num">Número do telefone do cliente</label>
+                          <div class="col-lg-10">
+                            <input class="form-control" id="num" type="text" name="cliente_numero_telefone" placeholder="Número do telefone do cliente" required>
+                          </div>  
+                        </div>
 
-                    <!--situacação-->
-                      <!--aqui retorna apenas os usuários do tipo 1, isto é, administradores-->
-                  
-                      <!-- fim situação -->
-                    <!--início listagem dos ususários do tipo 2 - não administradores-->
-                    
-                      <!-- fim fim da listagem -->
+                          <div class="form-group">
+                          <label class="control-label col-lg-2" for="cemail">E-mail do cliente</label>
+                          <div class="col-lg-10">
+                            <input class="form-control" id="cemail" type="email" name="cliente_email" placeholder="Insira o e-amil do cliente" required>
+                          </div>  
+                        </div>
+     
 
                       <!-- Buttons -->
                       <div class="form-group">

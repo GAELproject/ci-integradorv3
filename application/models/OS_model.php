@@ -7,6 +7,9 @@ class OS_model extends CI_Model
 	public $numero_OS;
 	public $data_criacao;
 	public $cpf_cliente;
+	public $cliente_nome;
+	public $cliente_numero_telefone;
+	public $cliente_email;
 
 	public function __construct(){
 		 parent::__construct();
@@ -20,6 +23,9 @@ class OS_model extends CI_Model
 						"numero_OS" => $this->numero_OS,
 						//"data_criacao" => $this->data_criacao,
 						"cpf_cliente" => $this->cpf_cliente,
+						"cliente_nome" => $this->cliente_nome,
+						"cliente_numero_telefone" => $this->cliente_numero_telefone,
+						"cliente_email" => $this->cliente_email,
                     );
 		return $this->db->insert('OS',$dados);
 	}
@@ -40,7 +46,10 @@ class OS_model extends CI_Model
         $this->db->set('equipamento_id', $this->equipamento_id);
 		$this->db->set('numero_OS', $this->numero_OS);
         $this->db->set('data_criacao', $this->data_criacao);
-        $this->db->set('cpf_cliente', $this->cpf_cliente);
+		$this->db->set('cpf_cliente', $this->cpf_cliente);
+		$this->db->set('cliente_nome', $this->cliente_nome);	
+		$this->db->set('cliente_numero_telefone', $this->cliente_numero_telefone);
+		$this->db->set('cliente_email', $this->cliente_email);
 
         $this->db->where('id_os', $this->id_os);
         $this->db->update('OS');

@@ -13,16 +13,16 @@ class OS extends CI_Controller {
 
 
 	public function index(){
-		$coisas['usuarios'] = $this->Usuario_model->recuperar();
+		$dados['usuarios'] = $this->Usuario_model->recuperar();
+		$dados['equipamentos'] = $this->Equipamento_model->recuperar();
+		$dados['OS'] = $this->OS_model->recuperar();
+		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperar();
 
-		$coisas['OS'] = $this->OS_model->recuperar();
-		$coisas['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperar();
-
-		$coisas['title']  = 'Listagem de os';
-        $coisas['pagina'] = 'Listagem de os';
+		$dados['title']  = 'Listagem de os';
+        $dados['pagina'] = 'Listagem de os';
 		
-		$coisas ['title'] = 'listagem das OS - gael';
-		$this->load->view('OS/listOS', $coisas);
+		$dados ['title'] = 'listagem das OS - gael';
+		$this->load->view('OS/listOS', $dados);
 	}
 
 	public function formcadastrar(){
@@ -36,25 +36,28 @@ class OS extends CI_Controller {
 	}
 
 	public function cadastrar(){
-		$responsavel = $_POST['responsavel'];
+		//$responsavel = $_POST['responsavel'];
+	
+		$responsavel = $this->session->userdata('usuario_logado')['id_usuario'];
 		$equipamento_id = $_POST['equipamento_id'];
 		$numero_OS = $_POST['numero_OS'];		
 		$cpf_cliente = $_POST['cpf_cliente'];
-		//$data_criacao = implode("-", array_reverse(explode("/", $_POST['data_criacao'])));
-		//$data_criacao = $_POST['data_criacao'];
-		//Carregar a model
-		//$this->load->model('OS_model');
-		//Informando os dados
+		$cliente_nome = $_POST['cliente_nome'];
+		$cliente_numero_telefone = $_POST['cliente_numero_telefone'];
+		$cliente_email = $_POST['cliente_email'];
+	
 		$this->OS_model->responsavel = $responsavel;
  		$this->OS_model->equipamento_id = $equipamento_id;
 		$this->OS_model->numero_OS = $numero_OS;
 		//$this->OS_model->data_criacao = $data_criacao;
 		$this->OS_model->cpf_cliente = $cpf_cliente;
+		$this->OS_model->cliente_nome = $cliente_nome;
+		$this->OS_model->cliente_numero_telefone = $cliente_numero_telefone;
+		$this->OS_model->cliente_email = $cliente_email;
 		//Inserir
 		$this->OS_model->inserir();
-		$dados['title'] = 'Gerenciar Ordem de Serviços';
-		$dados['pagina'] = 'Gerenciar Ordem de Serviços';
-		$dados['Alert'] = 'Ordem de Serviço cadastrada com sucesso!!!';
+		$this->session->set_flashdata('success','Ordem de serviço inserida com sucesso!');
+		
 		redirect(base_url('index.php/OS/index'));
 	}
 
