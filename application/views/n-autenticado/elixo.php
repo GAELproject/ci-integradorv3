@@ -30,28 +30,28 @@
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
-      <a class="btn btn-primary" href="#">Sign In</a>
+      <a class="navbar-brand" href="#">E-lixo </a>
+      <a class="btn btn-primary" href="#">Logar</a>
     </div>
   </nav>
 
   <!-- Masthead -->
   <header class="masthead text-white text-center">
-    <div class="overlay"></div>
+    <div class="overlay"> </div>
     <div class="container">
       <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <h1 class="mb-5">Build a landing page for your business or project and generate more leads!</h1>
+           <div class="col-xl-9 mx-auto">
+           
+          <h1 class="mb-5">Saiba mais sobre o E-lixo</h1>
+          
         </div>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
           <form>
             <div class="form-row">
-              <div class="col-12 col-md-9 mb-2 mb-md-0">
-                <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
-              </div>
-              <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-              </div>
+              <div class="col-12 col-md-3"> 
+              <button type="submit" class="btn btn-block btn-lg btn-primary">Saiba mais</button>
+              </div> 
+             
             </div>
           </form>
         </div>
@@ -63,59 +63,75 @@
   <section class="features-icons bg-light text-center">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4">
-          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-            <div class="features-icons-icon d-flex">
-              <i class="icon-screen-desktop m-auto text-primary"></i>
-            </div>
-            <h3>Fully Responsive</h3>
-            <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-            <div class="features-icons-icon d-flex">
-              <i class="icon-layers m-auto text-primary"></i>
-            </div>
-            <h3>Bootstrap 4 Ready</h3>
-            <p class="lead mb-0">Featuring the latest build of the new Bootstrap 4 framework!</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-            <div class="features-icons-icon d-flex">
-              <i class="icon-check m-auto text-primary"></i>
-            </div>
-            <h3>Easy to Use</h3>
-            <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
-          </div>
+        
+        <div class="col-lg-12">
+        <h3>Tabela de equipamentos</h3>
+        <br>
+        <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Equipamento</th>
+                  <th scope="col">Sitação</th>
+                  <th scope="col">Entrege</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Notebook</td>
+                  <td>Consertado</td>
+                  <td>Em espera</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Tablet</td>
+                  <td>Em conserto</td>
+                  <td> -- </td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Multimetro</td>
+                  <td>Consertado</td>
+                  <td>Aguardando</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Teclado</td>
+                  <td>Em conserto</td>
+                  <td> -- </td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>Controle</td>
+                  <td>Consertado</td>
+                  <td>Entregue</td>
+                </tr>
+                
+              </tbody>
+            </table>
         </div>
       </div>
     </div>
   </section>
-
+  <br>
   <!-- Image Showcases -->
+  <br>
   <section class="showcase">
     <div class="container-fluid p-0">
       <div class="row no-gutters">
 
         <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url(<?= base_url('assets/images/bg-showcase-1.jpg')?>);"></div>
         <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-          <h2>Fully Responsive Design</h2>
-          <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+          <h2>O que é o E-lixo?</h2>
+          <p class="lead mb-0">O E-Lixo se constitui em um espaço de prática profissional aos estudantes dos cursos técnicos em Eletrônica, Informática e Manutenção e Suporte em Informática e promove, ainda, treinamentos, palestras e pesquisas relacionadas ao tema. A iniciativa oferece também assistência técnica a servidores e alunos do Campus no que diz respeito a equipamentos eletroeletrônicos.</p>
         </div>
       </div>
-      <div class="row no-gutters">
-        <div class="col-lg-6 text-white showcase-img" style="background-image: url(<?= base_url('assets/images/bg-showcase-2.jpg')?>);"></div>
-        <div class="col-lg-6 my-auto showcase-text">
-          <h2>Updated For Bootstrap 4</h2>
-          <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
-        </div>
       </div>
       <div class="row no-gutters">
         <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/bg-showcase-3.jpg');"></div>
-        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-          <h2>Easy to Use &amp; Customize</h2>
+        <div class="col-lg-12 order-lg-1 my-auto showcase-text">
+          <h2>Notícias</h2>
           <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
         </div>
       </div>
