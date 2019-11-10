@@ -51,15 +51,14 @@ class Usuario extends CI_Controller {
         $insertar = $this->Usuario_model->inserir();
 
         if ($insertar) {
-            
-
+            $this->session->set_flashdata('success','Usuário inserido com sucesso!');
             return redirect('index.php/usuario/index');
         } else {
-            $coisas ['error'] = 'usuário não inserido na base de dados';
-            return $this->load->view('home');
+            $this->session->set_flashdata('error','Usuário não inserido com sucesso!');
+            return redirct('index.php/usuario/index');
         }
         }else{
-            //caso não seja, é lançada uma exceção
+            
             redirect('index.php/errors/noPermissao');
         }
     }
@@ -67,8 +66,13 @@ class Usuario extends CI_Controller {
             if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
             $this->load->model('Usuario_model');
             $id = $this->uri->segment(3);
-            $this->Usuario_model->delete($id);
-            redirect('index.php/usuario/index');
+            $deletar = $this->Usuario_model->delete($id);
+            if($deletar){
+                $this->session->set_flashdata('success','Usuário deletado com sucesso!');
+                redirect('index.php/usuario/index');
+            }
+      
+            
             }else{
                 //caso não seja, é lançada uma exceção
                 redirect('index.php/errors/noPermissao');
@@ -106,8 +110,15 @@ class Usuario extends CI_Controller {
             $this->Usuario_model->cpf = $_POST['cpf'];
             $this->Usuario_model->turno_atividades = $_POST['turno_atividades'];
             $this->Usuario_model->usuario_bolsista = $_POST['usuario_bolsista'];
-            $this->Usuario_model->update();
-            redirect('index.php/usuario/index');
+            $update = $this->Usuario_model->update();
+            if($update){
+                $this->session->set_flashdata('success','Usuário atualizado com sucesso!');
+                redirect('index.php/usuario/index');
+            }else{
+                $this->session->set_flashdata('error','Usuário atualizado com sucesso!'); 
+                redirect('index.php/usuario/index');
+            }
+            
             }else{
                 //caso não seja, é lançada uma exceção
                 redirect('index.php/errors/noPermissao');

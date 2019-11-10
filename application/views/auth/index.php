@@ -7,7 +7,7 @@
   <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
   <meta name="author" content="GeeksLabs">
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-  <link rel="shortcut icon" href="<?php echo base_url('assets/img/gael.png')?>">
+  <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('assets/images/gael.ico')?>" width="20px">
 
   <title>GAEL - Login</title>
 
@@ -18,12 +18,11 @@
   <!--external css-->
   <!-- font icon -->
   <link href="<?php echo base_url('assets/css/elegant-icons-style.css')?>" rel="stylesheet" />
-  <link href="<?php echo base_url('assets/css/font-awesome.css')?>" rel="stylesheet" />
+  <link href="<?php echo base_url('assets/vendor/font-awesome-5/css/fontawesome-all.min.css')?>" rel="stylesheet" />
   <!-- Custom styles -->
   <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/css/style-responsive.css')?>" rel="stylesheet" />
-
- 
+  
 </head>
 
 <body>
@@ -68,11 +67,13 @@
         
         </h4 >
         <div class="input-group">
-          <span class="input-group-addon blr"><i class="icon_profile"></i></span>
+          <span class="input-group-addon blr ">
+              <i class="fas fa-envelope-square mt-2 ml-2"></i>
+          </span>
           <input type="text" class="form-control brr" name="u_email" placeholder="E-mail" autofocus>
         </div>
         <div class="input-group">
-          <span class="input-group-addon blr"><i class="icon_key_alt"></i></span>
+          <span class="input-group-addon blr"><i class="fas fa-lock mt-2 ml-2"></i></span>
           <input type="password" class="form-control brr" name="senha" placeholder="Senha">
         </div>
         <label style="color: black;" class="checkbox">

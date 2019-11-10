@@ -196,7 +196,7 @@ INSERT INTO `gael`.`usuario` (`u_nome`, `u_email`, `senha`, `cpf`, `usuario_tipo
 VALUES ('Outro usuário para teste', 'teste.email@gmail.com', '1234', '000.444.000-00', '2', true, '2');
 
 INSERT INTO `gael`.`equipamento` (`equipamento_nome`, `numero_serie`, `marca`, `modelo`, `situacao`,`entregue`)
-VALUES ('Notebook', '2384783528', 'Dell', '32evs', '1', TRUE);
+VALUES ('Notebook', '2384783528', 'Dell', '32evs', '3', FALSE);
 
 
 

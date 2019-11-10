@@ -59,7 +59,7 @@
             <!--conteúdo do segundo grid-->
             <div  class="panel panel-default">
               <div class="panel-heading">
-                <div class="pull-left">Gerenciar metas</div>
+                <div class="pull-left"></div>
                 
                 <div class="clearfix"></div>
               </div>

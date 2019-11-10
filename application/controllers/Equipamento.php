@@ -37,7 +37,7 @@ class Equipamento extends CI_Controller {
 		$marca = $_POST['marca'];		
 		$modelo = $_POST['modelo'];
 		$situacao = $_POST['situacao'];
-		
+		$entregue = $_POST['entregue'];
 		
 
 		$this->Equipamento_model->equipamento_nome = $equipamento_nome;
@@ -45,19 +45,22 @@ class Equipamento extends CI_Controller {
 		$this->Equipamento_model->marca = $marca;
 		$this->Equipamento_model->modelo = $modelo;
 		$this->Equipamento_model->situacao = $situacao;
-
+		$this->Equipamento_model->entregue = $entregue;
 
 		$insertar = $this->Equipamento_model->inserir();
 		
-		$dados['equipamentos'] = $this->Equipamento_model->recuperar();
+	//	$dados['equipamentos'] = $this->Equipamento_model->recuperar();
 
 		
 		
-		$dados['pagina'] = 'Listagem de equipamentos';
-		$dados['title'] = 'Listagem de equipamentos';
-		$dados['success'] = 'Equipamento cadastrado com sucesso!';
+		//$dados['pagina'] = 'Listagem de equipamentos';
+		//$dados['title'] = 'Listagem de equipamentos';
+		//$dados['success'] = 'Equipamento cadastrado com sucesso!';
 			
-		return $this->load->view('equipamentos/equipamentos', $dados);
+		//return $this->load->view('equipamentos/equipamentos', $dados);
+		$this->session->set_flashdata('success','Equipamento cadastrado com sucesso!');
+		redirect(base_url().'index.php/equipamento/index/');
+				
 	}
 
 
@@ -76,6 +79,7 @@ class Equipamento extends CI_Controller {
         return $this->load->view('equipamentos/editEquipamentos', $dados);
     }
     public function atualizar(){
+	
 		
 		$this->Equipamento_model->id_equipamento = $_POST['id_equipamento'];
 		$this->Equipamento_model->equipamento_nome = $_POST['equipamento_nome'];
@@ -83,33 +87,33 @@ class Equipamento extends CI_Controller {
 		$this->Equipamento_model->marca = $_POST['marca'];
 		$this->Equipamento_model->modelo = $_POST['modelo'];
 		$this->Equipamento_model->situacao = $_POST['situacao'];
+		$this->Equipamento_model->situacao = $_POST['entregue'];
 		
        
-		$this->Equipamento_model->update();
-		
-		
-		$this->session->set_flashdata('success','Equipamento editado com sucesso!');
-        redirect('index.php/equipamento/index');
+		$update =  $this->Equipamento_model->update();
+		if($update){
+			$this->session->set_flashdata('success','Equipamento editado com sucesso!');
+			redirect('index.php/equipamento/index');
+		}else{
+			$this->session->set_flashdata('error','Equipamento não editado!');
+			redirect('index.php/equipamento/index');
+		}
 	}
 	//deletar metas
 	public function deletar($id){
-        
-		
-
-		$this->Equipamento_realizou_atividade_model->deleteByIdEquipamento($id);	
-		 $this->Equipamento_model->delete($id);
-		 	
-
+        $this->Equipamento_realizou_atividade_model->deleteByIdEquipamento($id);	
+		$delete  = $this->Equipamento_model->delete($id);
+		 	print_r($delete);
+			exit();
 		
         redirect('index.php/equipamento/index',"refresh");
 	}
 	public function view($id){
-		$dados['meta'] = $this->Meta_model->recuperarUm($id);
-		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
-		$dados['bolsistas'] = $this->Usuario_model->recuperarNormais();
-		$dados['pagina'] = 'Visualização de meta';
-		$dados['title'] = 'Visualizar meta';
-		return $this->load->view('metas/viewMeta',$dados); 
+		$dados['equipamento'] = $this->Equipamento_model->recuperarUm($id);
+		
+		$dados['pagina'] = 'Visualização de equipamentos';
+		$dados['title'] = 'Visualizar equipamento';
+		return $this->load->view('equipamentos/viewEquipamentos',$dados); 
 	}
 
 	 

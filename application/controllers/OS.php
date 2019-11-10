@@ -73,21 +73,23 @@ class OS extends CI_Controller {
 		$dados['equipamentos'] = $this->Equipamento_model->recuperar();
 		$dados['responsaveis'] = $this->Usuario_model->recuperar();
 		$dados['os'] 		= $this->OS_model->recuperarUm($id);
-
+		
         return $this->load->view('OS/editOS', $dados);
     }
 
 
     //Salvar edições do OS's
     public function atualizar($id){
-    	//$this->load->model('OS_model');
+	
 
     	$this->OS_model->id_os 			= $id;
-        $this->OS_model->responsavel 	= $_POST['responsavel'];
+        $this->OS_model->responsavel = $this->session->userdata('usuario_logado')['id_usuario'];
         $this->OS_model->equipamento_id = $_POST['equipamento_id'];
         $this->OS_model->numero_OS 		= $_POST['numero_OS'];
         $this->OS_model->cpf_cliente 	= $_POST['cpf_cliente'];
-        $this->OS_model->data_criacao 	= $_POST['data_criacao'];
+		$this->OS_model->cliente_nome 	= $_POST['cliente_nome'];
+		$this->OS_model->cliente_numero_telefone 	= $_POST['cliente_numero_telefone'];
+		$this->OS_model->cliente_email 	= $_POST['cliente_email'];
 
         
 

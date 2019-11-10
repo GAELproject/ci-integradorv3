@@ -6,7 +6,8 @@ class Equipamento_model extends CI_Model
 	public $numero_serie;
 	public $marca;
 	public $modelo;
-    public $situacao;
+	public $situacao;
+	public $entregue;
     
 	public function __construct(){
 		 parent::__construct();
@@ -19,12 +20,16 @@ class Equipamento_model extends CI_Model
                         "numero_serie" => $this->numero_serie,
 						"marca" => $this->marca,
 						"modelo" => $this->modelo,
-                        "situacao" => $this->situacao);
+						"situacao" => $this->situacao,
+						"entregue" => $this->entregue);
 
 		return $this->db->insert('equipamento',$dados);
 	}
 	public function recuperar(){
-		$query = $this->db->get('equipamento');
+		//$this->db->order_by('id_equipamento', 'DES');
+		$query = $this->db->order_by('id_equipamento', 'DESC')->get('equipamento');
+		//$query = $this->db->order_by('id_equipamento', 'ASC');
+		//$this->db->order_by('id_equipamento', 'ASC');
 		return $query->result();
 	}
 
@@ -39,10 +44,15 @@ class Equipamento_model extends CI_Model
 		$this->db->set('marca', $this->marca);
 		$this->db->set('modelo', $this->modelo);
 		$this->db->set('situacao', $this->situacao);
+		$this->db->set('entregue', $this->situacao);
 		
         $this->db->where('id_equipamento', $this->id_equipamento);
-        $this->db->update('equipamento');
-
+        $update = $this->db->update('equipamento');
+		if($update){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	//função para deletar uma meta.
 	public function delete($id)

@@ -59,7 +59,7 @@
             <!--conteúdo do segundo grid-->
             <div  class="panel panel-default">
               <div class="panel-heading">
-                <div class="pull-left">Editar OS </div>
+                <div class="pull-left"> </div>
 
                 <div class="clearfix"></div>
               </div>
@@ -68,21 +68,10 @@
                   <div class="form quick-post">
                     <!-- Edit profile form (not working)-->
                     <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/OS/atualizar/') . $os->id_os; ?>">
-                      <!-- título da meta -->
+                      
+                      
                       <div class="form-group">
-                            <label class="control-label col-lg-2" for="title">Nome do responsável</label>
-                            <div class="col-lg-10">
-                              <select name="responsavel" id="responsavel" class="form-control" required>
-                                <option value="">-- Informe o Responsável --</option>
-                                  <?php foreach($responsaveis as $responsavel){?>
-                                    <option <?php echo $responsavel->id_usuario==$os->responsavel ? 'selected':'' ?> value="<?php echo $responsavel->id_usuario; ?>"><?php echo $responsavel->u_nome; ?></option>  
-                                  <?php } ?>
-                              </select>
-                            </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label class="control-label col-lg-2" for="content">Equipamento</label>
+                        <label class="control-label col-lg-7" for="content">Equipamento</label>
                         <div class="col-lg-10">
                           <select class="form-control" name='equipamento_id' id="content" required>
                             <option value="">-- Selecione um Equipamento --</option>  
@@ -95,23 +84,18 @@
                       <!-- Content -->
                        <!--turno-->
                        <div class="form-group">
-                        <label class="control-label col-lg-2" for="content">Número da OS</label>
+                        <label class="control-label col-lg-7" for="content">Número da OS</label>
                         <div class="col-lg-10">
                           <textarea class="form-control" name="numero_OS" id="numero_OS" required><?php echo $os->numero_OS ?></textarea>
                         </div>
                        </div>
                       <!--fim turno-->
                         <!--prazo de finalizacao-->
-                        <div class="form-group">
-                          <label class="control-label col-lg-2" for="prazo">CPF do cliente</label>
-                          <div class="col-lg-10">
-                            <input value="<?php echo $os->cpf_cliente ?>" class="form-control" id="prazo" type='number' name="cpf_cliente" placeholder="Insira seu CPF" required>
-                          </div>  
-                        </div>
+                     
                         <!--fim prazo finalizacao-->
                         <!--data da finalizacao-->
                         <div class="form-group">
-                          <label class="control-label col-lg-2" for="data-finish">Data da criação</label>
+                          <label class="control-label col-lg-7" for="data-finish">Data da criação</label>
                           <div class="col-lg-10">
                             <?php
                               $data_string = substr($os->data_criacao, 0, 10);
@@ -120,21 +104,34 @@
                             <input value="<?php echo $data_string; ?>" class="form-control" id="data_criacao" type="date" name="data_criacao" required>
                           </div>
                         </div>
-                        <!--fim data finalizacao-->
-  
+                        <!--fim data finalizacao--> 
+                        <div class="form-group">
+                          <label class="control-label col-lg-7" for="prazo">CPF do cliente</label>
+                          <div class="col-lg-10">
+                            <input value="<?php echo $os->cpf_cliente ?>" class="form-control" id="prazo" type='text' name="cpf_cliente" placeholder="Insira seu CPF" required>
+                          </div>  
+                        </div>
 
-                      <!--situacação-->
-                    
-                      <!-- fim situação -->
+                        <div class="form-group">
+                          <label class="control-label col-lg-7" for="prazo">Nome do cliente</label>
+                          <div class="col-lg-10">
+                            <input value="<?php echo $os->cliente_nome ?>" class="form-control" id="prazo" type='text' name="cliente_nome" placeholder="Insira o nome do cliente" required>
+                          </div>  
+                        </div>
 
-                    <!--situacação-->
-                      <!--aqui retorna apenas os usuários do tipo 1, isto é, administradores-->
-                  
-                      <!-- fim situação -->
-                    <!--início listagem dos ususários do tipo 2 - não administradores-->
-                    
-                      <!-- fim fim da listagem -->
+                        <div class="form-group">
+                          <label class="control-label col-lg-7" for="prazo">Telefone do cliente</label>
+                          <div class="col-lg-10">
+                            <input value="<?php echo $os->cliente_numero_telefone ?>" class="form-control" id="prazo" type='text' name="cliente_numero_telefone" placeholder="Insira o número do cliente" required>
+                          </div>  
+                        </div>
 
+                        <div class="form-group">
+                          <label class="control-label col-lg-7" for="prazo">Email do cliente</label>
+                          <div class="col-lg-10">
+                            <input value="<?php echo $os->cliente_email ?>" class="form-control" id="prazo" type='text' name="cliente_email" placeholder="Insira o email do cliente" required>
+                          </div>  
+                        </div>
                       <!-- Buttons -->
                       <div class="form-group">
                         <!-- Buttons -->
@@ -142,7 +139,6 @@
                           <button type="submit" class="btn btn-primary" title="cadastrar">
                             Atualizar
                           </button>
-                          <a class="btn btn-default border" href="<?php echo base_url('index.php/os/index')?>" title="metas">Exibir Os</a>
                          
                         </div>
                       </div>

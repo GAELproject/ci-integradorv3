@@ -33,10 +33,35 @@
             <div class="container-fluid">
                 <div class="row mb-3">
                     <div class="col-md-12">
+                  
                         <div class="overview-wrap">
                             <h2 class="title-1"><i class="fas fa-tachometer-alt"></i> <?= $pagina; ?></h2>
                         </div>
                         <hr>
+                        <?php if(isset($metas_vinculadas)){
+                            foreach($metas as $meta){
+                                foreach($metas_vinculadas as $my_metas){
+                                    if($meta->id_meta == $my_metas->meta_id && $meta->situacao == "1") {   ?>
+                                        <div class="alert alert-warning" role="alert">
+                                            <h4 class="alert-heading">Atenção!</h4>
+                                            <p>Você foi vinculado a meta: <?= $meta->titulo?>.</p>
+                                            <p><strong>Criador:</strong>
+                                                <?php  if(isset($usuarios)){ 
+                                                    foreach($usuarios as $usuario){
+                                                        if($meta->id_criador == $usuario['id_usuario']){
+                                                            echo $usuario['u_nome'];
+                                                        }
+                                                        } 
+                                                    }
+                                                ?>
+                                            </p>
+                                            <hr>
+                                            <p class="mb-0"><?= $meta->descricao;?></p>
+                                        </div>
+                                <?php }
+                                }
+                             }
+                         }?>
                     </div>
                 </div>
             </div>
@@ -104,16 +129,7 @@
                         <!--fim do quarto card-->
                     </div>
 
-                    <div class="col-sm-12 col-md-6 col-lg-4">
-                        <!--início do quinto card-->
-                        <div class="card text-center h-100">
-                            <div class="card-header">GAEL - Gerenciamento</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Gerenciamento de equipamentos </h5>
-                                <a href="<?php echo base_url('gael/realizar_equipamento') ?>" class="btn btn-outline-success">Gerenciar</a>
-                            </div>
-                        </div>
-                    </div>
+                
 
                     <div class="col-lg-4 col-md-6 col-sm-12">
                             <!--início do sexto card-->
@@ -127,6 +143,18 @@
                                 <!--fim do sexto card-->
                             </div>
 
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                <?php if ($this->session->userdata('usuario_logado')['usuario_tipo'] == '1') : ?>
+                        <!--início do quinto card-->
+                        <div class="card text-center h-100">
+                            <div class="card-header">GAEL - Relatórios</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Visualizar relatórios de atividades</h5>
+                                <a href="<?php echo base_url('index.php/gael/home') ?>" class="btn btn-outline-success">Gerenciar</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif;?>
                 </div>
 
                 <!--FIM SEGUNDA ROW-->

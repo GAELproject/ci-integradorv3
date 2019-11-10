@@ -10,7 +10,7 @@
 		<div class="row mb-3">
 			<div class="col-md-12">
 				<div class="overview-wrap">
-					<h2 class="title-1"><?=$pagina; ?></h2>
+					<h2 class=""><?=$pagina; ?></h2>
 				
 				</div>
 			</div>
@@ -20,19 +20,19 @@
 
 <div class="row">
 			<div class="col-lg-12"> 
-				<?php if(isset($success)){?>
+			<?php if($this->session->flashdata('success')){?>
 					<div class="alert alert-success" role="alert">
-						<?php echo $success;?>
+						<?= $this->session->flashdata('success');?>
 					</div>
-				<?php }elseif(isset($error)){?>e
+				<?php }elseif(isset($error)){?>
 					<div class="alert alert-success" role="alert">
   						<?= $error?>
 					</div>
 				<?php }?>
-				<a class="btn btn-primary" href="<?= base_url('index.php/equipamento/formAdd')?>">Adicionar novo equipamento</a>
+				<a class="btn btn-primary mb-3" href="<?= base_url('index.php/equipamento/formAdd')?>">Adicionar novo equipamento</a>
 				<section class="panel">
 	              <header class="panel-heading">
-	                Equipamentos
+					<!--aqui pode ficar um título-->
 	              </header>
 
 	              <table class="table table-striped table-advance table-hover">
@@ -43,7 +43,8 @@
 	                    <th><i class=""></i>Marca</th>
 						<th><i class=""></i>Modelo</th>
                         <th><i class=""></i>Situação</th>
-                        <th><i class=""></i>Ações</th>
+                        <th><i class=""></i>Entregue</th>
+						<th><i class=""></i>Ações</th>
 					
 	                  </tr>
 	                  <?php foreach ($equipamentos as $eq) {
@@ -71,7 +72,14 @@
  			                          }
                             ?> 
 						</td>
-						
+						<td>
+								<?php if($eq->entregue == "0"){?>
+									   Não
+								<?php }else if($eq->entregue == "1") {
+									echo "sim";
+								}
+								?>
+						</td>
                         <td width="200px">
 	                      <div class="btn-group">
 	                        <a title="editar" class="btn btn-success" href="<?php echo base_url('index.php/equipamento/editar/')?><?=$eq->id_equipamento;?>">

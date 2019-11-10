@@ -79,6 +79,27 @@
                                 <input class="form-control" id="title" type="text" name="modelo" value="<?= $equipamento->modelo; ?>">
                             </div>
                         </div>
+                    
+                    
+                    <!-- Foi entregue?-->
+                        
+                        <div class="form-group">
+                            <label class="control-label col-lg-7">Foi entregue ao cliente?</label>
+                            <div class="col-lg-10">
+                                <select class="form-control" name="entregue">
+                                    <option value="0" <?php 
+                                        if($equipamento->entregue == "0")
+                                            { echo "selected";}
+                                            ?>> Não 
+                                    </option>
+                                    <option value="1"  <?php 
+                                        if($equipamento->entregue == "1"){ echo "selected";}?>>Sim
+                                    </option>
+                                   
+                                </select>
+                            </div>
+                        </div>
+
                         <!-- Buttons -->
                         <div class="form-group">
                             <!-- Buttons -->

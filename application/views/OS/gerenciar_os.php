@@ -75,7 +75,11 @@
                           <select class="form-control" name='equipamento_id' id="content" required>
                             <option value="">-- Selecione um Equipamento --</option>  
                             <?php foreach($equipamentos as $equipamento){ ?>
-                                <option value="<?php echo $equipamento->id_equipamento; ?>"><?php echo $equipamento->equipamento_nome; ?></option>
+                                <option value="<?php echo $equipamento->id_equipamento; ?>">
+                                  <?php echo"nome:".$equipamento->equipamento_nome;
+                                        echo "  ---  ";
+                                      echo "Número de série: ".$equipamento->numero_serie; ?>
+                                </option>
                             <?php } ?>
                           </select>
                         </div>

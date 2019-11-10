@@ -27,7 +27,7 @@
   						<?= $error?>
 					</div>
 				<?php }?>
-				<a class="btn btn-primary" href="<?= base_url('index.php/gael/gerenciar_meta')?>">Adicionar nova meta</a>
+				<a class="btn btn-primary mb-3" href="<?= base_url('index.php/gael/gerenciar_meta')?>">Adicionar nova meta</a>
 				<section class="panel">
 	           
 			<div class="table-responsive table--no-card m-b-30">
@@ -35,9 +35,9 @@
 	              <table class="table table-striped table-advance table-hover">
 	                <tbody>
 	                  <tr>
-	                    <th><i class=""></i>Título</th>
-	                    <th><i class=""></i>Descrição</th>
-	                    <th><i class=""></i>Criador</th>
+	                    <th width="500px"><i class="" ></i>Título</th>
+	                    <th width="800px"><i class=""></i>Descrição</th>
+	                    <th width="500px"><i class=""></i>Criador</th>
 						<th><i class=""></i>Turno da meta</th>
 						<th><i class=""></i>Data de criação</th>
 						<th><i></i>Prazo de finalizacao</th>

@@ -9,7 +9,7 @@
 		<div class="row mb-3">
 			<div class="col-md-12">
 				<div class="overview-wrap">
-					<h2 class="title-1"><?=$pagina; ?></h2>
+					<h2 class=""><?=$pagina; ?></h2>
 				
 				</div>
 			</div>
@@ -22,7 +22,7 @@
           <div class="col-sm-8">
             <div  class="panel panel-default">
               <div class="panel-heading">
-                <div class="pull-left">Gerenciar equipamento</div>
+                <div class="pull-left"><!--aqui pode ficar um título--></div>
             
                 <div class="clearfix"></div>
               </div>
@@ -40,40 +40,50 @@
                       <!--usuário bolsista-->
                    
                       <div class="form-group">
-                        <label class="control-label col-lg-2" for="nome_eq">Nome do equipamento
+                        <label class="control-label col-lg-7" for="nome_eq">Nome do equipamento
                         </label>
                             <div class="col-lg-10">
                               <input class="form-control" id="nome_eq" name="equipamento_nome" type="text">
                             </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-lg-2" for="n">Número de série
+                        <label class="control-label col-lg-7" for="n">Número de série
                         </label>
                             <div class="col-lg-10">
                               <input class="form-control" id="n" name="numero_serie" type="text">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-lg-2" for="marca">Marca
+                        <label class="control-label col-lg-7" for="marca">Marca
                         </label>
                             <div class="col-lg-10">
                               <input class="form-control" id="marca" name="marca" type="text">
                             </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-lg-2" for="modelo">Modelo
+                        <label class="control-label col-lg-7" for="modelo">Modelo
                         </label>
                             <div class="col-lg-10">
                               <input class="form-control" id="modelo" name="modelo" type="text">
                             </div>
                       </div>
-
+                      <div class="form-group">
+                        <label class="control-label col-lg-7" for="entregue">Foi entregue ao cliente?
+                        </label>
+                            <div class="col-lg-10">
+                                <select name="entregue" id="" class="form-control">
+                                    <option value="" selected disabled> -- Selecione se foi entregue --</option>
+                                    <option value="true">Sim</option>
+                                    <option value="false">Não</option>
+                                </select>
+                            </div>
+                      </div>
     
                       <div class="form-group">
-                        <label class="control-label col-lg-2">Situação</label>
+                        <label class="control-label col-lg-7">Situação</label>
                         <div class="col-lg-10">
                           <select class="form-control" name="situacao">
-                            <option value="" selected disabled>- Selecione o usuário-</option>
+                            <option value="" selected disabled>- Selecione a atual situação -</option>
                             <option value="1">Consertado</option>
                             <option value="2">Parcialemente consertado</option>
                             <option value="3">Não consertado</option>

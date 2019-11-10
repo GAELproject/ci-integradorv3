@@ -31,10 +31,16 @@ class Meta_model extends CI_Model
 		
 	}
 	public function recuperar(){
+		$query = $this->db->order_by('id_meta', 'DESC')->get('meta');
+		return $query->result();
+	}
+	//minhas proprias metas
+	public function myMetas($id)
+	{
+		$this->db->where('id_criador',$id);
 		$query = $this->db->get('meta');
 		return $query->result();
 	}
-
    
 
 	public function recuperarUm($id){

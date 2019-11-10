@@ -62,6 +62,12 @@ class Usuario_tem_meta_model extends CI_Model
     {
         $this->db->where('meta_id', $id);
         $this->db->delete('usuario_tem_meta');
-    }
+	}
+	
+	//extra functions
+	public function metasVinculadas($usuario_id){
+		$array = $this->db->where('usuario_id',$usuario_id)->get('usuario_tem_meta');
+		return $array->result();
+	}
 
 }

@@ -14,16 +14,17 @@ class Meta extends CI_Controller {
 
 	public function index(){
 		if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
-		$coisas['usuarios'] = $this->Usuario_model->recuperar();
+			$dados['usuarios'] = $this->Usuario_model->recuperar();
+			$id = $this->session->userdata('usuario_logado')['id_usuario'];
+			
+			$dados['metas'] = $this->Meta_model->myMetas($id);
+			$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperar();
 
-		$coisas['metas'] = $this->Meta_model->recuperar();
-		$coisas['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperar();
-
-		$coisas['title']  = 'Listagem de metas';
-        $coisas['pagina'] = 'Listagem de metas';
-		
-		$coisas ['title'] = 'listagem das metas - gael';
-		$this->load->view('metas', $coisas);
+			$dados['title']  = 'Listagem de metas';
+			$dados['pagina'] = 'Listagem de metas';
+			
+			$dados ['title'] = 'listagem das metas - gael';
+			$this->load->view('metas', $dados);
 		}else{
 			//caso não seja, é lançada uma exceção
 			redirect('index.php/errors/noPermissao');
@@ -97,19 +98,20 @@ class Meta extends CI_Controller {
 
 
 
-    public function editar(){
+    public function editar($id){
 		if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
-        $id = $this->uri->segment(3);
 		
-        $dados['title'] = "Ediçãode metas";
-        $dados['pagina'] = "Edição de metas";
+			$dados['title'] = "Ediçãode metas";
+			$dados['pagina'] = "Edição de metas";
 
-		$dados['meta'] = $this->Meta_model->recuperarUm($id);
-		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
-		$dados['bolsistasall'] = $this->Usuario_model->recuperarNormais();
-		$dados['adms'] = $this->Usuario_model->recuperarAdms();
+			$dados['meta'] = $this->Meta_model->recuperarUm($id);
+			//var_dump($dados['meta']);
+			// exit();
+			$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
+			$dados['bolsistasall'] = $this->Usuario_model->recuperarNormais();
+			$dados['adms'] = $this->Usuario_model->recuperarAdms();
 
-		return $this->load->view('metas/editMeta', $dados);
+			return $this->load->view('metas/editMeta', $dados);
 		}else{
 			//caso não seja, é lançada uma exceção
 			redirect('index.php/errors/noPermissao');
@@ -132,7 +134,7 @@ class Meta extends CI_Controller {
         $this->Meta_model->data_prazo_finalizacao = $_POST['data_prazo_finalizacao'];
         $this->Meta_model->data_finalizacao = $_POST['data_finalizacao'];
 		$this->Meta_model->situacao = $_POST['situacao'];
-		$this->Meta_model->id_criador = $_POST['id_criador'];
+		$this->Meta_model->id_criador = $this->session->userdata('usuario_logado')['id_usuario'];
 		$this->Meta_model->update();
 		
 		
@@ -180,11 +182,13 @@ class Meta extends CI_Controller {
 	}
 	public function view($id){
 		if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
-		$dados['meta'] = $this->Meta_model->recuperarUm($id);
-		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
-		$dados['bolsistas'] = $this->Usuario_model->recuperarNormais();
-		$dados['pagina'] = 'Visualização de meta';
-		$dados['title'] = 'Visualizar meta';
+			$dados['meta'] = $this->Meta_model->recuperarUm($id);
+			
+			$dados['usuarios'] = $this->Usuario_model->recuperar();
+			$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
+			$dados['bolsistas'] = $this->Usuario_model->recuperarNormais();
+			$dados['pagina'] = 'Visualização de meta';
+			$dados['title'] = 'Visualizar meta';
 		return $this->load->view('metas/viewMeta',$dados); 
 		}else{
 			//caso não seja, é lançada uma exceção

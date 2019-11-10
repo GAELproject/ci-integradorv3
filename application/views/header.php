@@ -14,7 +14,9 @@
     
      <?=  $title;?>
     </title>
-
+    
+    <!--flat icon-->
+    <link rel="icon" type="image/icon" href="<?php echo base_url('assets/images/gael.ico')?>" sizes="16x16px">
     <!-- Fontfaces CSS-->
     <link href="<?= base_url('assets/css/font-face.css');?>" rel="stylesheet" media="all">
     <link href="<?= base_url('assets/vendor/font-awesome-4.7/css/font-awesome.min.css');?>" rel="stylesheet" media="all">
@@ -315,23 +317,26 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
+                                        
                                             <img src="<?= base_url('assets/images/icon/avatar-01.jpg')?>" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Diogo</a>
+                                            <?php print_r($this->session->userdata('usuario_logado')['u_nome']);  ?>                                      
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img class="" src="<?= base_url('assets/images/icon/avatar-01.jpg')?>" alt="John Doe" />
+                                                        <img class="" src="<?= base_url('assets/images/icon/avatar-01.jpg')?>" alt="Imagem do perfil do usuário" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">john doe</a>
+                                                        <a href="#"><?php print_r($this->session->userdata('usuario_logado')['u_nome']);  ?>
+                                                        </a>
                                                     </h5>
-                                                    <span class="email">johndoe@example.com</span>
+                                                    <span class="email"><?php print_r($this->session->userdata('usuario_logado')['u_email']);  ?>
+                                                    </span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">

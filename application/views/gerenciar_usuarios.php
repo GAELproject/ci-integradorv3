@@ -17,18 +17,16 @@
         </div>
     </div>
 </div>
-<div class="col-md-6">
+<!--início row-->
+<div class="row">
+
+<div class="col-sm-2">
+</div>
+<div class="col-sm-8">
             <div  class="panel panel-default">
               <div class="panel-heading">
-                <div class="pull-left">Gerenciar usuários</div>
-                <div class="widget-icons pull-right">
-                  <a id="seletor-down" href="#">
-                    <i class="fa fa-chevron-down"></i>
-                  </a>
-                  <a href="#" id="" class="">
-                    <i id="seletor-up" class="fa fa-chevron-up"></i></a>
-                  <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-                </div>
+                <div class="pull-left"> <!--aqui pode ficar um  título--></div>
+               
                 <div class="clearfix"></div>
               </div>
               <div id="painel" class="panel-body">
@@ -87,7 +85,7 @@
                       
                       <!--Usuario Bolsista-->
                       <div class="form-group">
-                        <label class="control-label col-lg-2">Bolsista</label>
+                        <label class="control-label col-lg-2">Bolsista remunerada?</label>
                         <div class="col-lg-10">
                           <select class="form-control" name="usuario_bolsista">
                             <option value="" selected disabled>- Selecione -</option>
@@ -134,5 +132,12 @@
               </div>
             </div>
           </div>
+          <!--fim do grid de 8-->
+<div class="col-sm-2">
+</div>
+
+</div>
+<!--fim row-->
+
 </div>  
 <?php $this->load->view('footer') ?> 

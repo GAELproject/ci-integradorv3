@@ -14,15 +14,22 @@ class Gael extends CI_Controller {
 
 	public function index()
 	{	
+		$id_usuario = $this->session->userdata('usuario_logado')['id_usuario'];
+		$dados['metas'] = $this->Meta_model->recuperar();
+		$dados['usuarios'] = $this->Usuario_model->recuperarAdms();
+		$dados['metas_vinculadas'] = $this->Usuario_tem_meta_model->metasVinculadas($id_usuario);
 		$dados['pagina'] = "Página inicial";
 		$dados['title'] = 'Página incial - gael';
 		$this->load->view('home', $dados);
 	}
 	public function home(){
-		$coisas['usuarios'] = $this->Usuario_model->recuperar();
-		$coisas['pagina'] = "Página inicial";
-		$coisas ['title'] = 'Página incial - gael';
-		$this->load->view('home', $coisas);
+		$id_usuario = $this->session->userdata('usuario_logado')['id_usuario'];
+		$dados['metas'] = $this->Meta_model->recuperar();
+		$dados['usuarios'] = $this->Usuario_model->recuperarAdms();
+		$dados['metas_vinculadas'] = $this->Usuario_tem_meta_model->metasVinculadas($id_usuario);
+		$dados['pagina'] = "Página inicial";
+		$dados['title'] = 'Página incial - gael';
+		$this->load->view('home', $dados);
 	}
 	public function user(){
 		$this->load->model('Usuario_model');

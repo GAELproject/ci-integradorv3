@@ -19,6 +19,15 @@
 	<div class="row">
 
 		<div class="col-lg-12"> 
+    <?php if($this->session->flashdata('success')){?>
+					<div class="alert alert-success" role="alert">
+						<?= $this->session->flashdata('success');?>
+					</div>
+				<?php }elseif(isset($error)){?>
+					<div class="alert alert-success" role="alert">
+  						<?= $error?>
+					</div>
+				<?php }?>
     <a class="btn btn-primary mb-3" href="<?= base_url('index.php/gael/gerenciar_usuario')?>">Adicionar um novo usuario</a>
 			<section class="panel">
         
@@ -27,7 +36,7 @@
               <table class="table table-striped table-advance table-hover">
                 <tbody>
                   <tr>
-                    <th><i class="icon_profile"></i>Nome</th>
+                    <th width="300px" ><i class="icon_profile"></i>Nome</th>
                     <th><i class="icon_calendar"></i>E-mail</th>
                     <th><i class="icon_mail_alt"></i>senha</th> 
                     <th><i class="icon_pin_alt"></i>cpf</th>
@@ -39,7 +48,7 @@
                   <?php foreach ($usuarios as $key => $us) {
                   	?>
                   <tr>
-                    <td><?php echo $us->u_nome;?></td>
+                    <td width="300px" ><?php echo $us->u_nome;?></td>
                     <td><?php echo $us->u_email;?></td>
                     <td><?php echo $us->senha;?></td>
                     <td><?php echo $us->cpf;?></td>

@@ -55,7 +55,8 @@ class Usuario_model extends CI_Model
     public function delete($id)
     {
         $this->db->where('id_usuario', $id);
-        $this->db->delete('usuario');
+		$this->db->delete('usuario');
+		return true;
     }
     public function recuperarUm($id){
         $this->db->where('id_usuario',$id);
@@ -74,7 +75,7 @@ class Usuario_model extends CI_Model
 
         $this->db->where('id_usuario', $this->id_usuario);
         $this->db->update('usuario');
-
+		return true;
 	}
 	
 	//autenticação

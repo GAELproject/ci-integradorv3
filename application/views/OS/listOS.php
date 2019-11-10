@@ -64,8 +64,8 @@
 						<td><?php echo $o->numero_OS;?></td>
 						<td><?php echo "cpf: ".$o->cpf_cliente;
 											echo "<br> nome:".$o->cliente_nome;
-											echo "<br> nome:".$o->cliente_numero_telefone;
-											echo "<br> nome:".$o->cliente_email;
+											echo "<br> telefone:".$o->cliente_numero_telefone;
+											echo "<br> e-mail:".$o->cliente_email;
 											?>
 											
 						</td>
