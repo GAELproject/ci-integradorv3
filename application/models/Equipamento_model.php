@@ -8,6 +8,7 @@ class Equipamento_model extends CI_Model
 	public $modelo;
 	public $situacao;
 	public $entregue;
+	public $responsavel;
     
 	public function __construct(){
 		 parent::__construct();
@@ -21,15 +22,15 @@ class Equipamento_model extends CI_Model
 						"marca" => $this->marca,
 						"modelo" => $this->modelo,
 						"situacao" => $this->situacao,
-						"entregue" => $this->entregue);
+						"entregue" => $this->entregue,
+						"responsavel" => $this->responsavel);
 
 		return $this->db->insert('equipamento',$dados);
 	}
 	public function recuperar(){
-		//$this->db->order_by('id_equipamento', 'DES');
+		
 		$query = $this->db->order_by('id_equipamento', 'DESC')->get('equipamento');
-		//$query = $this->db->order_by('id_equipamento', 'ASC');
-		//$this->db->order_by('id_equipamento', 'ASC');
+		
 		return $query->result();
 	}
 
@@ -45,6 +46,7 @@ class Equipamento_model extends CI_Model
 		$this->db->set('modelo', $this->modelo);
 		$this->db->set('situacao', $this->situacao);
 		$this->db->set('entregue', $this->situacao);
+		$this->db->set('responsavel', $this->responsavel);
 		
         $this->db->where('id_equipamento', $this->id_equipamento);
         $update = $this->db->update('equipamento');

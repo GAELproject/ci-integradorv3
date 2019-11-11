@@ -65,104 +65,111 @@
                     </div>
                 </div>
             </div>
-            <?php if ($this->session->userdata('usuario_logado')['usuario_tipo'] == '1') : ?>
-                <!--INÍCIO PRIMEIRA ROW-->
-
+            <?php if ($this->session->userdata('usuario_logado')['usuario_tipo'] == '1'){ ?>
+             <!--início do container-->
                 <div class="container">
+                   <!--INÍCIO PRIMEIRA ROW-->
                     <div class="row mb-5">
-
-                        <div class="col-lg-4 col-md-6 col-sm-12">
-                            <!-- início do primerio card -->
-                            <div class="card text-center h-100">
-                                <div class="card-header">GAEL - Gerenciamento</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Gerenciar Usuários</h5>
-                                    <a href="<?php echo base_url('index.php/usuario/index') ?>" class="btn btn-outline-success">Gerenciar Usuários</a>
+                        <!-- início do primerio card -->
+                            <div class="col-sm-4">
+                                <div class="card text-center h-100">
+                                    <div class="card-header">GAEL - Gerenciamento</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Gerenciar Usuários</h5>
+                                        <a href="<?php echo base_url('index.php/usuario/index') ?>" class="btn btn-outline-success">Gerenciar Usuários</a>
+                                    </div>
                                 </div>
                             </div>
                             <!--fim do primeiro card-->
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12">
-
-                            <!-- início do segundo card -->
-                            <div class="card text-center h-100">
-                                <div class="card-header">GAEL - Gerenciar Metas</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Gerenciar Metas</h5>
-                                    <a href="<?php echo base_url('index.php/gael/metas') ?>" class="btn btn-outline-success">Gerenciar metas</a>
+                         <!-- início do segundo card -->
+                            <div class="col-sm-4">
+                                <div class="card text-center h-100">
+                                    <div class="card-header">GAEL - Gerenciar Metas</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Gerenciar Metas</h5>
+                                        <a href="<?php echo base_url('index.php/gael/metas') ?>" class="btn btn-outline-success">Gerenciar metas</a>
+                                    </div>
                                 </div>
                             </div>
-                            <!--fim do segundo card-->
+                                   <!--fim do segundo card-->
+                          <!--início do terceiro card-->
 
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12">
-                            <!--início do terceiro card-->
-                            <div class="card text-center h-100">
-                                <div class="card-header">GAEL - Gerenciamento</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Gerenciamento de equipamentos </h5>
-                                    <a href="<?php echo base_url('index.php/equipamento') ?>" class="btn btn-outline-success">Gerenciar equipamentos</a>
+                            <div class="col-sm-4">
+                                <div class="card text-center h-100">
+                                    <div class="card-header">GAEL - Gerenciamento</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Gerenciamento de equipamentos </h5>
+                                        <a href="<?php echo base_url('index.php/equipamento') ?>" class="btn btn-outline-success">Gerenciar equipamentos</a>
+                                    </div>
                                 </div>
                             </div>
-
                             <!--fim do terceiro card-->
-                        </div>
                     </div>
                 </div>
-
-            <?php endif; ?>
+                <!--fim do container-->
+            <?php } ?>
             <!--INÍCIO SEGUNDA ROW-->
             <div class="container">
 
                 <div class="row">
-
-                    <div class="col-lg-4 col-md-6 col-sm-12">
                         <!--início do quarto card-->
-                        <div class="card text-center h-100">
-                            <div class="card-header">GAEL - atividades em equipamento</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Realizar atividade em equipamento </h5>
-                                <a href="<?php echo base_url('index.php/realizar_atividade_equipamento/index') ?>" class="btn btn-outline-success col-12">Realizar atividade</a>
+                        <div class="col-sm-4">
+                            <div class="card text-center h-100">
+                                <div class="card-header">GAEL - atividades em equipamento</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Realizar atividade em equipamento </h5>
+                                    <a href="<?php echo base_url('index.php/realizar_atividade_equipamento/index') ?>" class="btn btn-outline-success col-12">Realizar atividade</a>
+                                </div>
                             </div>
                         </div>
                         <!--fim do quarto card-->
-                    </div>
-
-                
-
-                    <div class="col-lg-4 col-md-6 col-sm-12">
+                    
                             <!--início do sexto card-->
+                            <div class="col-sm-4">
                                 <div class="card text-center h-100">
                                     <div class="card-header">GAEL - Ordens de serviço</div>
                                     <div class="card-body">
-                                    <h5 class="card-title">Realizar atividade em OS </h5>
-                                    <a href="<?php echo base_url('index.php/OS/index')?>" class="btn btn-outline-success">Gerenciar OS</a>
+                                        <h5 class="card-title">Realizar atividade em OS </h5>
+                                        <a href="<?php echo base_url('index.php/OS/index')?>" class="btn btn-outline-success">Gerenciar OS</a>
                                     </div>
-                                </div>
-                                <!--fim do sexto card-->
+                                    </div>
                             </div>
-
-                <div class="col-sm-12 col-md-6 col-lg-4">
-                <?php if ($this->session->userdata('usuario_logado')['usuario_tipo'] == '1') : ?>
-                        <!--início do quinto card-->
-                        <div class="card text-center h-100">
-                            <div class="card-header">GAEL - Relatórios</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Visualizar relatórios de atividades</h5>
-                                <a href="<?php echo base_url('index.php/gael/home') ?>" class="btn btn-outline-success">Gerenciar</a>
+                        <!--fim do sexto card-->
+                   
+                    <?php if ($this->session->userdata('usuario_logado')['usuario_tipo'] == '1') : ?>
+                        <div class="col-sm-4">
+                            <!--início do quinto card-->
+                            <div class="card text-center h-100">
+                                <div class="card-header">GAEL - Relatórios</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Visualizar relatórios de atividades</h5>
+                                    <a href="<?php echo base_url('index.php/gael/home') ?>" class="btn btn-outline-success">Gerenciar</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <?php endif;?>
+                    <?php endif;?>
+                    <?php if ($this->session->userdata('usuario_logado')['usuario_tipo'] == '2') : ?>
+                      <!--início do quarto card-->
+                             <div class="col-sm-4">
+                                <div class="card text-center h-100">
+                                    <div class="card-header">GAEL - Gerenciamento</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Gerenciamento de equipamentos </h5>
+                                        <a href="<?php echo base_url('index.php/equipamento') ?>" class="btn btn-outline-success">Gerenciar equipamentos</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--fim do quarto card-->
+
+                        <?php endif;?>
+                        
                 </div>
 
                 <!--FIM SEGUNDA ROW-->
             </div>
         </div>
     </div>
-    <!-- END MAIN CONTENT-->
-    <!-- END PAGE CONTAINER-->
+ 
 </div>
 
 </div>

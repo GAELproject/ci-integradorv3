@@ -46,6 +46,7 @@ class Equipamento extends CI_Controller {
 		$this->Equipamento_model->modelo = $modelo;
 		$this->Equipamento_model->situacao = $situacao;
 		$this->Equipamento_model->entregue = $entregue;
+		$this->Equipamento_model->responsavel =  $this->session->userdata('usuario_logado')['id_usuario'];
 
 		$insertar = $this->Equipamento_model->inserir();
 		

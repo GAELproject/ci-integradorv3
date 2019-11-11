@@ -55,7 +55,8 @@ CREATE TABLE gael.equipamento(
     marca VARCHAR(45) NOT NULL, 
     modelo VARCHAR(45) NOT NULL,
     situacao CHAR(1) NOT NULL,
-    entregue BOOLEAN NOT NULL   
+    entregue BOOLEAN NOT NULL,  
+    id_responsavel INT NOT NULL   
 );
 CREATE TABLE gael.laudo(
     id_laudo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -156,6 +157,12 @@ ADD CONSTRAINT fk_equipamento_id
 FOREIGN KEY (equipamento_id)
 REFERENCES gael.equipamento(id_equipamento);
 
+ALTER TABLE gael.equipamento
+ADD CONSTRAINT fk_id_responsavel
+FOREIGN KEY (id_responsavel)
+REFERENCES gael.usuario(id_usuario);
+
+
 
 ALTER TABLE gael.doacao
 ADD CONSTRAINT fk_equipamento_doado_id
@@ -195,8 +202,8 @@ VALUES ('Diogo da Silva Lima', 'diogo.libras43@gmail.com', '1234', '126.444.444-
 INSERT INTO `gael`.`usuario` (`u_nome`, `u_email`, `senha`, `cpf`, `usuario_tipo`, `usuario_bolsista`, `turno_atividades`)
 VALUES ('Outro usuário para teste', 'teste.email@gmail.com', '1234', '000.444.000-00', '2', true, '2');
 
-INSERT INTO `gael`.`equipamento` (`equipamento_nome`, `numero_serie`, `marca`, `modelo`, `situacao`,`entregue`)
-VALUES ('Notebook', '2384783528', 'Dell', '32evs', '3', FALSE);
+INSERT INTO `gael`.`equipamento` (`equipamento_nome`, `numero_serie`, `marca`, `modelo`, `situacao`,`entregue`,`id_responsavel`)
+VALUES ('Notebook', '2384783528', 'Dell', '32evs', '3', FALSE, 2);
 
 
 
