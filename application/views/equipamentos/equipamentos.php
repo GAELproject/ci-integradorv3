@@ -11,7 +11,6 @@
 			<div class="col-md-12">
 				<div class="overview-wrap">
 					<h2 class=""><?=$pagina; ?></h2>
-				
 				</div>
 			</div>
 		</div>
@@ -39,6 +38,7 @@
 	                <tbody>
 	                  <tr>
 	                    <th><i class="">Nome do equipamento</i></th>
+						<th><i class="">Usuário que cadastrou</i></th>
 	                    <th><i class=""></i>Numero de série</th>
 	                    <th><i class=""></i>Marca</th>
 						<th><i class=""></i>Modelo</th>
@@ -51,6 +51,15 @@
 	                  	?>
 	                  <tr>
 	                    <td><?php echo $eq->equipamento_nome;?></td>
+						<td><?php 
+
+								foreach ($usuarios as $usuario) {
+									if($usuario->id_usuario == $eq->id_responsavel){
+										echo $usuario->u_nome;
+									}
+								}	
+							?>
+						</td>
 	                    <td><?php echo $eq->numero_serie;?></td>
 						<td>
                             <?= $eq->marca;?>

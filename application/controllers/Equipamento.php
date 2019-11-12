@@ -14,13 +14,12 @@ class Equipamento extends CI_Controller {
 
 
 	public function index(){
-        $coisas['equipamentos'] = $this->Equipamento_model->recuperar();
-
-		
-        $coisas['pagina'] = 'Todos os equipamentos';
-		
-		$coisas ['title'] = 'listagem de todos os equipamentos - gael';
-		$this->load->view('equipamentos/equipamentos', $coisas);
+		$dados['equipamentos'] = $this->Equipamento_model->recuperar();
+		//carregamento dos usuários do sistema
+		$dados['usuarios'] = $this->Usuario_model->recuperar();
+		$dados['pagina'] = 'Todos os equipamentos';
+		$dados ['title'] = 'listagem de todos os equipamentos - gael';
+		$this->load->view('equipamentos/equipamentos', $dados);
 	}
     public function formAdd(){
         
