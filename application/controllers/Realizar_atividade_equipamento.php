@@ -14,12 +14,9 @@ class Realizar_atividade_equipamento extends CI_Controller {
 
 	public function index()
     {
-		
 		$dados['equipamento_realizou_atividades'] = $this->Equipamento_realizou_atividade_model->recuperar();
 		$dados['atividades'] = $this->Atividade_model->recuperar();
 		$dados['equipamentos'] = $this->Equipamento_model->recuperar();
-		
-		
 		$dados['pagina'] = 'Listagem de atividades';
 		$dados['title'] = 'Listagem de atividades';
 		$dados['success'] = 'Atividade inserida com sucesso!';

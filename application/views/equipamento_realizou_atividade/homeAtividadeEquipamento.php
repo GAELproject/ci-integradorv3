@@ -11,7 +11,7 @@
 		<div class="row mb-3">
 			<div class="col-md-12">
 				<div class="overview-wrap">
-					<h2 class="title-1"><?=$pagina; ?></h2>
+					<h2 class=""><?=$pagina; ?></h2>
 				
 				</div>
 			</div>
@@ -29,10 +29,10 @@
                  <thead>
                  <tr>
                      <th scope="col">#</th>
-                     <th scope="col">equipamento</th>
-                     <th scope="col">atividade</th>
+                     <th scope="col">Equipamento</th>
+                     <th scope="col">Descrição da atividade</th>
                      
-                     <th scope="col">data e hora da atividade</th>
+                     <th scope="col">Data e hora da atividade</th>
                      <th scope="col">Ações</th>
                  </tr>
                  </thead>
@@ -48,7 +48,7 @@
                                 Nome: 
                                 <?= $eq->equipamento_nome;?>
                                 <br>
-                                número de série:
+                                Número de série:
                                 <?= $eq->numero_serie;?>
                             <?php endif;?>
                         <?php endforeach;?> 

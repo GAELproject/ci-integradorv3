@@ -8,7 +8,7 @@ class Equipamento_model extends CI_Model
 	public $modelo;
 	public $situacao;
 	public $entregue;
-	public $responsavel;
+	public $id_responsavel;
     
 	public function __construct(){
 		 parent::__construct();
@@ -23,7 +23,7 @@ class Equipamento_model extends CI_Model
 						"modelo" => $this->modelo,
 						"situacao" => $this->situacao,
 						"entregue" => $this->entregue,
-						"responsavel" => $this->responsavel);
+						"id_responsavel" => $this->id_responsavel);
 
 		return $this->db->insert('equipamento',$dados);
 	}
@@ -46,7 +46,7 @@ class Equipamento_model extends CI_Model
 		$this->db->set('modelo', $this->modelo);
 		$this->db->set('situacao', $this->situacao);
 		$this->db->set('entregue', $this->situacao);
-		$this->db->set('responsavel', $this->responsavel);
+		$this->db->set('id_responsavel', $this->id_responsavel);
 		
         $this->db->where('id_equipamento', $this->id_equipamento);
         $update = $this->db->update('equipamento');
@@ -61,6 +61,7 @@ class Equipamento_model extends CI_Model
     {
         $this->db->where('id_equipamento', $id);
         $this->db->delete('equipamento');
+        return true;
     }
 
 }

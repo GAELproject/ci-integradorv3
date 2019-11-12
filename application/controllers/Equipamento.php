@@ -46,19 +46,10 @@ class Equipamento extends CI_Controller {
 		$this->Equipamento_model->modelo = $modelo;
 		$this->Equipamento_model->situacao = $situacao;
 		$this->Equipamento_model->entregue = $entregue;
-		$this->Equipamento_model->responsavel =  $this->session->userdata('usuario_logado')['id_usuario'];
+		$this->Equipamento_model->id_responsavel =  $this->session->userdata('usuario_logado')['id_usuario'];
 
 		$insertar = $this->Equipamento_model->inserir();
-		
-	//	$dados['equipamentos'] = $this->Equipamento_model->recuperar();
-
-		
-		
-		//$dados['pagina'] = 'Listagem de equipamentos';
-		//$dados['title'] = 'Listagem de equipamentos';
-		//$dados['success'] = 'Equipamento cadastrado com sucesso!';
-			
-		//return $this->load->view('equipamentos/equipamentos', $dados);
+	
 		$this->session->set_flashdata('success','Equipamento cadastrado com sucesso!');
 		redirect(base_url().'index.php/equipamento/index/');
 				
@@ -89,6 +80,7 @@ class Equipamento extends CI_Controller {
 		$this->Equipamento_model->modelo = $_POST['modelo'];
 		$this->Equipamento_model->situacao = $_POST['situacao'];
 		$this->Equipamento_model->situacao = $_POST['entregue'];
+		$this->Equipamento_model->id_responsavel = $this->session->userdata('usuario_logado')['id_usuario'];
 		
        
 		$update =  $this->Equipamento_model->update();
@@ -104,10 +96,15 @@ class Equipamento extends CI_Controller {
 	public function deletar($id){
         $this->Equipamento_realizou_atividade_model->deleteByIdEquipamento($id);	
 		$delete  = $this->Equipamento_model->delete($id);
-		 	print_r($delete);
-			exit();
+		if($delete){
+			$this->session->set_flashdata('success','Equipamento deletado com sucesso!');
+			redirect('index.php/equipamento/index');	
+		}else{
+			$this->session->set_flashdata('error','Equipamento deletado com sucesso!');
+			redirect('index.php/equipamento/index');	
+		}
 		
-        redirect('index.php/equipamento/index',"refresh");
+        
 	}
 	public function view($id){
 		$dados['equipamento'] = $this->Equipamento_model->recuperarUm($id);
