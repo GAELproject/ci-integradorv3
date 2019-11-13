@@ -21,7 +21,18 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-
+                <?php if($this->session->flashdata('success')){
+                        ?>
+                    
+					<div class="alert alert-ssuccess" role="alert">
+						<?= $this->session->flashdata('success');?>
+					</div>
+				<?php }elseif(isset($error)){
+                         ?>
+					<div class="alert alert-success" role="alert">
+  						<?= $error?>
+					</div>
+				<?php }?>   
 
 
             <hr>
@@ -34,8 +45,9 @@
                         <label class="control-label col-lg-2" for="eq">Selecione o equipamento</label>
                         <div class="col-lg-10">
                             <select class="form-control" name="equipamento_id_equipamento" id="eq" >
+                                
                                 <?php foreach($equipamentos as $eq): ?>
-                                    <option value="<?= $eq->id_equipamento;?>"><?= $eq->equipamento_nome;?></option>
+                                    <option value="<?= $eq->id_equipamento;?>"> Nome: <?= $eq->equipamento_nome;?>  --  Número de série:<?= $eq->numero_serie;?>   </option>
                                 <?php  endforeach;?>
                             </select>
                         </div>

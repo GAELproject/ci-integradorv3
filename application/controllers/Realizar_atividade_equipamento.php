@@ -40,28 +40,15 @@ class Realizar_atividade_equipamento extends CI_Controller {
 		$situacao_final = $_POST['situacao_final'];
         $atividade_defeito = $_POST['atividade_defeito'];
 		$observacoes = $_POST['observacoes'];
-
-
-
         //equipamento de referência
         $equipamento_id_equipamento = $_POST['equipamento_id_equipamento'];
-
-
-
-
-
         $this->Atividade_model->descricao_servico_realizado = $descricao_servico_realizado;
 		$this->Atividade_model->nome_item_substituido = $nome_item_substituido;
         $this->Atividade_model->qtd_item_substituido = $qtd_item_substituido;
         $this->Atividade_model->situacao_final = $situacao_final;
         $this->Atividade_model->atividade_defeito = $atividade_defeito;
         $this->Atividade_model->observacoes = $observacoes;
-
 		$insertar['id_atividade'] = $this->Atividade_model->inserir();
-
-		
-
-
 		if($insertar != null){
 			
 			$this->Equipamento_realizou_atividade_model->equipamento_id_equipamento = $equipamento_id_equipamento;
@@ -69,19 +56,10 @@ class Realizar_atividade_equipamento extends CI_Controller {
 
 			$this->Equipamento_realizou_atividade_model->inserir();
 
-
-			$dados['equipamento_realizou_atividades'] = $this->Equipamento_realizou_atividade_model->recuperar();
-			$dados['atividades'] = $this->Atividade_model->recuperar();
-			$dados['equipamentos'] = $this->Equipamento_model->recuperar();
-			
-			
-			$dados['pagina'] = 'Listagem de atividades';
-			$dados['title'] = 'Listagem de atividades';
-			$dados['success'] = 'Atividade inserida com sucesso!';
-				
-			return $this->load->view('equipamento_realizou_atividade/homeAtividadeEquipamento', $dados);
+			$this->session->set_flashdata('success','Atividade cadastrada com sucesso!!');
+			redirect(base_url().'index.php/realizar_atividade_equipamento/index');		
 		}else{
-			$dados ['error'] = 'atividade não inserida na base de dados';
+			$this->session->set_flashdata('error','Equipamento ao cadastrar atividade!');
 			return $this->load->view('home',$dados);
 		}
 

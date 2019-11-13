@@ -41,7 +41,7 @@
                     <?php foreach($equipamento_realizou_atividades as $era):?>
                     <tr>    
                         <th scope="row">1</th>
-                        
+                            
                         <td>
                         <?php foreach($equipamentos as $eq): ?>
                             <?php if($era->equipamento_id_equipamento== $eq->id_equipamento):?> 
