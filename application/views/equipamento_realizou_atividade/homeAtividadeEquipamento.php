@@ -11,7 +11,7 @@
 		<div class="row mb-3">
 			<div class="col-md-12">
 				<div class="overview-wrap">
-					<h2 class=""><?=$pagina; ?></h2>
+					<h2 class="" style=""><?=$pagina; ?></h2>
 				
 				</div>
 			</div>
@@ -20,12 +20,27 @@
 
 
 <div class="">
-    <a href="<?= base_url('index.php/realizar_atividade_equipamento/add')?>" class="btn btn-outline-success">Realizar nova atividade</a>
+   
     <div class="row">
-         <div class="col-sm-12">
+         <div class="col-sm-12"> 
+				<?php if($this->session->flashdata('success')){?>
+					<div class="alert alert-success" role="alert">
+						<?= $this->session->flashdata('success');?>
+					</div>
+				<?php }elseif(isset($error)){?>
+					<div class="alert alert-success" role="alert">
+  						<?= $error?>
+					</div>
+				<?php }?>
+				<section class="panel">
+                <a href="<?= base_url('index.php/realizar_atividade_equipamento/add')?>" class="btn btn-outline-success mt-1 mb-3">Realizar nova atividade</a>
 
+
+			<div class="table-responsive table--no-card m-b-30">
+		
+	              <table class="table table-striped table-advance table-hover">
             <!--início da tabela de listagem de atividades relizadas em equipametnos-->
-             <table class="table">
+          
                  <thead>
                  <tr>
                      <th scope="col">#</th>
@@ -65,9 +80,9 @@
                         <td>
                             <?= $era->data_hora_atividade;?>
                         </td>
-                        <td>
-                            <a href="<?= base_url('index.php/realizar_atividade_equipamento/editar/').$era->id_equipamento_realizou_atividade; ?>" class="btn btn-warning">Editar</a>
-                            <a href="" class="btn btn-danger">Excluir</a>
+                        <td width="120px">
+                            <a href="<?= base_url('index.php/realizar_atividade_equipamento/editar/').$era->id_equipamento_realizou_atividade; ?>" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                            <a href="<?= base_url('index.php/realizar_atividade_equipamento/deletar/').$era->id_equipamento_realizou_atividade; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

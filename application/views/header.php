@@ -27,7 +27,7 @@
     <link href="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.css');?>" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="<?= base_url('assets/vendor/animsition/animsition.min.');?>" rel="stylesheet" media="all">
+    <link href="<?= base_url('assets/vendor/animsition/animsition.min.css');?>" rel="stylesheet" media="all">
     <link href="<?= base_url('assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css');?>" rel="stylesheet" media="all">
     <link href="<?= base_url('assets/vendor/wow/animate.css');?>" rel="stylesheet" media="all">
     <link href="<?= base_url('assets/vendor/css-hamburgers/hamburgers.min.css');?>" rel="stylesheet" media="all">

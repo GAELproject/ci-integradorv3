@@ -19,30 +19,18 @@
     </div>
 </div>
 <div class="container">
+             
+
     <div class="row">
         <div class="col-sm-12">
-                <?php if($this->session->flashdata('success')){
-                        ?>
-                    
-					<div class="alert alert-ssuccess" role="alert">
-						<?= $this->session->flashdata('success');?>
-					</div>
-				<?php }elseif(isset($error)){
-                         ?>
-					<div class="alert alert-success" role="alert">
-  						<?= $error?>
-					</div>
-				<?php }?>   
-
-
+             
             <hr>
-            <h3>Cadastrar atividade em equipamento</h3>
         <!-- Edit profile form (not working)-->
             <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/realizar_atividade_equipamento/salvar/')?>">
                 <?php if(isset($equipamentos)):?>
 
                     <div class="form-group">
-                        <label class="control-label col-lg-2" for="eq">Selecione o equipamento</label>
+                        <label class="control-label col-lg-7" for="eq">Selecione o equipamento</label>
                         <div class="col-lg-10">
                             <select class="form-control" name="equipamento_id_equipamento" id="eq" >
                                 
@@ -55,7 +43,7 @@
                 <?php
                 endif;?>
                 <div class="form-group">
-                    <label class="control-label col-lg-2" for="servico">Descrição da atividade</label>
+                    <label class="control-label col-lg-7" for="servico">Descrição da atividade</label>
                     <div class="col-lg-10">
                             <textarea class="form-control" name="descricao_servico_realizado" id="servico"  rows="3">
 
@@ -63,14 +51,14 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-lg-2" for="content">Nome do item substituido</label>
+                    <label class="control-label col-lg-7" for="content">Nome do item substituido</label>
                     <div class="col-lg-10">
                         <input class="form-control" id="title" type="text" name="nome_item_substituido">
                     </div>
                 </div>
                 <!-- Content -->
                 <div class="form-group">
-                    <label class="control-label col-lg-2" for="qtd">Quantidade do item subsituido</label>
+                    <label class="control-label col-lg-7" for="qtd">Quantidade do item subsituido</label>
                     <div class="col-lg-10">
                         <input class="form-control" id="qtd" type="number" name="qtd_item_substituido">
                     </div>
@@ -78,7 +66,7 @@
 
 
                 <div class="form-group">
-                    <label class="control-label col-lg-2" for="situacao">Situação final</label>
+                    <label class="control-label col-lg-7" for="situacao">Situação final</label>
                     <div class="col-lg-10">
                         <select name="situacao_final" id="situacao" class="form-control">
                             <option value="" selected="true" disabled="true">-- selecione uma situação --</option>
@@ -91,14 +79,14 @@
 
 
                 <div class="form-group">
-                    <label class="control-label col-lg-2" for="def">Defeito apresentado</label>
+                    <label class="control-label col-lg-7" for="def">Defeito apresentado</label>
                     <div class="col-lg-10">
                         <input class="form-control" id="def" type="text" name="atividade_defeito">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-lg-2" for="obs">Observações</label>
+                    <label class="control-label col-lg-7" for="obs">Observações</label>
                     <div class="col-lg-10">
                         <input class="form-control" id="obs" type="text" name="observacoes">
                     </div>
@@ -107,7 +95,7 @@
                 <div class="form-group">
                     <!-- Buttons -->
                     <div class="col-lg-offset-2 col-lg-9">
-                        <button type="submit" class="btn btn-primary" title="cadastrar">
+                        <button type="submit" class="btn btn-success" title="cadastrar">
                             Cadastrar
                         </button>
                     </div>

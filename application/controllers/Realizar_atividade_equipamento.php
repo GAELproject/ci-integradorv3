@@ -56,10 +56,11 @@ class Realizar_atividade_equipamento extends CI_Controller {
 
 			$this->Equipamento_realizou_atividade_model->inserir();
 
-			$this->session->set_flashdata('success','Atividade cadastrada com sucesso!!');
+			$this->session->set_flashdata('success','Atividade inserida com sucesso!');
+
 			redirect(base_url().'index.php/realizar_atividade_equipamento/index');		
 		}else{
-			$this->session->set_flashdata('error','Equipamento ao cadastrar atividade!');
+			$this->session->set_flashdata('error','Erro ao cadastrar atividade!');
 			return $this->load->view('home',$dados);
 		}
 
@@ -69,11 +70,9 @@ class Realizar_atividade_equipamento extends CI_Controller {
 
 
 
-    public function editar(){
-		
-        $id = $this->uri->segment(3);
-		
-        $dados['title'] = "Ediçãode metas";
+    public function editar($id){
+		   
+		$dados['title'] = "Ediçãode metas";
         $dados['pagina'] = "Edição de metas";
         //$this->load->model('Equipamento_realizou_atividade_model');
 
@@ -149,53 +148,10 @@ class Realizar_atividade_equipamento extends CI_Controller {
         redirect('index.php/meta/index');
 	}
 	//deletar metas
-	public function deletar(){
-        //$coisas ['pagina'] = 'Listagem de usuário';
-		//$coisas ['title'] = 'listagem de usuário - gael';
-		$id = $this->uri->segment(3);
-
-		$usuarios_tem_meta = $this->Equipamento_realziou_atividade_model->recuperarUsuariosMeta($id);
-		$deleteone = $this->Usuario_tem_meta_model->delete($id);
-
-		/*
-		$deletar = false;
-		$id_row = '';
-	
-		foreach ($usuario_tem_meta as $utm) {
-			if($utm->meta_id == $id ){
-				$deletar = true;
-				$id_row = $utm->id_usuario_tem_meta;
-			}
-		}
-		*/
-		
-		 
-		
-		//$this->Usuario_tem_meta_model->delete($id_row);
-		$this->Meta_model->delete($id);
-
-			$coisas['usuarios'] = $this->Usuario_model->recuperar();
-			$coisas['metas'] = $this->Meta_model->recuperar();
-			$coisas['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperar();
-			$coisas['pagina'] = 'Listagem de metas';
-			$coisas['title'] = 'Listagem de metas';
-			$coisas['success'] = 'Meta excluída com sucesso!';
-			
-			return $this->load->view('metas', $coisas);
-			/*
-		} else {
-			$coisas['usuarios'] = $this->Usuario_model->recuperar();
-			$coisas['metas'] = $this->Meta_model->recuperar();
-			$coisas['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperar();
-			$coisas['pagina'] = 'Listagem de metas';
-			$coisas['title'] = 'Listagem de metas';
-			$coisas['error'] = 'Meta não excluída!';
-			
-			return $this->load->view('metas',$coisas);
-		}*/
-		
-		//$this->Meta_model->delete($id);
-        //redirect('index.php/meta/index');
+	public function deletar($id){		
+		$delete_atividade = $this->Equipamento_realizou_atividade_model->delete($id);
+		$this->session->set_flashdata('success','Atividade excluída com sucesso!');
+		redirect(base_url().'index.php/realizar_atividade_equipamento/index');		
 	}
 	public function view($id){
 		$dados['meta'] = $this->Meta_model->recuperarUm($id);

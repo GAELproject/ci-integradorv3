@@ -52,8 +52,8 @@ class Equipamento_realizou_atividade_model extends CI_Model
 	//função para deletar uma meta.
 	public function delete($id)
     {
-        $this->db->where('id_meta', $id);
-        $this->db->delete('meta');
+        $this->db->where('id_equipamento_realizou_atividade', $id);
+        $this->db->delete('equipamento_realizou_atividade');
 	}
 	
 	public function deleteByIdEquipamento($id){
