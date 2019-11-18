@@ -96,6 +96,7 @@ class OS extends CI_Controller {
         $this->OS_model->update($id);
 
 		//redirect(base_url('index.php/os/editar/' . $id));
+		$this->session->set_flashdata('success','Ordem de serviço atualizada com sucesso!');
 		redirect(base_url('index.php/OS'));
 	}
 
@@ -103,7 +104,8 @@ class OS extends CI_Controller {
 	//deletar metas
 	public function deletar($id){
        // $this->load->model('OS_model');
-        $this->OS_model->delete($id);
+		$this->OS_model->delete($id);
+		$this->session->set_flashdata('success','Ordem de serviço excluída com sucesso!');
         redirect(base_url('index.php/OS'));
 	}
 

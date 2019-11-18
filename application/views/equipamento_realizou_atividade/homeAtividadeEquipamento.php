@@ -46,7 +46,8 @@
                      <th scope="col">#</th>
                      <th scope="col">Equipamento</th>
                      <th scope="col">Descrição da atividade</th>
-                     
+                     <th scope="col">Sobre o item substituido</th>
+                     <th scope="col">Situação</th>
                      <th scope="col">Data e hora da atividade</th>
                      <th scope="col">Ações</th>
                  </tr>
@@ -71,12 +72,37 @@
                         <td>
                         <?php foreach($atividades as $at): ?>
                             <?php if($era->atividade_id_atividade== $at['id_atividade']):?> 
-                                Descrição do serviço:
+                                <strong>O que foi feito:</strong>
+                                
                                 <?= $at['descricao_servico_realizado'];?>
+                                <br>
+                                <strong>Defeito:</strong>
+                                
+                                <?= $at['atividade_defeito'];?>
+                                <br>
+                                <strong>Observações:</strong>
+                                
+                                <?= $at['observacoes'];?>
                             <?php endif;?>
                         <?php endforeach;?>
                         </td>
-                        
+                        <td>
+                                <strong>Nome do item:</strong>
+                                 <?= $at['nome_item_substituido'];?>
+                                <br>
+                                <strong>Quantidade:</strong>
+                                 <?= $at['qtd_item_substituido'];?>
+                        </td>
+                        <td>
+                                <?php if($at['situacao_final'] == "0") {
+                                        echo "Consertado";
+                                }elseif($at['situacao_final'] == "1"){
+                                    echo "Parcialmente consertado";
+                                }elseif($at['situacao_final'] == "2"){
+                                    echo "Não consertado";
+                                } ?>
+                              
+                        </td>
                         <td>
                             <?= $era->data_hora_atividade;?>
                         </td>

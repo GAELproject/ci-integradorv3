@@ -28,7 +28,7 @@
   						<?= $error?>
 					</div>
 				<?php }?>
-				<a class="btn btn-primary mb-3" href="<?= base_url('index.php/equipamento/formAdd')?>">Adicionar novo equipamento</a>
+				<a class="btn btn-success mb-3" href="<?= base_url('index.php/equipamento/formAdd')?>">Adicionar novo equipamento</a>
 				<section class="panel">
 	              <header class="panel-heading">
 					<!--aqui pode ficar um título-->

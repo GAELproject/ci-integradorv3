@@ -18,8 +18,8 @@
 
 
         <div class="row">
-          <div class="col-sm-2"></div>
-          <div class="col-sm-8">
+          
+          <div class="col-sm-10">
             <div  class="panel panel-default">
               <div class="panel-heading">
                 <div class="pull-left"><!--aqui pode ficar um título--></div>
@@ -97,10 +97,9 @@
                       <div class="form-group">
                         <!-- Buttons -->
                         <div class="col-lg-offset-2 col-lg-9">
-                          <button type="submit" class="btn btn-primary" title="cadastrar">
+                          <button type="submit" class="btn btn-success" title="cadastrar">
                             Cadastrar equipamento
                           </button>
-                          <a class="btn btn-primary" href="<?php echo base_url('index.php/gael/equipamentos')?>" title="metas">Exibir equipamentos</a>
                          
                         </div>
                       </div>

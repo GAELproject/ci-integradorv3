@@ -31,22 +31,12 @@ class Equipamento_realizou_atividade_model extends CI_Model
 	public function recuperarOne($id){
         $this->db->where('id_equipamento_realizou_atividade',$id);
         $query = $this->db->get('equipamento_realizou_atividade');
-    //    var_dump($query);
-      //  exit();
         return $query->row();
     }
 	public function update(){
-        $this->db->set('titulo', $this->titulo);
-        $this->db->set('descricao', $this->descricao);
-		$this->db->set('turno', $this->turno);
-		$this->db->set('data_criacao', $this->data_criacao);
-        $this->db->set('data_prazo_finalizacao', $this->data_prazo_finalizacao);
-        $this->db->set('data_finalizacao', $this->data_finalizacao);
-        $this->db->set('situacao', $this->situacao);
-        $this->db->set('id_criador',$this->id_criador);
-
-        $this->db->where('id_meta', $this->id_meta);
-        $this->db->update('meta');
+		$this->db->set('equipamento_id_equipamento', $this->equipamento_id_equipamento);    
+        $this->db->where('id_equipamento_realizou_atividade', $this->id_equipamento_realizou_atividade);
+        $this->db->update('equipamento_realizou_atividade');
 
 	}
 	//função para deletar uma meta.

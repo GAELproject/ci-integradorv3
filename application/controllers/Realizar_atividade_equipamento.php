@@ -72,84 +72,54 @@ class Realizar_atividade_equipamento extends CI_Controller {
 
     public function editar($id){
 		   
-		$dados['title'] = "Ediçãode metas";
-        $dados['pagina'] = "Edição de metas";
-        //$this->load->model('Equipamento_realizou_atividade_model');
-
-		 
-		 $era = $this->Equipamento_realizou_atividade_model->recuperarOne($id);
+		$dados['title'] = "Ediçãode atividades em equipamento";
+        $dados['pagina'] = "Editar atividade";
+        $era = $this->Equipamento_realizou_atividade_model->recuperarOne($id);
 		$id_atividade = $era->atividade_id_atividade;
 		$id_atividade = intval($id_atividade);
+		//recuperando o id do equipamento
 		$id_equipamento = $era->equipamento_id_equipamento;
-		$dados['id_equipamento'] = $id_equipamento = intval($id_equipamento);
-		 //$era['idatividade_id_atividade'];
-		$dados['atividade'] = $this->Atividade_model->recuperarUm($id_atividade);
+		
 
+		$dados['era'] = $era;
+		$dados['id_equipamento'] = $id_equipamento = intval($id_equipamento);
+		$dados['equipamento'] = $this->Equipamento_model->recuperarUm($id_equipamento);
+		$dados['id_atividade'] = $id_atividade;
+		$dados['id_equipamento_realizou_atividade'] = $id;
+		$dados['equipamentos'] = $this->Equipamento_model->recuperar();
+		$dados['atividade'] = $this->Atividade_model->recuperarUm($id_atividade);
+		
 		
 		
         return $this->load->view('equipamento_realizou_atividade/editarRealizarEquipamentos', $dados);
     }
     public function atualizar(){
-		//($_POST);
-		//exit();
-		$this->Meta_model->id_meta = $_POST['id_meta'];
+	//	var_dump($_POST);
+	//	exit();
+		$this->Equipamento_realizou_atividade_model->id_equipamento_realizou_atividade = $_POST['id_equipamento_realizou_atividade'];
+		$this->Equipamento_realizou_atividade_model->equipamento_id_equipamento = $_POST['equipamento_id_equipamento'];
+		$this->Equipamento_realizou_atividade_model->update();		
 		
-		
+		$this->Atividade_model->id_atividade = $_POST['id_atividade'];
 
-        $this->Meta_model->titulo = $_POST['titulo'];
-		$this->Meta_model->descricao = $_POST['descricao'];
-		$this->Meta_model->turno = $_POST['turno'];
-		$this->Meta_model->data_criacao = $_POST['data_criacao'];
-
-        //$this->Meta_model->data_criacao = $_POST['data_criacao'];
-        $this->Meta_model->data_prazo_finalizacao = $_POST['data_prazo_finalizacao'];
-        $this->Meta_model->data_finalizacao = $_POST['data_finalizacao'];
-		$this->Meta_model->situacao = $_POST['situacao'];
-		$this->Meta_model->id_criador = $_POST['id_criador'];
-		$this->Meta_model->update();
+		$this->Atividade_model->descricao_servico_realizado = $_POST['descricao_servico_realizado'];
+		$this->Atividade_model->nome_item_substituido = $_POST['nome_item_substituido'];
+		$this->Atividade_model->qtd_item_substituido = $_POST['qtd_item_substituido'];
+		$this->Atividade_model->situacao_final = $_POST['situacao_final'];
+		$this->Atividade_model->atividade_defeito = $_POST['atividade_defeito'];
+		$this->Atividade_model->observacoes = $_POST['observacoes'];
+		$this->Atividade_model->update();
 		
-		
-		$id_meta = $_POST['id_meta'];
-		
-		//usuarios que vieram marcados
-		$arrayUsuarios = $_POST['id_usuario'];
-		//todos os vínculos dos usuários com essa meta
-		$usuarios_tem_meta = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id_meta);
-				
-
-		
-		//deletar todos os campos que estão ligados com esssa meta	
-		$this->Usuario_tem_meta_model->delete($id_meta);
-		//inserindo todos que estão vindo
-		if(!empty($arrayUsuarios)){
-			foreach ($arrayUsuarios as $idarray) {
-				$this->Usuario_tem_meta_model->usuario_id  = $idarray;
-				$this->Usuario_tem_meta_model->meta_id  = $id_meta;
-				$this->Usuario_tem_meta_model->inserir();
-			}	
-		}
-
-
-		/*
-		if(!empty($usuarios_tem_meta)){	
-			foreach ($usuarios_tem_meta as $utm) {
-				foreach ($arrayUsuarios as $idarray) {
-					if($idarray == $utm->usuario_id){
-						
-					}else{
-						$this->Usuario_tem_meta_model->usuario_id  = $idarray;
-						$this->Usuario_tem_meta_model->meta_id  = $id_meta;
-						$this->Usuario_tem_meta_model->inserir();
-					}
-				}
-			}
-		}	
-		*/
-        redirect('index.php/meta/index');
+		$this->session->set_flashdata('success','Atividade atualizada com sucesso!');
+        redirect('index.php/realizar_atividade_equipamento/index');
 	}
 	//deletar metas
-	public function deletar($id){		
-		$delete_atividade = $this->Equipamento_realizou_atividade_model->delete($id);
+	public function deletar($id){
+		$era = $this->Equipamento_realizou_atividade_model->recuperarOne($id);
+		$id_atividade = $era->atividade_id_atividade;
+		$this->Equipamento_realizou_atividade_model->delete($id);
+		$this->Atividade_model->delete($id_atividade);
+		
 		$this->session->set_flashdata('success','Atividade excluída com sucesso!');
 		redirect(base_url().'index.php/realizar_atividade_equipamento/index');		
 	}
