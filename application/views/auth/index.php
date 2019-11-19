@@ -63,24 +63,33 @@
       <div id="" class="login-wrap" style="margin-top: -179px;">
         <p class="login-img"><img src="<?php echo base_url('assets/img/gael.png')?>" width="80"></i></p>
         <h4 class="text-center" style="color: black;">
-          <strong>Sistema Integrado para o Gerenciamento de Resíduos Eletroeletrônicos</strong>  
+          <strong class="title-gael">Sistema Integrado para o Gerenciamento de Resíduos Eletroeletrônicos</strong>  
         
         </h4 >
         <div class="input-group">
           <span class="input-group-addon blr ">
               <i class="fas fa-envelope-square mt-2 ml-2"></i>
           </span>
-          <input type="text" class="form-control brr" name="u_email" placeholder="E-mail" autofocus>
+          <input type="text" class="form-control brr" style="background-color:#f5ffed;" name="u_email" placeholder="E-mail" autofocus>
         </div>
         <div class="input-group">
           <span class="input-group-addon blr"><i class="fas fa-lock mt-2 ml-2"></i></span>
-          <input type="password" class="form-control brr" name="senha" placeholder="Senha">
+          <input type="password" class="form-control brr" name="senha" style="background-color:#f5ffed;" placeholder="Senha">
         </div>
-        <label style="color: black;" class="checkbox">
-                <input  type="checkbox" value="remember-me">
-                Lembrar
-                <span  class="pull-right"> <a href="" style="color: black;">Esqueceu a senha?</a></span>
-            </label>
+              <div class="row">
+                    <div class="col-sm-6">
+                    <label style="color: black;" class="checkbox">
+                      <input  type="checkbox" value="remember-me">
+                      Lembrar
+                      </label>
+                    </div>
+                    
+                    <div class="col-sm-6 mb-3">
+                    <span  class=""> <a class="link-dark" href="" style="">Esqueceu a senha?</a></span>
+                  </div>
+              </div>
+                
+                
           <button type="submit" class="text-light btn btn-success btn-lg btn-block br-5" >Logar </button>
 
       </div>

@@ -19,7 +19,7 @@
     .header {
         position: absolute;
     }
-
+    
     /*sidebar*/
 
     #sidebar {
@@ -235,7 +235,10 @@
     .notification-row,.task_notificatoin_bar, .search-row,.knob-charts, .dont-show , .inbox-head .sr-input, .inbox-head .sr-btn{
         display: none;
     }
-
+    /*título do sistema*/
+    .title-gael{
+        font-size: 20px;
+    }
     .inbox-wrapper aside {
         display: block;
     }
@@ -277,7 +280,9 @@
     .login-social-link a {
         padding: 15px 17px !important;
     }
-
+    .title-gael{
+        font-size: 18px;
+    }
     .notification-row, .search, .dont-show, .inbox-head .sr-input, .inbox-head .sr-btn {
         display: none;
     }
