@@ -25,7 +25,7 @@
     </title>
     
     <!--flat icon-->
-    <link rel="icon" type="image/icon" href="<?php echo base_url('assets/images/gael.ico')?>" sizes="16x16px">
+    <link rel="icon" type="image/icon" href="<?php echo base_url('assets/images/gaga.ico')?>" sizes="16x16px">
     <!-- Fontfaces CSS-->
     <link href="<?= base_url('assets/css/font-face.css');?>" rel="stylesheet" media="all">
     <link href="<?= base_url('assets/vendor/font-awesome-4.7/css/font-awesome.min.css');?>" rel="stylesheet" media="all">
@@ -195,11 +195,11 @@
                                                 <div class="image">
                                                     <a href="#">
                                                     <?php if($foto == '' || $foto == NULL ){ ?>
-                                                <img src="<?= base_url('assets/imagens-perfil/perfil-default.jpg') ?>" alt="Foto do perfil" />
-                                                <?php }else{?>
-                                                    <img src="<?= base_url('/').$foto; ?>" alt="Foto do perfil" />
-                                                <?php }?>
-                                                    </a>
+                                                        <img src="<?= base_url('assets/imagens-perfil/perfil-default.jpg') ?>" alt="Foto do perfil" />
+                                                        <?php }else{?>
+                                                            <img src="<?= base_url('/').$foto; ?>" alt="Foto do perfil" />
+                                                        <?php }?>
+                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
