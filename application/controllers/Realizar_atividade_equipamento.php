@@ -14,6 +14,10 @@ class Realizar_atividade_equipamento extends CI_Controller {
 
 	public function index()
     {
+		$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+		$dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+
 		$dados['equipamento_realizou_atividades'] = $this->Equipamento_realizou_atividade_model->recuperar();
 		$dados['atividades'] = $this->Atividade_model->recuperar();
 		$dados['equipamentos'] = $this->Equipamento_model->recuperar();
@@ -24,6 +28,9 @@ class Realizar_atividade_equipamento extends CI_Controller {
 	}
     //função que chama a view de inserir nova atividade
 	public function add(){
+		$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+		$dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
 
 	    $dados['equipamentos'] = $this->Equipamento_model->recuperar();
         $dados['title']  = 'Cadastramento de atividade em equipamento';
@@ -71,6 +78,10 @@ class Realizar_atividade_equipamento extends CI_Controller {
 
 
     public function editar($id){
+		$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+		$dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+
 		   
 		$dados['title'] = "Ediçãode atividades em equipamento";
         $dados['pagina'] = "Editar atividade";
@@ -124,6 +135,11 @@ class Realizar_atividade_equipamento extends CI_Controller {
 		redirect(base_url().'index.php/realizar_atividade_equipamento/index');		
 	}
 	public function view($id){
+
+		$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+		$dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+
 		$dados['meta'] = $this->Meta_model->recuperarUm($id);
 		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
 		$dados['bolsistas'] = $this->Usuario_model->recuperarNormais();

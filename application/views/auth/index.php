@@ -28,36 +28,23 @@
 <body>
 
   <div class="container">
-    <div class="row mt-5">
-      <div class="col-sm-4"> 
+        <div class="row mt-5">
+     
+
+              <?php if ($this->session->flashdata('error')):?>
+                <div class="alert alert-danger" id="alert-error" style="margin-bottom: -16px;">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                  <h5><?= $this->session->flashdata('error')?></h5>
+                  
+                </div>
+                
+              <?php endif;?>
+            
       
-      </div>
-      <div class="col-sm-4" >
-        <?php if ($this->session->flashdata('success') == TRUE):?>
-            <div class="alert alert-danger">
-              <h2><?= $this->session->flashdata('success')?></h2>
-            </div>
-            
-
-        <?php endif;?>
-
-        <?php if ($this->session->flashdata('error')):?>
-          <div class="alert alert-danger" style="margin-bottom: -16px;">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-          </button>
-            <h5><?= $this->session->flashdata('error')?></h5>
-            
-          </div>
-          
-        <?php endif;?>
-        <script>
-        $('.alert').alert();
-        </script>
-      </div>
-      <div class="col-sm-4">
-      </div>
-    </div>
+      
+       </div>
 
     <form class="login-form form-login-container mb-5" method="post" action="<?php echo base_url('index.php/login/autenticar')?>">
       <div id="" class="login-wrap" style="margin-top: -179px;">

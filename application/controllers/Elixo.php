@@ -6,10 +6,12 @@ class Elixo extends CI_Controller {
 
 	public function index()
 	{	
-		return $this->load->view('n-autenticado/elixo');
+		$dados['eqp_nao_entregues'] = $this->Equipamento_model->recuperar_N_Entregues();
+		$dados['OSs'] = $this->OS_model->recuperar();	
+		return $this->load->view('n-autenticado/elixo', $dados);
 	}
 	public function home(){
-	
+		
 	}
 	
 

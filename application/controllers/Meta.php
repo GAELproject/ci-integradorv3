@@ -14,6 +14,11 @@ class Meta extends CI_Controller {
 
 	public function index(){
 		if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
+			$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+            $dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+
+
 			$dados['usuarios'] = $this->Usuario_model->recuperar();
 			$id = $this->session->userdata('usuario_logado')['id_usuario'];
 			
@@ -101,6 +106,11 @@ class Meta extends CI_Controller {
     public function editar($id){
 		if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
 		
+
+			$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+            $dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+
 			$dados['title'] = "Ediçãode metas";
 			$dados['pagina'] = "Edição de metas";
 
@@ -182,6 +192,11 @@ class Meta extends CI_Controller {
 	}
 	public function view($id){
 		if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
+			$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+            $dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+
+
 			$dados['meta'] = $this->Meta_model->recuperarUm($id);
 			
 			$dados['usuarios'] = $this->Usuario_model->recuperar();

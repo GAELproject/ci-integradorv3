@@ -9,6 +9,7 @@ class Usuario_model extends CI_Model
     public $usuario_tipo;
     public $usuario_bolsista;
 	public $turno_atividades;
+	public $foto;
 	
 
 	public function __construct(){
@@ -44,7 +45,18 @@ class Usuario_model extends CI_Model
 		$query = $this->db->get('usuario');
 		return $query->result_array();
 	}
-    
+	
+	public function recuperarFotoPerfil(){
+		$this->db->where('id_usuario',$this->id_usuario);
+		$query = $this->db->get('usuario');
+		$query = $query->result();
+		$foto = '';
+		foreach ($query as $value) {
+			$foto = $value->foto;
+		}
+		return $foto;
+		
+	}
     public function recuperarAdms()
 	{
 		$this->db->where('usuario_tipo','1');
@@ -77,7 +89,14 @@ class Usuario_model extends CI_Model
         $this->db->update('usuario');
 		return true;
 	}
-	
+	public function setPhotoProfile(){
+		$this->db->set('foto', $this->foto);
+		$this->db->where('id_usuario', $this->id_usuario);
+
+		$this->db->update('usuario');
+			
+	}
+
 	//autenticação
 	public function logar($u_email, $senha){
 		$this->db->where('u_email', $u_email);

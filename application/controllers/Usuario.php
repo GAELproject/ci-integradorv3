@@ -16,6 +16,10 @@ class Usuario extends CI_Controller {
     //	$this->load->model('Usuario_model');
       
         if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
+            $this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+            
+            $dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+       
             $dados['usuarios'] = $this->Usuario_model->recuperar();
             $dados ['title'] = 'listagem de usuário - gael';
             $dados ['pagina'] = 'Listagem de usuários';
@@ -80,7 +84,12 @@ class Usuario extends CI_Controller {
         }
 
         public function editar(){
+          
             if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
+                $this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+                $dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+    
 	        $this->load->model('Usuario_model');
             $this->load->model('Meta_model');
             $id = $this->uri->segment(3);
@@ -129,6 +138,10 @@ class Usuario extends CI_Controller {
 	public function view(){
         //verificação de se o usuário é administrador
         if($this->session->userdata('usuario_logado')['usuario_tipo']== "1"){
+
+            $this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+            
+            $dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
         $this->load->model('Usuario_model');
         $this->load->model('Meta_model');
         $id = $this->uri->segment(3);
@@ -143,5 +156,84 @@ class Usuario extends CI_Controller {
             //caso não seja, é lançada uma exceção
             redirect('index.php/errors/noPermissao');
         }
-	}
+    }
+
+    //página de editar photo do pergfil
+    public function profileEdit(){
+        $this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+		
+		$dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+	
+        $dados['pagina'] = 'Editar foto do perfil';
+        $dados['icon'] = 'fas fa-user-circle';
+        $dados['title'] = 'Edição de fotos';
+        return $this->load->view('profile/photo', $dados);
+    }
+    public function salvarPhoto(){
+       
+        $type_image = $_FILES['foto']['type'];
+       
+
+        //diretório a ser salvo
+            if($type_image != 'image/png' && $type_image != 'image/svg' 
+                    && $type_image != 'image/jpeg' && $type_image != 'image/jpg'
+                    && $type_image != 'image/svg+xml'
+            ){
+                    $this->session->set_flashdata('error','Não é um tipo de imagem. Insira .png, .jpg, .jpeg ou .svg'); 
+                    redirect('index.php/usuario/profileEdit');
+                }else{                              
+                    switch ($type_image) {
+                        case 'image/png':
+                            $type_image = '.png';
+                            break;
+                        case 'image/svg':
+                            $type_image = '.svg';
+                            break;
+                        case 'image/jpeg':
+                            $type_image = '.jpeg';
+                            break;             
+                        case 'image/jpg':
+                            $type_image = '.jpg';
+                            break;             
+                        case 'image/svg+xml':
+                            $type_image = '.svg';
+                            break;                    
+                        default:
+                            $type_image = '.png';
+                            break;
+                    }
+                    
+                    $pasta = getcwd().'/assets/imagens-perfil/';
+                    $target_dir = $pasta.time().$type_image;                
+                    $bd = 'assets/imagens-perfil/'.time().$type_image;
+                    $this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario'];
+                    //verifica se vc já não possui uma foto no bd
+                    if($this->Usuario_model->recuperarFotoPerfil() == NULL){
+                        //caso vc n tenha
+                        $this->Usuario_model->foto = $bd;
+                        $this->Usuario_model->setPhotoProfile();
+                        $uploadfile = $target_dir;             
+                        move_uploaded_file($_FILES["foto"]["tmp_name"], $uploadfile  );
+                        $this->session->set_flashdata('success','Foto do perfil atualizada'); 
+                        redirect('index.php/usuario/profileEdit');
+
+                    }else{
+                        //caso vc tenha foto
+                        $caminho = $this->Usuario_model->recuperarFotoPerfil();
+                        unlink(getcwd().'/'.$this->Usuario_model->recuperarFotoPerfil());
+                        $this->Usuario_model->foto = $bd;
+                        $this->Usuario_model->setPhotoProfile();
+                        $uploadfile = $target_dir;             
+                        move_uploaded_file($_FILES["foto"]["tmp_name"], $uploadfile  );
+                        $this->session->set_flashdata('success','Foto do perfil atualizada'); 
+                        redirect('index.php/usuario/profileEdit');
+
+                    }
+        }
+    }
+    //fim function
+    public function deletarFoto(){
+        
+    }
+
 }

@@ -28,6 +28,8 @@
 				<?php }?>
 			<a class="btn btn-success" style="margin-bottom: 10px;" href="<?= base_url('index.php/OS/formcadastrar')?>">Adicionar OS</a>
 				<section class="panel">
+			
+			<div class="table-responsive table--no-card m-b-30">
 
 	              <table class="table table-striped table-advance table-hover">
 	                <tbody>
@@ -37,8 +39,8 @@
 						<th><i></i>Número da OS</th>
 						<th><i></i>Dados do Cliente</th>  
 						<th><i class=""></i>Data de criação</th>
-						<th><i></i></th>
-						<th><i></i></th>
+						<th width="120px">Ações</th>
+						
 	                  </tr>
 	                  <?php foreach ($OS as $o) {?>
 	                  <tr>
@@ -96,13 +98,16 @@
 											
 						</td>
 						<td><?php echo $o->data_criacao?></td>
-						<td><a class="btn btn-secondary" href="<?php echo base_url('index.php/OS/editar/') . $o->id_os; ?>">Editar</a></td>
-						<td><a class="btn btn-danger" href="<?php echo base_url('index.php/OS/deletar/') . $o->id_os; ?>">Excluir</a></td>
+						<td><a class="btn btn-warning" href="<?php echo base_url('index.php/OS/editar/') . $o->id_os; ?>"><i class="fas fa-edit"></i></a>
+						<a class="btn btn-danger" href="<?php echo base_url('index.php/OS/deletar/') . $o->id_os; ?>"><i class="fas fa-trash"></i></a></td>
 	                  </tr>
 	              	<?php } ?>
 	                </tbody>
 	              </table>
-	            </section>
+	         </div>
+
+
+			    </section>
 			</div>
 </div>	
 

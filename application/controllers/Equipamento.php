@@ -14,6 +14,11 @@ class Equipamento extends CI_Controller {
 
 
 	public function index(){
+		$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+		$dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+
+
 		$dados['equipamentos'] = $this->Equipamento_model->recuperar();
 		//carregamento dos usuários do sistema
 		$dados['usuarios'] = $this->Usuario_model->recuperar();
@@ -22,7 +27,11 @@ class Equipamento extends CI_Controller {
 		$this->load->view('equipamentos/equipamentos', $dados);
 	}
     public function formAdd(){
-        
+		
+		$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+		$dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+
         $dados['pagina'] = 'Adicionar de equipamento';
 		
 		$dados ['title'] = 'Adição de equipamentos';
@@ -61,7 +70,11 @@ class Equipamento extends CI_Controller {
     public function editar(){
 		
         $id = $this->uri->segment(3);
-		
+	
+		$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+		$dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+
         $dados['title'] = "Edição de equipamentos";
         $dados['pagina'] = "Edição de equipamentos";
 
@@ -106,6 +119,10 @@ class Equipamento extends CI_Controller {
         
 	}
 	public function view($id){
+		$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+		$dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+
 		$dados['equipamento'] = $this->Equipamento_model->recuperarUm($id);
 		
 		$dados['pagina'] = 'Visualização de equipamentos';

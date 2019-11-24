@@ -113,4 +113,4 @@
             </div>
             <div class="col-sm-2"></div>  
 </div>
-            <?php $this->load->view('footer') ?>
+<?php $this->load->view('footer') ?>

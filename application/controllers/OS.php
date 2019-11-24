@@ -13,6 +13,11 @@ class OS extends CI_Controller {
 
 
 	public function index(){
+		$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+		$dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+
+
 		$dados['usuarios'] = $this->Usuario_model->recuperar();
 		$dados['equipamentos'] = $this->Equipamento_model->recuperar();
 		$dados['OS'] = $this->OS_model->recuperar();
@@ -26,6 +31,11 @@ class OS extends CI_Controller {
 	}
 
 	public function formcadastrar(){
+		$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+		$dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+
+
 		$dados['title'] = 'Gerenciar Ordem de Serviços';
 		$dados['pagina'] = 'Gerenciar Ordem de Serviços';
 		$this->load->model('Equipamento_model');
@@ -64,6 +74,10 @@ class OS extends CI_Controller {
 
 	//Abrir página para editar OS's
     public function editar($id){
+		$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+		$dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+
 	//	$this->load->model('Equipamento_model');
     //	$this->load->model('Usuario_model');
 	//	$this->load->model('OS_model');
@@ -110,6 +124,11 @@ class OS extends CI_Controller {
 	}
 
 	public function view($id){
+		$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+		$dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+
+
 		$dados['meta'] = $this->Meta_model->recuperarUm($id);
 		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
 		$dados['bolsistas'] = $this->Usuario_model->recuperarNormais();

@@ -11,7 +11,7 @@
 		<div class="row mb-3">
 			<div class="col-md-12">
 				<div class="overview-wrap">
-					<h2 class="title-1"><?= $pagina; ?></h2>
+					<h2 class=""><?= $pagina; ?></h2>
 				
 				</div>
 			</div>
@@ -20,9 +20,8 @@
 
 <a href="<?= base_url('index.php/equipamento/index');?>"> <i class="fa fa-arrow-left"></i> Visualizar todos os equipamentos</a>
 <div class="row">
-    <div class="col-md-2">
-    </div>
-<div class="col-md-8">
+
+<div class="col-sm-8">
     <!--conteúdo do segundo grid-->
     <div  class="panel panel-default">
         <div class="panel-heading">
@@ -104,11 +103,10 @@
                         <div class="form-group">
                             <!-- Buttons -->
                             <div class="col-lg-offset-2 col-lg-9">
-                                <button type="submit" class="btn btn-primary" title="cadastrar">
+                                <button type="submit" class="btn btn-success" title="cadastrar">
                                     Atualizar equipamento
                                 </button>
-                                <a class="btn btn-primary" href="<?php echo base_url('index.php/gael/equipamento')?>" title="equipamentos">Exibir equipamentos</a>
-
+                                
                             </div>
                         </div>
                     </form>
@@ -120,7 +118,7 @@
 
     <!--fim do painel-->
 </div>
-    <div class="col-md-2">
+    <div class="col-sm-4">
 
     </div>
 </div>

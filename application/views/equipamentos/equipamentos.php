@@ -34,7 +34,10 @@
 					<!--aqui pode ficar um título-->
 	              </header>
 
-	              <table class="table table-striped table-advance table-hover">
+			
+			<div class="table-responsive table--no-card m-b-30">
+	        
+			      <table class="table table-striped table-advance table-hover">
 	                <tbody>
 	                  <tr>
 	                    <th><i class="">Nome do equipamento</i></th>
@@ -109,6 +112,9 @@
 	              	<?php } ?>
 	                </tbody>
 	              </table>
+				</div>
+
+
 	            </section>
 			</div>
 		</div>

@@ -1,10 +1,15 @@
 
+
+
     <!-- Jquery JS-->
-    <script src="<?= base_url('assets/vendor/jquery-3.2.1.min.js')?>"></script>
-    <!-- Bootstrap JS-->
-    <script src="<?= base_url('assets/vendor/bootstrap-4.1/popper.min.js')?>"></script>
-    <script src="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.js')?>"></script>
+   <!-- Bootstrap JS-->
     <!-- Vendor JS       -->
+  
+    <script src="<?= base_url('assets/vendor/jquery-3.2.1.min.js')?>"></script>
+      <script src="<?= base_url('assets/vendor/bootstrap-4.1/popper.min.js')?>"></script>
+    <script src="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.js')?>"></script>
+
+
     <script src="<?= base_url('assets/vendor/slick/slick.min.js')?>">
     </script>
     <script src="<?= base_url('assets/vendor/wow/wow.min.js')?>"></script>

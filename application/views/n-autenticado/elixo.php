@@ -11,6 +11,7 @@
   <title>E-lixo</title>
 
   <!-- Bootstrap core CSS -->
+  <script src="<?= base_url('assets/vendor/jquery-3.2.1.min.js') ?>"></script>
   
 
   <!-- Custom fonts for this template -->
@@ -32,8 +33,8 @@
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">E-lixo </a>
-      <a class="btn btn-primary" href="#">Logar</a>
+      <a class="navbar-brand" href="">E-lixo </a>
+      <a class="btn btn-success" href="<?= base_url('index.php/gael/home')?>">Logar</a>
     </div>
   </nav>
 
@@ -48,14 +49,63 @@
           
         </div>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-          <form>
-            <div class="form-row">
-              <div class="col-12 col-md-3"> 
-              <button type="submit" class="btn btn-block btn-lg btn-primary">Saiba mais</button>
-              </div> 
-             
+       
+            <div class="row">
+              <div class="col-sm-4"></div>
+              <div class="col-sm-4">
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-block btn-outline-success btn-lg" data-toggle="modal" data-target="#exampleModal">
+                          Saiba mais
+                    </button>
+                  
+              </div>
+              <div class="col-sm-4"></div>
+              <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                   
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="elixo-modal" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title text-dark" id="elixo-modal">O que é o E-lixo?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                              <p id="elixo-message" class="text-dark text-left">
+                                  O Projeto de Recondicionamento e Reciclagem de Resíduos Eletroeletrônicos, comumente
+                                  conhecido como Projeto E-Lixo, é um trabalho desenvolvido por discentes dos 
+                                  diversos cursos do Campus Natal - Zona Norte do IFRN, sub coordenação/orientação do Professor
+                                    <a target="_blank" href="http://lattes.cnpq.br/0823948838312199">Aílton Torres Câmara</a> , com apoio dos técnicos 
+                                    <a target="_blank" href="http://lattes.cnpq.br/0446658933355131">Aecio Vinicius Amorim Farias</a>  e  
+                                    <a target="_blank" href="http://lattes.cnpq.br/4347553539041045">Sérgio Roberto Dantas. </a>
+                                </p>
+                                <p class="mt-3 text-dark text-left">
+                                    Esse equipe trabalha incansavelmente para desenvolver o redirecionamento e conserto 
+                                    de equipamentos eletroeletrônicos.
+                                
+                                </p>
+                                
+                             
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+              </div>
+
             </div>
-          </form>
+         
         </div>
       </div>
     </div>
@@ -72,43 +122,40 @@
         <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">ID</th>
+                  
                   <th scope="col">Equipamento</th>
                   <th scope="col">Sitação</th>
                   <th scope="col">Entrege</th>
+                  <th scope="col">Cliente</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Notebook</td>
-                  <td>Consertado</td>
-                  <td>Em espera</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Tablet</td>
-                  <td>Em conserto</td>
-                  <td> -- </td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Multimetro</td>
-                  <td>Consertado</td>
-                  <td>Aguardando</td>
-                </tr>
-                <tr>
-                  <th scope="row">4</th>
-                  <td>Teclado</td>
-                  <td>Em conserto</td>
-                  <td> -- </td>
-                </tr>
-                <tr>
-                  <th scope="row">5</th>
-                  <td>Controle</td>
-                  <td>Consertado</td>
-                  <td>Entregue</td>
-                </tr>
+                <?php if(isset($OSs)){
+                      foreach($OSs as  $OS){
+                        foreach($eqp_nao_entregues as $eq){
+                            if($OS->equipamento_id == $eq->id_equipamento &&  $eq->entregue ==  '0'){
+                          ?>
+                    <tr>
+                      <th scope="row">  <?= $eq->equipamento_nome;?>
+                                      - <?= $eq->marca;?> - 
+                                      <?= $eq->numero_serie;?>
+                      </th>
+                      <td scope="row"><?php if($eq->situacao == '1'){  echo "Consertado";
+                                }elseif($eq->situacao == '2'){ echo "Parcialmente conserado";
+                                }elseif($eq->situacao == '3'){ echo "Não consertado";};?></td>
+                      <td scope="row">Não entregue</td>
+                      <td scope="row"><?= $OS->cliente_nome; ?>
+                                      
+                                      </td>
+                    </tr>
+                <?php
+                          }//fim do if pra ver se a os é do equipamento e ele foi entregue
+                        } //fim do foreach equipamentos
+                      }
+                      //fim do foreach os 
+                    }
+                    //fim do if do isset  ?>
+           
                 
               </tbody>
             </table>
@@ -210,9 +257,9 @@ Na ocasião, no laboratório de informática da instituição de ensino, o grupo
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="<?= base_url('assets/js/jquery/jquery.min.js') ?>"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+  <script src="<?= base_url('assets/js/index-elixo.js')?>"></script>
+  <script src="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.js')?>"></script>
+  
 </body>
 
 </html>

@@ -5,12 +5,50 @@
     Author URL: https://bootstrapmade.com
 */
 /* Import fonts */
-
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
-
 @import url(line-icons.css);
 
 @import url('https://fonts.googleapis.com/css?family=Kulim+Park:200,200i,300,300i,400,400i,600,600i,700&display=swap');
+
+
+
+@media(min-width: 300px){
+    #alert-error{
+        margin-left:auto !important;
+        margin-right:auto !important;
+        width: 90% !important;
+    }   
+}
+@media(min-width: 500px ){
+    #alert-error{
+        margin-left:auto !important;
+        margin-right:auto !important;
+        width: 66% !important;
+    }   
+}
+@media(min-width: 800px ){
+    #alert-error{
+        margin-left:auto !important;
+        margin-right:auto !important;
+        width: 55% !important;
+    }   
+}
+
+@media(min-width: 900px ){
+    #alert-error{
+        margin-left:auto !important;
+        margin-right:auto !important;
+        width: 45% !important;
+    }   
+}
+
+
+@media(min-width: 1000px ){
+    #alert-error{
+        margin-left:auto !important;
+        margin-right:auto !important;
+        width: 40% !important;
+    }   
+}
 
 .br-5{
     border-radius: 15px !important;

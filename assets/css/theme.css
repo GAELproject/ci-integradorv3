@@ -48,6 +48,9 @@ Notes:	decreasing heading by 0.4em with every subsequent heading level
     box-sizing: border-box;
 }
 
+
+
+
 ul {
     margin: 0;
 }
@@ -154,6 +157,8 @@ blockquote {
 strong {
     font-weight: 700;
 }
+
+
 
 /*-----------------------------------------------------*/
 /*                   ELEMENTS                          */
@@ -1523,6 +1528,19 @@ section {
     top: -18px;
     right: 33px;
 }
+.account-dropdown__item button {
+    display: block;
+    color: #333;
+    padding: 15px 25px;
+    font-size: 14px;
+    width: 100%;
+    text-align:left;
+}
+.account-dropdown__item button:hover {
+    background: #45cc67;
+    color: #fff;
+}
+
 
 .account-dropdown__item a {
     display: block;

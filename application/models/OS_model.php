@@ -31,9 +31,21 @@ class OS_model extends CI_Model
 	}
 	public function recuperar(){
 		$query = $this->db->get('OS');
+		
+		
 		return $query->result();
+
 	}
 
+	public function recuperarOS_N_Entregue(){
+		//aqui recupera apenas as oses em que
+		//os equpamentos vinculados não foram entrgues
+		var_dump($dados['eqp_nao_entregues']);
+
+		
+
+		exit();
+	}
    
 
 	public function recuperarUm($id){

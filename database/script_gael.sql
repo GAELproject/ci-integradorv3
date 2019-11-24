@@ -10,7 +10,8 @@ CREATE TABLE gael.usuario(
     cpf VARCHAR(15) NOT NULL,
     usuario_tipo CHAR(1) NOT NULL,
     usuario_bolsista BOOLEAN NOT NULL,
-    turno_atividades CHAR(1)
+    turno_atividades CHAR(1),
+    foto VARCHAR(255)
 );
 
 

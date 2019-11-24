@@ -38,7 +38,14 @@ class Equipamento_model extends CI_Model
         $this->db->where('id_equipamento',$id);
         $query = $this->db->get('equipamento');
         return $query->row();
-    }
+	}
+	//recupera apenas os equipamentos não-entregues
+	public function recuperar_N_Entregues(){
+		$this->db->where('entregue', '0');
+		$query = $this->db->get('equipamento');
+		return $query->result();
+	}
+
 	public function update(){
 		$this->db->set('equipamento_nome', $this->equipamento_nome);
 		$this->db->set('numero_serie', $this->numero_serie);
