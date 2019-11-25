@@ -45,10 +45,10 @@
 						
 	                    <th>Ações</th>
 	                  </tr>
-	                 
+					  <?php foreach($laudos as $lau){?>
 	                  <tr>
                         <td> 
-                            <?php foreach($laudos as $lau){
+								<?php
                                         foreach($equipamentos as $eq){
                                             if($lau->equipamento_laudo_id == $eq->id_equipamento){
                                                 echo "<strong>Nome: </strong>".$eq->equipamento_nome;

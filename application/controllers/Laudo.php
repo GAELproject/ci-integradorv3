@@ -52,6 +52,34 @@ class Laudo extends CI_Controller {
         $this->session->set_flashdata('success','Laudo inserido com sucesso!');
         redirect('index.php/laudo/index');	
 
+    }
+    public function edit($id){
+        
+        $this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+        
+        $dados['id_laudo'] = $id;
+        $dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+        $dados['equipamentos'] = $this->Equipamento_model->recuperar();
+        $dados['laudo'] = $this->Laudo_model->recuperarUm($id);
+        $dados['pagina'] = 'Editar laudo';
+        $dados['title'] = 'Edição de laudo';
+        return $this->load->view('laudos/editLaudo', $dados);
+    }
+    public function atualizar(){
+                 
+            $this->Laudo_model->id_laudo = $_POST['id_laudo'];
+            $this->Laudo_model->equipamento_laudo_id = $_POST['equipamento_laudo_id'];
+            $this->Laudo_model->possiveis_causas = $_POST['possiveis_causas'];
+            $this->Laudo_model->possiveis_defeitos = $_POST['possiveis_defeitos'];
+            $this->Laudo_model->possiveis_solucoes = $_POST['possiveis_solucoes'];
+            $this->Laudo_model->data_entrega = $_POST['data_entrega'];
+            $this->Laudo_model->cliente = $_POST['cliente'];
+            $this->Laudo_model->destino = $_POST['destino'];
+            
+            $this->Laudo_model->update();
+            $this->session->set_flashdata('success','Laudo atualizado com sucesso!');
+            redirect('index.php/laudo/index');	
+
     
     }
     public function delete($id){
