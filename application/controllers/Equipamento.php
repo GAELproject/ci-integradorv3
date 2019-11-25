@@ -83,7 +83,6 @@ class Equipamento extends CI_Controller {
         return $this->load->view('equipamentos/editEquipamentos', $dados);
     }
     public function atualizar(){
-	
 		
 		$this->Equipamento_model->id_equipamento = $_POST['id_equipamento'];
 		$this->Equipamento_model->equipamento_nome = $_POST['equipamento_nome'];
@@ -91,7 +90,7 @@ class Equipamento extends CI_Controller {
 		$this->Equipamento_model->marca = $_POST['marca'];
 		$this->Equipamento_model->modelo = $_POST['modelo'];
 		$this->Equipamento_model->situacao = $_POST['situacao'];
-		$this->Equipamento_model->situacao = $_POST['entregue'];
+		$this->Equipamento_model->entregue = $_POST['entregue'];
 		$this->Equipamento_model->id_responsavel = $this->session->userdata('usuario_logado')['id_usuario'];
 		
        
@@ -106,7 +105,14 @@ class Equipamento extends CI_Controller {
 	}
 	//deletar metas
 	public function deletar($id){
-        $this->Equipamento_realizou_atividade_model->deleteByIdEquipamento($id);	
+ 
+		$OSes = $this->OS_model->recuperar();
+		foreach ($OSes as $OS) {
+			if($OS->equipamento_id == $id){
+				$this->OS_model->delete($OS->id_os);
+			}
+		}
+		$this->Equipamento_realizou_atividade_model->deleteByIdEquipamento($id);	
 		$delete  = $this->Equipamento_model->delete($id);
 		if($delete){
 			$this->session->set_flashdata('success','Equipamento deletado com sucesso!');
@@ -130,7 +136,14 @@ class Equipamento extends CI_Controller {
 		return $this->load->view('equipamentos/viewEquipamentos',$dados); 
 	}
 
-	 
+	public function indexDoacoes(){
+		$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
+                     
+		$dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
+		$dados['pagina'] = 'Listagem de doações';
+		$dados['title'] = 'Cadastrar doação';
+		return $this->load->view('doacoes_laudo/index', $dados);
+	}
 
 	
 }

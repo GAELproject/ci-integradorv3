@@ -52,7 +52,7 @@ class Equipamento_model extends CI_Model
 		$this->db->set('marca', $this->marca);
 		$this->db->set('modelo', $this->modelo);
 		$this->db->set('situacao', $this->situacao);
-		$this->db->set('entregue', $this->situacao);
+		$this->db->set('entregue', $this->entregue);
 		$this->db->set('id_responsavel', $this->id_responsavel);
 		
         $this->db->where('id_equipamento', $this->id_equipamento);

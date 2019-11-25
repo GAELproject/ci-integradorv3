@@ -7,7 +7,7 @@
   <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
   <meta name="author" content="GeeksLabs">
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-  <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('assets/images/gael.ico')?>" width="20px">
+  <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('assets/images/gaga.ico')?>" width="20px">
 
   <title>GAEL - Login</title>
 

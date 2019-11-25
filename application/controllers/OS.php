@@ -117,7 +117,8 @@ class OS extends CI_Controller {
 
 	//deletar metas
 	public function deletar($id){
-       // $this->load->model('OS_model');
+	   // $this->load->model('OS_model');
+	   
 		$this->OS_model->delete($id);
 		$this->session->set_flashdata('success','Ordem de serviço excluída com sucesso!');
         redirect(base_url('index.php/OS'));
@@ -127,8 +128,6 @@ class OS extends CI_Controller {
 		$this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario']; 
                      
 		$dados['foto'] = $this->Usuario_model->recuperarFotoPerfil();
-
-
 		$dados['meta'] = $this->Meta_model->recuperarUm($id);
 		$dados['usuario_tem_meta'] = $this->Usuario_tem_meta_model->recuperarUsuariosMeta($id);
 		$dados['bolsistas'] = $this->Usuario_model->recuperarNormais();

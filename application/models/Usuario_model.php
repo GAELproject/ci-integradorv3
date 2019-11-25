@@ -105,4 +105,11 @@ class Usuario_model extends CI_Model
         $usuario = $this->db->get('usuario')->row_array();
         return $usuario;
 	}
+
+	public function deletar_foto(){
+		$this->db->set('foto', $this->foto);
+		$this->db->where('id_usuario', $this->id_usuario);
+
+		$this->db->delete('usuario');
+	}
 }

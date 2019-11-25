@@ -23,12 +23,12 @@
 					<div class="alert alert-success" role="alert">
 						<?= $this->session->flashdata('success');?>
 					</div>
-				<?php }elseif(isset($error)){?>
-					<div class="alert alert-success" role="alert">
-  						<?= $error?>
+				<?php }elseif($this->session->flashdata('error')){?>
+					<div class="alert alert-error" role="alert">
+  						<?= $this->session->flashdata('error');?>
 					</div>
 				<?php }?>
-    <a class="btn btn-primary mb-3" href="<?= base_url('index.php/gael/gerenciar_usuario')?>">Adicionar um novo usuario</a>
+    <a class="btn btn-success mb-3" href="<?= base_url('index.php/gael/gerenciar_usuario')?>">Adicionar um novo usuario</a>
 			<section class="panel">
         
       <div class="table-responsive table--no-card m-b-30">
@@ -36,8 +36,8 @@
               <table class="table table-striped table-advance table-hover">
                 <tbody>
                   <tr>
-                    <th width="300px" ><i class="icon_profile"></i>Nome</th>
-                    <th><i class="icon_calendar"></i>E-mail</th>
+                    <th  style="padding-left:35px;padding-right:35px;" ></i>Nome</th>
+                    <th></i>E-mail</th>
                     <th><i class="icon_mail_alt"></i>senha</th> 
                     <th><i class="icon_pin_alt"></i>cpf</th>
                     <th><i class="icon_mobile"></i>tipo de usuário</th>
@@ -48,7 +48,7 @@
                   <?php foreach ($usuarios as $key => $us) {
                   	?>
                   <tr>
-                    <td width="300px" ><?php echo $us->u_nome;?></td>
+                    <td style="" ><?php echo $us->u_nome;?></td>
                     <td><?php echo $us->u_email;?></td>
                     <td><?php echo $us->senha;?></td>
                     <td><?php echo $us->cpf;?></td>

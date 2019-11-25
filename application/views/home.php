@@ -76,7 +76,7 @@
 
                             <div class="col-sm-4 card-boots">
                                 <div class="card text-center h-100">
-                                    <div class="card-header">GAEL - Gerenciamento de equipamentos
+                                    <div class="card-header">GAEL - Gerenciamento de equipamentos 
                                      </div>
                                     <div class="card-body">
                                         
@@ -123,10 +123,10 @@
                         <div class="col-sm-4 card-boots">
                             <!--início do quinto card-->
                             <div class="card text-center h-100">
-                                <div class="card-header">GAEL - Relatórios de todas as atividades</div>
+                                <div class="card-header">GAEL - Gerenciamento de equipamentos - <strong> laudos</strong></div>
                                 <div class="card-body">
                                     
-                                    <a href="<?php echo base_url('index.php/gael/home') ?>" class="btn btn-outline-success">Gerenciar</a>
+                                    <a href="<?php echo base_url('index.php/laudo/index') ?>" class="btn btn-outline-success">Gerenciar</a>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +135,7 @@
                       <!--início do quarto card-->
                              <div class="col-sm-4 card-boots">
                                 <div class="card text-center h-100">
-                                    <div class="card-header">GAEL - Gerenciamento de equipamentos</div>
+                                    <div class="card-header">GAEL - Gerenciamento de equipamentos </div>
                                     <div class="card-body">
                                         
                                         <a href="<?php echo base_url('index.php/equipamento') ?>" class="btn btn-outline-success">Gerenciar </a>
@@ -149,6 +149,58 @@
                 </div>
 
                 <!--FIM SEGUNDA ROW-->
+                    
+                <?php if ($this->session->userdata('usuario_logado')['usuario_tipo'] == '1') : ?>
+                    
+                    <div class="row">
+                        <!--início do quarto card-->
+                        <div class="col-sm-4 card-boots">
+                                <div class="card text-center h-100">
+                                    <div class="card-header">GAEL - Gerenciamento de equipamentos <strong> - doações </strong></div>
+                                    <div class="card-body">
+                                        
+                                        <a href="<?php echo base_url('index.php/equipamento') ?>" class="btn btn-outline-success">Gerenciar </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--fim do quarto card-->
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4"></div>
+
+                    </div>    
+                    
+                    
+                <?php endif;?>
+
+                         <?php if ($this->session->userdata('usuario_logado')['usuario_tipo'] == '2') : ?>
+                      <!--início do quarto card-->
+                            <div class="row">
+                                <div class="col-sm-4 card-boots">
+                                    <div class="card text-center h-100">
+                                        <div class="card-header">GAEL - Gerenciamento de equipamentos <strong> - laudos</strong></div>
+                                        <div class="card-body">
+                                            
+                                            <a href="<?php echo base_url('index.php/equipamento') ?>" class="btn btn-outline-success">Gerenciar </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="card text-center h-100">
+                                        <div class="card-header">GAEL - Gerenciamento de equipamentos <strong> - doações  </strong></div>
+                                        <div class="card-body">
+                                            
+                                            <a href="<?php echo base_url('index.php/equipamento') ?>" class="btn btn-outline-success">Gerenciar </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                            <!--fim do quarto card-->
+
+                        <?php endif;?>
+
+
             </div>
             <!--fim do segundo container-->
 

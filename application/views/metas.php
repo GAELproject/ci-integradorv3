@@ -27,7 +27,7 @@
   						<?= $error?>
 					</div>
 				<?php }?>
-				<a class="btn btn-primary mb-3" href="<?= base_url('index.php/gael/gerenciar_meta')?>">Adicionar nova meta</a>
+				<a class="btn btn-success mb-3" href="<?= base_url('index.php/gael/gerenciar_meta')?>">Adicionar nova meta</a>
 				<section class="panel">
 	           
 			<div class="table-responsive table--no-card m-b-30">

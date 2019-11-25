@@ -233,7 +233,10 @@ class Usuario extends CI_Controller {
     }
     //fim function
     public function deletarFoto(){
-        
+        $this->Usuario_model->id_usuario = $this->session->userdata('usuario_logado')['id_usuario'];
+        $caminho = $this->Usuario_model->recuperarFotoPerfil();
+        unlink(getcwd().'/'.$this->Usuario_model->recuperarFotoPerfil());
+        $this->Usuario_model->deletar_foto();
     }
 
 }

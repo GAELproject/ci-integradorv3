@@ -20,9 +20,8 @@
 <!--início row-->
 <div class="row">
 
-<div class="col-sm-2">
-</div>
-<div class="col-sm-8">
+
+<div class="col-sm-10">
             <div  class="panel panel-default">
               <div class="panel-heading">
                 <div class="pull-left"> <!--aqui pode ficar um  título--></div>
@@ -44,28 +43,28 @@
                     
                     <!-- Content-->
                       <div class="form-group">
-                        <label class="control-label col-lg-2" for="title">Nome</label>
+                        <label class="control-label col-lg-7" for="title">Nome</label>
                         <div class="col-lg-10">
                           <input class="form-control" id="title" name="u_nome" type="text">
                         </div>
                       </div>
                       
                       <div class="form-group">
-                        <label class="control-label col-lg-2" for="title">Email</label>
+                        <label class="control-label col-lg-7" for="title">Email</label>
                           <div class="col-lg-10">
                             <input class="form-control" id="title" name="u_email" type="email">
                           </div>
                       </div>
 
                       <div class="form-group">
-                      <label class="control-label col-lg-2" for="title">Senha</label>
+                      <label class="control-label col-lg-7" for="title">Senha</label>
                         <div class="col-lg-10">
                           <input class="form-control" id="title" type="text" name="senha">
                         </div>
                       </div>
                       
                       <div class="form-group">
-                      <label class="control-label col-lg-2" for="title">CPF</label>
+                      <label class="control-label col-lg-7" for="title">CPF</label>
                         <div class="col-lg-10">
                           <input class="form-control" id="title" type="text" name="cpf">
                         </div>
@@ -73,7 +72,7 @@
 
                     <!--Tipo de Usuario-->
                      <div class="form-group">
-                        <label class="control-label col-lg-2">Tipo de usuário</label>
+                        <label class="control-label col-lg-7">Tipo de usuário</label>
                           <div class="col-lg-10">
                             <select class="form-control" name="usuario_tipo">
                               <option value="" selected disabled>- Tipo -</option>
@@ -85,7 +84,7 @@
                       
                       <!--Usuario Bolsista-->
                       <div class="form-group">
-                        <label class="control-label col-lg-2">Bolsista remunerada?</label>
+                        <label class="control-label col-lg-7">Bolsista remunerada?</label>
                         <div class="col-lg-10">
                           <select class="form-control" name="usuario_bolsista">
                             <option value="" selected disabled>- Selecione -</option>
@@ -97,7 +96,7 @@
 
                       <!--Turno-->
                       <div class="form-group">
-                        <label class="control-label col-lg-2">Turno</label>
+                        <label class="control-label col-lg-7">Turno</label>
                         <div class="col-lg-10">
                           <select class="form-control" name="turno_atividades">
                             <option value="" selected disabled>- Escolha seu turno -</option>
@@ -116,10 +115,10 @@
                       <div class="form-group">
                         <!-- Buttons -->
                         <div class="col-lg-offset-2 col-lg-9">
-                          <button type="submit" class="btn btn-primary">
+                          <button type="submit" class="btn btn-success">
                             Cadastrar
                           </button>
-                          <a class="btn btn-primary" href="<?php echo base_url('index.php/gael/user/')?>">Visualizar usuários
+                          <a class="btn btn-success" href="<?php echo base_url('index.php/usuario/index')?>">Visualizar usuários
                           </a>
                         </div>
                       </div>

@@ -86,7 +86,7 @@
                                     <a target="_blank" href="http://lattes.cnpq.br/4347553539041045">Sérgio Roberto Dantas. </a>
                                 </p>
                                 <p class="mt-3 text-dark text-left">
-                                    Esse equipe trabalha incansavelmente para desenvolver o redirecionamento e conserto 
+                                    Essa equipe trabalha incansavelmente para desenvolver o redirecionamento e conserto 
                                     de equipamentos eletroeletrônicos.
                                 
                                 </p>
