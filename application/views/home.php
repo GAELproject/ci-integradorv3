@@ -159,7 +159,7 @@
                                     <div class="card-header">GAEL - Gerenciamento de equipamentos <strong> - doações </strong></div>
                                     <div class="card-body">
                                         
-                                        <a href="<?php echo base_url('index.php/equipamento') ?>" class="btn btn-outline-success">Gerenciar </a>
+                                        <a href="<?php echo base_url('index.php/doacao/index') ?>" class="btn btn-outline-success">Gerenciar </a>
                                     </div>
                                 </div>
                             </div>
